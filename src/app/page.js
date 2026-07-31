@@ -5,7 +5,6 @@ import HeroSection from '@/components/salespage/HeroSection';
 import TestimonialSection from '@/components/salespage/TestimonialSection';
 import ProblemSection from '@/components/salespage/ProblemSection';
 import FearsSection from '@/components/salespage/FearsSection';
-import SolutionSection from '@/components/salespage/SolutionSection';
 import MatlamatSection from '@/components/salespage/MatlamatSection';
 import ProcessSection from '@/components/salespage/ProcessSection';
 import TestimonialPart2Section from '@/components/salespage/TestimonialPart2Section';
@@ -39,9 +38,6 @@ export default function Home() {
 
       {/* SECTION 4: FEARS */}
       <FearsSection />
-
-      {/* SECTION 5: SOLUTION */}
-      <SolutionSection />
 
       {/* SECTION 6: MATLAMAT RAWATAN */}
       <MatlamatSection />
