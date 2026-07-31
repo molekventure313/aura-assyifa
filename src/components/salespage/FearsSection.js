@@ -1,70 +1,153 @@
 'use client';
 
 export default function FearsSection() {
+  const points = [
+    {
+      icon: '🌐',
+      title: 'Rawatan Sepenuhnya Online',
+      desc: 'Tanpa video call. Tanpa perlu hadir diri. Cukup anda berada di kediaman sendiri dan fokus sewaktu rawatan dijalankan.'
+    },
+    {
+      icon: '⚡',
+      title: 'Badan Anda Akan Merespon',
+      desc: 'Jika ada gangguan, badan anda akan terus merespon semasa rawatan — sendawa, sengal, muntah-muntah, pening atau loya. Kami akan rawat sehingga semua tindakbalas itu hilang sepenuhnya.'
+    },
+    {
+      icon: '💧',
+      title: 'Air & Garam Berisian Percuma',
+      desc: 'Air tawar, air mandian dan garam mandian berisian akan diberikan secara percuma selepas rawatan selesai — untuk digunakan sebagai penerusan ikhtiar di rumah.'
+    },
+    {
+      icon: '📋',
+      title: 'Pemantauan 3 Hari Selepas Rawatan',
+      desc: 'Perawat kami akan monitor perkembangan anda selama 3 hari selepas rawatan untuk memastikan anda benar-benar sembuh dan tiada gangguan berulang.'
+    },
+    {
+      icon: '📿',
+      title: 'Menggunakan Asmaul Husna Allah',
+      desc: 'Rawatan dijalankan sepenuhnya menggunakan Asmaul Husna Allah Yang Maha Agung — bersih, patuh syariah, dan berlandaskan keyakinan penuh kepada kekuasaan Allah SWT.'
+    }
+  ];
+
   return (
-    <section 
+    <section
       style={{
         background: '#0B382D',
         color: '#FFFFFF',
-        padding: '3.5rem 1rem',
-        fontFamily: 'var(--font-inter), -apple-system, sans-serif',
-        textAlign: 'center'
+        padding: '4rem 1rem',
+        fontFamily: 'var(--font-inter), -apple-system, sans-serif'
       }}
     >
-      <div style={{ maxWidth: '850px', margin: '0 auto' }}>
-        
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(254, 224, 71, 0.15)', border: '1px solid #FDE047', padding: '0.35rem 1rem', borderRadius: '50px', marginBottom: '1.25rem' }}>
-          <span style={{ fontSize: '1rem' }}>⚠️</span>
-          <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#FDE047', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-            PERINGATAN PENTING
+      <div style={{ maxWidth: '860px', margin: '0 auto' }}>
+
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+          <span style={{
+            fontSize: '0.75rem', fontWeight: 800, color: '#FDE047',
+            textTransform: 'uppercase', letterSpacing: '0.12em'
+          }}>
+            KAEDAH RAWATAN
           </span>
+          <h2 style={{
+            fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)',
+            fontWeight: 800,
+            color: '#FEF3C7',
+            marginTop: '0.4rem',
+            marginBottom: '0.6rem',
+            letterSpacing: '-0.02em',
+            lineHeight: 1.3
+          }}>
+            Bagaimana Proses Rawatan E-Syifaa Dijalankan?
+          </h2>
+          <p style={{
+            fontSize: '1rem',
+            color: '#A7F3D0',
+            maxWidth: '580px',
+            margin: '0 auto',
+            lineHeight: 1.7
+          }}>
+            Mudah, telus, dan boleh dilakukan dari mana-mana — dengan izin Allah.
+          </p>
         </div>
 
-        <h2 style={{ fontSize: 'clamp(1.4rem, 3.2vw, 2.1rem)', fontWeight: 800, color: '#FDE047', marginBottom: '1.25rem', lineHeight: 1.3, letterSpacing: '-0.02em' }}>
-          Sila Beri Perhatian Jika Anda Mengalami Masalah Di Atas Kerana Ia Boleh Menjadi Semakin Mengganggu Kehidupan
-        </h2>
-
-        <p style={{ fontSize: '1.05rem', lineHeight: 1.65, color: '#FFFFFF', marginBottom: '2rem', maxWidth: '750px', margin: '0 auto 2rem auto' }}>
-          Jika dibiarkan tanpa mendapatkan pemeriksaan dan ikhtiar rawatan yang sesuai, gangguan yang dialami mungkin terus memberi kesan kepada emosi, hubungan kekeluargaan, pekerjaan serta ibadah harian.
-        </p>
-
-        {/* Keratan Akhbar / Rujukan Berkaitan Showcase */}
-        <div 
-          style={{ 
-            background: '#042E23', 
-            border: '2px solid #FDE047', 
-            borderRadius: '12px', 
-            padding: '1.5rem', 
-            boxShadow: '0 15px 30px rgba(0,0,0,0.3)',
-            textAlign: 'left'
-          }}
-        >
-          <div style={{ fontSize: '0.875rem', fontWeight: 800, color: '#FDE047', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span>📰</span> Keratan Akhbar &amp; Laporan Berkaitan Gangguan Mistik &amp; Emosi
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
-            
-            <div style={{ background: '#064E3B', padding: '1.1rem', borderRadius: '8px', border: '1px solid #10B981' }}>
-              <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#FDE047', marginBottom: '0.3rem' }}>Laporan Berita &amp; Akhbar</div>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#FFFFFF', margin: '0 0 0.5rem 0', lineHeight: 1.35 }}>
-                "Gangguan Emosi &amp; Misteri Boleh Menjejaskan Kesejahteraan Rumah Tangga Jika Tidak Dirawat Awal"
-              </h3>
-              <p style={{ fontSize: '0.825rem', color: '#F3F4F6', margin: 0, lineHeight: 1.5 }}>
-                Pakar mengesahkan masalah tidur berpanjangan dan tekanan emosi akibat gangguan mistik memerlukan pemeriksaan serta ikhtiar kerohanian berlandaskan syarak secara teratur.
-              </p>
+        {/* Points grid */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+          gap: '1.1rem',
+          marginBottom: '2rem'
+        }}>
+          {points.map((p, i) => (
+            <div key={i} style={{
+              background: 'rgba(255,255,255,0.05)',
+              border: '1.5px solid rgba(253,224,71,0.25)',
+              borderRadius: '14px',
+              padding: '1.4rem 1.2rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.5rem'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.7rem' }}>
+                <span style={{
+                  fontSize: '1.6rem',
+                  lineHeight: 1,
+                  flexShrink: 0,
+                  background: 'rgba(253,224,71,0.12)',
+                  borderRadius: '10px',
+                  padding: '0.4rem',
+                  display: 'inline-flex'
+                }}>{p.icon}</span>
+                <h3 style={{
+                  margin: 0,
+                  fontSize: '0.95rem',
+                  fontWeight: 800,
+                  color: '#FDE047',
+                  lineHeight: 1.35
+                }}>{p.title}</h3>
+              </div>
+              <p style={{
+                margin: 0,
+                fontSize: '0.85rem',
+                color: '#D1FAE5',
+                lineHeight: 1.65,
+                fontWeight: 500
+              }}>{p.desc}</p>
             </div>
+          ))}
+        </div>
 
-            <div style={{ background: '#064E3B', padding: '1.1rem', borderRadius: '8px', border: '1px solid #10B981' }}>
-              <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#FDE047', marginBottom: '0.3rem' }}>Rujukan Kesihatan &amp; Syarak</div>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#FFFFFF', margin: '0 0 0.5rem 0', lineHeight: 1.35 }}>
-                "Ikhtiar Rawatan Islam Membantu Mengembalikan Ketenangan Minda &amp; Ibadah"
-              </h3>
-              <p style={{ fontSize: '0.825rem', color: '#F3F4F6', margin: 0, lineHeight: 1.5 }}>
-                Penggunaan ayat Al-Quran dan doa-doa ma'thur menjadi benteng utama pesakit untuk kembali mendapatkan ketenangan jiwa dan kehidupan harian yang tenteram.
-              </p>
-            </div>
-
+        {/* Footnote / Keyakinan box */}
+        <div style={{
+          background: 'linear-gradient(135deg, rgba(253,224,71,0.08) 0%, rgba(253,224,71,0.03) 100%)',
+          border: '1px solid rgba(253,224,71,0.35)',
+          borderLeft: '4px solid #FDE047',
+          borderRadius: '12px',
+          padding: '1.4rem 1.6rem',
+          display: 'flex',
+          gap: '1rem',
+          alignItems: 'flex-start'
+        }}>
+          <span style={{ fontSize: '1.5rem', flexShrink: 0, marginTop: '0.1rem' }}>🕌</span>
+          <div>
+            <p style={{
+              margin: '0 0 0.4rem 0',
+              fontSize: '0.92rem',
+              color: '#FEF3C7',
+              lineHeight: 1.75,
+              fontWeight: 500,
+              fontStyle: 'italic'
+            }}>
+              "Jika sihir boleh dihantar jarak jauh, begitu juga rawatan. Maka jangan remehkan kuasa Allah.
+              Allah lebih berkuasa dari segalanya. Yakin, Allah Maha Menyembuhkan."
+            </p>
+            <p style={{
+              margin: 0,
+              fontSize: '0.8rem',
+              color: '#6EE7B7',
+              fontWeight: 600
+            }}>
+              — Perawat hanya ikhtiar menggunakan Asma' Allah. Kesembuhan hanya dari Allah SWT.
+            </p>
           </div>
         </div>
 
