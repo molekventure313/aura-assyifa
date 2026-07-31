@@ -10,6 +10,7 @@ import ProcessSection from '@/components/salespage/ProcessSection';
 import TestimonialPart2Section from '@/components/salespage/TestimonialPart2Section';
 import CTASection from '@/components/salespage/CTASection';
 import PricingSection from '@/components/salespage/PricingSection';
+import GuaranteeSection from '@/components/salespage/GuaranteeSection';
 import ApplicationForm from '@/components/salespage/ApplicationForm';
 import FAQSection from '@/components/salespage/FAQSection';
 import ClosingSection from '@/components/salespage/ClosingSection';
@@ -50,6 +51,9 @@ export default function Home() {
 
       {/* SECTION 9: HARGA */}
       <PricingSection />
+
+      {/* SECTION 9B: JAMINAN */}
+      <GuaranteeSection />
 
       {/* SECTION 10: PROSES RAWATAN + BORANG DIAGNOS (combined flow) */}
       <ProcessSection />
