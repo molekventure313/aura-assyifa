@@ -46,19 +46,17 @@ export default function Home() {
       {/* SECTION 6: MATLAMAT RAWATAN */}
       <MatlamatSection />
 
-      {/* SECTION 7: KAEDAH RAWATAN */}
-      <ProcessSection />
-
-      {/* SECTION 8: TESTIMONI PART 2 */}
+      {/* SECTION 7: TESTIMONI PART 2 */}
       <TestimonialPart2Section />
 
-      {/* SECTION 9: CTA & PAKEJ */}
+      {/* SECTION 8: CTA & PAKEJ */}
       <CTASection />
 
-      {/* SECTION 9B: HARGA */}
+      {/* SECTION 9: HARGA */}
       <PricingSection />
 
-      {/* SECTION 10: BORANG TEMUJANJI */}
+      {/* SECTION 10: PROSES RAWATAN + BORANG DIAGNOS (combined flow) */}
+      <ProcessSection />
       <ApplicationForm />
 
       {/* SECTION 11: SOALAN LAZIM (FAQ) */}
