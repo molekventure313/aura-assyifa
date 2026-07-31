@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Sidebar from '@/components/dashboard/Sidebar';
@@ -63,7 +63,7 @@ export default function DashboardLayout({ children }) {
                 ☰
               </button>
               <div style={{ fontWeight: 700, fontSize: '0.85rem', letterSpacing: '-0.01em', opacity: 0.85 }}>
-                ESYIFAA' PORTAL
+                E-SYIFAA' PORTAL
               </div>
             </div>
 
@@ -81,3 +81,4 @@ export default function DashboardLayout({ children }) {
     </ToastProvider>
   );
 }
+

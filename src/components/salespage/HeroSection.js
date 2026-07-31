@@ -8,39 +8,39 @@ export default function HeroSection() {
   };
 
   return (
-    <header className="hero-mvsyifaa">
+    <header className="hero-esyifaa">
       <div className="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         
         {/* Top Navbar Brand */}
-        <div className="topbar-mvsyifaa">
-          <div className="brandmark-mvsyifaa">
-            <span className="logo-icon-mvsyifaa">🌿</span>
+        <div className="topbar-esyifaa">
+          <div className="brandmark-esyifaa">
+            <span className="logo-icon-esyifaa">🌿</span>
             <div className="brand-text-wrapper">
-              <span className="brand-title-mvsyifaa">ESYIFAA'</span>
-              <small className="brand-sub-mvsyifaa">Rawatan Jarak Jauh Islam</small>
+              <span className="brand-title-esyifaa">E-SYIFAA'</span>
+              <small className="brand-sub-esyifaa">Rawatan Jarak Jauh Islam</small>
             </div>
           </div>
         </div>
 
         {/* Hero Content */}
-        <div className="hero-inner-mvsyifaa" style={{ textAlign: 'center', maxWidth: '840px', margin: '0 auto' }}>
-          <span className="badge-mvsyifaa">✨ PERIKHTIARAN RAWATAN ISLAM</span>
+        <div className="hero-inner-esyifaa" style={{ textAlign: 'center', maxWidth: '840px', margin: '0 auto' }}>
+          <span className="badge-esyifaa">✨ PERIKHTIARAN RAWATAN ISLAM</span>
           
-          <h1 className="hero-headline-mvsyifaa" style={{ textAlign: 'center' }}>
+          <h1 className="hero-headline-esyifaa" style={{ textAlign: 'center' }}>
             "Alhamdulillah, Tak Sangka Rawatan Jarak Jauh Bantu Hilangkan Rasa Tak Tenang, Selalu Diganggu dan Susah Tidur Malam"
           </h1>
           
-          <p className="hero-desc-mvsyifaa" style={{ textAlign: 'center' }}>
+          <p className="hero-desc-esyifaa" style={{ textAlign: 'center' }}>
             Bayangkan anda boleh tidur lena semula, bangun dengan badan lebih ringan, hati lebih tenang dan kembali jalani hidup seperti biasa.
           </p>
 
-          <div className="hero-highlights-mvsyifaa">
+          <div className="hero-highlights-esyifaa">
             <div className="highlight-pill">✓ Rawatan Dilakukan Secara Jarak Jauh (Tak Perlu Datang Pusat Rawatan)</div>
             <div className="highlight-pill">✓ Kaedah Berlandaskan Syarak Menggunakan Ayat Al-Quran &amp; Doa</div>
           </div>
 
           <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <a href="#apply-form" onClick={scrollToForm} className="btn-mvsyifaa primary-btn">
+            <a href="#apply-form" onClick={scrollToForm} className="btn-esyifaa primary-btn">
               ✨ Dapatkan Konsultasi &amp; Rawatan
             </a>
           </div>

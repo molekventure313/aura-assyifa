@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -95,7 +95,7 @@ export default function DaftarPerawatPage() {
                 letterSpacing: '-0.02em'
               }}
             >
-              ESYIFAA'
+              E-SYIFAA'
             </span>
           </div>
           <p style={{ fontSize: '0.675rem', fontWeight: 600, color: '#34D399', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>
@@ -114,7 +114,7 @@ export default function DaftarPerawatPage() {
               Pendaftaran Berjaya!
             </h2>
             <p style={{ fontSize: '0.85rem', color: '#D1D5DB', lineHeight: 1.5, margin: '0 0 1.5rem 0' }}>
-              Akaun perawat anda telah didaftarkan dan kini <strong>Menunggu Kelulusan Admin ESYIFAA'</strong>. 
+              Akaun perawat anda telah didaftarkan dan kini <strong>Menunggu Kelulusan Admin E-SYIFAA'</strong>. 
               <br />
               Anda boleh log masuk sebaik sahaja akaun anda diluluskan.
             </p>
@@ -197,7 +197,7 @@ export default function DaftarPerawatPage() {
                 </label>
                 <input
                   type="email"
-                  placeholder="perawat@mvsifaa.com"
+                  placeholder="perawat@esyifaa.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -315,3 +315,4 @@ export default function DaftarPerawatPage() {
     </main>
   );
 }
+

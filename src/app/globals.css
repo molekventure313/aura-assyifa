@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
 
 /* ==========================================================================
    CSS Variables
@@ -2848,7 +2848,7 @@ font-size: 0.76rem;
 }
 
 /* ==========================================================================
-   MV SYIFAA' SALESPAGE DESIGN SYSTEM (Beige, Forest->Emerald Blend, Kuning, Putih)
+   E-SYIFAA' SALESPAGE DESIGN SYSTEM (Beige, Forest->Emerald Blend, Kuning, Putih)
    ========================================================================== */
 :root {
   /* Green River-to-Sea Blend Palette */
@@ -2878,7 +2878,7 @@ font-size: 0.76rem;
   --font-muted-dark: #3B5249;
 }
 
-.salespage-mvsyifaa-layout {
+.salespage-esyifaa-layout {
   font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
   background-color: var(--bg-beige);
   color: var(--font-dark-green);
@@ -2887,40 +2887,40 @@ font-size: 0.76rem;
 }
 
 /* All headings and paragraphs centered */
-.salespage-mvsyifaa-layout h1,
-.salespage-mvsyifaa-layout h2,
-.salespage-mvsyifaa-layout h3,
-.salespage-mvsyifaa-layout h4,
-.salespage-mvsyifaa-layout p,
-.salespage-mvsyifaa-layout div {
+.salespage-esyifaa-layout h1,
+.salespage-esyifaa-layout h2,
+.salespage-esyifaa-layout h3,
+.salespage-esyifaa-layout h4,
+.salespage-esyifaa-layout p,
+.salespage-esyifaa-layout div {
   text-align: center;
 }
 
-.hero-mvsyifaa {
+.hero-esyifaa {
   background: var(--river-to-sea-blend);
   color: var(--font-white);
   padding: 3rem 1rem 5rem 1rem;
 }
 
-.topbar-mvsyifaa {
+.topbar-esyifaa {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-bottom: 2rem;
 }
 
-.brandmark-mvsyifaa {
+.brandmark-esyifaa {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.logo-icon-mvsyifaa {
+.logo-icon-esyifaa {
   font-size: 2.2rem;
   line-height: 1;
 }
 
-.brand-title-mvsyifaa {
+.brand-title-esyifaa {
   font-size: 1.45rem;
   font-weight: 800;
   color: var(--yellow-font);
@@ -2928,7 +2928,7 @@ font-size: 0.76rem;
   display: block;
 }
 
-.brand-sub-mvsyifaa {
+.brand-sub-esyifaa {
   font-size: 0.725rem;
   font-weight: 700;
   color: var(--font-white);
@@ -2937,7 +2937,7 @@ font-size: 0.76rem;
   display: block;
 }
 
-.badge-mvsyifaa {
+.badge-esyifaa {
   display: inline-block;
   padding: 0.45rem 1.25rem;
   border-radius: 999px;
@@ -2951,7 +2951,7 @@ font-size: 0.76rem;
   box-shadow: 0 4px 15px rgba(255, 224, 102, 0.2);
 }
 
-.hero-headline-mvsyifaa {
+.hero-headline-esyifaa {
   font-size: clamp(1.85rem, 1.4rem + 2.2vw, 2.85rem);
   font-weight: 800;
   color: var(--yellow-font);
@@ -2960,7 +2960,7 @@ font-size: 0.76rem;
   text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-.hero-desc-mvsyifaa {
+.hero-desc-esyifaa {
   font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem);
   color: var(--font-white);
   line-height: 1.65;
@@ -2968,7 +2968,7 @@ font-size: 0.76rem;
   opacity: 0.95;
 }
 
-.hero-highlights-mvsyifaa {
+.hero-highlights-esyifaa {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -2986,7 +2986,7 @@ font-size: 0.76rem;
   box-shadow: var(--yellow-box-shadow);
 }
 
-.btn-mvsyifaa {
+.btn-esyifaa {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -3001,29 +3001,29 @@ font-size: 0.76rem;
   transition: all 0.25s ease;
 }
 
-.btn-mvsyifaa.primary-btn {
+.btn-esyifaa.primary-btn {
   background: linear-gradient(135deg, var(--yellow-font) 0%, var(--yellow-font-sub) 100%);
   color: var(--font-dark-green);
   box-shadow: 0 8px 25px rgba(255, 209, 102, 0.4);
 }
 
-.btn-mvsyifaa.primary-btn:hover {
+.btn-esyifaa.primary-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(255, 209, 102, 0.6);
 }
 
-.section-mvsyifaa {
+.section-esyifaa {
   padding: 4.5rem 1rem;
   position: relative;
   background-color: var(--bg-beige);
 }
 
-.section-mvsyifaa.bg-green-blend-mvsyifaa {
+.section-esyifaa.bg-green-blend-esyifaa {
   background: var(--river-to-sea-blend);
   color: var(--font-white);
 }
 
-.section-title-mvsyifaa {
+.section-title-esyifaa {
   font-size: clamp(1.65rem, 1.2rem + 1.6vw, 2.35rem);
   font-weight: 800;
   color: var(--font-dark-green);
@@ -3031,36 +3031,36 @@ font-size: 0.76rem;
   margin-bottom: 0.75rem;
 }
 
-.section-mvsyifaa.bg-green-blend-mvsyifaa .section-title-mvsyifaa {
+.section-esyifaa.bg-green-blend-esyifaa .section-title-esyifaa {
   color: var(--yellow-font);
 }
 
-.section-desc-mvsyifaa {
+.section-desc-esyifaa {
   font-size: 1.05rem;
   color: var(--font-muted-dark);
   line-height: 1.65;
 }
 
-.section-mvsyifaa.bg-green-blend-mvsyifaa .section-desc-mvsyifaa {
+.section-esyifaa.bg-green-blend-esyifaa .section-desc-esyifaa {
   color: var(--font-white);
   opacity: 0.95;
 }
 
 /* Grids */
-.grid-3-mvsyifaa {
+.grid-3-esyifaa {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.75rem;
 }
 
-.grid-2-mvsyifaa {
+.grid-2-esyifaa {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.75rem;
 }
 
 /* Kuning (Box) Styling */
-.card-mvsyifaa {
+.card-esyifaa {
   background: var(--yellow-box-bg);
   border-radius: 20px;
   padding: 1.85rem;
@@ -3070,7 +3070,7 @@ font-size: 0.76rem;
   color: var(--font-dark-green);
 }
 
-.card-mvsyifaa:hover {
+.card-esyifaa:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(244, 162, 97, 0.3);
 }
@@ -3179,5 +3179,6 @@ body.light-mode table td {
 body.light-mode table tr:hover {
   background: #F8FAFC !important;
 }
+
 
 

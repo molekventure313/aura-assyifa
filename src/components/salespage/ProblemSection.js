@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function ProblemSection() {
   const problems = [
@@ -41,23 +41,23 @@ export default function ProblemSection() {
   ];
 
   return (
-    <section className="section-mvsyifaa bg-green-blend-mvsyifaa">
+    <section className="section-esyifaa bg-green-blend-esyifaa">
       <div className="container" style={{ textAlign: 'center' }}>
-        <span className="badge-mvsyifaa">
+        <span className="badge-esyifaa">
           ⚠️ KENAL PASTI SIMPTOM GANGGUAN
         </span>
         
-        <h2 className="section-title-mvsyifaa" style={{ textAlign: 'center' }}>
+        <h2 className="section-title-esyifaa" style={{ textAlign: 'center' }}>
           Anda Ada Alami Masalah-Masalah Ni?
         </h2>
         
-        <p className="section-desc-mvsyifaa" style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 2.5rem auto' }}>
+        <p className="section-desc-esyifaa" style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 2.5rem auto' }}>
           Ramai ingat semua ni cuma sebab stres atau penat bekerja. Tapi kalau dah lama berlaku dan tak tahu puncanya, ia boleh ganggu emosi, kerja, keluarga dan ibadah.
         </p>
 
-        <div className="grid-3-mvsyifaa" style={{ gap: '1.75rem' }}>
+        <div className="grid-3-esyifaa" style={{ gap: '1.75rem' }}>
           {problems.map((p) => (
-            <div key={p.num} className="card-mvsyifaa" style={{ textAlign: 'center', padding: '1.35rem' }}>
+            <div key={p.num} className="card-esyifaa" style={{ textAlign: 'center', padding: '1.35rem' }}>
               <div style={{ position: 'relative', borderRadius: '14px', overflow: 'hidden', height: '180px', marginBottom: '1.25rem', border: '1px solid var(--yellow-box-border)' }}>
                 <img 
                   src={p.img} 
@@ -82,3 +82,4 @@ export default function ProblemSection() {
     </section>
   );
 }
+

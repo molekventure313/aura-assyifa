@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -107,7 +107,7 @@ export default function SetupPage() {
                 letterSpacing: '-0.02em'
               }}
             >
-              ESYIFAA'
+              E-SYIFAA'
             </span>
           </div>
           <p style={{ fontSize: '0.675rem', fontWeight: 600, color: '#34D399', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>
@@ -190,7 +190,7 @@ export default function SetupPage() {
                 </label>
                 <input
                   type="email"
-                  placeholder="admin@mvsifaa.com"
+                  placeholder="admin@esyifaa.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -286,3 +286,4 @@ export default function SetupPage() {
     </main>
   );
 }
+

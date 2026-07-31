@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function ServiceSection() {
   const kelebihanList = [
@@ -13,15 +13,15 @@ export default function ServiceSection() {
   ];
 
   return (
-    <section className="section-mvsyifaa bg-green-blend-mvsyifaa" id="penyelesaian">
+    <section className="section-esyifaa bg-green-blend-esyifaa" id="penyelesaian">
       <div className="container" style={{ textAlign: 'center' }}>
-        <span className="badge-mvsyifaa">💡 SOLUSI RAWATAN ISLAM</span>
+        <span className="badge-esyifaa">💡 SOLUSI RAWATAN ISLAM</span>
 
-        <h2 className="section-title-mvsyifaa" style={{ textAlign: 'center' }}>
+        <h2 className="section-title-esyifaa" style={{ textAlign: 'center' }}>
           Rawatan Jarak Jauh Untuk Membantu Anda Kembali Lebih Tenang
         </h2>
 
-        <p className="section-desc-mvsyifaa" style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 2.5rem auto' }}>
+        <p className="section-desc-esyifaa" style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 2.5rem auto' }}>
           Rawatan dilakukan menggunakan bacaan ayat-ayat al-Quran dan doa yang bersesuaian. Tujuannya adalah untuk membantu anda mendapatkan kembali ketenangan, memperbaiki rutin harian dan memberi sokongan rohani sepanjang proses rawatan.
         </p>
 
@@ -39,7 +39,7 @@ export default function ServiceSection() {
           }}
         >
           <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--font-dark-green)', marginBottom: '1.75rem', textAlign: 'center' }}>
-            🌟 KELEBIHAN RAWATAN ESYIFAA'
+            🌟 KELEBIHAN RAWATAN E-SYIFAA'
           </h3>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', textAlign: 'center' }}>
@@ -71,3 +71,4 @@ export default function ServiceSection() {
     </section>
   );
 }
+

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function BenefitsSection() {
   const hasratList = [
@@ -10,13 +10,13 @@ export default function BenefitsSection() {
   ];
 
   return (
-    <section className="section-mvsyifaa" id="hasrat">
+    <section className="section-esyifaa" id="hasrat">
       <div className="container" style={{ textAlign: 'center' }}>
-        <span className="badge-mvsyifaa">
+        <span className="badge-esyifaa">
           ❤️ IMPIAN &amp; HARAPAN PESAKIT
         </span>
 
-        <h2 className="section-title-mvsyifaa" style={{ textAlign: 'center' }}>
+        <h2 className="section-title-esyifaa" style={{ textAlign: 'center' }}>
           Inilah Yang Ramai Harapkan Selepas Mendapatkan Rawatan
         </h2>
 
@@ -24,7 +24,7 @@ export default function BenefitsSection() {
           {hasratList.map((h, idx) => (
             <div 
               key={idx}
-              className="card-mvsyifaa"
+              className="card-esyifaa"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -46,3 +46,4 @@ export default function BenefitsSection() {
     </section>
   );
 }
+

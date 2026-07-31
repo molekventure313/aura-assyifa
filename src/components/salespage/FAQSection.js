@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function FAQSection() {
   const faqs = [
@@ -37,11 +37,11 @@ export default function FAQSection() {
   return (
     <>
       {/* SECTION 10 – SOALAN LAZIM */}
-      <section className="section-mvsyifaa" id="faq">
+      <section className="section-esyifaa" id="faq">
         <div className="container" style={{ textAlign: 'center' }}>
-          <span className="badge-mvsyifaa">❓ SECTION 10 – SOALAN LAZIM</span>
+          <span className="badge-esyifaa">❓ SECTION 10 – SOALAN LAZIM</span>
 
-          <h2 className="section-title-mvsyifaa" style={{ textAlign: 'center' }}>
+          <h2 className="section-title-esyifaa" style={{ textAlign: 'center' }}>
             Soalan Lazim (FAQ)
           </h2>
 
@@ -49,7 +49,7 @@ export default function FAQSection() {
             {faqs.map((f, idx) => (
               <details 
                 key={idx} 
-                className="card-mvsyifaa" 
+                className="card-esyifaa" 
                 style={{ 
                   padding: '1.35rem 1.75rem', 
                   borderRadius: '18px', 
@@ -70,7 +70,7 @@ export default function FAQSection() {
       </section>
 
       {/* PENUTUP */}
-      <section className="section-mvsyifaa bg-green-blend-mvsyifaa" style={{ padding: '4.5rem 1rem' }}>
+      <section className="section-esyifaa bg-green-blend-esyifaa" style={{ padding: '4.5rem 1rem' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto' }}>
           <div 
             style={{ 
@@ -83,7 +83,7 @@ export default function FAQSection() {
               boxShadow: '0 20px 45px rgba(0,0,0,0.3)'
             }}
           >
-            <span className="badge-mvsyifaa" style={{ background: 'var(--green-forest-dark)', color: 'var(--yellow-font)', border: 'none' }}>
+            <span className="badge-esyifaa" style={{ background: 'var(--green-forest-dark)', color: 'var(--yellow-font)', border: 'none' }}>
               🌟 PENUTUP &amp; KONSULTASI
             </span>
 
@@ -94,7 +94,7 @@ export default function FAQSection() {
             <a 
               href="#apply-form" 
               onClick={scrollToForm} 
-              className="btn-mvsyifaa primary-btn"
+              className="btn-esyifaa primary-btn"
               style={{ fontSize: '1.1rem', padding: '1.1rem 2.5rem' }}
             >
               ✨ Isi Borang Konsultasi Sekarang
@@ -105,3 +105,4 @@ export default function FAQSection() {
     </>
   );
 }
+
