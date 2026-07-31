@@ -12,7 +12,7 @@ export default function ClosingSection() {
   return (
     <section 
       style={{
-        background: 'linear-gradient(180deg, #042E23 0%, #021812 100%)',
+        background: 'linear-gradient(180deg, #042E23 0%, #0B382D 100%)',
         color: '#FFFFFF',
         padding: '4rem 1rem',
         fontFamily: 'var(--font-inter), -apple-system, sans-serif',
@@ -21,22 +21,22 @@ export default function ClosingSection() {
     >
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         
-        <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#34D399', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+        <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#FDE047', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
           HASRAT &amp; HARAPAN
         </span>
 
-        <h2 style={{ fontSize: 'clamp(1.6rem, 3.8vw, 2.4rem)', fontWeight: 800, color: '#FFFFFF', marginTop: '0.4rem', marginBottom: '1.5rem', lineHeight: 1.25, letterSpacing: '-0.02em' }}>
+        <h2 style={{ fontSize: 'clamp(1.6rem, 3.8vw, 2.4rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.4rem', marginBottom: '1.5rem', lineHeight: 1.25, letterSpacing: '-0.02em' }}>
           Jangan Hadapi Semua Ini Seorang Diri
         </h2>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', fontSize: '1.05rem', lineHeight: 1.65, color: '#E5E7EB', marginBottom: '2.5rem', maxWidth: '750px', margin: '0 auto 2.5rem auto' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', fontSize: '1.05rem', lineHeight: 1.65, color: '#FFFFFF', marginBottom: '2.5rem', maxWidth: '750px', margin: '0 auto 2.5rem auto' }}>
           <p style={{ margin: 0 }}>
             Jika anda sudah lama berdepan dengan gangguan yang menjejaskan ketenangan hidup, inilah masanya untuk mendapatkan konsultasi dan ikhtiar rawatan bersama ESyifaa.
           </p>
           <p style={{ margin: 0 }}>
             Pasukan ESyifaa akan membantu menilai keadaan anda dan mencadangkan kaedah rawatan yang bersesuaian mengikut syariat Islam.
           </p>
-          <p style={{ margin: 0, fontWeight: 700, color: '#FEF3C7' }}>
+          <p style={{ margin: 0, fontWeight: 800, color: '#FDE047' }}>
             Tempah temujanji hari ini dan mulakan langkah pertama ke arah kehidupan yang lebih tenang.
           </p>
         </div>
@@ -47,14 +47,14 @@ export default function ClosingSection() {
             onClick={scrollToForm}
             style={{
               display: 'inline-block',
-              padding: '1.1rem 2.2rem',
+              padding: '1.15rem 2.4rem',
               fontSize: '1.15rem',
               fontWeight: 800,
               color: '#042E23',
               background: 'linear-gradient(180deg, #FDE047 0%, #EAB308 100%)',
               borderRadius: '50px',
               textDecoration: 'none',
-              boxShadow: '0 10px 25px rgba(234, 179, 8, 0.4)',
+              boxShadow: '0 10px 25px rgba(234, 179, 8, 0.45)',
               transition: 'transform 0.15s ease',
               border: '2px solid #FEF08A'
             }}

@@ -55,8 +55,8 @@ export default function FAQSection() {
               <div 
                 key={idx}
                 style={{
-                  background: '#F9FAFB',
-                  border: isOpen ? '1px solid #059669' : '1px solid #E5E7EB',
+                  background: '#F8FAFC',
+                  border: isOpen ? '2px solid #059669' : '1px solid #E2E8F0',
                   borderRadius: '10px',
                   overflow: 'hidden',
                   transition: 'all 0.15s ease'
@@ -70,9 +70,9 @@ export default function FAQSection() {
                     background: 'transparent',
                     border: 'none',
                     textAlign: 'left',
-                    fontWeight: 700,
+                    fontWeight: 800,
                     fontSize: '1rem',
-                    color: isOpen ? '#047857' : '#1F2937',
+                    color: isOpen ? '#047857' : '#0F172A',
                     cursor: 'pointer',
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -87,7 +87,7 @@ export default function FAQSection() {
                 </button>
 
                 {isOpen && (
-                  <div style={{ padding: '0 1.25rem 1.1rem 1.25rem', fontSize: '0.925rem', color: '#4B5563', lineHeight: 1.6, borderTop: '1px solid #F3F4F6' }}>
+                  <div style={{ padding: '0 1.25rem 1.1rem 1.25rem', fontSize: '0.925rem', color: '#374151', lineHeight: 1.6, borderTop: '1px solid #E2E8F0', fontWeight: 500 }}>
                     {faq.a}
                   </div>
                 )}

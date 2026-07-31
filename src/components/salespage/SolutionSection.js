@@ -12,38 +12,39 @@ export default function SolutionSection() {
   return (
     <section 
       style={{
-        background: '#042E23',
-        color: '#FFFFFF',
+        background: '#FFFFFF',
+        color: '#0F172A',
         padding: '3.5rem 1rem',
         fontFamily: 'var(--font-inter), -apple-system, sans-serif'
       }}
     >
       <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
         
-        <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#34D399', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+        <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
           SOLUSI RAWATAN ISLAM
         </span>
 
-        <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FFFFFF', marginTop: '0.4rem', marginBottom: '1.25rem', letterSpacing: '-0.02em', lineHeight: 1.3 }}>
+        <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#0F172A', marginTop: '0.4rem', marginBottom: '1.25rem', letterSpacing: '-0.02em', lineHeight: 1.3 }}>
           ESyifaa Membantu Anda Menghadapi Gangguan Mistik Dengan Kaedah Rawatan Patuh Syariah
         </h2>
 
-        <p style={{ fontSize: '1.05rem', lineHeight: 1.65, color: '#D1D5DB', marginBottom: '2rem', maxWidth: '780px', margin: '0 auto 2rem auto' }}>
+        <p style={{ fontSize: '1.05rem', lineHeight: 1.65, color: '#374151', marginBottom: '2rem', maxWidth: '780px', margin: '0 auto 2rem auto', fontWeight: 500 }}>
           ESyifaa menawarkan sesi rawatan dan konsultasi bagi membantu pesakit yang mengalami simptom gangguan mistik. Rawatan dijalankan menggunakan kaedah yang selaras dengan syariat Islam sebagai satu bentuk ikhtiar.
         </p>
 
-        {/* Perubahan Pesakit Box */}
+        {/* Perubahan Pesakit Box (Deep Emerald Background + Kuning Title + Putih Text) */}
         <div 
           style={{ 
-            background: 'rgba(254, 243, 199, 0.08)', 
-            border: '1px solid rgba(254, 243, 199, 0.25)', 
+            background: '#042E23', 
+            border: '2px solid #059669', 
             borderRadius: '12px', 
             padding: '1.5rem', 
             marginBottom: '2rem',
-            textAlign: 'left'
+            textAlign: 'left',
+            boxShadow: '0 10px 25px rgba(0,0,0,0.12)'
           }}
         >
-          <h3 style={{ fontSize: '1rem', fontWeight: 800, color: '#FEF3C7', marginBottom: '1rem', textAlign: 'center' }}>
+          <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#FDE047', marginBottom: '1.25rem', textAlign: 'center' }}>
             Ramai pesakit berkongsi bahawa mereka mula merasai perubahan seperti:
           </h3>
 
@@ -55,16 +56,16 @@ export default function SolutionSection() {
                   background: '#064E3B',
                   border: '1px solid #10B981',
                   borderRadius: '8px',
-                  padding: '0.75rem 1rem',
+                  padding: '0.85rem 1rem',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.6rem',
-                  color: '#ECFDF5',
+                  color: '#FFFFFF',
                   fontWeight: 700,
-                  fontSize: '0.925rem'
+                  fontSize: '0.95rem'
                 }}
               >
-                <span style={{ color: '#34D399', fontSize: '1.1rem' }}>✨</span>
+                <span style={{ color: '#FDE047', fontSize: '1.1rem' }}>✨</span>
                 <span>{b}</span>
               </div>
             ))}
@@ -72,7 +73,7 @@ export default function SolutionSection() {
         </div>
 
         {/* Gambar Servis ESyifaa */}
-        <div style={{ borderRadius: '12px', overflow: 'hidden', border: '2px solid rgba(52, 211, 153, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.4)' }}>
+        <div style={{ borderRadius: '12px', overflow: 'hidden', border: '3px solid #059669', boxShadow: '0 15px 35px rgba(0,0,0,0.12)' }}>
           <img 
             src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1000&q=80" 
             alt="Gambar Servis Rawatan ESyifaa" 

@@ -49,23 +49,23 @@ export default function ProcessSection() {
             <div 
               key={idx}
               style={{
-                background: '#ECFDF5',
-                border: '1px solid #A7F3D0',
+                background: '#F8FAFC',
+                border: '2px solid #059669',
                 borderRadius: '12px',
                 padding: '1.35rem 1.1rem',
                 textAlign: 'left',
-                boxShadow: '0 2px 10px rgba(0,0,0,0.03)',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
                 display: 'flex',
                 flexDirection: 'column'
               }}
             >
-              <div style={{ display: 'inline-block', background: '#047857', color: '#FFFFFF', fontSize: '0.75rem', fontWeight: 800, padding: '0.25rem 0.65rem', borderRadius: '4px', width: 'fit-content', marginBottom: '0.75rem', textTransform: 'uppercase' }}>
+              <div style={{ display: 'inline-block', background: '#042E23', color: '#FDE047', fontSize: '0.75rem', fontWeight: 800, padding: '0.25rem 0.65rem', borderRadius: '4px', width: 'fit-content', marginBottom: '0.75rem', textTransform: 'uppercase' }}>
                 {s.step}
               </div>
-              <h3 style={{ fontSize: '0.975rem', fontWeight: 800, color: '#064E3B', margin: '0 0 0.4rem 0', lineHeight: 1.35 }}>
+              <h3 style={{ fontSize: '1rem', fontWeight: 800, color: '#0F172A', margin: '0 0 0.4rem 0', lineHeight: 1.35 }}>
                 {s.title}
               </h3>
-              <p style={{ fontSize: '0.825rem', color: '#374151', margin: 0, lineHeight: 1.5 }}>
+              <p style={{ fontSize: '0.85rem', color: '#4B5563', margin: 0, lineHeight: 1.5, fontWeight: 500 }}>
                 {s.desc}
               </p>
             </div>
@@ -78,12 +78,12 @@ export default function ProcessSection() {
             background: '#042E23', 
             borderRadius: '12px', 
             padding: '1.5rem', 
-            border: '2px solid #34D399', 
+            border: '3px solid #059669', 
             boxShadow: '0 15px 30px rgba(0,0,0,0.15)',
             textAlign: 'center'
           }}
         >
-          <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#FEF3C7', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+          <div style={{ fontSize: '0.875rem', fontWeight: 800, color: '#FDE047', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1rem' }}>
             📌 Poster 4 Langkah Kaedah Rawatan Patuh Syariah ESyifaa
           </div>
           <img 

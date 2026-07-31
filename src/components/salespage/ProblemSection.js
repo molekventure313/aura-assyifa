@@ -31,37 +31,37 @@ export default function ProblemSection() {
   return (
     <section 
       style={{
-        background: '#FFFFFF',
-        color: '#0F172A',
+        background: '#042E23',
+        color: '#FFFFFF',
         padding: '3.5rem 1rem',
         fontFamily: 'var(--font-inter), -apple-system, sans-serif'
       }}
     >
       <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
         
-        <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#DC2626', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+        <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#FDE047', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
           KENAL PASTI SIMPTOM
         </span>
         
-        <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#0F172A', marginTop: '0.4rem', marginBottom: '0.8rem', letterSpacing: '-0.02em' }}>
+        <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.4rem', marginBottom: '0.8rem', letterSpacing: '-0.02em' }}>
           Adakah Anda Sedang Mengalami Salah Satu Daripada Masalah Ini?
         </h2>
 
-        <p style={{ fontSize: '1rem', color: '#475569', marginBottom: '2.5rem', maxWidth: '750px', margin: '0 auto 2.5rem auto', lineHeight: 1.6 }}>
+        <p style={{ fontSize: '1rem', color: '#FFFFFF', marginBottom: '2.5rem', maxWidth: '750px', margin: '0 auto 2.5rem auto', lineHeight: 1.6 }}>
           Ramai pesakit datang mendapatkan rawatan selepas mengalami gangguan yang berlarutan sehingga mengganggu emosi, ibadah dan kehidupan seharian.
         </p>
 
-        {/* 6 Masalah Utama Grid */}
+        {/* 6 Masalah Utama Grid (White Cards + Black Text) */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
           {problems.map((p, idx) => (
             <div 
               key={idx}
               style={{
-                background: '#FEF2F2',
-                border: '1px solid #FCA5A5',
+                background: '#FFFFFF',
+                border: '2px solid #FDE047',
                 borderRadius: '12px',
                 overflow: 'hidden',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
+                boxShadow: '0 8px 20px rgba(0,0,0,0.25)',
                 display: 'flex',
                 flexDirection: 'column',
                 textAlign: 'left'
@@ -74,8 +74,8 @@ export default function ProblemSection() {
               />
               <div style={{ padding: '1.1rem' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-                  <span style={{ color: '#DC2626', fontWeight: 800, fontSize: '1.1rem', lineHeight: 1.2 }}>✔</span>
-                  <span style={{ fontWeight: 700, fontSize: '0.925rem', color: '#991B1B', lineHeight: 1.4 }}>
+                  <span style={{ color: '#047857', fontWeight: 800, fontSize: '1.1rem', lineHeight: 1.2 }}>✔</span>
+                  <span style={{ fontWeight: 800, fontSize: '0.925rem', color: '#0F172A', lineHeight: 1.4 }}>
                     {p.title}
                   </span>
                 </div>

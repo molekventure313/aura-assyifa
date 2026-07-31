@@ -36,7 +36,6 @@ export default function ApplicationForm() {
     setLoading(true);
 
     try {
-      // Trigger Meta Pixel lead tracking
       try {
         trackFormSubmit({
           full_name: formData.full_name,
@@ -79,32 +78,33 @@ export default function ApplicationForm() {
     <section 
       id="apply-form"
       style={{
-        background: '#FEF3C7',
-        color: '#06231C',
+        background: '#0B382D',
+        color: '#0F172A',
         padding: '3.5rem 1rem',
         fontFamily: 'var(--font-inter), -apple-system, sans-serif'
       }}
     >
       <div style={{ maxWidth: '650px', margin: '0 auto' }}>
         
+        {/* Form Container (Pure White Background + Deep Emerald Border) */}
         <div 
           style={{ 
             background: '#FFFFFF', 
             borderRadius: '16px', 
             padding: '2.25rem 1.75rem', 
-            border: '2px solid #F59E0B', 
-            boxShadow: '0 20px 40px rgba(0,0,0,0.08)'
+            border: '3px solid #059669', 
+            boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
           }}
         >
           {/* Header */}
           <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#D97706', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
               BORANG TEMUJANJI RAWATAN
             </span>
             <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#06231C', marginTop: '0.35rem', marginBottom: '0.35rem', letterSpacing: '-0.02em' }}>
               Isi Maklumat Anda
             </h2>
-            <p style={{ fontSize: '0.875rem', color: '#4B5563', margin: 0 }}>
+            <p style={{ fontSize: '0.875rem', color: '#4B5563', margin: 0, fontWeight: 500 }}>
               Pihak ESyifaa akan menghubungi anda mengikut sesi temujanji yang dipilih.
             </p>
           </div>
@@ -130,7 +130,6 @@ export default function ApplicationForm() {
 
           <form onSubmit={handleSubmit}>
             
-            {/* Honeypot anti-spam */}
             <input 
               type="text" 
               name="honeypot" 
@@ -143,7 +142,7 @@ export default function ApplicationForm() {
 
             {/* Nama Penuh */}
             <div style={{ marginBottom: '1.35rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 700, fontSize: '0.9rem', color: '#06231C' }}>
+              <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 800, fontSize: '0.9rem', color: '#06231C' }}>
                 Nama Penuh <span style={{ color: '#DC2626' }}>*</span>
               </label>
               <input
@@ -157,18 +156,19 @@ export default function ApplicationForm() {
                   width: '100%',
                   padding: '0.85rem 1rem',
                   background: '#F9FAFB',
-                  border: '1px solid #D1D5DB',
+                  border: '1px solid #CBD5E1',
                   borderRadius: '8px',
-                  color: '#111827',
+                  color: '#0F172A',
                   fontSize: '0.95rem',
-                  outline: 'none'
+                  outline: 'none',
+                  fontWeight: 500
                 }}
               />
             </div>
 
             {/* Nombor Telefon / WhatsApp */}
             <div style={{ marginBottom: '1.35rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 700, fontSize: '0.9rem', color: '#06231C' }}>
+              <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 800, fontSize: '0.9rem', color: '#06231C' }}>
                 Nombor Telefon / WhatsApp <span style={{ color: '#DC2626' }}>*</span>
               </label>
               <input
@@ -182,18 +182,19 @@ export default function ApplicationForm() {
                   width: '100%',
                   padding: '0.85rem 1rem',
                   background: '#F9FAFB',
-                  border: '1px solid #D1D5DB',
+                  border: '1px solid #CBD5E1',
                   borderRadius: '8px',
-                  color: '#111827',
+                  color: '#0F172A',
                   fontSize: '0.95rem',
-                  outline: 'none'
+                  outline: 'none',
+                  fontWeight: 500
                 }}
               />
             </div>
 
             {/* Pilihan Waktu Temujanji */}
             <div style={{ marginBottom: '1.5rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 700, fontSize: '0.9rem', color: '#06231C' }}>
+              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 800, fontSize: '0.9rem', color: '#06231C' }}>
                 Pilihan Waktu Temujanji Rawatan <span style={{ color: '#DC2626' }}>*</span>
               </label>
               
@@ -212,10 +213,10 @@ export default function ApplicationForm() {
                       style={{
                         padding: '0.85rem 0.5rem',
                         borderRadius: '8px',
-                        border: isSelected ? '2px solid #059669' : '1px solid #D1D5DB',
+                        border: isSelected ? '2px solid #042E23' : '1px solid #CBD5E1',
                         background: isSelected ? '#ECFDF5' : '#F9FAFB',
-                        color: isSelected ? '#047857' : '#4B5563',
-                        fontWeight: 700,
+                        color: isSelected ? '#042E23' : '#4B5563',
+                        fontWeight: 800,
                         fontSize: '0.9rem',
                         cursor: 'pointer',
                         textAlign: 'center',
@@ -223,7 +224,7 @@ export default function ApplicationForm() {
                       }}
                     >
                       <div>{item.label}</div>
-                      <div style={{ fontSize: '0.725rem', opacity: 0.8, marginTop: '0.15rem', fontWeight: 500 }}>
+                      <div style={{ fontSize: '0.725rem', opacity: 0.8, marginTop: '0.15rem', fontWeight: 600 }}>
                         {item.desc}
                       </div>
                     </button>
@@ -234,7 +235,7 @@ export default function ApplicationForm() {
 
             {/* Terangkan simptom atau masalah yang anda alami */}
             <div style={{ marginBottom: '1.75rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 700, fontSize: '0.9rem', color: '#06231C' }}>
+              <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 800, fontSize: '0.9rem', color: '#06231C' }}>
                 Terangkan simptom atau masalah yang anda alami
               </label>
               <textarea
@@ -247,32 +248,33 @@ export default function ApplicationForm() {
                   width: '100%',
                   padding: '0.85rem 1rem',
                   background: '#F9FAFB',
-                  border: '1px solid #D1D5DB',
+                  border: '1px solid #CBD5E1',
                   borderRadius: '8px',
-                  color: '#111827',
+                  color: '#0F172A',
                   fontSize: '0.95rem',
                   outline: 'none',
-                  resize: 'vertical'
+                  resize: 'vertical',
+                  fontWeight: 500
                 }}
               />
             </div>
 
-            {/* Submit Button */}
+            {/* Submit Button (Deep Emerald Background + Kuning Font) */}
             <button
               type="submit"
               disabled={loading}
               style={{
                 width: '100%',
                 padding: '1.1rem',
-                fontSize: '1.1rem',
+                fontSize: '1.15rem',
                 fontWeight: 800,
-                color: '#FFFFFF',
-                background: 'linear-gradient(180deg, #059669 0%, #047857 100%)',
-                border: 'none',
+                color: '#FDE047',
+                background: 'linear-gradient(180deg, #042E23 0%, #064E3B 100%)',
+                border: '2px solid #10B981',
                 borderRadius: '8px',
                 cursor: loading ? 'not-allowed' : 'pointer',
                 opacity: loading ? 0.75 : 1,
-                boxShadow: '0 8px 20px rgba(5, 150, 105, 0.3)',
+                boxShadow: '0 8px 20px rgba(4, 46, 35, 0.4)',
                 transition: 'all 0.15s ease'
               }}
             >

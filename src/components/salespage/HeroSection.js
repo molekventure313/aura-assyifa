@@ -14,7 +14,7 @@ export default function HeroSection() {
       style={{
         background: 'linear-gradient(180deg, #042E23 0%, #0B382D 100%)',
         color: '#FFFFFF',
-        padding: '3rem 1rem 4rem 1rem',
+        padding: '3.5rem 1rem 4rem 1rem',
         fontFamily: 'var(--font-inter), -apple-system, sans-serif',
         textAlign: 'center'
       }}
@@ -22,20 +22,20 @@ export default function HeroSection() {
       <div style={{ maxWidth: '850px', margin: '0 auto' }}>
         
         {/* Brand Badge Header */}
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(254, 243, 199, 0.12)', border: '1px solid rgba(254, 243, 199, 0.25)', padding: '0.4rem 1rem', borderRadius: '50px', marginBottom: '1.5rem' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(254, 224, 71, 0.15)', border: '1px solid #FDE047', padding: '0.4rem 1.1rem', borderRadius: '50px', marginBottom: '1.5rem' }}>
           <span style={{ fontSize: '1.1rem' }}>🌿</span>
-          <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#FEF3C7', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+          <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#FDE047', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
             ESyifaa · Rawatan Jarak Jauh Islam
           </span>
         </div>
 
-        {/* Main Headline */}
+        {/* Main Headline (Kuning) */}
         <h1 
           style={{ 
-            fontSize: 'clamp(1.75rem, 4vw, 2.6rem)', 
+            fontSize: 'clamp(1.8rem, 4.2vw, 2.7rem)', 
             fontWeight: 800, 
             lineHeight: 1.25, 
-            color: '#FFFFFF', 
+            color: '#FDE047', 
             marginBottom: '1.5rem',
             letterSpacing: '-0.02em'
           }}
@@ -46,40 +46,40 @@ export default function HeroSection() {
         {/* Masih alami gangguan sub-points card */}
         <div 
           style={{ 
-            background: 'rgba(0, 0, 0, 0.25)', 
-            border: '1px solid rgba(254, 243, 199, 0.2)', 
+            background: '#064E3B', 
+            border: '2px solid #FDE047', 
             borderRadius: '12px', 
-            padding: '1.25rem 1.5rem', 
+            padding: '1.35rem 1.5rem', 
             marginBottom: '1.75rem',
             textAlign: 'left',
-            color: '#FEF3C7'
+            boxShadow: '0 8px 20px rgba(0,0,0,0.3)'
           }}
         >
-          <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#F59E0B', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          <div style={{ fontWeight: 800, fontSize: '1rem', color: '#FDE047', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             Masih alami gangguan seperti:
           </div>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.95rem', color: '#F3F4F6' }}>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.975rem', color: '#FFFFFF' }}>
             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#F59E0B', fontWeight: 700 }}>•</span>
+              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
               <span>Sukar tidur atau mimpi yang mengganggu.</span>
             </li>
             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#F59E0B', fontWeight: 700 }}>•</span>
+              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
               <span>Badan terasa berat tanpa sebab yang jelas.</span>
             </li>
             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#F59E0B', fontWeight: 700 }}>•</span>
+              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
               <span>Rasa tidak tenang dan sering mengalami gangguan yang berulang.</span>
             </li>
           </ul>
         </div>
 
-        {/* Description */}
+        {/* Description (Putih) */}
         <p 
           style={{ 
             fontSize: '1.05rem', 
             lineHeight: 1.65, 
-            color: '#E5E7EB', 
+            color: '#FFFFFF', 
             marginBottom: '2rem',
             maxWidth: '780px',
             margin: '0 auto 2rem auto'
@@ -89,7 +89,7 @@ export default function HeroSection() {
         </p>
 
         {/* Hero Image Showcase */}
-        <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', border: '2px solid rgba(254, 243, 199, 0.3)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+        <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
           <img 
             src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1200&q=80" 
             alt="Gambar Hero ESyifaa Ikhtiar Rawatan Islam" 
@@ -98,8 +98,8 @@ export default function HeroSection() {
         </div>
 
         {/* Video Testimoni Terbaik Player Card */}
-        <div style={{ marginBottom: '2.5rem', background: '#021812', border: '1px solid rgba(254, 243, 199, 0.25)', borderRadius: '12px', padding: '1rem', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
-          <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#FEF3C7', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+        <div style={{ marginBottom: '2.5rem', background: '#042E23', border: '2px solid #FDE047', borderRadius: '12px', padding: '1.25rem', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
+          <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#FDE047', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             🎬 Video Testimoni Terbaik Pesakit ESyifaa
           </div>
           <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: '8px', overflow: 'hidden', background: '#000' }}>
@@ -113,21 +113,21 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Primary CTA Button */}
+        {/* Primary CTA Button (Kuning + Font Hitam) */}
         <div>
           <a
             href="#apply-form"
             onClick={scrollToForm}
             style={{
               display: 'inline-block',
-              padding: '1.1rem 2.2rem',
+              padding: '1.15rem 2.4rem',
               fontSize: '1.15rem',
               fontWeight: 800,
               color: '#042E23',
               background: 'linear-gradient(180deg, #FDE047 0%, #EAB308 100%)',
               borderRadius: '50px',
               textDecoration: 'none',
-              boxShadow: '0 10px 25px rgba(234, 179, 8, 0.4)',
+              boxShadow: '0 10px 25px rgba(234, 179, 8, 0.45)',
               transition: 'transform 0.15s ease',
               border: '2px solid #FEF08A'
             }}
