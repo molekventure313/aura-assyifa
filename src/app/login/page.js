@@ -39,7 +39,7 @@ export default function LoginPage() {
 
         if (profile && ['practitioner', 'perawat'].includes(profile.role) && !profile.is_active) {
           await supabase.auth.signOut();
-          setError('Akaun perawat anda sedang MENUNGGU KELULUSAN / DITOLAK oleh Admin MV SYIFAA\'. Sila hubungi pihak pentadbir.');
+          setError('Akaun perawat anda sedang MENUNGGU KELULUSAN / DITOLAK oleh Admin ESYIFAA\'. Sila hubungi pihak pentadbir.');
           setLoading(false);
           return;
         }
@@ -99,7 +99,7 @@ export default function LoginPage() {
                 letterSpacing: '-0.02em'
               }}
             >
-              MV SYIFAA'
+              ESYIFAA'
             </span>
           </div>
           <p style={{ fontSize: '0.675rem', fontWeight: 600, color: '#34D399', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>

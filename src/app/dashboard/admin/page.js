@@ -101,7 +101,7 @@ export default function AdminDashboardPage() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.25rem' }}>
             <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', display: 'inline-block' }} />
             <span style={{ fontSize: '0.725rem', fontWeight: 600, color: isLightMode ? '#047857' : '#34D399', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-              MV SYIFAA' EXECUTIVE CONTROL
+              ESYIFAA' EXECUTIVE CONTROL
             </span>
             <span style={{ fontSize: '0.75rem', color: textMuted, marginLeft: '0.5rem' }}>
               {currentDateFormatted}

@@ -42,7 +42,7 @@ export default function ThankYouPage() {
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.75rem' }}>
           <span style={{ fontSize: '1.5rem', lineHeight: 1 }}>🌿</span>
           <span style={{ fontWeight: 800, fontSize: '1.25rem', color: 'var(--font-dark-green, #09201B)', letterSpacing: '-0.02em' }}>
-            MV SYIFAA'
+            ESYIFAA'
           </span>
         </div>
 
@@ -79,7 +79,7 @@ export default function ThankYouPage() {
         </h1>
         
         <p style={{ color: 'var(--font-muted-dark, #334155)', fontSize: '0.975rem', marginBottom: '2rem', lineHeight: 1.6, fontWeight: 500 }}>
-          Terima kasih kerana mendaftar. Permohonan anda telah diterima dan dimasukkan ke dalam sistem giliran perawat MV SYIFAA'.
+          Terima kasih kerana mendaftar. Permohonan anda telah diterima dan dimasukkan ke dalam sistem giliran perawat ESYIFAA'.
         </p>
 
         {/* Info Box: Langkah Seterusnya */}
@@ -145,13 +145,13 @@ export default function ThankYouPage() {
 
         {/* Security / Privacy Note */}
         <p style={{ fontSize: '0.825rem', color: '#475569', fontWeight: 600, marginBottom: '2rem' }}>
-          * Semua maklumat permohonan dirahsiakan sepenuhnya dan hanya digunakan untuk tujuan rawatan syarak MV SYIFAA'.
+          * Semua maklumat permohonan dirahsiakan sepenuhnya dan hanya digunakan untuk tujuan rawatan syarak ESYIFAA'.
         </p>
 
         {/* Action Buttons */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
           <a 
-            href="https://wa.me/601139414214?text=Assalamualaikum%20Team%20MV%20SYIFAA'%2C%20saya%20baru%20sahaja%20mendaftar%20untuk%20konsultasi%20rawatan%20jarak%20jauh." 
+            href="https://wa.me/601139414214?text=Assalamualaikum%20Team%20ESYIFAA'%2C%20saya%20baru%20sahaja%20mendaftar%20untuk%20konsultasi%20rawatan%20jarak%20jauh." 
             target="_blank" 
             rel="noopener noreferrer"
             className="btn-mvsyifaa primary-btn"
@@ -164,7 +164,7 @@ export default function ThankYouPage() {
               borderRadius: '12px'
             }}
           >
-            Hubungi WhatsApp Rasmi MV SYIFAA'
+            Hubungi WhatsApp Rasmi ESYIFAA'
           </a>
 
           <Link href="/" style={{ textDecoration: 'none' }}>

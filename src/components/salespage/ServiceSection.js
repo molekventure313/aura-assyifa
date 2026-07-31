@@ -39,7 +39,7 @@ export default function ServiceSection() {
           }}
         >
           <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--font-dark-green)', marginBottom: '1.75rem', textAlign: 'center' }}>
-            🌟 KELEBIHAN RAWATAN MV SYIFAA'
+            🌟 KELEBIHAN RAWATAN ESYIFAA'
           </h3>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', textAlign: 'center' }}>

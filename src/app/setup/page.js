@@ -107,7 +107,7 @@ export default function SetupPage() {
                 letterSpacing: '-0.02em'
               }}
             >
-              MV SYIFAA'
+              ESYIFAA'
             </span>
           </div>
           <p style={{ fontSize: '0.675rem', fontWeight: 600, color: '#34D399', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>

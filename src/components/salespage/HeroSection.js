@@ -16,7 +16,7 @@ export default function HeroSection() {
           <div className="brandmark-mvsyifaa">
             <span className="logo-icon-mvsyifaa">🌿</span>
             <div className="brand-text-wrapper">
-              <span className="brand-title-mvsyifaa">MV SYIFAA'</span>
+              <span className="brand-title-mvsyifaa">ESYIFAA'</span>
               <small className="brand-sub-mvsyifaa">Rawatan Jarak Jauh Islam</small>
             </div>
           </div>

@@ -142,7 +142,7 @@ export default function Sidebar({ isOpen, onClose }) {
             <span style={{ fontSize: '1.4rem', lineHeight: 1 }}>🌿</span>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ fontWeight: 700, fontSize: '1.05rem', color: isLightMode ? '#0F172A' : '#F9FAFB', letterSpacing: '-0.02em' }}>
-                MV SYIFAA'
+                ESYIFAA'
               </span>
               <small style={{ fontSize: '0.65rem', fontWeight: 600, color: isLightMode ? '#059669' : '#34D399', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                 {isAdminPath ? 'ADMIN CONTROL CENTER' : 'PORTAL PERAWAT'}

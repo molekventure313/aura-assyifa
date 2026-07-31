@@ -63,7 +63,7 @@ export default function DashboardLayout({ children }) {
                 ☰
               </button>
               <div style={{ fontWeight: 700, fontSize: '0.85rem', letterSpacing: '-0.01em', opacity: 0.85 }}>
-                MV SYIFAA' PORTAL
+                ESYIFAA' PORTAL
               </div>
             </div>
 

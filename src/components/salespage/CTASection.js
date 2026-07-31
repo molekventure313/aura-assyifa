@@ -42,7 +42,7 @@ export default function CTASection() {
               </div>
               <div style={{ fontSize: '0.85rem', color: '#1D4ED8', fontWeight: 800, marginBottom: '0.5rem' }}>👍 Perkongsian Facebook</div>
               <p style={{ fontStyle: 'italic', fontSize: '0.92rem', color: 'var(--font-dark-green)', margin: 0, textAlign: 'center', fontWeight: 600 }}>
-                "Terima kasih team MV Syifaa'. Suasana rumah dah tenang, anak-anak tak menangis malam lagi."
+                "Terima kasih team eSyifaa'. Suasana rumah dah tenang, anak-anak tak menangis malam lagi."
               </p>
             </div>
 
