@@ -203,11 +203,19 @@ export default function PricingSection() {
             fontWeight: 800,
             fontSize: '1rem',
             color: '#FDE047',
-            marginBottom: '1.5rem',
+            marginBottom: '0.4rem',
             textTransform: 'uppercase',
             letterSpacing: '0.08em'
           }}>
-            🎁 After-Sales Service Yang Anda Terima — Percuma
+            🎁 After-Sales Service Yang Anda Terima — Semuanya Percuma
+          </p>
+          <p style={{
+            textAlign: 'center',
+            fontSize: '0.85rem',
+            color: '#A7F3D0',
+            marginBottom: '1.5rem'
+          }}>
+            Setiap perkhidmatan ini bernilai RM50 sekiranya dibeli berasingan.
           </p>
 
           <div style={{
@@ -218,35 +226,124 @@ export default function PricingSection() {
             {afterSales.map((s, i) => (
               <div key={i} style={{
                 display: 'flex',
-                alignItems: 'flex-start',
-                gap: '0.8rem',
+                flexDirection: 'column',
+                gap: '0.5rem',
                 background: 'rgba(255,255,255,0.05)',
                 border: '1px solid rgba(167,243,208,0.15)',
                 borderRadius: '10px',
-                padding: '1rem'
+                padding: '1rem',
+                position: 'relative'
               }}>
-                <span style={{ fontSize: '1.6rem', lineHeight: 1, flexShrink: 0 }}>{s.icon}</span>
-                <div>
-                  <p style={{
-                    margin: '0 0 0.25rem 0',
+                {/* Strikethrough price tag */}
+                <div style={{
+                  position: 'absolute',
+                  top: '0.7rem',
+                  right: '0.7rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-end',
+                  gap: '2px'
+                }}>
+                  <span style={{
+                    fontSize: '0.7rem',
+                    color: '#F87171',
+                    textDecoration: 'line-through',
                     fontWeight: 700,
-                    fontSize: '0.9rem',
-                    color: '#FEF3C7'
-                  }}>
-                    {s.title}
-                  </p>
-                  <p style={{
-                    margin: 0,
-                    fontSize: '0.8rem',
-                    color: '#A7F3D0',
-                    lineHeight: 1.5
-                  }}>
-                    {s.desc}
-                  </p>
+                    opacity: 0.9
+                  }}>RM50</span>
+                  <span style={{
+                    fontSize: '0.65rem',
+                    background: '#22C55E',
+                    color: '#fff',
+                    fontWeight: 800,
+                    padding: '1px 6px',
+                    borderRadius: '999px',
+                    letterSpacing: '0.03em'
+                  }}>PERCUMA</span>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.8rem' }}>
+                  <span style={{ fontSize: '1.6rem', lineHeight: 1, flexShrink: 0 }}>{s.icon}</span>
+                  <div>
+                    <p style={{
+                      margin: '0 0 0.25rem 0',
+                      fontWeight: 700,
+                      fontSize: '0.9rem',
+                      color: '#FEF3C7',
+                      paddingRight: '2.5rem'
+                    }}>
+                      {s.title}
+                    </p>
+                    <p style={{
+                      margin: 0,
+                      fontSize: '0.8rem',
+                      color: '#A7F3D0',
+                      lineHeight: 1.5
+                    }}>
+                      {s.desc}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Total value row */}
+          <div style={{
+            marginTop: '1.5rem',
+            borderTop: '1px dashed rgba(253,224,71,0.3)',
+            paddingTop: '1.2rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '0.5rem'
+          }}>
+            <p style={{ margin: 0, color: '#D1FAE5', fontSize: '0.9rem', fontWeight: 600 }}>
+              Jumlah nilai keseluruhan perkhidmatan:
+            </p>
+            <span style={{
+              fontSize: '1.3rem',
+              fontWeight: 900,
+              color: '#F87171',
+              textDecoration: 'line-through',
+              opacity: 0.9
+            }}>RM300</span>
+          </div>
+        </div>
+
+        {/* Value highlight banner */}
+        <div style={{
+          marginTop: '1.5rem',
+          background: 'linear-gradient(135deg, #854D0E 0%, #A16207 50%, #CA8A04 100%)',
+          border: '2px solid #FDE047',
+          borderRadius: '14px',
+          padding: '1.5rem 1.8rem',
+          textAlign: 'center',
+          boxShadow: '0 8px 30px rgba(253,224,71,0.2)'
+        }}>
+          <p style={{ margin: '0 0 0.4rem 0', fontSize: '0.85rem', color: '#FEF9C3', fontWeight: 600 }}>
+            Semua perkhidmatan bernilai
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '0.6rem' }}>
+            <span style={{
+              fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
+              fontWeight: 900,
+              color: '#FCA5A5',
+              textDecoration: 'line-through',
+              opacity: 0.85
+            }}>RM300</span>
+            <span style={{ fontSize: '1.5rem', color: '#FEF3C7', fontWeight: 800 }}>→</span>
+            <span style={{
+              fontSize: 'clamp(2rem, 6vw, 3rem)',
+              fontWeight: 900,
+              color: '#FDE047'
+            }}>RM50 sahaja</span>
+          </div>
+          <p style={{ margin: 0, fontSize: '0.92rem', color: '#FEF9C3', lineHeight: 1.6 }}>
+            Anda tidak perlu bayar RM300. Cukup <strong>bayar RM50</strong> untuk rawatan penuh<br/>
+            berserta semua after-sales service — <strong>in shaa Allah, ikhtiar sampai sembuh.</strong>
+          </p>
         </div>
 
         {/* Trust line */}
