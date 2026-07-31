@@ -1,103 +1,61 @@
-﻿'use client';
+'use client';
 
 export default function CTASection() {
   const scrollToForm = (e) => {
     e.preventDefault();
-    const el = document.getElementById('apply-form');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    const target = document.getElementById('apply-form');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <>
-      {/* SECTION 7 – TESTIMONI BUKTI */}
-      <section className="section-esyifaa">
-        <div className="container" style={{ textAlign: 'center' }}>
-          <span className="badge-esyifaa">💬 PENGALAMAN BENAR</span>
+    <section 
+      style={{
+        background: 'linear-gradient(180deg, #0B382D 0%, #042E23 100%)',
+        color: '#FFFFFF',
+        padding: '3.5rem 1rem',
+        fontFamily: 'var(--font-inter), -apple-system, sans-serif',
+        textAlign: 'center'
+      }}
+    >
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        
+        <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#F59E0B', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+          TINDAKAN SEGERA
+        </span>
 
-          <h2 className="section-title-esyifaa" style={{ textAlign: 'center' }}>
-            Betul Ke Rawatan Jarak Jauh Ni Membantu?
-          </h2>
+        <h2 style={{ fontSize: 'clamp(1.6rem, 3.8vw, 2.3rem)', fontWeight: 800, color: '#FFFFFF', marginTop: '0.4rem', marginBottom: '1.25rem', lineHeight: 1.3, letterSpacing: '-0.02em' }}>
+          Jangan Tunggu Sehingga Gangguan Terus Mengganggu Kehidupan Anda
+        </h2>
 
-          <p className="section-desc-esyifaa" style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 2.5rem auto' }}>
-            Jom baca pengalaman mereka yang pernah mendapatkan rawatan.
-          </p>
+        <p style={{ fontSize: '1.05rem', lineHeight: 1.65, color: '#FEF3C7', marginBottom: '2rem', maxWidth: '720px', margin: '0 auto 2rem auto' }}>
+          Ambil langkah pertama dengan mendapatkan konsultasi dan rawatan bersama ESyifaa. Pilih waktu temujanji anda di bawah.
+        </p>
 
-          <div className="grid-2-esyifaa" style={{ gap: '1.75rem', maxWidth: '900px', margin: '0 auto' }}>
-            
-            {/* Testimoni 1 */}
-            <div className="card-esyifaa" style={{ textAlign: 'center' }}>
-              <div style={{ borderRadius: '12px', overflow: 'hidden', height: '160px', marginBottom: '1rem', border: '1px solid var(--yellow-box-border)' }}>
-                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80" alt="Testimoni 1" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              <div style={{ fontSize: '0.85rem', color: '#15803D', fontWeight: 800, marginBottom: '0.5rem' }}>📱 Screenshot WhatsApp</div>
-              <p style={{ fontStyle: 'italic', fontSize: '0.92rem', color: 'var(--font-dark-green)', margin: 0, textAlign: 'center', fontWeight: 600 }}>
-                "Alhamdulillah selepas sesi ruqyah jarak jauh malam tadi, tidur terjaga langsung tak rasa takut lagi. Badan pun ringan."
-              </p>
-            </div>
-
-            {/* Testimoni 2 */}
-            <div className="card-esyifaa" style={{ textAlign: 'center' }}>
-              <div style={{ borderRadius: '12px', overflow: 'hidden', height: '160px', marginBottom: '1rem', border: '1px solid var(--yellow-box-border)' }}>
-                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=500&q=80" alt="Testimoni 2" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              <div style={{ fontSize: '0.85rem', color: '#1D4ED8', fontWeight: 800, marginBottom: '0.5rem' }}>👍 Perkongsian Facebook</div>
-              <p style={{ fontStyle: 'italic', fontSize: '0.92rem', color: 'var(--font-dark-green)', margin: 0, textAlign: 'center', fontWeight: 600 }}>
-                "Terima kasih team E-SYIFAA'. Suasana rumah dah tenang, anak-anak tak menangis malam lagi."
-              </p>
-            </div>
-
-            {/* Testimoni 3 */}
-            <div className="card-esyifaa" style={{ textAlign: 'center' }}>
-              <div style={{ borderRadius: '12px', overflow: 'hidden', height: '160px', marginBottom: '1rem', border: '1px solid var(--yellow-box-border)' }}>
-                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=500&q=80" alt="Testimoni 3" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              <div style={{ fontSize: '0.85rem', color: '#B45309', fontWeight: 800, marginBottom: '0.5rem' }}>🎥 Ulasan Pelanggan</div>
-              <p style={{ fontStyle: 'italic', fontSize: '0.92rem', color: 'var(--font-dark-green)', margin: 0, textAlign: 'center', fontWeight: 600 }}>
-                "Sangat mudah tak perlu travel jauh. Bacaan ayat jelas dan bimbingan amalan sangat membantu."
-              </p>
-            </div>
-
-            {/* Testimoni 4 */}
-            <div className="card-esyifaa" style={{ textAlign: 'center' }}>
-              <div style={{ borderRadius: '12px', overflow: 'hidden', height: '160px', marginBottom: '1rem', border: '1px solid var(--yellow-box-border)' }}>
-                <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=500&q=80" alt="Testimoni 4" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              <div style={{ fontSize: '0.85rem', color: '#15803D', fontWeight: 800, marginBottom: '0.5rem' }}>📱 Screenshot WhatsApp</div>
-              <p style={{ fontStyle: 'italic', fontSize: '0.92rem', color: 'var(--font-dark-green)', margin: 0, textAlign: 'center', fontWeight: 600 }}>
-                "Sakit leher dan sengal badan bertahun hilangkan diri. Syukur ke hadrat Allah SWT."
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 8 – CTA BANNER */}
-      <section className="section-esyifaa bg-green-blend-esyifaa" style={{ padding: '4.5rem 1rem', textAlign: 'center' }}>
-        <div className="container" style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto' }}>
-          <span className="badge-esyifaa">
-            ✨ KONSULTASI AWAL
-          </span>
-
-          <h2 style={{ fontSize: '2.1rem', fontWeight: 800, color: 'var(--yellow-font)', marginBottom: '1rem', textAlign: 'center' }}>
-            Jangan Biarkan Masalah Ni Terus Ganggu Hidup Anda
-          </h2>
-
-          <p style={{ color: 'var(--font-white)', fontSize: '1.05rem', lineHeight: 1.65, marginBottom: '2rem', textAlign: 'center', opacity: 0.95 }}>
-            Kalau anda dah lama alami keadaan yang susah nak dijelaskan dan ingin berikhtiar melalui rawatan Islam, isi borang di bawah. Team kami akan hubungi anda untuk konsultasi awal supaya kami dapat faham keadaan yang anda alami.
-          </p>
-
-          <a 
-            href="#apply-form" 
-            onClick={scrollToForm} 
-            className="btn-esyifaa primary-btn"
-            style={{ padding: '1.15rem 2.5rem', fontSize: '1.1rem' }}
+        <div>
+          <a
+            href="#apply-form"
+            onClick={scrollToForm}
+            style={{
+              display: 'inline-block',
+              padding: '1.1rem 2.2rem',
+              fontSize: '1.15rem',
+              fontWeight: 800,
+              color: '#042E23',
+              background: 'linear-gradient(180deg, #FDE047 0%, #EAB308 100%)',
+              borderRadius: '50px',
+              textDecoration: 'none',
+              boxShadow: '0 10px 25px rgba(234, 179, 8, 0.4)',
+              transition: 'transform 0.15s ease',
+              border: '2px solid #FEF08A'
+            }}
           >
-            👇 Klik Butang Di Bawah &amp; Isi Borang Sekarang
+            👉 Tempah Temujanji Sekarang
           </a>
         </div>
-      </section>
-    </>
+
+      </div>
+    </section>
   );
 }
-

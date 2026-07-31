@@ -1,58 +1,99 @@
-﻿'use client';
+'use client';
 
 export default function ProcessSection() {
+  const steps = [
+    {
+      step: 'Langkah 1',
+      title: 'Isi borang temujanji.',
+      desc: 'Lengkapkan butiran asas dan pilihan sesi waktu temujanji rawatan anda.'
+    },
+    {
+      step: 'Langkah 2',
+      title: 'Konsultasi bagi memahami simptom dan keadaan pesakit.',
+      desc: 'Perawat bertugas akan berhubung secara langsung untuk analisa simptom.'
+    },
+    {
+      step: 'Langkah 3',
+      title: 'Sesi rawatan dijalankan mengikut kaedah patuh syariah.',
+      desc: 'Sesi ikhtiar perubatan Islam secara beradab dan berlandaskan Al-Quran & doa.'
+    },
+    {
+      step: 'Langkah 4',
+      title: 'Pesakit diberikan panduan dan susulan selepas rawatan jika diperlukan.',
+      desc: 'Panduan amalan benteng diri serta bimbingan berterusan dari perawat.'
+    }
+  ];
+
   return (
-    <section className="section-esyifaa" id="kenapa-tak-boleh-biar">
-      <div className="container" style={{ textAlign: 'center' }}>
-        <span className="badge-esyifaa" style={{ background: '#FEE2E2', color: '#991B1B', border: '1.5px solid #FCA5A5' }}>
-          🛑 KESAN KESIHATAN EMOSI &amp; ROHANI
+    <section 
+      style={{
+        background: '#FFFFFF',
+        color: '#0F172A',
+        padding: '3.5rem 1rem',
+        fontFamily: 'var(--font-inter), -apple-system, sans-serif'
+      }}
+    >
+      <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
+        
+        <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+          PROSES &amp; KAEDAH RAWATAN
         </span>
 
-        <h2 className="section-title-esyifaa" style={{ textAlign: 'center' }}>
-          Jangan Ambil Mudah Kalau Anda Alami Masalah-Masalah Ni
+        <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#0F172A', marginTop: '0.4rem', marginBottom: '2.5rem', letterSpacing: '-0.02em' }}>
+          Bagaimana Rawatan ESyifaa Dilaksanakan?
         </h2>
 
-        <p className="section-desc-esyifaa" style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 2.5rem auto' }}>
-          Kalau dibiarkan terlalu lama, keadaan ini boleh jadi semakin teruk. Emosi makin tertekan, kerja mula terganggu, hubungan keluarga jadi renggang dan ibadah pun susah nak fokus. Bukan semua masalah berpunca daripada gangguan. Sebab itu penting untuk buat pemeriksaan dan dapatkan nasihat daripada pihak yang betul.
-        </p>
+        {/* 4 Langkah Grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem', marginBottom: '2.5rem' }}>
+          {steps.map((s, idx) => (
+            <div 
+              key={idx}
+              style={{
+                background: '#ECFDF5',
+                border: '1px solid #A7F3D0',
+                borderRadius: '12px',
+                padding: '1.35rem 1.1rem',
+                textAlign: 'left',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.03)',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <div style={{ display: 'inline-block', background: '#047857', color: '#FFFFFF', fontSize: '0.75rem', fontWeight: 800, padding: '0.25rem 0.65rem', borderRadius: '4px', width: 'fit-content', marginBottom: '0.75rem', textTransform: 'uppercase' }}>
+                {s.step}
+              </div>
+              <h3 style={{ fontSize: '0.975rem', fontWeight: 800, color: '#064E3B', margin: '0 0 0.4rem 0', lineHeight: 1.35 }}>
+                {s.title}
+              </h3>
+              <p style={{ fontSize: '0.825rem', color: '#374151', margin: 0, lineHeight: 1.5 }}>
+                {s.desc}
+              </p>
+            </div>
+          ))}
+        </div>
 
-        {/* Newspaper / Info Cards Grid */}
-        <div className="grid-3-esyifaa" style={{ gap: '1.75rem' }}>
-          
-          <div className="card-esyifaa" style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>📰</div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--font-dark-green)', marginBottom: '0.5rem', textAlign: 'center' }}>
-              Gangguan Mistik Menurut Pandangan Pakar
-            </h3>
-            <p style={{ fontSize: '0.88rem', color: 'var(--font-muted-dark)', lineHeight: 1.6, textAlign: 'center' }}>
-              Kajian perubatan Islam menunjukkan simptom gangguan yang lambat dirawat boleh memberi kesan ketara kepada kestabilan saraf dan jiwa.
-            </p>
+        {/* Poster 4 Langkah + Gambar Servis */}
+        <div 
+          style={{ 
+            background: '#042E23', 
+            borderRadius: '12px', 
+            padding: '1.5rem', 
+            border: '2px solid #34D399', 
+            boxShadow: '0 15px 30px rgba(0,0,0,0.15)',
+            textAlign: 'center'
+          }}
+        >
+          <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#FEF3C7', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+            📌 Poster 4 Langkah Kaedah Rawatan Patuh Syariah ESyifaa
           </div>
-
-          <div className="card-esyifaa" style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>🧠</div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--font-dark-green)', marginBottom: '0.5rem', textAlign: 'center' }}>
-              Tekanan Emosi &amp; Kesihatan Mental
-            </h3>
-            <p style={{ fontSize: '0.88rem', color: 'var(--font-muted-dark)', lineHeight: 1.6, textAlign: 'center' }}>
-              Masalah tidur berpanjangan dan kegelisahan kronik akan menjejaskan kesihatan fizikal serta hubungan sesama insan.
-            </p>
-          </div>
-
-          <div className="card-esyifaa" style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>📖</div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--font-dark-green)', marginBottom: '0.5rem', textAlign: 'center' }}>
-              Ikhtiar Rawatan Islam &amp; Ruqyah Syariyyah
-            </h3>
-            <p style={{ fontSize: '0.88rem', color: 'var(--font-muted-dark)', lineHeight: 1.6, textAlign: 'center' }}>
-              Penggunaan ayat-ayat Al-Quran dan doa yang sahih membantu menenangkan jiwa dan membentengi diri daripada gangguan rohani.
-            </p>
-          </div>
-
+          <img 
+            src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1000&q=80" 
+            alt="Poster 4 Langkah Gambar Servis ESyifaa" 
+            style={{ width: '100%', height: 'auto', borderRadius: '8px', maxHeight: '350px', objectFit: 'cover' }}
+          />
         </div>
 
       </div>
     </section>
   );
 }
-

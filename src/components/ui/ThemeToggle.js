@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -6,7 +6,7 @@ export default function ThemeToggle() {
   const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('esyifaa-theme') || localStorage.getItem('esyifaa-theme') || 'dark';
+    const savedTheme = localStorage.getItem('mvsifaa-theme') || 'dark';
     setTheme(savedTheme);
     document.documentElement.setAttribute('data-theme', savedTheme);
     if (savedTheme === 'light') {
@@ -19,7 +19,7 @@ export default function ThemeToggle() {
   const toggleTheme = (newTheme) => {
     if (theme === newTheme) return;
     setTheme(newTheme);
-    localStorage.setItem('esyifaa-theme', newTheme);
+    localStorage.setItem('mvsifaa-theme', newTheme);
     document.documentElement.setAttribute('data-theme', newTheme);
     if (newTheme === 'light') {
       document.body.classList.add('light-mode');
@@ -104,4 +104,3 @@ export default function ThemeToggle() {
     </div>
   );
 }
-

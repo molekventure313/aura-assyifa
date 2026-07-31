@@ -2,46 +2,49 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { trackEvent } from '@/lib/tracking/pixel';
+import { trackFormSubmit } from '@/lib/tracking/pixel';
 
 export default function ApplicationForm() {
   const router = useRouter();
+  
   const [formData, setFormData] = useState({
     full_name: '',
     phone: '',
     appointment_session: 'Pagi',
     problem: '',
+    notes: '',
     honeypot: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
+
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    if (errorMsg) setErrorMsg('');
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.honeypot) return; // Spam prevention
-
+    setErrorMessage('');
+    
     if (!formData.full_name.trim() || !formData.phone.trim()) {
-      setErrorMsg('Sila masukkan Nama Penuh dan Nombor Telefon anda.');
+      setErrorMessage('Sila isi nama penuh dan nombor telefon / WhatsApp anda.');
       return;
     }
 
-    setIsSubmitting(true);
-    setErrorMsg('');
+    setLoading(true);
 
     try {
-      // Track InitiateCheckout event on pixel
+      // Trigger Meta Pixel lead tracking
       try {
-        trackEvent('InitiateCheckout', {
-          content_name: 'Borang Permohonan Rawatan E-SYIFAA',
-          currency: 'MYR'
+        trackFormSubmit({
+          full_name: formData.full_name,
+          phone: formData.phone,
+          appointment_session: formData.appointment_session
         });
-      } catch (pxErr) {
-        console.log('Pixel error', pxErr);
+      } catch (trackErr) {
+        console.error('Tracking non-blocking error:', trackErr);
       }
 
       const res = await fetch('/api/submissions', {
@@ -52,7 +55,9 @@ export default function ApplicationForm() {
           phone: formData.phone,
           appointment_session: formData.appointment_session,
           problem: formData.problem,
-          honeypot: formData.honeypot
+          notes: formData.notes,
+          honeypot: formData.honeypot,
+          source: 'Salespage ESyifaa'
         })
       });
 
@@ -64,52 +69,68 @@ export default function ApplicationForm() {
         throw new Error(json.error || 'Satu ralat telah berlaku. Sila cuba lagi.');
       }
     } catch (err) {
-      setErrorMsg(err.message || 'Satu ralat telah berlaku. Sila cuba lagi.');
+      setErrorMessage(err.message || 'Satu ralat telah berlaku semasa menghantar borang. Sila cuba lagi.');
     } finally {
-      setIsSubmitting(false);
+      setLoading(false);
     }
   };
 
   return (
-    <section id="apply-form" className="section-esyifaa" style={{ padding: '4.5rem 1rem' }}>
-      <div className="container" style={{ maxWidth: '660px', margin: '0 auto', textAlign: 'center' }}>
+    <section 
+      id="apply-form"
+      style={{
+        background: '#FEF3C7',
+        color: '#06231C',
+        padding: '3.5rem 1rem',
+        fontFamily: 'var(--font-inter), -apple-system, sans-serif'
+      }}
+    >
+      <div style={{ maxWidth: '650px', margin: '0 auto' }}>
         
         <div 
-          className="card-esyifaa" 
           style={{ 
-            padding: '2.75rem 2rem', 
-            borderRadius: '24px', 
-            boxShadow: '0 20px 45px rgba(244, 162, 97, 0.25)',
-            border: '3px solid var(--yellow-box-border)',
-            background: 'var(--yellow-box-bg)'
+            background: '#FFFFFF', 
+            borderRadius: '16px', 
+            padding: '2.25rem 1.75rem', 
+            border: '2px solid #F59E0B', 
+            boxShadow: '0 20px 40px rgba(0,0,0,0.08)'
           }}
         >
-          <h2 style={{ fontSize: '1.95rem', fontWeight: 800, color: 'var(--font-dark-green)', marginBottom: '0.5rem', textAlign: 'center' }}>
-            Isi Maklumat Anda
-          </h2>
+          {/* Header */}
+          <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#D97706', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+              BORANG TEMUJANJI RAWATAN
+            </span>
+            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#06231C', marginTop: '0.35rem', marginBottom: '0.35rem', letterSpacing: '-0.02em' }}>
+              Isi Maklumat Anda
+            </h2>
+            <p style={{ fontSize: '0.875rem', color: '#4B5563', margin: 0 }}>
+              Pihak ESyifaa akan menghubungi anda mengikut sesi temujanji yang dipilih.
+            </p>
+          </div>
 
-          <p style={{ color: 'var(--font-muted-dark)', fontSize: '0.95rem', marginBottom: '1.75rem', textAlign: 'center', fontWeight: 600 }}>
-            Sila isi borang pendaftaran di bawah. Team E-SYIFAA' akan hubungi anda secara terus melalui WhatsApp.
-          </p>
-
-          {errorMsg && (
-            <div style={{
-              background: '#FEE2E2',
-              border: '1.5px solid #FCA5A5',
-              borderRadius: '12px',
-              padding: '0.85rem 1rem',
-              color: '#991B1B',
-              fontSize: '0.875rem',
-              marginBottom: '1.5rem',
-              textAlign: 'center',
-              fontWeight: 600
-            }}>
-              {errorMsg}
+          {/* Error Alert */}
+          {errorMessage && (
+            <div 
+              style={{
+                background: '#FEF2F2',
+                border: '1px solid #FCA5A5',
+                borderRadius: '8px',
+                padding: '0.85rem 1rem',
+                color: '#DC2626',
+                fontSize: '0.875rem',
+                fontWeight: 600,
+                marginBottom: '1.5rem',
+                lineHeight: 1.4
+              }}
+            >
+              ⚠️ {errorMessage}
             </div>
           )}
 
-          <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
-            {/* Honeypot Spam Filter */}
+          <form onSubmit={handleSubmit}>
+            
+            {/* Honeypot anti-spam */}
             <input 
               type="text" 
               name="honeypot" 
@@ -121,139 +142,144 @@ export default function ApplicationForm() {
             />
 
             {/* Nama Penuh */}
-            <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 700, color: 'var(--font-dark-green)', fontSize: '0.95rem' }}>
-                Nama Penuh Pesakit <span style={{ color: '#E74C3C' }}>*</span>
+            <div style={{ marginBottom: '1.35rem' }}>
+              <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 700, fontSize: '0.9rem', color: '#06231C' }}>
+                Nama Penuh <span style={{ color: '#DC2626' }}>*</span>
               </label>
               <input
                 type="text"
                 name="full_name"
-                required
-                placeholder="Contoh: Ahmad Bin Muhammad"
+                placeholder="Masukkan nama penuh anda"
                 value={formData.full_name}
                 onChange={handleChange}
+                required
                 style={{
                   width: '100%',
-                  padding: '0.95rem 1rem',
-                  background: '#FFFFFF',
-                  border: '2px solid var(--yellow-box-border)',
-                  borderRadius: '12px',
-                  color: 'var(--font-dark-green)',
-                  fontSize: '1rem',
-                  outline: 'none',
-                  textAlign: 'center',
-                  fontWeight: 600
+                  padding: '0.85rem 1rem',
+                  background: '#F9FAFB',
+                  border: '1px solid #D1D5DB',
+                  borderRadius: '8px',
+                  color: '#111827',
+                  fontSize: '0.95rem',
+                  outline: 'none'
                 }}
               />
             </div>
 
-            {/* Nombor Telefon */}
-            <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 700, color: 'var(--font-dark-green)', fontSize: '0.95rem' }}>
-                Nombor Telefon (WhatsApp) <span style={{ color: '#E74C3C' }}>*</span>
+            {/* Nombor Telefon / WhatsApp */}
+            <div style={{ marginBottom: '1.35rem' }}>
+              <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 700, fontSize: '0.9rem', color: '#06231C' }}>
+                Nombor Telefon / WhatsApp <span style={{ color: '#DC2626' }}>*</span>
               </label>
               <input
                 type="tel"
                 name="phone"
-                required
                 placeholder="Contoh: 0123456789"
                 value={formData.phone}
                 onChange={handleChange}
+                required
                 style={{
                   width: '100%',
-                  padding: '0.95rem 1rem',
-                  background: '#FFFFFF',
-                  border: '2px solid var(--yellow-box-border)',
-                  borderRadius: '12px',
-                  color: 'var(--font-dark-green)',
-                  fontSize: '1rem',
-                  outline: 'none',
-                  textAlign: 'center',
-                  fontWeight: 600
+                  padding: '0.85rem 1rem',
+                  background: '#F9FAFB',
+                  border: '1px solid #D1D5DB',
+                  borderRadius: '8px',
+                  color: '#111827',
+                  fontSize: '0.95rem',
+                  outline: 'none'
                 }}
               />
             </div>
 
-            {/* WAKTU TEMUJANJI RAWATAN (Pagi / Petang / Malam) */}
-            <div style={{ marginBottom: '1.75rem', textAlign: 'center' }}>
-              <label style={{ display: 'block', marginBottom: '0.65rem', fontWeight: 700, color: 'var(--font-dark-green)', fontSize: '0.95rem' }}>
-                Waktu Temujanji Rawatan <span style={{ color: '#E74C3C' }}>*</span>
+            {/* Pilihan Waktu Temujanji */}
+            <div style={{ marginBottom: '1.5rem' }}>
+              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 700, fontSize: '0.9rem', color: '#06231C' }}>
+                Pilihan Waktu Temujanji Rawatan <span style={{ color: '#DC2626' }}>*</span>
               </label>
-
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.65rem' }}>
+              
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
                 {[
-                  { id: 'Pagi', label: 'Pagi', time: '8 AM - 12 PM', icon: '☀️' },
-                  { id: 'Petang', label: 'Petang', time: '2 PM - 6 PM', icon: '🌤️' },
-                  { id: 'Malam', label: 'Malam', time: '8 PM - 11 PM', icon: '🌙' },
-                ].map((session) => {
-                  const isSelected = formData.appointment_session === session.id;
+                  { id: 'Pagi', label: '○ Pagi', desc: '8am - 12pm' },
+                  { id: 'Petang', label: '○ Petang', desc: '2pm - 6pm' },
+                  { id: 'Malam', label: '○ Malam', desc: '8pm - 11pm' }
+                ].map((item) => {
+                  const isSelected = formData.appointment_session === item.id;
                   return (
-                    <div
-                      key={session.id}
-                      onClick={() => setFormData({ ...formData, appointment_session: session.id })}
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => setFormData(prev => ({ ...prev, appointment_session: item.id }))}
                       style={{
                         padding: '0.85rem 0.5rem',
-                        borderRadius: '12px',
-                        border: isSelected ? '2.5px solid #064E3B' : '2px solid var(--yellow-box-border)',
-                        background: isSelected ? '#ECFDF5' : '#FFFFFF',
+                        borderRadius: '8px',
+                        border: isSelected ? '2px solid #059669' : '1px solid #D1D5DB',
+                        background: isSelected ? '#ECFDF5' : '#F9FAFB',
+                        color: isSelected ? '#047857' : '#4B5563',
+                        fontWeight: 700,
+                        fontSize: '0.9rem',
                         cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                        boxShadow: isSelected ? '0 4px 12px rgba(6, 78, 59, 0.15)' : 'none'
+                        textAlign: 'center',
+                        transition: 'all 0.15s ease'
                       }}
                     >
-                      <div style={{ fontSize: '1.25rem', marginBottom: '0.2rem' }}>{session.icon}</div>
-                      <div style={{ fontWeight: 800, fontSize: '0.9rem', color: isSelected ? '#047857' : 'var(--font-dark-green)' }}>
-                        {session.label}
+                      <div>{item.label}</div>
+                      <div style={{ fontSize: '0.725rem', opacity: 0.8, marginTop: '0.15rem', fontWeight: 500 }}>
+                        {item.desc}
                       </div>
-                      <div style={{ fontSize: '0.675rem', color: '#64748B', fontWeight: 600, marginTop: '0.1rem' }}>
-                        {session.time}
-                      </div>
-                    </div>
+                    </button>
                   );
                 })}
               </div>
             </div>
 
-            {/* Simptom & Masalah */}
-            <div style={{ marginBottom: '1.75rem', textAlign: 'center' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 700, color: 'var(--font-dark-green)', fontSize: '0.95rem' }}>
-                Simptom Utama / Masalah Yang Dihadapi
+            {/* Terangkan simptom atau masalah yang anda alami */}
+            <div style={{ marginBottom: '1.75rem' }}>
+              <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 700, fontSize: '0.9rem', color: '#06231C' }}>
+                Terangkan simptom atau masalah yang anda alami
               </label>
               <textarea
                 name="problem"
-                rows="3"
-                placeholder="Contoh: Selalu rasa lenguh di bahu, susah tidur malam, dada berdebar..."
+                rows={4}
+                placeholder="Contoh: Sukar tidur malam, badan berasa sangat lemah dan kerap mimpi yang mengganggu..."
                 value={formData.problem}
                 onChange={handleChange}
                 style={{
                   width: '100%',
-                  padding: '0.95rem 1rem',
-                  background: '#FFFFFF',
-                  border: '2px solid var(--yellow-box-border)',
-                  borderRadius: '12px',
-                  color: 'var(--font-dark-green)',
-                  fontSize: '1rem',
-                  resize: 'vertical',
+                  padding: '0.85rem 1rem',
+                  background: '#F9FAFB',
+                  border: '1px solid #D1D5DB',
+                  borderRadius: '8px',
+                  color: '#111827',
+                  fontSize: '0.95rem',
                   outline: 'none',
-                  textAlign: 'center',
-                  fontWeight: 600
+                  resize: 'vertical'
                 }}
               />
             </div>
 
+            {/* Submit Button */}
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="btn-esyifaa primary-btn"
-              style={{ width: '100%', padding: '1.15rem', fontSize: '1.05rem' }}
+              disabled={loading}
+              style={{
+                width: '100%',
+                padding: '1.1rem',
+                fontSize: '1.1rem',
+                fontWeight: 800,
+                color: '#FFFFFF',
+                background: 'linear-gradient(180deg, #059669 0%, #047857 100%)',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: loading ? 'not-allowed' : 'pointer',
+                opacity: loading ? 0.75 : 1,
+                boxShadow: '0 8px 20px rgba(5, 150, 105, 0.3)',
+                transition: 'all 0.15s ease'
+              }}
             >
-              {isSubmitting ? '⏳ Menghantar Permohonan...' : '✨ Hantar Borang & Dapatkan Nombor Giliran'}
+              {loading ? 'Menghantar Borang...' : 'Hantar Borang'}
             </button>
-          </form>
 
-          <p style={{ textAlign: 'center', color: 'var(--font-muted-dark)', marginTop: '1.35rem', fontSize: '0.825rem', lineHeight: 1.5, margin: '1.35rem 0 0 0', fontWeight: 600 }}>
-            🔒 Semua maklumat pelanggan dirahsiakan dan hanya digunakan untuk tujuan konsultasi serta rawatan.
-          </p>
+          </form>
 
         </div>
 

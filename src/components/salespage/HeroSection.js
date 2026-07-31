@@ -3,62 +3,140 @@
 export default function HeroSection() {
   const scrollToForm = (e) => {
     e.preventDefault();
-    const el = document.getElementById('apply-form');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    const target = document.getElementById('apply-form');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <header className="hero-esyifaa">
-      <div className="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <section 
+      style={{
+        background: 'linear-gradient(180deg, #042E23 0%, #0B382D 100%)',
+        color: '#FFFFFF',
+        padding: '3rem 1rem 4rem 1rem',
+        fontFamily: 'var(--font-inter), -apple-system, sans-serif',
+        textAlign: 'center'
+      }}
+    >
+      <div style={{ maxWidth: '850px', margin: '0 auto' }}>
         
-        {/* Top Navbar Brand */}
-        <div className="topbar-esyifaa">
-          <div className="brandmark-esyifaa">
-            <span className="logo-icon-esyifaa">🌿</span>
-            <div className="brand-text-wrapper">
-              <span className="brand-title-esyifaa">E-SYIFAA'</span>
-              <small className="brand-sub-esyifaa">Rawatan Jarak Jauh Islam</small>
-            </div>
-          </div>
+        {/* Brand Badge Header */}
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(254, 243, 199, 0.12)', border: '1px solid rgba(254, 243, 199, 0.25)', padding: '0.4rem 1rem', borderRadius: '50px', marginBottom: '1.5rem' }}>
+          <span style={{ fontSize: '1.1rem' }}>🌿</span>
+          <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#FEF3C7', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            ESyifaa · Rawatan Jarak Jauh Islam
+          </span>
         </div>
 
-        {/* Hero Content */}
-        <div className="hero-inner-esyifaa" style={{ textAlign: 'center', maxWidth: '840px', margin: '0 auto' }}>
-          <span className="badge-esyifaa">✨ PERIKHTIARAN RAWATAN ISLAM</span>
-          
-          <h1 className="hero-headline-esyifaa" style={{ textAlign: 'center' }}>
-            "Alhamdulillah, Tak Sangka Rawatan Jarak Jauh Bantu Hilangkan Rasa Tak Tenang, Selalu Diganggu dan Susah Tidur Malam"
-          </h1>
-          
-          <p className="hero-desc-esyifaa" style={{ textAlign: 'center' }}>
-            Bayangkan anda boleh tidur lena semula, bangun dengan badan lebih ringan, hati lebih tenang dan kembali jalani hidup seperti biasa.
-          </p>
+        {/* Main Headline */}
+        <h1 
+          style={{ 
+            fontSize: 'clamp(1.75rem, 4vw, 2.6rem)', 
+            fontWeight: 800, 
+            lineHeight: 1.25, 
+            color: '#FFFFFF', 
+            marginBottom: '1.5rem',
+            letterSpacing: '-0.02em'
+          }}
+        >
+          Ramai Pesakit Kongsi Perubahan Positif Selepas Mendapatkan Rawatan ESyifaa
+        </h1>
 
-          <div className="hero-highlights-esyifaa">
-            <div className="highlight-pill">✓ Rawatan Dilakukan Secara Jarak Jauh (Tak Perlu Datang Pusat Rawatan)</div>
-            <div className="highlight-pill">✓ Kaedah Berlandaskan Syarak Menggunakan Ayat Al-Quran &amp; Doa</div>
+        {/* Masih alami gangguan sub-points card */}
+        <div 
+          style={{ 
+            background: 'rgba(0, 0, 0, 0.25)', 
+            border: '1px solid rgba(254, 243, 199, 0.2)', 
+            borderRadius: '12px', 
+            padding: '1.25rem 1.5rem', 
+            marginBottom: '1.75rem',
+            textAlign: 'left',
+            color: '#FEF3C7'
+          }}
+        >
+          <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#F59E0B', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            Masih alami gangguan seperti:
           </div>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.95rem', color: '#F3F4F6' }}>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+              <span style={{ color: '#F59E0B', fontWeight: 700 }}>•</span>
+              <span>Sukar tidur atau mimpi yang mengganggu.</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+              <span style={{ color: '#F59E0B', fontWeight: 700 }}>•</span>
+              <span>Badan terasa berat tanpa sebab yang jelas.</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+              <span style={{ color: '#F59E0B', fontWeight: 700 }}>•</span>
+              <span>Rasa tidak tenang dan sering mengalami gangguan yang berulang.</span>
+            </li>
+          </ul>
+        </div>
 
-          <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <a href="#apply-form" onClick={scrollToForm} className="btn-esyifaa primary-btn">
-              ✨ Dapatkan Konsultasi &amp; Rawatan
-            </a>
+        {/* Description */}
+        <p 
+          style={{ 
+            fontSize: '1.05rem', 
+            lineHeight: 1.65, 
+            color: '#E5E7EB', 
+            marginBottom: '2rem',
+            maxWidth: '780px',
+            margin: '0 auto 2rem auto'
+          }}
+        >
+          ESyifaa membantu anda mendapatkan ikhtiar rawatan secara patuh syariah bagi menangani gangguan mistik. Ramai pesakit berkongsi bahawa mereka berasa lebih tenang, lebih mudah beribadah dan dapat menjalani kehidupan harian dengan lebih baik selepas menjalani rawatan.
+        </p>
+
+        {/* Hero Image Showcase */}
+        <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', border: '2px solid rgba(254, 243, 199, 0.3)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+          <img 
+            src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1200&q=80" 
+            alt="Gambar Hero ESyifaa Ikhtiar Rawatan Islam" 
+            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '420px', objectFit: 'cover' }}
+          />
+        </div>
+
+        {/* Video Testimoni Terbaik Player Card */}
+        <div style={{ marginBottom: '2.5rem', background: '#021812', border: '1px solid rgba(254, 243, 199, 0.25)', borderRadius: '12px', padding: '1rem', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
+          <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#FEF3C7', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            🎬 Video Testimoni Terbaik Pesakit ESyifaa
           </div>
-
-          {/* Stock Image - Peaceful Praying Person */}
-          <div className="hero-image-container" style={{ marginTop: '2.5rem', width: '100%', maxWidth: '720px', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 45px rgba(0,0,0,0.3)', border: '4px solid var(--yellow-box-border)' }}>
-            <img 
-              src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1000&q=80" 
-              alt="Individu berdoa dengan wajah tenang" 
-              style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '420px', objectFit: 'cover' }}
+          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: '8px', overflow: 'hidden', background: '#000' }}>
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1&modestbranding=1" 
+              title="Video Testimoni Terbaik ESyifaa" 
+              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
             />
-            <div style={{ padding: '0.85rem', background: 'var(--yellow-box-bg)', fontSize: '0.9rem', color: 'var(--font-dark-green)', fontWeight: 700 }}>
-              🤍 Kembali tenang &amp; khusyuk beribadah dari keselesaan kediaman anda
-            </div>
           </div>
-
         </div>
+
+        {/* Primary CTA Button */}
+        <div>
+          <a
+            href="#apply-form"
+            onClick={scrollToForm}
+            style={{
+              display: 'inline-block',
+              padding: '1.1rem 2.2rem',
+              fontSize: '1.15rem',
+              fontWeight: 800,
+              color: '#042E23',
+              background: 'linear-gradient(180deg, #FDE047 0%, #EAB308 100%)',
+              borderRadius: '50px',
+              textDecoration: 'none',
+              boxShadow: '0 10px 25px rgba(234, 179, 8, 0.4)',
+              transition: 'transform 0.15s ease',
+              border: '2px solid #FEF08A'
+            }}
+          >
+            👉 Tempah Temujanji Sekarang
+          </a>
+        </div>
+
       </div>
-    </header>
+    </section>
   );
 }

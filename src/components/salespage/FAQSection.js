@@ -1,108 +1,102 @@
-﻿'use client';
+'use client';
+
+import { useState } from 'react';
 
 export default function FAQSection() {
+  const [openIdx, setOpenIdx] = useState(0);
+
   const faqs = [
     {
-      q: "Perlu datang ke pusat rawatan?",
-      a: "Tak perlu. Semua rawatan dilakukan secara jarak jauh."
+      q: 'Adakah rawatan ini patuh syariah?',
+      a: 'Ya. Rawatan dijalankan menggunakan kaedah yang selaras dengan syariat Islam sebagai satu bentuk ikhtiar.'
     },
     {
-      q: "Macam mana rawatan dijalankan?",
-      a: "Selepas konsultasi, rawatan akan dijalankan pada waktu yang dipersetujui menggunakan bacaan al-Quran dan doa."
+      q: 'Adakah rawatan sesuai untuk semua orang?',
+      a: 'Rawatan terbuka kepada individu yang mengalami simptom gangguan mistik dan ingin mendapatkan konsultasi serta ikhtiar rawatan.'
     },
     {
-      q: "Berapa lama tempoh rawatan?",
-      a: "Bergantung pada keadaan setiap individu. Ada yang memerlukan satu sesi, ada juga yang perlukan sesi susulan."
+      q: 'Berapa lama satu sesi rawatan?',
+      a: 'Tempoh rawatan bergantung kepada keadaan setiap pesakit dan akan diterangkan semasa konsultasi.'
     },
     {
-      q: "Rawatan ni sesuai untuk siapa?",
-      a: "Sesuai untuk mereka yang ingin berikhtiar melalui rawatan Islam. Kalau anda ada masalah kesihatan fizikal atau mental, teruskan juga mendapatkan rawatan daripada doktor atau pakar."
+      q: 'Adakah perlu hadir secara fizikal?',
+      a: 'Sila rujuk pilihan rawatan yang disediakan oleh ESyifaa semasa membuat temujanji.'
     },
     {
-      q: "Macam mana nak tahu saya betul-betul kena gangguan?",
-      a: "Sebelum rawatan bermula, kami akan buat konsultasi terlebih dahulu. Bukan semua simptom berpunca daripada gangguan. Sebab itu penilaian awal sangat penting."
-    },
-    {
-      q: "Adakah maklumat saya dirahsiakan?",
-      a: "Ya. Semua maklumat pelanggan dirahsiakan dan hanya digunakan untuk tujuan konsultasi serta rawatan."
+      q: 'Adakah gangguan akan hilang selepas satu sesi?',
+      a: 'Setiap individu adalah berbeza. Tiada jaminan hasil yang sama bagi semua orang. Rawatan adalah satu usaha ikhtiar, dan perkembangan bergantung kepada keadaan pesakit.'
     }
   ];
 
-  const scrollToForm = (e) => {
-    e.preventDefault();
-    const el = document.getElementById('apply-form');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <>
-      {/* SECTION 10 – SOALAN LAZIM */}
-      <section className="section-esyifaa" id="faq">
-        <div className="container" style={{ textAlign: 'center' }}>
-          <span className="badge-esyifaa">❓ SECTION 10 – SOALAN LAZIM</span>
-
-          <h2 className="section-title-esyifaa" style={{ textAlign: 'center' }}>
+    <section 
+      style={{
+        background: '#FFFFFF',
+        color: '#0F172A',
+        padding: '3.5rem 1rem',
+        fontFamily: 'var(--font-inter), -apple-system, sans-serif'
+      }}
+    >
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        
+        <div style={{ textAlign: 'center', marginBottom: '2.25rem' }}>
+          <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            SOALAN LAZIM
+          </span>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#0F172A', marginTop: '0.4rem', marginBottom: '0.5rem', letterSpacing: '-0.02em' }}>
             Soalan Lazim (FAQ)
           </h2>
+        </div>
 
-          <div style={{ maxWidth: '800px', margin: '2rem auto 0 auto', display: 'flex', flexDirection: 'column', gap: '1.25rem', textAlign: 'center' }}>
-            {faqs.map((f, idx) => (
-              <details 
-                key={idx} 
-                className="card-esyifaa" 
-                style={{ 
-                  padding: '1.35rem 1.75rem', 
-                  borderRadius: '18px', 
-                  cursor: 'pointer',
-                  textAlign: 'center'
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {faqs.map((faq, idx) => {
+            const isOpen = openIdx === idx;
+            return (
+              <div 
+                key={idx}
+                style={{
+                  background: '#F9FAFB',
+                  border: isOpen ? '1px solid #059669' : '1px solid #E5E7EB',
+                  borderRadius: '10px',
+                  overflow: 'hidden',
+                  transition: 'all 0.15s ease'
                 }}
               >
-                <summary style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--font-dark-green)', outline: 'none', textAlign: 'center' }}>
-                  {f.q}
-                </summary>
-                <p style={{ marginTop: '0.9rem', color: 'var(--font-muted-dark)', fontSize: '0.95rem', lineHeight: 1.65, textAlign: 'center', margin: '0.9rem 0 0 0', fontWeight: 600 }}>
-                  {f.a}
-                </p>
-              </details>
-            ))}
-          </div>
+                <button
+                  onClick={() => setOpenIdx(isOpen ? null : idx)}
+                  style={{
+                    width: '100%',
+                    padding: '1.1rem 1.25rem',
+                    background: 'transparent',
+                    border: 'none',
+                    textAlign: 'left',
+                    fontWeight: 700,
+                    fontSize: '1rem',
+                    color: isOpen ? '#047857' : '#1F2937',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: '1rem'
+                  }}
+                >
+                  <span>{faq.q}</span>
+                  <span style={{ fontSize: '1.25rem', color: '#059669', fontWeight: 800 }}>
+                    {isOpen ? '−' : '+'}
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div style={{ padding: '0 1.25rem 1.1rem 1.25rem', fontSize: '0.925rem', color: '#4B5563', lineHeight: 1.6, borderTop: '1px solid #F3F4F6' }}>
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
-      </section>
 
-      {/* PENUTUP */}
-      <section className="section-esyifaa bg-green-blend-esyifaa" style={{ padding: '4.5rem 1rem' }}>
-        <div className="container" style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto' }}>
-          <div 
-            style={{ 
-              padding: '2.75rem 2.25rem', 
-              borderRadius: '24px', 
-              background: 'var(--yellow-box-bg)',
-              color: 'var(--font-dark-green)',
-              textAlign: 'center',
-              border: '3px solid var(--yellow-box-border)',
-              boxShadow: '0 20px 45px rgba(0,0,0,0.3)'
-            }}
-          >
-            <span className="badge-esyifaa" style={{ background: 'var(--green-forest-dark)', color: 'var(--yellow-font)', border: 'none' }}>
-              🌟 PENUTUP &amp; KONSULTASI
-            </span>
-
-            <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'var(--font-dark-green)', fontWeight: 800, marginBottom: '2rem', textAlign: 'center' }}>
-              Ramai yang dah memilih untuk berikhtiar mendapatkan ketenangan melalui rawatan Islam secara jarak jauh. Kalau anda rasa keadaan yang dialami semakin mengganggu kehidupan harian, jangan pendam seorang diri. Isi borang sekarang untuk dapatkan konsultasi awal dan ketahui langkah yang sesuai untuk anda.
-            </p>
-
-            <a 
-              href="#apply-form" 
-              onClick={scrollToForm} 
-              className="btn-esyifaa primary-btn"
-              style={{ fontSize: '1.1rem', padding: '1.1rem 2.5rem' }}
-            >
-              ✨ Isi Borang Konsultasi Sekarang
-            </a>
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
-

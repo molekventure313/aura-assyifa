@@ -4,12 +4,15 @@ import { useEffect } from 'react';
 import HeroSection from '@/components/salespage/HeroSection';
 import TestimonialSection from '@/components/salespage/TestimonialSection';
 import ProblemSection from '@/components/salespage/ProblemSection';
+import FearsSection from '@/components/salespage/FearsSection';
+import SolutionSection from '@/components/salespage/SolutionSection';
+import MatlamatSection from '@/components/salespage/MatlamatSection';
 import ProcessSection from '@/components/salespage/ProcessSection';
-import ServiceSection from '@/components/salespage/ServiceSection';
-import BenefitsSection from '@/components/salespage/BenefitsSection';
+import TestimonialPart2Section from '@/components/salespage/TestimonialPart2Section';
 import CTASection from '@/components/salespage/CTASection';
 import ApplicationForm from '@/components/salespage/ApplicationForm';
 import FAQSection from '@/components/salespage/FAQSection';
+import ClosingSection from '@/components/salespage/ClosingSection';
 import { trackPageView, trackEvent } from '@/lib/tracking/pixel';
 
 export default function Home() {
@@ -18,29 +21,56 @@ export default function Home() {
       trackPageView();
       trackEvent('ViewContent');
     } catch(err) {
-      console.log('Pixel tracking issue', err);
+      console.log('Pixel tracking non-blocking issue', err);
     }
   }, []);
 
   return (
-    <main className="salespage-esyifaa-layout">
+    <main style={{ minHeight: '100vh', background: '#042E23' }}>
+      {/* SECTION 1: HERO BANNER */}
       <HeroSection />
+
+      {/* SECTION 2: TESTIMONI PART 1 */}
       <TestimonialSection />
+
+      {/* SECTION 3: MASALAH */}
       <ProblemSection />
+
+      {/* SECTION 4: FEARS */}
+      <FearsSection />
+
+      {/* SECTION 5: SOLUTION */}
+      <SolutionSection />
+
+      {/* SECTION 6: MATLAMAT RAWATAN */}
+      <MatlamatSection />
+
+      {/* SECTION 7: KAEDAH RAWATAN */}
       <ProcessSection />
-      <ServiceSection />
-      <BenefitsSection />
+
+      {/* SECTION 8: TESTIMONI PART 2 */}
+      <TestimonialPart2Section />
+
+      {/* SECTION 9: CTA & PAKEJ */}
       <CTASection />
+
+      {/* SECTION 10: BORANG TEMUJANJI */}
       <ApplicationForm />
+
+      {/* SECTION 11: SOALAN LAZIM (FAQ) */}
       <FAQSection />
 
-      <footer style={{ background: 'var(--turquoise-dark)', color: '#fff', padding: '1.75rem 1rem', textAlign: 'center', fontSize: '0.85rem' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <p style={{ margin: '0 0 0.5rem 0', fontWeight: 700, fontSize: '1rem', color: 'var(--yellow-accent)' }}>
-            🌿 E-SYIFAA' · Rawatan Jarak Jauh Gangguan Jin, Sihir, Santau &amp; Saka
+      {/* SECTION 12: PENUTUP */}
+      <ClosingSection />
+
+      {/* Footer */}
+      <footer style={{ background: '#021812', color: '#FFFFFF', padding: '2rem 1rem', textAlign: 'center', fontSize: '0.85rem', borderTop: '1px solid rgba(254, 243, 199, 0.15)' }}>
+        <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
+          <p style={{ margin: '0 0 0.5rem 0', fontWeight: 800, fontSize: '1.05rem', color: '#FEF3C7' }}>
+            🌿 ESyifaa · Rawatan Jarak Jauh Gangguan Jin, Sihir, Santau &amp; Saka
           </p>
-          <p style={{ margin: 0, opacity: 0.85, fontSize: '0.8rem' }}>
-            © {new Date().getFullYear()} E-SYIFAA'. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
+          <p style={{ margin: 0, opacity: 0.85, fontSize: '0.8rem', color: '#D1D5DB' }}>
+            © {new Date().getFullYear()} ESyifaa. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
           </p>
         </div>
       </footer>
