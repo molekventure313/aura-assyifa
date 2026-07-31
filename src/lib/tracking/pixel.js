@@ -29,6 +29,10 @@ export function trackLead(params = {}, eventId = null) {
   trackEvent('Lead', params, eventId);
 }
 
+export function trackFormSubmit(params = {}, eventId = null) {
+  trackEvent('Lead', params, eventId);
+}
+
 export function generateEventId() {
   return `evt_${Date.now()}_${Math.floor(Math.random() * 1000000)}`;
 }
