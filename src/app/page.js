@@ -10,6 +10,7 @@ import MatlamatSection from '@/components/salespage/MatlamatSection';
 import ProcessSection from '@/components/salespage/ProcessSection';
 import TestimonialPart2Section from '@/components/salespage/TestimonialPart2Section';
 import CTASection from '@/components/salespage/CTASection';
+import PricingSection from '@/components/salespage/PricingSection';
 import ApplicationForm from '@/components/salespage/ApplicationForm';
 import FAQSection from '@/components/salespage/FAQSection';
 import ClosingSection from '@/components/salespage/ClosingSection';
@@ -53,6 +54,9 @@ export default function Home() {
 
       {/* SECTION 9: CTA & PAKEJ */}
       <CTASection />
+
+      {/* SECTION 9B: HARGA */}
+      <PricingSection />
 
       {/* SECTION 10: BORANG TEMUJANJI */}
       <ApplicationForm />
