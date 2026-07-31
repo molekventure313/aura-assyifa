@@ -161,32 +161,45 @@ export default function PricingSection() {
           </div>
 
           {/* CTA Button */}
-          <a
-            href="#borang"
-            style={{
-              display: 'inline-block',
-              background: '#FDE047',
-              color: '#042E23',
-              fontWeight: 800,
-              fontSize: '1.05rem',
-              padding: '0.9rem 2.5rem',
-              borderRadius: '12px',
-              textDecoration: 'none',
-              boxShadow: '0 4px 20px rgba(253,224,71,0.4)',
-              transition: 'transform 0.2s, box-shadow 0.2s',
-              letterSpacing: '0.01em'
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 8px 30px rgba(253,224,71,0.5)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 20px rgba(253,224,71,0.4)';
-            }}
-          >
-            Daftar Rawatan Sekarang →
-          </a>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem' }}>
+            <a
+              href="#proses"
+              style={{
+                display: 'inline-block',
+                background: '#FDE047',
+                color: '#042E23',
+                fontWeight: 800,
+                fontSize: '1.05rem',
+                padding: '0.9rem 2.5rem',
+                borderRadius: '12px',
+                textDecoration: 'none',
+                boxShadow: '0 4px 20px rgba(253,224,71,0.4)',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+                letterSpacing: '0.01em'
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 8px 30px rgba(253,224,71,0.5)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 20px rgba(253,224,71,0.4)';
+              }}
+            >
+              🩺 Dapatkan Diagnos Percuma Dulu
+            </a>
+            <p style={{
+              margin: 0,
+              fontSize: '0.75rem',
+              color: '#A7F3D0',
+              lineHeight: 1.6,
+              maxWidth: '340px',
+              textAlign: 'center',
+              fontStyle: 'italic'
+            }}>
+              Perawat akan diagnos (scan) dulu penyakit anda berdasarkan simptom-simptom untuk sahkan penyakit yang dihadapi. Percuma sahaja.
+            </p>
+          </div>
         </div>
 
         {/* After-sales services */}
