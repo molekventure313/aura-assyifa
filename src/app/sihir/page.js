@@ -1,7 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 import HeroSection from '@/components/salespage/variants/sihir/HeroSection';
-import TestimonialSection from '@/components/salespage/variants/sihir/TestimonialSection';
+import TestimonialSection from '@/components/salespage/TestimonialSection';
 import ProblemSection from '@/components/salespage/variants/sihir/ProblemSection';
 import FearsSection from '@/components/salespage/FearsSection';
 import MatlamatSection from '@/components/salespage/variants/sihir/MatlamatSection';
