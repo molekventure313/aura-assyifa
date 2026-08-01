@@ -155,21 +155,24 @@ export async function POST(req) {
     if (submissionError) throw submissionError;
 
     // ─── AUTOMATIC STRICT ROUND-ROBIN ROTATION AMONG ACTIVE PRACTITIONERS ───
-    // NOTE: Only select columns that actually exist in the profiles table
     const { data: allProfiles, error: profilesErr } = await supabase
       .from('profiles')
-      .select('id, full_name, email, role, is_active, created_at')
+      .select('id, full_name, email, role, is_active, is_receiving_cases, created_at')
       .order('created_at', { ascending: true });
 
     if (profilesErr) {
       console.error('Error querying profiles:', profilesErr);
     }
 
-    // Filter: only non-super_admin practitioners with is_active = true (or null as fallback)
+    // Filter: only non-super_admin practitioners who are:
+    //   1. is_active = true (or null) — akaun aktif
+    //   2. is_receiving_cases != false — toggle menerima kes AKTIF
+    // Perawat yang toggle mereka 'Tak Aktif' akan DISKIP dalam round-robin
     const activePractitioners = (allProfiles || []).filter(p => {
       const isNotSuperAdmin = p.role !== 'super_admin';
-      const isActive = p.is_active === true || p.is_active == null;
-      return isNotSuperAdmin && isActive;
+      const isAccountActive = p.is_active !== false;          // akaun tidak dinyahaktifkan
+      const isReceiving    = p.is_receiving_cases !== false;  // toggle sidebar = Aktif
+      return isNotSuperAdmin && isAccountActive && isReceiving;
     });
 
     let assignedPractitioner = null;
@@ -185,14 +188,14 @@ export async function POST(req) {
         .maybeSingle();
 
       if (lastAssignedCase && lastAssignedCase.assigned_to) {
-        // Find where the last assigned practitioner sits in the active list
+        // Find where the last assigned practitioner sits in the CURRENT active list
         const lastIndex = activePractitioners.findIndex(p => p.id === lastAssignedCase.assigned_to);
         if (lastIndex !== -1) {
-          // Move to next in rotation (round-robin)
+          // Move to next in rotation — wraps around automatically
           const nextIndex = (lastIndex + 1) % activePractitioners.length;
           assignedPractitioner = activePractitioners[nextIndex];
         } else {
-          // Last assigned practitioner no longer active — restart from beginning
+          // Last assigned practitioner is now inactive/tak aktif — restart from first in list
           assignedPractitioner = activePractitioners[0];
         }
       } else {
@@ -201,10 +204,7 @@ export async function POST(req) {
       }
     }
 
-    // Safety Fallback: pick any non-super_admin if still unassigned
-    if (!assignedPractitioner && allProfiles && allProfiles.length > 0) {
-      assignedPractitioner = allProfiles.find(p => p.role !== 'super_admin') || null;
-    }
+    // NO fallback to inactive practitioners — if all are inactive, case stays unassigned ('Baru')
 
     const caseInitialStatus = assignedPractitioner ? 'Sedang Diurus' : 'Baru';
 
