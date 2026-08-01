@@ -2,11 +2,11 @@
 
 export default function MatlamatSection() {
   const goals = [
-    'Membantu mengesan dan menangani kesan sihir yang dialami.',
-    'Memulihkan hubungan rumah tangga yang terjejas akibat sihir.',
-    'Membuka semula pintu rezeki yang terasa tersekat.',
-    'Mengembalikan ketenangan jiwa dan fikiran.',
-    'Memberikan panduan perlindungan diri daripada sihir pada masa hadapan.'
+    'Membantu memulihkan tidur supaya kembali lena, tenang dan bebas daripada gangguan terkejut di malam hari.',
+    'Melegakan kesakitan badan, bahu dan bahagian belakang terutamanya selepas Asar serta sakit kepala misteri.',
+    'Menghilangkan sensasi benda merayap di dalam badan dan menghentikan kehangatan panas badan yang beralih-alih.',
+    'Memulihkan keharmonian, ketenangan dan kasih sayang antara suami isteri dalam rumah tangga.',
+    'Memecahkan ikatan sihir dari punca asal dan membina benteng perlindungan syariah agar gangguan tidak berulang.'
   ];
 
   return (
@@ -24,11 +24,15 @@ export default function MatlamatSection() {
           MATLAMAT RAWATAN SIHIR
         </span>
 
-        <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.4rem', marginBottom: '2rem', letterSpacing: '-0.02em' }}>
+        <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.4rem', marginBottom: '0.8rem', letterSpacing: '-0.02em' }}>
           Apa Yang Ingin Dicapai Melalui Rawatan Sihir ESyifaa?
         </h2>
 
-        {/* Goal Cards (White Cards + Hitam Text + Forest Green Check) */}
+        <p style={{ fontSize: '0.975rem', color: '#FFFFFF', marginBottom: '2rem', lineHeight: 1.6, opacity: 0.9 }}>
+          Rawatan ini dirangka khusus untuk menyelesaikan tanda-tanda gangguan sihir yang anda alami secara tuntas dan patuh syariah.
+        </p>
+
+        {/* Goal Cards */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'left' }}>
           {goals.map((g, idx) => (
             <div 
@@ -47,7 +51,7 @@ export default function MatlamatSection() {
               <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#059669', color: '#FFFFFF', fontWeight: 800, fontSize: '0.9rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 ✔
               </div>
-              <span style={{ fontWeight: 800, fontSize: '1.025rem', color: '#0F172A' }}>
+              <span style={{ fontWeight: 700, fontSize: '0.975rem', color: '#0F172A', lineHeight: 1.5 }}>
                 {g}
               </span>
             </div>

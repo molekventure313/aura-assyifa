@@ -9,6 +9,16 @@ export default function HeroSection() {
     }
   };
 
+  const signs = [
+    'tidur selalu terganggu/terkejut',
+    'selalu sakit selepas asar terutama dibahagian belakang',
+    'sakit kepala yang bukan dari darah tinggi atau migrain',
+    'rasa seperti ada sesuatu yang merayap di dalam badan',
+    'sakit yang tak dapat dijelaskan walaupun dah jumpa doctor',
+    'panas badan yang selalu beralih-alih',
+    'selalu bergaduh antara suami isteri dalam rumahtangga'
+  ];
+
   return (
     <section 
       style={{
@@ -43,7 +53,7 @@ export default function HeroSection() {
           Ramai Yang Menderita Akibat Sihir Tidak Sedar Bahawa Mereka Sedang Ditimpa Bala
         </h1>
 
-        {/* Masih alami gangguan sub-points card */}
+        {/* Sub-points card */}
         <div 
           style={{ 
             background: '#064E3B', 
@@ -59,18 +69,12 @@ export default function HeroSection() {
             Tanda-tanda anda mungkin terkena sihir:
           </div>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.975rem', color: '#FFFFFF' }}>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Hubungan rumah tangga sering bergaduh tanpa sebab yang munasabah.</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Rezeki terasa tersekat dan usaha tidak pernah membuahkan hasil.</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Badan sakit berterusan tetapi tiada punca dijumpai oleh doktor.</span>
-            </li>
+            {signs.map((sign, idx) => (
+              <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+                <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
+                <span>{sign}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -85,32 +89,16 @@ export default function HeroSection() {
             margin: '0 auto 2rem auto'
           }}
         >
-          ESyifaa menawarkan ikhtiar rawatan sihir secara patuh syariah menggunakan bacaan Al-Quran dan doa yang sahih. Ramai pesakit merasai perubahan positif selepas menjalani rawatan dan kembali menjalani kehidupan dengan lebih tenang dan teratur.
+          ESyifaa menawarkan ikhtiar rawatan secara patuh syariah bagi menangani gangguan mistik. Ramai pesakit berkongsi bahawa mereka berasa lebih tenang, lebih mudah beribadah dan dapat menjalani kehidupan harian dengan lebih baik selepas menjalani rawatan.
         </p>
 
         {/* Hero Image Showcase */}
-        <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+        <div style={{ marginBottom: '2.5rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
           <img 
-            src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80" 
+            src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1200&q=80" 
             alt="Gambar Hero ESyifaa Ikhtiar Rawatan Sihir" 
             style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '420px', objectFit: 'cover' }}
           />
-        </div>
-
-        {/* Video Testimoni Terbaik Player Card */}
-        <div style={{ marginBottom: '2.5rem', background: '#042E23', border: '2px solid #FDE047', borderRadius: '12px', padding: '1.25rem', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
-          <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#FDE047', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Video Testimoni Pesakit Yang Pernah Terkena Sihir
-          </div>
-          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: '8px', overflow: 'hidden', background: '#000' }}>
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1&modestbranding=1" 
-              title="Video Testimoni Terbaik ESyifaa" 
-              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-            />
-          </div>
         </div>
 
         {/* Primary CTA Button (Kuning + Font Hitam) */}

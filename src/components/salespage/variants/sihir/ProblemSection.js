@@ -3,29 +3,39 @@
 export default function ProblemSection() {
   const problems = [
     {
-      title: 'Rumah Tangga Bermasalah',
-      desc: 'Sering bergaduh dengan pasangan tanpa sebab yang jelas, hubungan renggang secara tiba-tiba.',
-      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      title: 'Rezeki Tersekat',
-      desc: 'Berniaga atau bekerja keras tetapi pendapatan tidak pernah mencukupi atau selalu habis secara pelik.',
-      img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      title: 'Sakit Tanpa Punca',
-      desc: 'Kesakitan badan yang berterusan walaupun sudah berjumpa doktor dan semua keputusan ujian adalah normal.',
-      img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      title: 'Sukar Tidur',
-      desc: 'Mimpi buruk berulang, terasa ada kehadiran asing waktu malam atau sukar untuk lena tidur.',
+      title: 'Tidur Selalu Terganggu / Terkejut',
+      desc: 'Sering terjaga tiba-tiba pada waktu malam dengan rasa cemas, dada berdebar atau mimpi yang menakutkan.',
       img: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80'
     },
     {
-      title: 'Emosi Tidak Stabil',
-      desc: 'Mudah marah, rasa sedih yang mendalam tanpa sebab atau tiba-tiba rasa ingin menyakiti diri sendiri.',
+      title: 'Sakit Selepas Asar (Bahagian Belakang)',
+      desc: 'Badan mula berasa berat, lenguh dan sakit mencucuk terutamanya di bahagian belakang dan bahu sebaik waktu Asar menjelang.',
+      img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80'
+    },
+    {
+      title: 'Sakit Kepala Bukan Darah Tinggi / Migrain',
+      desc: 'Kesakitan dan cengkaman di kepala yang berterusan walaupun sudah makan ubat perubatan biasa.',
       img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80'
+    },
+    {
+      title: 'Rasa Ada Sesuatu Merayap Dalam Badan',
+      desc: 'Sensasi pelik seolah-olah ada benda atau entiti bergerak di bawah kulit, otot atau bahagian anggota tertentu.',
+      img: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=600&q=80'
+    },
+    {
+      title: 'Sakit Tanpa Punca Perubatan',
+      desc: 'Pemeriksaan doktor dan ujian klinikal di hospital mengesahkan badan sihat, tetapi kesakitan fizikal tetap dirasai.',
+      img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80'
+    },
+    {
+      title: 'Panas Badan Beralih-Alih',
+      desc: 'Sensasi bahang panas yang berpindah dari satu bahagian badan ke bahagian lain tanpa sebarang demam fizikal.',
+      img: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=600&q=80'
+    },
+    {
+      title: 'Kerap Bergaduh Suami Isteri',
+      desc: 'Hubungan rumah tangga mula dingin, emosi cepat meluap-luap dan perkara kecil kerap menjadi punca pergaduhan besar.',
+      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
     }
   ];
 
@@ -49,10 +59,10 @@ export default function ProblemSection() {
         </h2>
 
         <p style={{ fontSize: '1rem', color: '#FFFFFF', marginBottom: '2.5rem', maxWidth: '750px', margin: '0 auto 2.5rem auto', lineHeight: 1.6 }}>
-          Sihir boleh datang dalam pelbagai bentuk dan memberi kesan berbeza kepada setiap individu. Jangan abaikan tanda-tanda ini.
+          Sihir boleh hadir dalam pelbagai bentuk dan menjejaskan fizikal, emosi serta keharmonian rumah tangga anda.
         </p>
 
-        {/* 5 Masalah Utama Grid (White Cards + Black Text) */}
+        {/* 7 Masalah Utama Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
           {problems.map((p, idx) => (
             <div 
@@ -75,7 +85,7 @@ export default function ProblemSection() {
               />
               <div style={{ padding: '1.1rem' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', marginBottom: '0.5rem' }}>
-                  <span style={{ fontWeight: 800, fontSize: '1rem', color: '#0F172A', lineHeight: 1.3 }}>
+                  <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#0F172A', lineHeight: 1.35 }}>
                     {p.title}
                   </span>
                 </div>
