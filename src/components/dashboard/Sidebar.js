@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -91,6 +91,7 @@ export default function Sidebar({ isOpen, onClose }) {
     { section: 'PENGURUSAN' },
     { label: 'Perawat', href: '/dashboard/admin/perawat' },
     { section: 'TETAPAN' },
+    { label: 'Salespage', href: '/dashboard/admin/salespage' },
     { label: 'Tracking & Pixel', href: '/dashboard/admin/tracking' },
     { label: 'Log Aktiviti', href: '/dashboard/admin/log' }
   ];
