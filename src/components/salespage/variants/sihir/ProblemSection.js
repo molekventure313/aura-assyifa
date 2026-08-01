@@ -5,7 +5,7 @@ export default function ProblemSection() {
     {
       title: 'Tidur Selalu Terganggu / Terkejut',
       desc: 'Sering terjaga tiba-tiba pada waktu malam dengan rasa cemas, dada berdebar atau mimpi yang menakutkan.',
-      img: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80'
+      img: '/images/sihir/sihir_hero.jpg'
     },
     {
       title: 'Sakit Selepas Asar (Bahagian Belakang)',
