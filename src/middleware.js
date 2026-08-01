@@ -44,7 +44,8 @@ export async function middleware(request) {
     request.nextUrl.pathname.startsWith('/api/tracking') ||
     request.nextUrl.pathname.startsWith('/api/setup') ||
     request.nextUrl.pathname.startsWith('/api/register-perawat') ||
-    request.nextUrl.pathname.startsWith('/api/settings');
+    request.nextUrl.pathname.startsWith('/api/settings') ||
+    request.nextUrl.pathname.startsWith('/api/perawat');
 
   if (!user && !isPublicRoute) {
     const url = request.nextUrl.clone();

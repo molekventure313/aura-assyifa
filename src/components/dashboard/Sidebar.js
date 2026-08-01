@@ -53,27 +53,24 @@ export default function Sidebar({ isOpen, onClose }) {
     setIsReceivingCases(newStatus);
     setUpdatingAvailability(true);
     try {
-      // Use the profile's own ID (the logged-in practitioner)
-      const targetId = profile?.id || user?.id;
-      const res = await fetch('/api/admin/users', {
+      // Use dedicated perawat status endpoint — uses session user's own ID
+      const res = await fetch('/api/perawat/status', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id: targetId,
-          // Only update is_receiving_cases — do NOT touch is_active (account status)
-          is_receiving_cases: newStatus
-        })
+        body: JSON.stringify({ is_receiving_cases: newStatus })
       });
 
-      if (res.ok) {
+      const json = await res.json();
+
+      if (res.ok && json.success) {
         showToast(
-          newStatus 
-            ? 'Status perawat: Aktif — Sedia menerima kes baru.' 
-            : 'Status perawat: Tidak Aktif — Tidak akan menerima kes baru.', 
+          newStatus
+            ? 'Status: Aktif — Sedia menerima kes baru.'
+            : 'Status: Tidak Aktif — Tidak akan menerima kes baru.',
           newStatus ? 'success' : 'info'
         );
       } else {
-        throw new Error();
+        throw new Error(json.error || 'Gagal');
       }
     } catch (e) {
       // Revert on failure
