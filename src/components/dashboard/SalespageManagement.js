@@ -1,0 +1,299 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
+const SALESPAGES = [
+  {
+    slug: 'sihir',
+    label: 'Angle: Sihir',
+    desc: 'Rawatan sihir pemisah, penghalang rezeki & penyakit misteri.',
+    url: '/sihir',
+    color: '#7C3AED',
+  },
+  {
+    slug: 'saka',
+    label: 'Angle: Saka',
+    desc: 'Gangguan turun-temurun yang mempengaruhi keluarga generasi demi generasi.',
+    url: '/saka',
+    color: '#B45309',
+  },
+  {
+    slug: 'gangguan-mistik',
+    label: 'Angle: Gangguan Mistik',
+    desc: 'Gangguan mistik umum: jin, sihir, saka, santau & gangguan rumah.',
+    url: '/gangguan-mistik',
+    color: '#0369A1',
+  },
+  {
+    slug: 'gangguan-berulang',
+    label: 'Angle: Gangguan Berulang',
+    desc: 'Sudah dirawat berkali-kali tapi gangguan masih kembali.',
+    url: '/gangguan-berulang',
+    color: '#BE123C',
+  },
+  {
+    slug: 'belum-zuriat',
+    label: 'Angle: Belum Dikurniakan Zuriat',
+    desc: 'Pasangan yang belum mendapat zuriat & keguguran berulang.',
+    url: '/belum-zuriat',
+    color: '#0F766E',
+  },
+  {
+    slug: 'kedai-tutup',
+    label: 'Angle: Perniagaan Merosot',
+    desc: 'Pelanggan lari, rezeki tersekat & gangguan pada premis perniagaan.',
+    url: '/kedai-tutup',
+    color: '#C2410C',
+  },
+];
+
+export default function SalespageManagement({ isLightMode, cardBg, cardBorder, textPrimary, textSecondary }) {
+  const [activeSlug, setActiveSlug] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(null); // slug being saved
+
+  useEffect(() => {
+    fetch('/api/settings/homepage')
+      .then(r => r.json())
+      .then(json => setActiveSlug(json.slug || null))
+      .catch(() => setActiveSlug(null))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const setAsHomepage = async (slug) => {
+    setSaving(slug);
+    try {
+      const res = await fetch('/api/settings/homepage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug }),
+      });
+      const json = await res.json();
+      if (json.success) {
+        setActiveSlug(slug);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setSaving(null);
+    }
+  };
+
+  const resetToDefault = async () => {
+    setSaving('__default__');
+    try {
+      const res = await fetch('/api/settings/homepage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug: null }),
+      });
+      const json = await res.json();
+      if (json.success) setActiveSlug(null);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setSaving(null);
+    }
+  };
+
+  const tBg = isLightMode ? '#F8FAFC' : '#0D0F18';
+  const tBorder = isLightMode ? '1px solid #E2E8F0' : '1px solid rgba(255,255,255,0.07)';
+
+  return (
+    <div
+      style={{
+        background: cardBg,
+        border: cardBorder,
+        borderRadius: '10px',
+        padding: '1.5rem',
+        marginBottom: '1.75rem',
+        boxShadow: isLightMode ? '0 1px 3px rgba(0,0,0,0.05)' : 'none',
+      }}
+    >
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.25rem' }}>
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.2rem' }}>
+            <span style={{ fontSize: '1rem' }}>🖥️</span>
+            <h3 style={{ margin: 0, fontSize: '1rem', fontWeight: 700, color: textPrimary }}>
+              Salespage Management
+            </h3>
+          </div>
+          <p style={{ margin: 0, fontSize: '0.8rem', color: textSecondary }}>
+            Pilih salespage yang akan dipaparkan sebagai homepage{' '}
+            <code style={{ background: isLightMode ? '#F1F5F9' : '#1E2230', padding: '0.1rem 0.4rem', borderRadius: '4px', fontSize: '0.75rem', color: isLightMode ? '#047857' : '#34D399' }}>
+              localhost:3000/
+            </code>
+          </p>
+        </div>
+
+        {/* Active Homepage Badge */}
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: '0.5rem',
+          background: activeSlug ? 'rgba(16,185,129,0.1)' : (isLightMode ? '#F1F5F9' : '#1A1D2A'),
+          border: activeSlug ? '1px solid rgba(16,185,129,0.35)' : tBorder,
+          padding: '0.45rem 0.85rem', borderRadius: '20px'
+        }}>
+          <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: activeSlug ? '#10B981' : '#6B7280', display: 'inline-block' }} />
+          <span style={{ fontSize: '0.75rem', fontWeight: 600, color: activeSlug ? '#10B981' : textSecondary }}>
+            {loading ? 'Memuatkan...' : activeSlug
+              ? `Aktif: /${activeSlug}`
+              : 'Homepage: Salespage Utama (Default)'}
+          </span>
+        </div>
+      </div>
+
+      {/* Default Homepage Card */}
+      <div style={{
+        background: !activeSlug ? (isLightMode ? '#F0FDF4' : 'rgba(16,185,129,0.07)') : tBg,
+        border: !activeSlug ? '2px solid #10B981' : tBorder,
+        borderRadius: '8px', padding: '1rem 1.25rem',
+        marginBottom: '1rem',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        flexWrap: 'wrap', gap: '0.75rem'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div style={{
+            width: '36px', height: '36px', borderRadius: '8px',
+            background: isLightMode ? '#DCFCE7' : 'rgba(16,185,129,0.15)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
+          }}>
+            <span style={{ fontSize: '1.1rem' }}>🏠</span>
+          </div>
+          <div>
+            <div style={{ fontWeight: 700, fontSize: '0.875rem', color: textPrimary }}>
+              Salespage Utama (Default)
+            </div>
+            <div style={{ fontSize: '0.75rem', color: textSecondary, marginTop: '0.1rem' }}>
+              Salespage asal ESyifaa — tanpa angle khusus
+            </div>
+          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          {!activeSlug ? (
+            <span style={{
+              fontSize: '0.72rem', fontWeight: 700, color: '#10B981',
+              background: 'rgba(16,185,129,0.15)', padding: '0.3rem 0.75rem',
+              borderRadius: '20px', border: '1px solid rgba(16,185,129,0.3)'
+            }}>
+              AKTIF SEBAGAI HOMEPAGE
+            </span>
+          ) : (
+            <button
+              onClick={resetToDefault}
+              disabled={saving === '__default__'}
+              style={{
+                padding: '0.45rem 1rem', fontSize: '0.78rem', fontWeight: 600,
+                background: 'transparent',
+                border: `1px solid ${isLightMode ? '#CBD5E1' : 'rgba(255,255,255,0.15)'}`,
+                borderRadius: '6px', color: textSecondary, cursor: 'pointer',
+                transition: 'all 0.15s ease',
+                opacity: saving === '__default__' ? 0.6 : 1
+              }}
+            >
+              {saving === '__default__' ? 'Menyimpan...' : 'Jadikan Homepage'}
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* 6 Variant Salespage Cards */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '0.85rem' }}>
+        {SALESPAGES.map((page) => {
+          const isActive = activeSlug === page.slug;
+          const isSaving = saving === page.slug;
+
+          return (
+            <div
+              key={page.slug}
+              style={{
+                background: isActive ? (isLightMode ? '#F0FDF4' : 'rgba(16,185,129,0.07)') : tBg,
+                border: isActive ? '2px solid #10B981' : tBorder,
+                borderRadius: '8px',
+                padding: '1rem 1.1rem',
+                display: 'flex', flexDirection: 'column', gap: '0.65rem',
+                transition: 'border-color 0.2s ease',
+              }}
+            >
+              {/* Card Header */}
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
+                <div style={{
+                  width: '32px', height: '32px', borderRadius: '7px', flexShrink: 0,
+                  background: `${page.color}22`,
+                  border: `1px solid ${page.color}44`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}>
+                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: page.color, display: 'block' }} />
+                </div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.85rem', color: textPrimary, marginBottom: '0.1rem' }}>
+                    {page.label}
+                  </div>
+                  <div style={{ fontSize: '0.73rem', color: textSecondary, lineHeight: 1.4 }}>
+                    {page.desc}
+                  </div>
+                </div>
+              </div>
+
+              {/* Slug URL */}
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: '0.4rem',
+                background: isLightMode ? '#F1F5F9' : '#1A1D2A',
+                padding: '0.3rem 0.6rem', borderRadius: '5px'
+              }}>
+                <span style={{ fontSize: '0.68rem', color: textSecondary, fontFamily: 'monospace' }}>
+                  localhost:3000{page.url}
+                </span>
+              </div>
+
+              {/* Action Row */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem', marginTop: '0.1rem' }}>
+                <a
+                  href={page.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontSize: '0.73rem', color: isLightMode ? '#047857' : '#34D399',
+                    textDecoration: 'none', fontWeight: 500,
+                    display: 'flex', alignItems: 'center', gap: '0.25rem'
+                  }}
+                >
+                  Lihat Preview →
+                </a>
+
+                {isActive ? (
+                  <span style={{
+                    fontSize: '0.68rem', fontWeight: 700, color: '#10B981',
+                    background: 'rgba(16,185,129,0.15)', padding: '0.25rem 0.65rem',
+                    borderRadius: '20px', border: '1px solid rgba(16,185,129,0.3)',
+                    whiteSpace: 'nowrap'
+                  }}>
+                    AKTIF SEBAGAI HOMEPAGE
+                  </span>
+                ) : (
+                  <button
+                    onClick={() => setAsHomepage(page.slug)}
+                    disabled={!!saving}
+                    style={{
+                      padding: '0.38rem 0.85rem', fontSize: '0.75rem', fontWeight: 600,
+                      background: isSaving ? 'rgba(16,185,129,0.2)' : (isLightMode ? '#047857' : '#064E3B'),
+                      border: `1px solid ${isLightMode ? '#047857' : '#065f46'}`,
+                      borderRadius: '6px',
+                      color: isLightMode ? '#FFFFFF' : '#34D399',
+                      cursor: saving ? 'not-allowed' : 'pointer',
+                      transition: 'all 0.15s ease',
+                      whiteSpace: 'nowrap',
+                      opacity: saving && !isSaving ? 0.5 : 1
+                    }}
+                  >
+                    {isSaving ? 'Menyimpan...' : 'Jadikan Homepage'}
+                  </button>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

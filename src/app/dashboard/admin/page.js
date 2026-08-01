@@ -1,9 +1,10 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import StatusBadge from '@/components/dashboard/StatusBadge';
 import { useToast } from '@/components/ui/Toast';
+import SalespageManagement from '@/components/dashboard/SalespageManagement';
 
 export default function AdminDashboardPage() {
   const [period, setPeriod] = useState('today');
@@ -387,6 +388,15 @@ export default function AdminDashboardPage() {
           </div>
 
           {/* Navigation Quick Links (3 Boxes - Pangkalan Data Pesakit Removed) */}
+          {/* ─── SALESPAGE MANAGEMENT ─── */}
+          <SalespageManagement
+            isLightMode={isLightMode}
+            cardBg={cardBg}
+            cardBorder={cardBorder}
+            textPrimary={textPrimary}
+            textSecondary={textSecondary}
+          />
+
           <div style={{ marginTop: '1.75rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
             <Link 
               href="/dashboard/admin/kes" 
