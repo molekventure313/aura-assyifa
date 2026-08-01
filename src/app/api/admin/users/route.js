@@ -95,7 +95,7 @@ export async function POST(req) {
 export async function PATCH(req) {
   try {
     const body = await req.json();
-    const { id, full_name, role, is_active, max_active_cases } = body;
+    const { id, full_name, role, is_active, is_receiving_cases, max_active_cases } = body;
     
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
@@ -107,6 +107,8 @@ export async function PATCH(req) {
     if (full_name !== undefined) updatePayload.full_name = full_name;
     if (role !== undefined) updatePayload.role = role;
     if (is_active !== undefined) updatePayload.is_active = is_active;
+    // is_receiving_cases: controls case assignment only, independent from is_active
+    if (is_receiving_cases !== undefined) updatePayload.is_receiving_cases = is_receiving_cases;
     if (max_active_cases !== undefined) updatePayload.max_active_cases = max_active_cases;
 
     const { error } = await adminSupabase

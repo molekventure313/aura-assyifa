@@ -31,17 +31,11 @@ export async function GET(req) {
       if (unassignedCases && unassignedCases.length > 0) {
         const { data: allProfiles } = await adminClient
           .from('profiles')
-          .select('id, role, is_active, created_at')
+          .select('id, role, is_active, is_receiving_cases, created_at')
           .order('created_at', { ascending: true });
 
-        // STRICT: only assign to practitioners with is_active = true
-        const activePractitioners = (allProfiles || []).filter(p =>
-          p.role !== 'super_admin' && p.is_active === true
-        );
-        // Fallback: any non-super_admin if no strictly active ones found
-        const fallbackList = activePractitioners.length > 0
-          ? activePractitioners
-          : (allProfiles || []).filter(p => p.role !== 'super_admin' && p.is_active !== false);
+        const activePractitioners = (allProfiles || []).filter(p => p.role !== 'super_admin' && p.is_active !== false && p.is_receiving_cases !== false);
+        const fallbackList = activePractitioners.length > 0 ? activePractitioners : (allProfiles || []).filter(p => p.role !== 'super_admin');
 
         if (fallbackList.length > 0) {
           for (let i = 0; i < unassignedCases.length; i++) {

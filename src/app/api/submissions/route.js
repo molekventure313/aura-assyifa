@@ -90,7 +90,7 @@ export async function POST(req) {
       await supabase
         .from('customers')
         .update({
-          // NOTE: Do NOT overwrite full_name — preserve original name to avoid all cases changing names
+          full_name: cleanName,
           address: address || existingCustomer.address || null,
           state: state || existingCustomer.state || null,
           problem: combinedProblemNotes,
@@ -165,12 +165,11 @@ export async function POST(req) {
       console.error('Error querying profiles:', profilesErr);
     }
 
-    // STRICT filter: only non-super_admin practitioners with is_active STRICTLY = true
-    // Practitioners with is_active = false (e.g., Kamal set inactive) will NOT receive cases
+    // Filter: only non-super_admin practitioners with is_active = true (or null as fallback)
     const activePractitioners = (allProfiles || []).filter(p => {
       const isNotSuperAdmin = p.role !== 'super_admin';
-      const isStrictlyActive = p.is_active === true;
-      return isNotSuperAdmin && isStrictlyActive;
+      const isActive = p.is_active === true || p.is_active == null;
+      return isNotSuperAdmin && isActive;
     });
 
     let assignedPractitioner = null;
@@ -202,10 +201,9 @@ export async function POST(req) {
       }
     }
 
-    // Safety Fallback: only pick active non-super_admin if still unassigned
-    // Do NOT fallback to inactive practitioners
+    // Safety Fallback: pick any non-super_admin if still unassigned
     if (!assignedPractitioner && allProfiles && allProfiles.length > 0) {
-      assignedPractitioner = allProfiles.find(p => p.role !== 'super_admin' && p.is_active === true) || null;
+      assignedPractitioner = allProfiles.find(p => p.role !== 'super_admin') || null;
     }
 
     const caseInitialStatus = assignedPractitioner ? 'Sedang Diurus' : 'Baru';

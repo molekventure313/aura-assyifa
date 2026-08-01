@@ -34,46 +34,51 @@ export default function Sidebar({ isOpen, onClose }) {
     return () => observer.disconnect();
   }, []);
 
-  // Practitioner Availability Toggle — reads/writes is_active from DB
-  // null = still loading from DB (prevents false reset to Active)
-  const [isActive, setIsActive] = useState(null);
+  // Practitioner Availability Toggle State (Default to Active)
+  const [isReceivingCases, setIsReceivingCases] = useState(true);
   const [updatingAvailability, setUpdatingAvailability] = useState(false);
 
   useEffect(() => {
     if (profile) {
-      // Read is_active from profile — null/undefined means treat as active
-      setIsActive(profile.is_active !== false);
+      // Load persisted status from DB.
+      // If is_receiving_cases is null/undefined, default to true (active)
+      const savedStatus = profile.is_receiving_cases;
+      setIsReceivingCases(savedStatus !== false);
     }
   }, [profile]);
 
   const handleToggleAvailability = async (newStatus) => {
-    if (isActive === newStatus || updatingAvailability) return;
-    setIsActive(newStatus);
+    if (isReceivingCases === newStatus || updatingAvailability) return;
+    // Optimistic update
+    setIsReceivingCases(newStatus);
     setUpdatingAvailability(true);
     try {
+      // Use the profile's own ID (the logged-in practitioner)
       const targetId = profile?.id || user?.id;
       const res = await fetch('/api/admin/users', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           id: targetId,
-          is_active: newStatus   // write to is_active (the real DB column)
+          // Only update is_receiving_cases — do NOT touch is_active (account status)
+          is_receiving_cases: newStatus
         })
       });
 
       if (res.ok) {
         showToast(
-          newStatus
-            ? 'Status perawat: Aktif (Sedia Menerima Kes)'
-            : 'Status perawat: Tak Aktif (Tidak Menerima Kes)',
+          newStatus 
+            ? 'Status perawat: Aktif — Sedia menerima kes baru.' 
+            : 'Status perawat: Tidak Aktif — Tidak akan menerima kes baru.', 
           newStatus ? 'success' : 'info'
         );
       } else {
         throw new Error();
       }
     } catch (e) {
-      showToast('Gagal mengemaskini status perawat', 'error');
-      setIsActive(!newStatus);
+      // Revert on failure
+      showToast('Gagal mengemaskini status. Cuba lagi.', 'error');
+      setIsReceivingCases(!newStatus);
     } finally {
       setUpdatingAvailability(false);
     }
@@ -249,74 +254,68 @@ export default function Sidebar({ isOpen, onClose }) {
         {/* PRACTITIONER AVAILABILITY TOGGLE BUTTON (Placed Directly Above Profile Card) */}
         {!isAdminPath && (
           <div style={{ padding: '0.5rem 0.75rem 0.25rem 0.75rem' }}>
-            {isActive === null ? (
-              // Still loading status from DB — show skeleton
-              <div style={{ height: '38px', borderRadius: '8px', background: isLightMode ? '#E2E8F0' : '#12151E', opacity: 0.5 }} />
-            ) : (
-              <div
+            <div 
+              style={{ 
+                background: isLightMode ? '#E2E8F0' : '#12151E', 
+                border: isLightMode ? '1px solid #CBD5E1' : '1px solid rgba(255, 255, 255, 0.1)', 
+                borderRadius: '8px', 
+                padding: '3px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '2px'
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => handleToggleAvailability(false)}
                 style={{
-                  background: isLightMode ? '#E2E8F0' : '#12151E',
-                  border: isLightMode ? '1px solid #CBD5E1' : '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '8px',
-                  padding: '3px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  gap: '2px'
+                  flex: 1,
+                  padding: '0.45rem 0.5rem',
+                  borderRadius: '6px',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease',
+                  background: !isReceivingCases 
+                    ? (isLightMode ? '#FFFFFF' : '#1A1E2B') 
+                    : 'transparent',
+                  color: !isReceivingCases 
+                    ? '#EF4444' 
+                    : (isLightMode ? '#64748B' : '#6B7280'),
+                  boxShadow: !isReceivingCases ? (isLightMode ? '0 1px 4px rgba(0,0,0,0.1)' : '0 2px 6px rgba(0,0,0,0.3)') : 'none'
                 }}
               >
-                <button
-                  type="button"
-                  onClick={() => handleToggleAvailability(false)}
-                  style={{
-                    flex: 1,
-                    padding: '0.45rem 0.5rem',
-                    borderRadius: '6px',
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    border: 'none',
-                    cursor: 'pointer',
-                    transition: 'all 0.15s ease',
-                    background: !isActive
-                      ? (isLightMode ? '#FFFFFF' : '#1A1E2B')
-                      : 'transparent',
-                    color: !isActive
-                      ? '#EF4444'
-                      : (isLightMode ? '#64748B' : '#6B7280'),
-                    boxShadow: !isActive ? (isLightMode ? '0 1px 4px rgba(0,0,0,0.1)' : '0 2px 6px rgba(0,0,0,0.3)') : 'none'
-                  }}
-                >
-                  Tak Aktif
-                </button>
+                Tak Aktif
+              </button>
 
-                <button
-                  type="button"
-                  onClick={() => handleToggleAvailability(true)}
-                  style={{
-                    flex: 1,
-                    padding: '0.45rem 0.5rem',
-                    borderRadius: '6px',
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    border: 'none',
-                    cursor: 'pointer',
-                    transition: 'all 0.15s ease',
-                    background: isActive
-                      ? (isLightMode ? '#FFFFFF' : '#1F2432')
-                      : 'transparent',
-                    color: isActive
-                      ? (isLightMode ? '#059669' : '#34D399')
-                      : (isLightMode ? '#64748B' : '#6B7280'),
-                    boxShadow: isActive ? (isLightMode ? '0 1px 4px rgba(0,0,0,0.1)' : '0 2px 6px rgba(0,0,0,0.3)') : 'none'
-                  }}
-                >
-                  Aktif
-                </button>
-              </div>
-            )}
+              <button
+                type="button"
+                onClick={() => handleToggleAvailability(true)}
+                style={{
+                  flex: 1,
+                  padding: '0.45rem 0.5rem',
+                  borderRadius: '6px',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease',
+                  background: isReceivingCases 
+                    ? (isLightMode ? '#FFFFFF' : '#1F2432') 
+                    : 'transparent',
+                  color: isReceivingCases 
+                    ? (isLightMode ? '#059669' : '#34D399') 
+                    : (isLightMode ? '#64748B' : '#6B7280'),
+                  boxShadow: isReceivingCases ? (isLightMode ? '0 1px 4px rgba(0,0,0,0.1)' : '0 2px 6px rgba(0,0,0,0.3)') : 'none'
+                }}
+              >
+                Aktif
+              </button>
+            </div>
           </div>
         )}
-
         
         {/* User Profile Footer Card */}
         <div 

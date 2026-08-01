@@ -39,7 +39,7 @@ export function useAuth() {
     async function fetchProfile(userId) {
       const { data, error } = await supabase
         .from('profiles')
-        .select('role, full_name')
+        .select('id, role, full_name, is_active, is_receiving_cases')
         .eq('id', userId)
         .single();
         
