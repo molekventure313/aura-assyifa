@@ -9,6 +9,14 @@ export default function HeroSection() {
     }
   };
 
+  const signs = [
+    'kerap bermimpi berjumpa orang lama/keturunan',
+    'banyak kali bermimpi menerima atau menyusukan bayi',
+    'selalu bermimpi rumah lama atau haiwan ganas (ular, harimau, buaya)',
+    'tiba-tiba boleh merawat orang lain walaupun tak pernah belajar merawat',
+    'mimpi jatuh dari tempat tinggi berulang kali'
+  ];
+
   return (
     <section 
       style={{
@@ -43,7 +51,7 @@ export default function HeroSection() {
           Adakah Keluarga Anda Mewarisi Gangguan Saka Yang Belum Diselesaikan?
         </h1>
 
-        {/* Masih alami gangguan sub-points card */}
+        {/* Sub-points card */}
         <div 
           style={{ 
             background: '#064E3B', 
@@ -56,21 +64,15 @@ export default function HeroSection() {
           }}
         >
           <div style={{ fontWeight: 800, fontSize: '1rem', color: '#FDE047', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Tanda-tanda saka mungkin mempengaruhi keluarga anda:
+            Tanda-tanda anda berkemungkinan ada saka:
           </div>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.975rem', color: '#FFFFFF' }}>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Ahli keluarga silih berganti mengalami penyakit misteri tanpa punca.</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Ada anggota keluarga yang berkelakuan aneh atau kerap dirasuk.</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Masalah yang sama berulang dari satu generasi ke generasi berikutnya.</span>
-            </li>
+            {signs.map((sign, idx) => (
+              <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+                <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
+                <span>{sign}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -95,22 +97,6 @@ export default function HeroSection() {
             alt="Gambar Hero ESyifaa Ikhtiar Rawatan Saka" 
             style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '420px', objectFit: 'cover' }}
           />
-        </div>
-
-        {/* Video Testimoni Terbaik Player Card */}
-        <div style={{ marginBottom: '2.5rem', background: '#042E23', border: '2px solid #FDE047', borderRadius: '12px', padding: '1.25rem', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
-          <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#FDE047', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Video Testimoni Keluarga Yang Berjaya Bebas Dari Ikatan Saka
-          </div>
-          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: '8px', overflow: 'hidden', background: '#000' }}>
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1&modestbranding=1" 
-              title="Video Testimoni Terbaik ESyifaa" 
-              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-            />
-          </div>
         </div>
 
         {/* Primary CTA Button (Kuning + Font Hitam) */}

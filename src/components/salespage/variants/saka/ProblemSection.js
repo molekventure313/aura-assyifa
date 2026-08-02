@@ -2,31 +2,12 @@
 
 export default function ProblemSection() {
   const problems = [
-    {
-      title: 'Penyakit Berturun-Temurun',
-      desc: 'Penyakit misteri yang sama dialami oleh ibu bapa, datuk nenek dan kini anda pula.',
-      img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      title: 'Ahli Keluarga Kerap Dirasuk',
-      desc: 'Ada dalam kalangan ahli keluarga yang mudah dirasuk atau mengalami perubahan perangai yang ketara.',
-      img: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      title: 'Rezeki Keluarga Tersekat',
-      desc: 'Sudah bertahun-tahun berusaha keras tetapi kehidupan keluarga tidak pernah benar-benar maju.',
-      img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      title: 'Perselisihan Dalam Keluarga',
-      desc: 'Ahli keluarga sering bergaduh sesama sendiri, hubungan adik-beradik renggang tanpa sebab yang jelas.',
-      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      title: 'Mimpi Pelik Berulang',
-      desc: 'Mimpi dikunjungi oleh rupa orang yang sudah meninggal atau entiti asing yang datang berulang kali.',
-      img: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80'
-    }
+    'perawat sebelum ni cakap saka susah buang',
+    'banyak kali berubat tapi saka tak hilang',
+    'rasa ada sesuatu yang mengikut tapi bukan manusia',
+    'anak dara yang ada saka akan jadi anak dara tua (sekat jodoh)',
+    'kalau berjaya kahwin sekalipun, saka akan sekat zuriat (banyak gugur)',
+    'kebiasaannya keluarga yang ada saka akan selalu berlaku pergaduhan'
   ];
 
   return (
@@ -45,15 +26,15 @@ export default function ProblemSection() {
         </span>
         
         <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.4rem', marginBottom: '0.8rem', letterSpacing: '-0.02em' }}>
-          Adakah Keluarga Anda Mengalami Tanda-Tanda Ini?
+          Adakah Anda Mengalami Masalah Dibawah Ini?
         </h2>
 
         <p style={{ fontSize: '1rem', color: '#FFFFFF', marginBottom: '2.5rem', maxWidth: '750px', margin: '0 auto 2.5rem auto', lineHeight: 1.6 }}>
-          Gangguan saka sering tidak disedari kerana ia berlaku secara turun-temurun dan dianggap perkara biasa dalam keluarga.
+          Gangguan saka sering tidak disedari kerana ia berlaku secara turun-temurun dan memberi kesan berpanjangan kepada kehidupan serta keluarga.
         </p>
 
-        {/* 5 Masalah Utama Grid (White Cards + Black Text) */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
+        {/* 6 Problem List (Cards without images) */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', textAlign: 'left' }}>
           {problems.map((p, idx) => (
             <div 
               key={idx}
@@ -61,28 +42,19 @@ export default function ProblemSection() {
                 background: '#FFFFFF',
                 border: '2px solid #FDE047',
                 borderRadius: '12px',
-                overflow: 'hidden',
+                padding: '1.25rem 1.4rem',
                 boxShadow: '0 8px 20px rgba(0,0,0,0.25)',
                 display: 'flex',
-                flexDirection: 'column',
-                textAlign: 'left'
+                alignItems: 'flex-start',
+                gap: '0.85rem'
               }}
             >
-              <img 
-                src={p.img} 
-                alt={p.title}
-                style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block' }}
-              />
-              <div style={{ padding: '1.1rem' }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', marginBottom: '0.5rem' }}>
-                  <span style={{ fontWeight: 800, fontSize: '1rem', color: '#0F172A', lineHeight: 1.3 }}>
-                    {p.title}
-                  </span>
-                </div>
-                <p style={{ margin: 0, fontSize: '0.85rem', color: '#374151', lineHeight: 1.5 }}>
-                  {p.desc}
-                </p>
+              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#DC2626', color: '#FFFFFF', fontWeight: 800, fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>
+                ✖
               </div>
+              <span style={{ fontWeight: 700, fontSize: '0.975rem', color: '#0F172A', lineHeight: 1.5 }}>
+                {p}
+              </span>
             </div>
           ))}
         </div>
