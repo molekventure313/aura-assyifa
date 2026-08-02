@@ -61,15 +61,23 @@ export default function HeroSection() {
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.975rem', color: '#FFFFFF' }}>
             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
               <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Sudah disahkan tiada masalah perubatan tetapi masih belum hamil.</span>
+              <span>pernah hamil tapi kerap berlaku keguguran tanpa sebab yang jelas</span>
             </li>
             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
               <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Pernah hamil tetapi keguguran berulang kali tanpa sebab yang jelas.</span>
+              <span>sudah disahkan kesihatan pasangan normal tetapi masih belum berjaya ada zuriat</span>
             </li>
             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
               <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Hubungan rumah tangga terasa renggang dan kurang harmoni sejak kebelakangan ini.</span>
+              <span>disahkan hamil tapi tiba-tiba hilang dalam kandungan</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
+              <span>selalu bergaduh dalam rumah tangga, kadang hanya sebab perkara terlalu kecil</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
+              <span>pasangan tak boleh tidur sekatil (akan rasa tak selesa)</span>
             </li>
           </ul>
         </div>
@@ -97,21 +105,7 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* Video Testimoni Terbaik Player Card */}
-        <div style={{ marginBottom: '2.5rem', background: '#042E23', border: '2px solid #FDE047', borderRadius: '12px', padding: '1.25rem', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
-          <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#FDE047', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            🎬 Video Testimoni Pasangan Yang Dikurniakan Zuriat Selepas Mendapat Rawatan
-          </div>
-          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: '8px', overflow: 'hidden', background: '#000' }}>
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1&modestbranding=1" 
-              title="Video Testimoni Terbaik ESyifaa" 
-              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-            />
-          </div>
-        </div>
+
 
         {/* Primary CTA Button (Kuning + Font Hitam) */}
         <div>
@@ -132,7 +126,7 @@ export default function HeroSection() {
               border: '2px solid #FEF08A'
             }}
           >
-            👉 Dapatkan Diagnos Percuma Sekarang
+            Dapatkan Diagnos Percuma Sekarang
           </a>
         </div>
 
