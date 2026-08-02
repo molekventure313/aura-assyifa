@@ -99,9 +99,9 @@ export default function HeroSection() {
         {/* Hero Image Showcase */}
         <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
           <img 
-            src="https://images.unsplash.com/photo-1607453998774-d533f65dac99?auto=format&fit=crop&w=1200&q=80" 
-            alt="Gambar Hero ESyifaa Ikhtiar Rawatan Islam" 
-            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '420px', objectFit: 'cover' }}
+            src="/images/belum-zuriat/belum_zuriat_hero.png" 
+            alt="Gambar Hero ESyifaa Ikhtiar Rawatan Belum Zuriat" 
+            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '500px', objectFit: 'cover', objectPosition: 'center top' }}
           />
         </div>
 
