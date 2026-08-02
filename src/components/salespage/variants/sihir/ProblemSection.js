@@ -3,39 +3,34 @@
 export default function ProblemSection() {
   const problems = [
     {
-      title: 'Tidur Selalu Terganggu / Terkejut',
-      desc: 'Sering terjaga tiba-tiba pada waktu malam dengan rasa cemas, dada berdebar atau mimpi yang menakutkan.',
+      title: 'Hubungan Rumah Tangga Retak & Sering Bergaduh',
+      desc: 'Emosi cepat panas dengan pasangan, hilang rasa kasih sayang dan perkara kecil kerap menjadi punca pertengkaran hebat.',
+      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
+    },
+    {
+      title: 'Pintu Rezeki & Perniagaan Tersekat',
+      desc: 'Berniaga atau bekerja keras tetapi pendapatan sentiasa tidak mencukupi, pelanggan lari atau perniagaan merosot secara pelik.',
+      img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80'
+    },
+    {
+      title: 'Sakit Fizikal Berterusan Tanpa Punca Perubatan',
+      desc: 'Kesakitan badan yang mencucuk, sengal belikat terutamanya selepas Asar walaupun doktor sahkan semua keputusan ujian normal.',
       img: '/images/sihir/sihir_hero.jpg'
     },
     {
-      title: 'Sakit Selepas Asar (Bahagian Belakang)',
-      desc: 'Badan mula berasa berat, lenguh dan sakit mencucuk terutamanya di bahagian belakang dan bahu sebaik waktu Asar menjelang.',
-      img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      title: 'Sakit Kepala Bukan Darah Tinggi / Migrain',
-      desc: 'Kesakitan dan cengkaman di kepala yang berterusan walaupun sudah makan ubat perubatan biasa.',
+      title: 'Badan Sentiasa Lesu & Sukar Tidur Malam',
+      desc: 'Terjaga tiba-tiba pada waktu malam dalam keadaan cemas, dada berdebar-debar serta kerap mendapat mimpi buruk menakutkan.',
       img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80'
     },
     {
-      title: 'Rasa Ada Sesuatu Merayap Dalam Badan',
-      desc: 'Sensasi pelik seolah-olah ada benda atau entiti bergerak di bawah kulit, otot atau bahagian anggota tertentu.',
+      title: 'Perubahan Perangai & Emosi Tidak Terkawal',
+      desc: 'Mudah marah, cemas melampau tanpa sebab, rasa sedih mendalam atau tiba-tiba rasa ingin menyendiri dari keluarga.',
       img: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=600&q=80'
     },
     {
-      title: 'Sakit Tanpa Punca Perubatan',
-      desc: 'Pemeriksaan doktor dan ujian klinikal di hospital mengesahkan badan sihat, tetapi kesakitan fizikal tetap dirasai.',
-      img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      title: 'Panas Badan Beralih-Alih',
-      desc: 'Sensasi bahang panas yang berpindah dari satu bahagian badan ke bahagian lain tanpa sebarang demam fizikal.',
+      title: 'Suasana Rumah Terasa Panas & Gangguan Misteri',
+      desc: 'Kediaman berasa tidak selesa, ahli keluarga bergantian sakit atau terasa diperhatikan oleh entiti asing di dalam rumah.',
       img: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      title: 'Kerap Bergaduh Suami Isteri',
-      desc: 'Hubungan rumah tangga mula dingin, emosi cepat meluap-luap dan perkara kecil kerap menjadi punca pergaduhan besar.',
-      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
     }
   ];
 
@@ -55,14 +50,14 @@ export default function ProblemSection() {
         </span>
         
         <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.4rem', marginBottom: '0.8rem', letterSpacing: '-0.02em' }}>
-          Adakah Anda Mengalami Tanda-Tanda Ini?
+          Adakah Anda Mengalami Masalah Dibawah Ini?
         </h2>
 
         <p style={{ fontSize: '1rem', color: '#FFFFFF', marginBottom: '2.5rem', maxWidth: '750px', margin: '0 auto 2.5rem auto', lineHeight: 1.6 }}>
-          Sihir boleh hadir dalam pelbagai bentuk dan menjejaskan fizikal, emosi serta keharmonian rumah tangga anda.
+          Sihir boleh hadir dalam pelbagai bentuk dan memusnahkan kesihatan fizikal, emosi serta keharmonian rumah tangga dan keluarga anda.
         </p>
 
-        {/* 7 Masalah Utama Grid */}
+        {/* 6 Masalah Utama Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
           {problems.map((p, idx) => (
             <div 
