@@ -97,21 +97,7 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* Video Testimoni Terbaik Player Card */}
-        <div style={{ marginBottom: '2.5rem', background: '#042E23', border: '2px solid #FDE047', borderRadius: '12px', padding: '1.25rem', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
-          <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#FDE047', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Video Testimoni Pesakit Yang Berjaya Sembuh Selepas Gangguan Berulang
-          </div>
-          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: '8px', overflow: 'hidden', background: '#000' }}>
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1&modestbranding=1" 
-              title="Video Testimoni Gangguan Berulang" 
-              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-            />
-          </div>
-        </div>
+
 
         {/* Primary CTA Button (Kuning + Font Hitam) */}
         <div>
