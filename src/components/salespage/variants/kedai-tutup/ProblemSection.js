@@ -2,36 +2,12 @@
 
 export default function ProblemSection() {
   const problems = [
-    {
-      title: 'Pelanggan Tiba-Tiba Lari',
-      desc: 'Pelanggan setia yang sering datang tiba-tiba berhenti tanpa memberi sebarang alasan yang munasabah.',
-      img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80',
-      emoji: '🏃'
-    },
-    {
-      title: 'Rezeki Tidak Maju',
-      desc: 'Perniagaan berjalan tetapi pendapatan tidak pernah mencukupi, selalu ada sahaja perbelanjaan luar jangka.',
-      img: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=600&q=80',
-      emoji: '📉'
-    },
-    {
-      title: 'Persekitaran Premis Tidak Selesa',
-      desc: 'Pekerja atau anda sendiri sering rasa tidak selesa, mudah sakit atau ada perasaan tidak kena di premis perniagaan.',
-      img: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=600&q=80',
-      emoji: '🏚️'
-    },
-    {
-      title: 'Rakan Kongsi Bermasalah',
-      desc: 'Perselisihan faham dengan rakan kongsi yang tidak dapat diselesaikan atau pengkhianatan yang berlaku secara tiba-tiba.',
-      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
-      emoji: '🤝'
-    },
-    {
-      title: 'Stok Selalu Rosak atau Hilang',
-      desc: 'Barangan atau stok perniagaan sering rosak, hilang atau mengalami kerosakan yang pelik tanpa penjelasan yang logik.',
-      img: 'https://images.unsplash.com/photo-1499209974431-9dac3ada00d7?auto=format&fit=crop&w=600&q=80',
-      emoji: '📦'
-    }
+    'suasana kedai suram dan berat',
+    'diri rajin tapi bila nak pergi kedai rasa terlampau malas',
+    'bila duduk kedai rasa serabut dan jiwa tak tenang',
+    'bahagian sendi-sendi rasa sakit',
+    'dari tulang punggung sampai ke belakang belikat rasa sakit (seperti ada benda mencengkam)',
+    'makanan di kedai cepat sangat basi tanpa sebab'
   ];
 
   return (
@@ -50,15 +26,15 @@ export default function ProblemSection() {
         </span>
         
         <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.4rem', marginBottom: '0.8rem', letterSpacing: '-0.02em' }}>
-          Adakah Perniagaan Anda Mengalami Tanda-Tanda Ini?
+          Adakah bila di kedai anda rasa seperti ini?
         </h2>
 
         <p style={{ fontSize: '1rem', color: '#FFFFFF', marginBottom: '2.5rem', maxWidth: '750px', margin: '0 auto 2.5rem auto', lineHeight: 1.6 }}>
           Gangguan mistik pada perniagaan boleh berlaku dalam pelbagai cara dan sering kali sukar dikesan tanpa penilaian yang teliti.
         </p>
 
-        {/* 5 Masalah Utama Grid (White Cards + Black Text) */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
+        {/* 6 Problem List (Clean Text Cards without images) */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', textAlign: 'left' }}>
           {problems.map((p, idx) => (
             <div 
               key={idx}
@@ -66,29 +42,19 @@ export default function ProblemSection() {
                 background: '#FFFFFF',
                 border: '2px solid #FDE047',
                 borderRadius: '12px',
-                overflow: 'hidden',
+                padding: '1.25rem 1.4rem',
                 boxShadow: '0 8px 20px rgba(0,0,0,0.25)',
                 display: 'flex',
-                flexDirection: 'column',
-                textAlign: 'left'
+                alignItems: 'flex-start',
+                gap: '0.85rem'
               }}
             >
-              <img 
-                src={p.img} 
-                alt={p.title}
-                style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block' }}
-              />
-              <div style={{ padding: '1.1rem' }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', marginBottom: '0.5rem' }}>
-                  <span style={{ fontSize: '1.4rem', lineHeight: 1 }}>{p.emoji}</span>
-                  <span style={{ fontWeight: 800, fontSize: '1rem', color: '#0F172A', lineHeight: 1.3 }}>
-                    {p.title}
-                  </span>
-                </div>
-                <p style={{ margin: 0, fontSize: '0.85rem', color: '#374151', lineHeight: 1.5 }}>
-                  {p.desc}
-                </p>
+              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#DC2626', color: '#FFFFFF', fontWeight: 800, fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>
+                ✖
               </div>
+              <span style={{ fontWeight: 700, fontSize: '0.975rem', color: '#0F172A', lineHeight: 1.5 }}>
+                {p}
+              </span>
             </div>
           ))}
         </div>

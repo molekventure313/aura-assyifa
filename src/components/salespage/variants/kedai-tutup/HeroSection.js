@@ -9,6 +9,14 @@ export default function HeroSection() {
     }
   };
 
+  const signs = [
+    'kedai buka tetapi pelanggan nampak kedai tutup',
+    'pekerja tiba-tiba berhenti tanpa sebab yang jelas',
+    'pelanggan yang sentiasa datang tiba-tiba menghilang dan tak datang lagi',
+    'makanan sedap tetapi pelanggan tak datang repeat',
+    'sales makin teruk walaupun usaha dah berlipat kali ganda dari biasa'
+  ];
+
   return (
     <section 
       style={{
@@ -43,7 +51,7 @@ export default function HeroSection() {
           Perniagaan Anda Semakin Merosot dan Pelanggan Lari? Mungkin Bukan Semata-Mata Faktor Perniagaan
         </h1>
 
-        {/* Masih alami gangguan sub-points card */}
+        {/* Sub-points card */}
         <div 
           style={{ 
             background: '#064E3B', 
@@ -59,18 +67,12 @@ export default function HeroSection() {
             Adakah perniagaan anda mengalami perkara berikut?
           </div>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.975rem', color: '#FFFFFF' }}>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Pelanggan yang biasa datang tiba-tiba berhenti tanpa sebab yang jelas.</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Perniagaan semakin merosot walaupun anda sudah berusaha keras dan ubah strategi.</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Pekerja atau rakan kongsi selalu bermasalah dan perniagaan tidak dapat berjalan lancar.</span>
-            </li>
+            {signs.map((sign, idx) => (
+              <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+                <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
+                <span>{sign}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -89,28 +91,12 @@ export default function HeroSection() {
         </p>
 
         {/* Hero Image Showcase */}
-        <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+        <div style={{ marginBottom: '2.5rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
           <img 
             src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" 
             alt="Gambar Hero ESyifaa Ikhtiar Rawatan Islam" 
-            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '420px', objectFit: 'cover' }}
+            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '450px', objectFit: 'cover' }}
           />
-        </div>
-
-        {/* Video Testimoni Terbaik Player Card */}
-        <div style={{ marginBottom: '2.5rem', background: '#042E23', border: '2px solid #FDE047', borderRadius: '12px', padding: '1.25rem', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
-          <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#FDE047', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            🎬 Video Testimoni Peniaga Yang Perniagaannya Pulih Selepas Mendapat Rawatan
-          </div>
-          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: '8px', overflow: 'hidden', background: '#000' }}>
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1&modestbranding=1" 
-              title="Video Testimoni Terbaik ESyifaa" 
-              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-            />
-          </div>
         </div>
 
         {/* Primary CTA Button (Kuning + Font Hitam) */}
@@ -132,7 +118,7 @@ export default function HeroSection() {
               border: '2px solid #FEF08A'
             }}
           >
-            👉 Dapatkan Diagnos Percuma Sekarang
+            Dapatkan Diagnos Percuma Sekarang
           </a>
         </div>
 
