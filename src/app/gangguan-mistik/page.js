@@ -1,57 +1,5 @@
-'use client';
-
-import { useEffect } from 'react';
-import HeroSection from '@/components/salespage/variants/gangguan-mistik/HeroSection';
-import TestimonialSection from '@/components/salespage/TestimonialSection';
-import ProblemSection from '@/components/salespage/variants/gangguan-mistik/ProblemSection';
-import FearsSection from '@/components/salespage/FearsSection';
-import MatlamatSection from '@/components/salespage/variants/gangguan-mistik/MatlamatSection';
-import ProcessSection from '@/components/salespage/ProcessSection';
-import TestimonialPart2Section from '@/components/salespage/TestimonialPart2Section';
-import CTASection from '@/components/salespage/CTASection';
-import PricingSection from '@/components/salespage/PricingSection';
-import GuaranteeSection from '@/components/salespage/GuaranteeSection';
-import ApplicationForm from '@/components/salespage/ApplicationForm';
-import FAQSection from '@/components/salespage/variants/gangguan-mistik/FAQSection';
-import ClosingSection from '@/components/salespage/variants/gangguan-mistik/ClosingSection';
-import { trackPageView, trackEvent } from '@/lib/tracking/pixel';
+import { redirect } from 'next/navigation';
 
 export default function GangguanMistikPage() {
-  useEffect(() => {
-    try {
-      trackPageView();
-      trackEvent('ViewContent');
-    } catch(err) {
-      console.log('Pixel tracking non-blocking issue', err);
-    }
-  }, []);
-
-  return (
-    <main style={{ minHeight: '100vh', background: '#042E23' }}>
-      <HeroSection />
-      <TestimonialSection />
-      <ProblemSection />
-      <FearsSection />
-      <MatlamatSection />
-      <TestimonialPart2Section />
-      <CTASection />
-      <PricingSection />
-      <GuaranteeSection />
-      <ProcessSection />
-      <ApplicationForm />
-      <FAQSection />
-      <ClosingSection />
-
-      <footer style={{ background: '#021812', color: '#FFFFFF', padding: '2rem 1rem', textAlign: 'center', fontSize: '0.85rem', borderTop: '1px solid rgba(254, 243, 199, 0.15)' }}>
-        <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ margin: '0 0 0.5rem 0', fontWeight: 800, fontSize: '1.05rem', color: '#FEF3C7' }}>
-            🌿 ESyifaa · Rawatan Jarak Jauh Gangguan Jin, Sihir, Santau &amp; Saka
-          </p>
-          <p style={{ margin: 0, opacity: 0.85, fontSize: '0.8rem', color: '#D1D5DB' }}>
-            © {new Date().getFullYear()} ESyifaa. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
-          </p>
-        </div>
-      </footer>
-    </main>
-  );
+  redirect('/penyakit-misteri');
 }

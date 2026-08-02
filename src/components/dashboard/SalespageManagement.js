@@ -18,10 +18,10 @@ const SALESPAGES = [
     color: '#B45309',
   },
   {
-    slug: 'gangguan-mistik',
-    label: 'Angle: Gangguan Mistik',
-    desc: 'Gangguan mistik umum: jin, sihir, saka, santau & gangguan rumah.',
-    url: '/gangguan-mistik',
+    slug: 'penyakit-misteri',
+    label: 'Angle: Penyakit Misteri',
+    desc: 'Sakit berterusan tapi doktor & ujian hospital sahkan semua normal.',
+    url: '/penyakit-misteri',
     color: '#0369A1',
   },
   {

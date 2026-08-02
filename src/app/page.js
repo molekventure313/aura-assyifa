@@ -31,12 +31,12 @@ import SakaMatlamat from '@/components/salespage/variants/saka/MatlamatSection';
 import SakaFAQ from '@/components/salespage/variants/saka/FAQSection';
 import SakaClosing from '@/components/salespage/variants/saka/ClosingSection';
 
-// Variant: gangguan-mistik
-import GangguanMistikHero from '@/components/salespage/variants/gangguan-mistik/HeroSection';
-import GangguanMistikProblem from '@/components/salespage/variants/gangguan-mistik/ProblemSection';
-import GangguanMistikMatlamat from '@/components/salespage/variants/gangguan-mistik/MatlamatSection';
-import GangguanMistikFAQ from '@/components/salespage/variants/gangguan-mistik/FAQSection';
-import GangguanMistikClosing from '@/components/salespage/variants/gangguan-mistik/ClosingSection';
+// Variant: penyakit-misteri
+import PenyakitMisteriHero from '@/components/salespage/variants/penyakit-misteri/HeroSection';
+import PenyakitMisteriProblem from '@/components/salespage/variants/penyakit-misteri/ProblemSection';
+import PenyakitMisteriMatlamat from '@/components/salespage/variants/penyakit-misteri/MatlamatSection';
+import PenyakitMisteriFAQ from '@/components/salespage/variants/penyakit-misteri/FAQSection';
+import PenyakitMisteriClosing from '@/components/salespage/variants/penyakit-misteri/ClosingSection';
 
 // Variant: gangguan-berulang
 import GangguanBerulangHero from '@/components/salespage/variants/gangguan-berulang/HeroSection';
@@ -77,12 +77,19 @@ const VARIANT_MAP = {
     FAQ: SakaFAQ,
     Closing: SakaClosing,
   },
+  'penyakit-misteri': {
+    Hero: PenyakitMisteriHero,
+    Problem: PenyakitMisteriProblem,
+    Matlamat: PenyakitMisteriMatlamat,
+    FAQ: PenyakitMisteriFAQ,
+    Closing: PenyakitMisteriClosing,
+  },
   'gangguan-mistik': {
-    Hero: GangguanMistikHero,
-    Problem: GangguanMistikProblem,
-    Matlamat: GangguanMistikMatlamat,
-    FAQ: GangguanMistikFAQ,
-    Closing: GangguanMistikClosing,
+    Hero: PenyakitMisteriHero,
+    Problem: PenyakitMisteriProblem,
+    Matlamat: PenyakitMisteriMatlamat,
+    FAQ: PenyakitMisteriFAQ,
+    Closing: PenyakitMisteriClosing,
   },
   'gangguan-berulang': {
     Hero: GangguanBerulangHero,
