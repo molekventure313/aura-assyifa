@@ -93,9 +93,9 @@ export default function HeroSection() {
         {/* Hero Image Showcase */}
         <div style={{ marginBottom: '2.5rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
           <img 
-            src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" 
-            alt="Gambar Hero ESyifaa Ikhtiar Rawatan Islam" 
-            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '450px', objectFit: 'cover' }}
+            src="/images/kedai-tutup/kedai_tutup_hero.jpg" 
+            alt="Gambar Hero ESyifaa Ikhtiar Rawatan Kedai Tutup & Perniagaan" 
+            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '500px', objectFit: 'cover' }}
           />
         </div>
 
