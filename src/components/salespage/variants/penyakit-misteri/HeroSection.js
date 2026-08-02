@@ -93,9 +93,9 @@ export default function HeroSection() {
         {/* Hero Image Showcase */}
         <div style={{ marginBottom: '2.5rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
           <img 
-            src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80" 
+            src="/images/penyakit-misteri/penyakit_misteri_hero.jpg" 
             alt="Gambar Hero ESyifaa Rawatan Penyakit Misteri" 
-            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '450px', objectFit: 'cover' }}
+            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '500px', objectFit: 'cover' }}
           />
         </div>
 
