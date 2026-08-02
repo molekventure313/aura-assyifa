@@ -23,7 +23,7 @@ export default function TestimonialPart2Section() {
         </span>
 
         <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.4rem', marginBottom: '0.5rem', letterSpacing: '-0.02em' }}>
-          Betulkah ESyifaa Membantu Pesakit Yang Mengalami Gangguan Mistik?
+          Betulkah ESyifaa Membantu Pesakit Sembuh?
         </h2>
 
         <p style={{ fontSize: '1rem', color: '#FFFFFF', marginBottom: '2.5rem', opacity: 0.9 }}>
