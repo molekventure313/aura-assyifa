@@ -10,10 +10,11 @@ export default function HeroSection() {
   };
 
   const signs = [
-    'Sudah berjumpa pelbagai doktor dan pakar tetapi punca penyakit tetap tidak dijumpai.',
-    'Keputusan ujian darah, X-ray & CT Scan semua normal, tapi badan masih sengsara dan menderita.',
-    'Sakit datang secara mengejut terutamanya waktu malam, senja atau waktu-waktu tertentu.',
-    'Makan ubat hospital tidak memberikan kesan pemulihan yang berpanjangan.'
+    'sebelum kena penyakit misteri, berlaku kemalangan',
+    'kerap sakit yang datang secara mengejut terutama selepas waktu asar',
+    'sudah berjumpa pelbagai doktor dan pakar tetapi punca penyakit tetap tidak dijumpai.',
+    'keputusan ujian darah, x-ray & ct scan semua normal, tapi badan masih sengsara dan menderita.',
+    'makan ubat hospital tetapi tidak memberikan kesan yang sepatutnya'
   ];
 
   return (
