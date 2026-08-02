@@ -2,31 +2,11 @@
 
 export default function ProblemSection() {
   const problems = [
-    {
-      title: 'Rawatan Tidak Menyeluruh',
-      desc: 'Rawatan sebelum ini hanya merawat simptom permukaan tanpa menangani punca asal gangguan.',
-      img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80',
-    },
-    {
-      title: 'Punca Sihir Masih Aktif',
-      desc: 'Sihir atau serangan mistik masih berterusan dari pihak yang berniat jahat terhadap anda.',
-      img: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=600&q=80',
-    },
-    {
-      title: 'Ikatan Saka Tidak Putus',
-      desc: 'Ikatan saka yang masih wujud menyebabkan gangguan sentiasa kembali walaupun sudah dirawat.',
-      img: 'https://images.unsplash.com/photo-1527489377706-5bf97e608852?auto=format&fit=crop&w=600&q=80',
-    },
-    {
-      title: 'Pelindung Diri Yang Lemah',
-      desc: 'Tiada amalan harian yang mencukupi untuk melindungi diri daripada serangan mistik berulang.',
-      img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80',
-    },
-    {
-      title: 'Persekitaran Rumah Tercemar',
-      desc: 'Gangguan dalam rumah atau persekitaran yang belum dibersihkan menyebabkan gangguan terus berlaku.',
-      img: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=600&q=80',
-    }
+    'sebenarnya gangguan tidak dibuang secara menyeluruh',
+    'ikatan diri dan makhluk halus masih ada',
+    'tiada atau lemah perlindungan diri',
+    'kaedah berubat yang salah',
+    'masih ada sesuatu di persekitaran atau dalam rumah'
   ];
 
   return (
@@ -52,8 +32,8 @@ export default function ProblemSection() {
           Gangguan yang berulang biasanya berlaku kerana punca sebenar belum ditangani dengan tepat dan menyeluruh.
         </p>
 
-        {/* 5 Masalah Utama Grid (White Cards + Black Text) */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
+        {/* 5 Problem List (Clean Text Cards without images) */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', textAlign: 'left' }}>
           {problems.map((p, idx) => (
             <div 
               key={idx}
@@ -61,28 +41,19 @@ export default function ProblemSection() {
                 background: '#FFFFFF',
                 border: '2px solid #FDE047',
                 borderRadius: '12px',
-                overflow: 'hidden',
+                padding: '1.25rem 1.4rem',
                 boxShadow: '0 8px 20px rgba(0,0,0,0.25)',
                 display: 'flex',
-                flexDirection: 'column',
-                textAlign: 'left'
+                alignItems: 'flex-start',
+                gap: '0.85rem'
               }}
             >
-              <img 
-                src={p.img} 
-                alt={p.title}
-                style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block' }}
-              />
-              <div style={{ padding: '1.1rem' }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', marginBottom: '0.5rem' }}>
-                  <span style={{ fontWeight: 800, fontSize: '1rem', color: '#0F172A', lineHeight: 1.3 }}>
-                    {p.title}
-                  </span>
-                </div>
-                <p style={{ margin: 0, fontSize: '0.85rem', color: '#374151', lineHeight: 1.5 }}>
-                  {p.desc}
-                </p>
+              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#DC2626', color: '#FFFFFF', fontWeight: 800, fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>
+                ✖
               </div>
+              <span style={{ fontWeight: 700, fontSize: '0.975rem', color: '#0F172A', lineHeight: 1.5 }}>
+                {p}
+              </span>
             </div>
           ))}
         </div>

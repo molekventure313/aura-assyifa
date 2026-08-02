@@ -9,6 +9,15 @@ export default function HeroSection() {
     }
   };
 
+  const signs = [
+    'kerap dengar guli bergolek atas atap rumah',
+    'selalu nampak kelibat hitam dalam rumah terutama di dapur',
+    'terlalu kerap bermimpi dikejar sesuatu',
+    'selalu mendengar bisikan yang mana bukan dari manusia',
+    'dah pergi rawatan berkali-kali tetapi gangguan datang balik selepas itu.',
+    'gangguan hilang sekejap kemudian muncul balik dengan lebih teruk.'
+  ];
+
   return (
     <section 
       style={{
@@ -43,7 +52,7 @@ export default function HeroSection() {
           Sudah Cuba Pelbagai Ikhtiar Tapi Gangguan Masih Berulang? Inilah Sebabnya
         </h1>
 
-        {/* Masih alami gangguan sub-points card */}
+        {/* Sub-points card */}
         <div 
           style={{ 
             background: '#064E3B', 
@@ -59,18 +68,12 @@ export default function HeroSection() {
             Tanda-tanda gangguan berulang yang perlu diberi perhatian:
           </div>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.975rem', color: '#FFFFFF' }}>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Sudah mendapat rawatan berkali-kali tetapi gangguan kembali semula selepas beberapa ketika.</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Simptom hilang buat sementara kemudian muncul semula dengan lebih teruk.</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Sudah menemui pelbagai perawat tetapi keadaan tidak bertambah baik secara kekal.</span>
-            </li>
+            {signs.map((sign, idx) => (
+              <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+                <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
+                <span>{sign}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -96,8 +99,6 @@ export default function HeroSection() {
             style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '500px', objectFit: 'cover' }}
           />
         </div>
-
-
 
         {/* Primary CTA Button (Kuning + Font Hitam) */}
         <div>
