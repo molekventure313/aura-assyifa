@@ -4,33 +4,27 @@ export default function ProblemSection() {
   const problems = [
     {
       title: 'Hubungan Rumah Tangga Retak & Sering Bergaduh',
-      desc: 'Emosi cepat panas dengan pasangan, hilang rasa kasih sayang dan perkara kecil kerap menjadi punca pertengkaran hebat.',
-      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
+      desc: 'Emosi cepat panas dengan pasangan, hilang rasa kasih sayang dan perkara kecil kerap menjadi punca pertengkaran hebat.'
     },
     {
       title: 'Pintu Rezeki & Perniagaan Tersekat',
-      desc: 'Berniaga atau bekerja keras tetapi pendapatan sentiasa tidak mencukupi, pelanggan lari atau perniagaan merosot secara pelik.',
-      img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80'
+      desc: 'Berniaga atau bekerja keras tetapi pendapatan sentiasa tidak mencukupi, pelanggan lari atau perniagaan merosot secara pelik.'
     },
     {
       title: 'Sakit Fizikal Berterusan Tanpa Punca Perubatan',
-      desc: 'Kesakitan badan yang mencucuk, sengal belikat terutamanya selepas Asar walaupun doktor sahkan semua keputusan ujian normal.',
-      img: '/images/sihir/sihir_hero.jpg'
+      desc: 'Kesakitan badan yang mencucuk, sengal belikat terutamanya selepas Asar walaupun doktor sahkan semua keputusan ujian normal.'
     },
     {
       title: 'Badan Sentiasa Lesu & Sukar Tidur Malam',
-      desc: 'Terjaga tiba-tiba pada waktu malam dalam keadaan cemas, dada berdebar-debar serta kerap mendapat mimpi buruk menakutkan.',
-      img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80'
+      desc: 'Terjaga tiba-tiba pada waktu malam dalam keadaan cemas, dada berdebar-debar serta kerap mendapat mimpi buruk menakutkan.'
     },
     {
       title: 'Perubahan Perangai & Emosi Tidak Terkawal',
-      desc: 'Mudah marah, cemas melampau tanpa sebab, rasa sedih mendalam atau tiba-tiba rasa ingin menyendiri dari keluarga.',
-      img: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=600&q=80'
+      desc: 'Mudah marah, cemas melampau tanpa sebab, rasa sedih mendalam atau tiba-tiba rasa ingin menyendiri dari keluarga.'
     },
     {
       title: 'Suasana Rumah Terasa Panas & Gangguan Misteri',
-      desc: 'Kediaman berasa tidak selesa, ahli keluarga bergantian sakit atau terasa diperhatikan oleh entiti asing di dalam rumah.',
-      img: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=600&q=80'
+      desc: 'Kediaman berasa tidak selesa, ahli keluarga bergantian sakit atau terasa diperhatikan oleh entiti asing di dalam rumah.'
     }
   ];
 
@@ -57,8 +51,8 @@ export default function ProblemSection() {
           Sihir boleh hadir dalam pelbagai bentuk dan memusnahkan kesihatan fizikal, emosi serta keharmonian rumah tangga dan keluarga anda.
         </p>
 
-        {/* 6 Masalah Utama Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
+        {/* 6 Problem List (Clean Text Cards without images) */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', textAlign: 'left' }}>
           {problems.map((p, idx) => (
             <div 
               key={idx}
@@ -66,27 +60,23 @@ export default function ProblemSection() {
                 background: '#FFFFFF',
                 border: '2px solid #FDE047',
                 borderRadius: '12px',
-                overflow: 'hidden',
+                padding: '1.25rem 1.4rem',
                 boxShadow: '0 8px 20px rgba(0,0,0,0.25)',
                 display: 'flex',
-                flexDirection: 'column',
-                textAlign: 'left'
+                alignItems: 'flex-start',
+                gap: '0.85rem'
               }}
             >
-              <img 
-                src={p.img} 
-                alt={p.title}
-                style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block' }}
-              />
-              <div style={{ padding: '1.1rem' }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', marginBottom: '0.5rem' }}>
-                  <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#0F172A', lineHeight: 1.35 }}>
-                    {p.title}
-                  </span>
-                </div>
-                <p style={{ margin: 0, fontSize: '0.85rem', color: '#374151', lineHeight: 1.5 }}>
+              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#DC2626', color: '#FFFFFF', fontWeight: 800, fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>
+                ✖
+              </div>
+              <div>
+                <strong style={{ fontWeight: 800, fontSize: '0.975rem', color: '#0F172A', display: 'block', marginBottom: '0.25rem' }}>
+                  {p.title}
+                </strong>
+                <span style={{ fontSize: '0.875rem', color: '#374151', lineHeight: 1.5, display: 'block' }}>
                   {p.desc}
-                </p>
+                </span>
               </div>
             </div>
           ))}
