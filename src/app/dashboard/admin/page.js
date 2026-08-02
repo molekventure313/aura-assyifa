@@ -50,6 +50,7 @@ export default function AdminDashboardPage() {
   const dashboard = data?.dashboard || {};
   const practitioners = data?.practitionerPerformance || [];
   const recentCases = data?.recentCases || [];
+  const salespageBreakdown = data?.salespageBreakdown || {};
 
   const formatTimeAgo = (dateStr) => {
     if (!dateStr) return '';
@@ -261,6 +262,51 @@ export default function AdminDashboardPage() {
             </div>
 
           </div>
+
+          {/* Salespage Breakdown Section */}
+          {Object.keys(salespageBreakdown).length > 0 && (
+            <div style={{ marginBottom: '1.75rem', padding: '1.5rem', borderRadius: '8px', background: cardBg, border: cardBorder, boxShadow: isLightMode ? '0 1px 3px rgba(0,0,0,0.05)' : 'none' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                <div>
+                  <h2 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: textPrimary }}>Pesakit Mengikut Salespage</h2>
+                  <p style={{ margin: '0.15rem 0 0', fontSize: '0.775rem', color: textMuted }}>Sumber borang temu janji yang diisi oleh pesakit</p>
+                </div>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.85rem' }}>
+                {(() => {
+                  const COLORS = {
+                    'Sihir': { bg: isLightMode ? '#FEF3C7' : 'rgba(251,191,36,0.12)', border: isLightMode ? '#FCD34D' : 'rgba(251,191,36,0.3)', text: '#D97706', bar: '#F59E0B' },
+                    'Saka': { bg: isLightMode ? '#EDE9FE' : 'rgba(139,92,246,0.12)', border: isLightMode ? '#C4B5FD' : 'rgba(139,92,246,0.3)', text: '#7C3AED', bar: '#8B5CF6' },
+                    'Penyakit Misteri': { bg: isLightMode ? '#FEE2E2' : 'rgba(239,68,68,0.12)', border: isLightMode ? '#FCA5A5' : 'rgba(239,68,68,0.3)', text: '#DC2626', bar: '#EF4444' },
+                    'Gangguan Berulang': { bg: isLightMode ? '#DBEAFE' : 'rgba(59,130,246,0.12)', border: isLightMode ? '#93C5FD' : 'rgba(59,130,246,0.3)', text: '#1D4ED8', bar: '#3B82F6' },
+                    'Belum Zuriat': { bg: isLightMode ? '#FCE7F3' : 'rgba(236,72,153,0.12)', border: isLightMode ? '#F9A8D4' : 'rgba(236,72,153,0.3)', text: '#BE185D', bar: '#EC4899' },
+                    'Kedai Tutup': { bg: isLightMode ? '#D1FAE5' : 'rgba(16,185,129,0.12)', border: isLightMode ? '#6EE7B7' : 'rgba(16,185,129,0.3)', text: '#047857', bar: '#10B981' },
+                    'Utama': { bg: isLightMode ? '#ECFDF5' : 'rgba(6,78,59,0.2)', border: isLightMode ? '#A7F3D0' : 'rgba(6,78,59,0.5)', text: isLightMode ? '#047857' : '#34D399', bar: '#10B981' },
+                    'Lain-lain': { bg: subCardBg, border: isLightMode ? '#CBD5E1' : 'rgba(255,255,255,0.08)', text: textMuted, bar: '#6B7280' },
+                  };
+                  const total = Object.values(salespageBreakdown).reduce((a, b) => a + b, 0);
+                  return Object.entries(salespageBreakdown)
+                    .sort(([,a],[,b]) => b - a)
+                    .map(([label, count]) => {
+                      const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+                      const c = COLORS[label] || COLORS['Lain-lain'];
+                      return (
+                        <div key={label} style={{ padding: '1rem 1.15rem', borderRadius: '8px', background: c.bg, border: `1px solid ${c.border}` }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                            <span style={{ fontWeight: 700, fontSize: '0.825rem', color: c.text }}>{label}</span>
+                            <span style={{ fontWeight: 800, fontSize: '1.2rem', color: textPrimary, lineHeight: 1 }}>{count}</span>
+                          </div>
+                          <div style={{ width: '100%', height: '4px', background: isLightMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.08)', borderRadius: '2px', overflow: 'hidden', marginBottom: '0.35rem' }}>
+                            <div style={{ width: `${pct}%`, height: '100%', background: c.bar, borderRadius: '2px', transition: 'width 0.4s ease' }} />
+                          </div>
+                          <div style={{ fontSize: '0.7rem', color: textMuted }}>{pct}% daripada {total} pesakit</div>
+                        </div>
+                      );
+                    });
+                })()}
+              </div>
+            </div>
+          )}
 
           {/* Main 2-Column Section: Practitioner Performance & Recent Incoming Stream */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '1.75rem' }}>

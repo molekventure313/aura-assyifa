@@ -22,7 +22,7 @@ export async function GET(req) {
 
     if (isAdminRequest) {
       // Direct live calculations for Admin Dashboard stats
-      const { data: customers } = await adminClient.from('customers').select('id, is_repeat');
+      const { data: customers } = await adminClient.from('customers').select('id, is_repeat, source');
       const { data: practitionerProfiles } = await adminClient.from('profiles').select('id, full_name, email, is_active, max_active_cases').in('role', ['practitioner', 'perawat']);
       const { data: allCases } = await adminClient.from('cases').select('id, assigned_to, status, created_at');
 
@@ -72,6 +72,40 @@ export async function GET(req) {
         created_at: c.created_at,
       }));
 
+      // Salespage breakdown mapping
+      const SALESPAGE_MAP = {
+        '/sihir': 'Sihir',
+        'sihir': 'Sihir',
+        '/saka': 'Saka',
+        'saka': 'Saka',
+        '/penyakit-misteri': 'Penyakit Misteri',
+        'penyakit-misteri': 'Penyakit Misteri',
+        '/gangguan-mistik': 'Penyakit Misteri',
+        'gangguan-mistik': 'Penyakit Misteri',
+        '/gangguan-berulang': 'Gangguan Berulang',
+        'gangguan-berulang': 'Gangguan Berulang',
+        '/belum-zuriat': 'Belum Zuriat',
+        'belum-zuriat': 'Belum Zuriat',
+        '/kedai-tutup': 'Kedai Tutup',
+        'kedai-tutup': 'Kedai Tutup',
+        '/': 'Utama',
+        'Direct': 'Lain-lain',
+      };
+
+      const salespageBreakdown = {};
+      (customers || []).forEach(c => {
+        let src = (c.source || 'Lain-lain').trim();
+        // Try to match by path segment
+        let label = 'Lain-lain';
+        for (const [key, val] of Object.entries(SALESPAGE_MAP)) {
+          if (src === key || src.includes(key)) {
+            label = val;
+            break;
+          }
+        }
+        salespageBreakdown[label] = (salespageBreakdown[label] || 0) + 1;
+      });
+
       const dashboard = {
         totalCustomers,
         newCases,
@@ -87,6 +121,7 @@ export async function GET(req) {
         dashboard,
         practitionerPerformance,
         recentCases: formattedRecentCases,
+        salespageBreakdown,
       };
     } else {
       // Practitioner Dashboard Live Statistics & Streams
