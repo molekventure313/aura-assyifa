@@ -6,7 +6,8 @@ export default function ProblemSection() {
     'ikatan diri dan makhluk halus masih ada',
     'tiada atau lemah perlindungan diri',
     'kaedah berubat yang salah',
-    'masih ada sesuatu di persekitaran atau dalam rumah'
+    'masih ada sesuatu di persekitaran atau dalam rumah',
+    'perawat tak boleh mengenal pasti gangguan datang dari mana'
   ];
 
   return (
