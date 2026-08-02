@@ -97,12 +97,21 @@ export default function HeroSection() {
         </p>
 
         {/* Hero Image Showcase */}
-        <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
-          <img 
-            src="/images/belum-zuriat/belum_zuriat_hero.png" 
-            alt="Gambar Hero ESyifaa Ikhtiar Rawatan Belum Zuriat" 
-            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '500px', objectFit: 'cover', objectPosition: 'center top' }}
-          />
+        <div style={{ marginBottom: '2.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+            <img 
+              src="/images/belum-zuriat/belum_zuriat_hero.png" 
+              alt="Pasangan sedih belum dikurniakan zuriat" 
+              style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '500px', objectFit: 'cover' }}
+            />
+          </div>
+          <div style={{ borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+            <img 
+              src="/images/belum-zuriat/belum_zuriat_kanak.jpg" 
+              alt="Anak-anak yang ceria sebagai impian pasangan" 
+              style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '400px', objectFit: 'cover' }}
+            />
+          </div>
         </div>
 
 
