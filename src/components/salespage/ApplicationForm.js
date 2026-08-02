@@ -1,11 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { trackFormSubmit } from '@/lib/tracking/pixel';
 
-export default function ApplicationForm() {
+// Map salespage paths to source slugs (must match stats API SALESPAGE_LABELS keys)
+const PATH_TO_SOURCE = {
+  '/sihir': 'sihir',
+  '/saka': 'saka',
+  '/penyakit-misteri': 'penyakit-misteri',
+  '/gangguan-berulang': 'gangguan-berulang',
+  '/belum-zuriat': 'belum-zuriat',
+  '/kedai-tutup': 'kedai-tutup',
+};
+
+export default function ApplicationForm({ source }) {
   const router = useRouter();
+  const [detectedSource, setDetectedSource] = useState(source || 'direct');
+
+  // Auto-detect salespage from URL pathname if source prop not provided
+  useEffect(() => {
+    if (!source) {
+      const path = window.location.pathname;
+      const mapped = PATH_TO_SOURCE[path];
+      if (mapped) setDetectedSource(mapped);
+    }
+  }, [source]);
 
   const [formData, setFormData] = useState({
     full_name: '',
@@ -56,7 +76,8 @@ export default function ApplicationForm() {
           problem: formData.problem,
           notes: formData.notes,
           honeypot: formData.honeypot,
-          source: 'Salespage ESyifaa'
+          source: detectedSource,
+          landing_page_url: typeof window !== 'undefined' ? window.location.href : null,
         })
       });
 
