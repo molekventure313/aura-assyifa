@@ -89,18 +89,18 @@ export default function HeroSection() {
         </p>
 
         {/* Hero Image Showcase */}
-        <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+        <div style={{ marginBottom: '2.5rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
           <img 
-            src="https://images.unsplash.com/photo-1499209974431-9dac3ada00d7?auto=format&fit=crop&w=1200&q=80" 
-            alt="Hero Gangguan Berulang" 
-            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '420px', objectFit: 'cover' }}
+            src="/images/gangguan-berulang/gangguan_berulang_hero.jpg" 
+            alt="Gambar Hero ESyifaa Rawatan Gangguan Berulang" 
+            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '500px', objectFit: 'cover' }}
           />
         </div>
 
         {/* Video Testimoni Terbaik Player Card */}
         <div style={{ marginBottom: '2.5rem', background: '#042E23', border: '2px solid #FDE047', borderRadius: '12px', padding: '1.25rem', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
           <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#FDE047', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            🎬 Video Testimoni Pesakit Yang Berjaya Sembuh Selepas Gangguan Berulang
+            Video Testimoni Pesakit Yang Berjaya Sembuh Selepas Gangguan Berulang
           </div>
           <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: '8px', overflow: 'hidden', background: '#000' }}>
             <iframe 
@@ -132,7 +132,7 @@ export default function HeroSection() {
               border: '2px solid #FEF08A'
             }}
           >
-            👉 Dapatkan Diagnos Percuma Sekarang
+            Dapatkan Diagnos Percuma Sekarang
           </a>
         </div>
 
