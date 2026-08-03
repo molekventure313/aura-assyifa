@@ -56,14 +56,15 @@ export default function ApplicationForm({ source }) {
     setLoading(true);
 
     try {
+      // Fire Lead event via Meta Pixel (initialized by layout.js server-side)
       try {
-        trackFormSubmit({
-          full_name: formData.full_name,
-          phone: formData.phone,
-          appointment_session: formData.appointment_session
-        });
+        if (typeof window !== 'undefined' && window.fbq) {
+          window.fbq('track', 'Lead', {
+            content_name: detectedSource || 'Salespage ESyifaa',
+          });
+        }
       } catch (trackErr) {
-        console.error('Tracking non-blocking error:', trackErr);
+        console.warn('Pixel Lead event non-blocking error:', trackErr);
       }
 
       const res = await fetch('/api/submissions', {
