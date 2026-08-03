@@ -1,4 +1,4 @@
-'use client';
+﻿﻿'use client';
 
 import { useEffect, useState } from 'react';
 
@@ -59,7 +59,6 @@ import KedaiTutupMatlamat from '@/components/salespage/variants/kedai-tutup/Matl
 import KedaiTutupFAQ from '@/components/salespage/variants/kedai-tutup/FAQSection';
 import KedaiTutupClosing from '@/components/salespage/variants/kedai-tutup/ClosingSection';
 
-import { trackPageView, trackEvent } from '@/lib/tracking/pixel';
 
 // Map slug to custom components
 const VARIANT_MAP = {
@@ -148,6 +147,7 @@ export default function Home() {
   if (loadingSlug) {
     return (
       <main style={{ minHeight: '100vh', background: '#042E23', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <PixelProvider />
         <div style={{ color: '#FDE047', fontFamily: 'sans-serif', fontSize: '1rem', opacity: 0.7 }}>Memuatkan...</div>
       </main>
     );
@@ -155,6 +155,7 @@ export default function Home() {
 
   return (
     <main style={{ minHeight: '100vh', background: '#042E23' }}>
+      <PixelProvider />
       <ActiveHero />
       <TestimonialSection />
       <ActiveProblem />
@@ -172,13 +173,15 @@ export default function Home() {
       <footer style={{ background: '#021812', color: '#FFFFFF', padding: '2rem 1rem', textAlign: 'center', fontSize: '0.85rem', borderTop: '1px solid rgba(254, 243, 199, 0.15)' }}>
         <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ margin: '0 0 0.5rem 0', fontWeight: 800, fontSize: '1.05rem', color: '#FEF3C7' }}>
-            ESyifaa · Rawatan Jarak Jauh Gangguan Jin, Sihir, Santau &amp; Saka
+            ESyifaa Â· Rawatan Jarak Jauh Gangguan Jin, Sihir, Santau &amp; Saka
           </p>
           <p style={{ margin: 0, opacity: 0.85, fontSize: '0.8rem', color: '#D1D5DB' }}>
-            © {new Date().getFullYear()} ESyifaa. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
+            Â© {new Date().getFullYear()} ESyifaa. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
           </p>
         </div>
       </footer>
     </main>
   );
 }
+
+
