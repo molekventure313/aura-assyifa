@@ -1,4 +1,4 @@
-﻿﻿'use client';
+'use client';
 import PixelProvider from '@/components/salespage/PixelProvider';
 import HeroSection from '@/components/salespage/variants/saka/HeroSection';
 import TestimonialSection from '@/components/salespage/TestimonialSection';
