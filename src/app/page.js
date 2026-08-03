@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import PixelProvider from '@/components/salespage/PixelProvider';
 
 // Main salespage components
 import HeroSection from '@/components/salespage/HeroSection';
