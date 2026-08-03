@@ -61,6 +61,34 @@ export default function TrackingSettingsPage() {
     }
   };
 
+  const [togglingActive, setTogglingActive] = useState(false);
+
+  const handleToggleActive = async (newValue) => {
+    // Optimistically update UI
+    setSettings(prev => ({ ...prev, is_active: newValue }));
+    setTogglingActive(true);
+    try {
+      const res = await fetch('/api/tracking', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...settings, is_active: newValue })
+      });
+      const json = await res.json();
+      if (res.ok && json.success) {
+        showToast(newValue ? 'Pixel Tracking diaktifkan!' : 'Pixel Tracking dinyahaktifkan.', 'success');
+      } else {
+        // Revert on failure
+        setSettings(prev => ({ ...prev, is_active: !newValue }));
+        throw new Error(json.error || 'Gagal menyimpan status');
+      }
+    } catch (err) {
+      setSettings(prev => ({ ...prev, is_active: !newValue }));
+      showToast(err.message || 'Ralat semasa menyimpan status', 'error');
+    } finally {
+      setTogglingActive(false);
+    }
+  };
+
   const handleSendTestEvent = async () => {
     setTestingEvent(true);
     try {
@@ -163,14 +191,15 @@ export default function TrackingSettingsPage() {
               </div>
 
               {/* Custom Switch Toggle */}
-              <label style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', cursor: 'pointer' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', cursor: togglingActive ? 'not-allowed' : 'pointer', opacity: togglingActive ? 0.7 : 1 }}>
                 <span style={{ fontSize: '0.8rem', fontWeight: 600, color: settings.is_active ? '#34D399' : '#9CA3AF' }}>
-                  {settings.is_active ? 'Aktif' : 'Nyahaktif'}
+                  {togglingActive ? 'Menyimpan...' : (settings.is_active ? 'Aktif' : 'Nyahaktif')}
                 </span>
                 <input 
                   type="checkbox" 
                   checked={settings.is_active}
-                  onChange={(e) => setSettings({ ...settings, is_active: e.target.checked })}
+                  disabled={togglingActive}
+                  onChange={(e) => handleToggleActive(e.target.checked)}
                   style={{ display: 'none' }}
                 />
                 <div 
