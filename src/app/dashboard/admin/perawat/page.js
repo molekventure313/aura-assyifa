@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 import { useToast } from '@/components/ui/Toast';
@@ -9,6 +9,7 @@ export default function PractitionersPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [updatingId, setUpdatingId] = useState(null);
+  const [deletingId, setDeletingId] = useState(null);
   
   const [formData, setFormData] = useState({
     full_name: '',
@@ -66,6 +67,29 @@ export default function PractitionersPage() {
       showToast(err.message || 'Ralat mengemaskini status perawat', 'error');
     } finally {
       setUpdatingId(null);
+    }
+  };
+
+  const handleDeletePractitioner = async (practitionerId, pName) => {
+    const confirmed = window.confirm(
+      `Anda pasti mahu MEMADAM KEKAL akaun perawat "${pName}"?\n\nAkaun ini akan dibuang dari sistem sepenuhnya. Perawat perlu daftar semula untuk login. Kes aktif mereka akan dikembalikan ke senarai menunggu.\n\nTindakan ini TIDAK BOLEH diundur.`
+    );
+    if (!confirmed) return;
+
+    setDeletingId(practitionerId);
+    try {
+      const res = await fetch(`/api/admin/users?id=${practitionerId}`, { method: 'DELETE' });
+      const json = await res.json();
+      if (res.ok && json.success) {
+        showToast(`Akaun perawat ${pName} berjaya dipadam.`, 'success');
+        fetchPractitioners();
+      } else {
+        throw new Error(json.error || 'Gagal memadam akaun');
+      }
+    } catch (err) {
+      showToast(err.message || 'Ralat semasa memadam akaun', 'error');
+    } finally {
+      setDeletingId(null);
     }
   };
 
@@ -343,6 +367,42 @@ export default function PractitionersPage() {
                           {updatingId === p.id ? 'Mengemaskini...' : 'Nyahaktif / Sekat Akaun'}
                         </button>
                       )}
+                      
+                      {/* Delete Account Button — Admin Only */}
+                      <button
+                        onClick={() => handleDeletePractitioner(p.id, pName)}
+                        disabled={deletingId === p.id}
+                        title={`Padam kekal akaun ${pName}`}
+                        style={{
+                          padding: '0.55rem 0.65rem',
+                          borderRadius: '6px',
+                          background: deletingId === p.id ? 'rgba(239,68,68,0.05)' : 'rgba(239,68,68,0.13)',
+                          border: '1px solid rgba(239,68,68,0.4)',
+                          color: '#EF4444',
+                          cursor: deletingId === p.id ? 'not-allowed' : 'pointer',
+                          opacity: deletingId === p.id ? 0.5 : 1,
+                          transition: 'all 0.15s ease',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                        onMouseOver={(e) => { if (deletingId !== p.id) e.currentTarget.style.background = 'rgba(239,68,68,0.25)'; }}
+                        onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(239,68,68,0.13)'; }}
+                      >
+                        {deletingId === p.id ? (
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ animation: 'spin 1s linear infinite' }}>
+                            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                          </svg>
+                        ) : (
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="3,6 5,6 21,6"/>
+                            <path d="M19,6l-1,14a2,2,0,0,1-2,2H8a2,2,0,0,1-2-2L5,6"/>
+                            <path d="M10,11v6"/>
+                            <path d="M14,11v6"/>
+                            <path d="M9,6V4a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1V6"/>
+                          </svg>
+                        )}
+                      </button>
                     </div>
 
                   </div>

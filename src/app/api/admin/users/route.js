@@ -131,3 +131,69 @@ export async function PATCH(req) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }
+
+export async function DELETE(req) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const targetUserId = searchParams.get('id');
+
+    if (!targetUserId) {
+      return NextResponse.json({ success: false, error: 'ID pengguna diperlukan' }, { status: 400 });
+    }
+
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+
+    const adminSupabase = createAdminClient();
+
+    // Only admin / super_admin can delete
+    const { data: callerProfile } = await adminSupabase
+      .from('profiles')
+      .select('role, full_name')
+      .eq('id', user.id)
+      .single();
+
+    if (!['admin', 'super_admin'].includes(callerProfile?.role)) {
+      return NextResponse.json({ success: false, error: 'Hanya admin boleh memadam akaun' }, { status: 403 });
+    }
+
+    // Fetch target profile to get name for logging & prevent deleting super_admin
+    const { data: targetProfile } = await adminSupabase
+      .from('profiles')
+      .select('role, full_name, email')
+      .eq('id', targetUserId)
+      .single();
+
+    if (targetProfile?.role === 'super_admin') {
+      return NextResponse.json({ success: false, error: 'Akaun super admin tidak boleh dipadam' }, { status: 403 });
+    }
+
+    // Unassign their active cases so cases are not lost
+    await adminSupabase
+      .from('cases')
+      .update({ assigned_to: null, status: 'Baru', updated_at: new Date().toISOString() })
+      .eq('assigned_to', targetUserId)
+      .in('status', ['Sedang Diurus', 'Perlu Follow-up', 'Baru', 'Belum Diambil']);
+
+    // Delete profile record
+    await adminSupabase.from('profiles').delete().eq('id', targetUserId);
+
+    // Delete from Supabase Auth — this prevents login permanently
+    const { error: authDeleteError } = await adminSupabase.auth.admin.deleteUser(targetUserId);
+    if (authDeleteError) throw authDeleteError;
+
+    await logActivity(adminSupabase, {
+      userId: user.id,
+      actionType: 'delete_user',
+      entityType: 'user',
+      entityId: targetUserId,
+      description: `Admin memadam akaun perawat: ${targetProfile?.full_name || targetProfile?.email || 'Tidak dikenali'}`
+    });
+
+    return NextResponse.json({ success: true, message: 'Akaun perawat berjaya dipadam.' });
+  } catch (error) {
+    console.error('DELETE user error:', error);
+    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  }
+}
