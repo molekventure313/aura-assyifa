@@ -53,7 +53,7 @@ export default function PractitionerKesSayaPage() {
       const res = await fetch(`/api/cases/${caseId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status: newStatus })
+        body: JSON.stringify({ action: 'update_status', status: newStatus })
       });
       const json = await res.json();
       if (res.ok && json.success) {
