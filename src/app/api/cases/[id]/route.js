@@ -236,3 +236,60 @@ export async function PATCH(req, { params }) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }
+
+export async function DELETE(req, { params }) {
+  try {
+    const { id } = await params;
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+
+    if (!user) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+
+    const adminClient = createAdminClient();
+
+    // Only admin can delete cases
+    const { data: profile } = await adminClient
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single();
+
+    if (profile?.role !== 'admin') {
+      return NextResponse.json({ success: false, error: 'Hanya admin boleh memadam kes' }, { status: 403 });
+    }
+
+    // Get case info for logging before deletion
+    const { data: caseData } = await adminClient
+      .from('cases')
+      .select('id, customers(full_name)')
+      .eq('id', id)
+      .maybeSingle();
+
+    // Delete related records first (in case FK constraints don't cascade)
+    await adminClient.from('case_notes').delete().eq('case_id', id);
+    await adminClient.from('case_status_history').delete().eq('case_id', id);
+    await adminClient.from('follow_ups').delete().eq('case_id', id);
+
+    // Delete the case itself
+    const { error: deleteError } = await adminClient
+      .from('cases')
+      .delete()
+      .eq('id', id);
+
+    if (deleteError) throw deleteError;
+
+    await logActivity(adminClient, {
+      userId: user.id,
+      actionType: 'delete_case',
+      entityType: 'case',
+      entityId: id,
+      description: `Admin memadam kes pesakit: ${caseData?.customers?.full_name || 'Tidak dikenali'}`,
+    });
+
+    return NextResponse.json({ success: true, message: 'Kes berjaya dipadam.' });
+
+  } catch (error) {
+    console.error('DELETE case error:', error);
+    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  }
+}
