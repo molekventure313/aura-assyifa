@@ -2,7 +2,6 @@ export const CASE_STATUSES = {
   BARU: { id: 'Baru', label: 'Baru', color: '#FFFFFF', bgColor: '#3B82F6', description: 'Kes baru diterima' },
   BELUM_DIAMBIL: { id: 'Belum Diambil', label: 'Belum Diambil', color: '#1F2937', bgColor: '#F3F4F6', description: 'Kes belum diserahkan' },
   SEDANG_DIURUS: { id: 'Sedang Diurus', label: 'Sedang Diurus', color: '#FFFFFF', bgColor: '#F59E0B', description: 'Sedang diuruskan oleh pengamal' },
-  BERJAYA_DIHUBUNGI: { id: 'Berjaya Dihubungi', label: 'Berjaya Dihubungi', color: '#FFFFFF', bgColor: '#10B981', description: 'Pelanggan telah dihubungi' },
   TIDAK_DAPAT_DIHUBUNGI: { id: 'Tidak Dapat Dihubungi', label: 'Tidak Dapat Dihubungi', color: '#FFFFFF', bgColor: '#EF4444', description: 'Panggilan/mesej tidak berjawab' },
   PERLU_FOLLOW_UP: { id: 'Perlu Follow-up', label: 'Perlu Follow-up', color: '#FFFFFF', bgColor: '#8B5CF6', description: 'Perlukan tindakan susulan' },
   RAWATAN_SELESAI: { id: 'Rawatan Selesai', label: 'Rawatan Selesai', color: '#FFFFFF', bgColor: '#059669', description: 'Rawatan telah berjaya' },

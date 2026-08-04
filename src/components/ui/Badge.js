@@ -18,7 +18,6 @@ export default function Badge({
       'Baru': 'primary',
       'Belum Diambil': 'warning',
       'Sedang Diurus': 'info',
-      'Berjaya Dihubungi': 'success',
       'Tidak Dapat Dihubungi': 'danger',
       'Perlu Follow-up': 'warning',
       'Rawatan Selesai': 'success',

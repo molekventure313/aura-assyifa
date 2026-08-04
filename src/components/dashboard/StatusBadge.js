@@ -10,7 +10,6 @@ export default function StatusBadge({ status, className = '' }) {
       case 'Perlu Follow-up':
         return { bg: 'rgba(245, 158, 11, 0.12)', border: 'rgba(245, 158, 11, 0.3)', text: '#F59E0B' };
       case 'Rawatan Selesai':
-      case 'Berjaya Dihubungi':
         return { bg: 'rgba(16, 185, 129, 0.12)', border: 'rgba(16, 185, 129, 0.3)', text: '#10B981' };
       case 'Pelanggan Batal':
       case 'Tidak Dapat Dihubungi':
