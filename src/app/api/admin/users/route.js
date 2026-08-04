@@ -176,12 +176,12 @@ export async function DELETE(req) {
       return NextResponse.json({ success: false, error: 'Akaun super admin tidak boleh dipadam' }, { status: 403 });
     }
 
-    // Unassign their active cases
+    // Unassign ALL cases from deleted perawat — keep original status, admin will manually reassign
+    // No status filter — catch every case regardless of current status
     await adminSupabase
       .from('cases')
-      .update({ assigned_to: null, status: 'Baru', updated_at: new Date().toISOString() })
-      .eq('assigned_to', targetUserId)
-      .in('status', ['Sedang Diurus', 'Perlu Follow-up', 'Baru', 'Belum Diambil']);
+      .update({ assigned_to: null, updated_at: new Date().toISOString() })
+      .eq('assigned_to', targetUserId);
 
     // Delete all records that have FK references to profiles — must be done before deleting profile
     // 1. activity_logs.user_id → profiles.id
