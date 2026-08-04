@@ -191,8 +191,10 @@ export default function PractitionerKesSayaPage() {
                     <div style={{ fontWeight: 600, color: isLightMode ? '#047857' : '#34D399', marginBottom: '0.25rem' }}>
                       Maklumat Simptom &amp; Temujanji:
                     </div>
-                    <div style={{ color: textSecondary, lineHeight: 1.5 }}>
-                      {c.problem || 'Tiada simptom dinyatakan.'}
+                    <div style={{ color: textSecondary, lineHeight: 1.6, fontSize: '0.8rem' }}>
+                      {c.problem_description && c.problem_description !== 'Tiada penerangan simptom'
+                        ? c.problem_description
+                        : 'Tiada simptom dinyatakan.'}
                     </div>
                   </div>
                 </div>

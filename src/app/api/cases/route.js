@@ -21,39 +21,6 @@ export async function GET(req) {
     const role = profile?.role || 'practitioner';
     const isAdmin = role === 'admin' || role === 'super_admin';
 
-    // ─── SELF-HEALING AUTO ASSIGN FOR UNASSIGNED CASES ───
-    try {
-      const { data: unassignedCases } = await adminClient
-        .from('cases')
-        .select('id')
-        .is('assigned_to', null);
-
-      if (unassignedCases && unassignedCases.length > 0) {
-        const { data: allProfiles } = await adminClient
-          .from('profiles')
-          .select('id, role, is_active, is_receiving_cases, created_at')
-          .order('created_at', { ascending: true });
-
-        const activePractitioners = (allProfiles || []).filter(p => p.role !== 'super_admin' && p.is_active !== false && p.is_receiving_cases !== false);
-        const fallbackList = activePractitioners.length > 0 ? activePractitioners : (allProfiles || []).filter(p => p.role !== 'super_admin');
-
-        if (fallbackList.length > 0) {
-          for (let i = 0; i < unassignedCases.length; i++) {
-            const targetP = fallbackList[i % fallbackList.length];
-            await adminClient
-              .from('cases')
-              .update({
-                assigned_to: targetP.id,
-                status: 'Sedang Diurus',
-                updated_at: new Date().toISOString()
-              })
-              .eq('id', unassignedCases[i].id);
-          }
-        }
-      }
-    } catch (selfHealingErr) {
-      console.error('Self healing auto assign non-blocking error:', selfHealingErr);
-    }
 
     const { searchParams } = new URL(req.url);
     const myCases = searchParams.get('myCases');
