@@ -183,8 +183,19 @@ export async function DELETE(req) {
       .eq('assigned_to', targetUserId)
       .in('status', ['Sedang Diurus', 'Perlu Follow-up', 'Baru', 'Belum Diambil']);
 
-    // Delete profile record
-    await adminSupabase.from('profiles').delete().eq('id', targetUserId);
+    // Delete all records that have FK references to profiles — must be done before deleting profile
+    // 1. activity_logs.user_id → profiles.id
+    await adminSupabase.from('activity_logs').delete().eq('user_id', targetUserId);
+    // 2. case_notes.created_by → profiles.id
+    await adminSupabase.from('case_notes').delete().eq('created_by', targetUserId);
+    // 3. case_status_history.changed_by → profiles.id
+    await adminSupabase.from('case_status_history').delete().eq('changed_by', targetUserId);
+
+    // Now safe to delete profile record
+    const { error: profileDeleteErr } = await adminSupabase.from('profiles').delete().eq('id', targetUserId);
+    if (profileDeleteErr) {
+      return NextResponse.json({ success: false, error: `Gagal padam profil: ${profileDeleteErr.message}` }, { status: 500 });
+    }
 
     // Delete from Supabase Auth via direct REST API (most reliable with service role key)
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cvygzimtwhezxulvydrn.supabase.co';
