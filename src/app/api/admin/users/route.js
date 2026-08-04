@@ -148,28 +148,35 @@ export async function DELETE(req) {
     const adminSupabase = createAdminClient();
 
     // Only admin / super_admin can delete
-    const { data: callerProfile } = await adminSupabase
+    const { data: callerProfile, error: callerErr } = await adminSupabase
       .from('profiles')
       .select('role, full_name')
       .eq('id', user.id)
       .single();
 
-    if (!['admin', 'super_admin'].includes(callerProfile?.role)) {
-      return NextResponse.json({ success: false, error: 'Hanya admin boleh memadam akaun' }, { status: 403 });
+    if (callerErr) {
+      return NextResponse.json({ success: false, error: `Gagal semak peranan: ${callerErr.message}` }, { status: 500 });
     }
 
-    // Fetch target profile to get name for logging & prevent deleting super_admin
+    if (!['admin', 'super_admin'].includes(callerProfile?.role)) {
+      return NextResponse.json({
+        success: false,
+        error: `Hanya admin boleh memadam akaun. Peranan semasa: ${callerProfile?.role || 'tidak dikenali'}`
+      }, { status: 403 });
+    }
+
+    // Fetch target profile
     const { data: targetProfile } = await adminSupabase
       .from('profiles')
       .select('role, full_name, email')
       .eq('id', targetUserId)
-      .single();
+      .maybeSingle();
 
     if (targetProfile?.role === 'super_admin') {
       return NextResponse.json({ success: false, error: 'Akaun super admin tidak boleh dipadam' }, { status: 403 });
     }
 
-    // Unassign their active cases so cases are not lost
+    // Unassign their active cases
     await adminSupabase
       .from('cases')
       .update({ assigned_to: null, status: 'Baru', updated_at: new Date().toISOString() })
@@ -179,21 +186,45 @@ export async function DELETE(req) {
     // Delete profile record
     await adminSupabase.from('profiles').delete().eq('id', targetUserId);
 
-    // Delete from Supabase Auth — this prevents login permanently
-    const { error: authDeleteError } = await adminSupabase.auth.admin.deleteUser(targetUserId);
-    if (authDeleteError) throw authDeleteError;
+    // Delete from Supabase Auth via direct REST API (most reliable with service role key)
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cvygzimtwhezxulvydrn.supabase.co';
+    const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-    await logActivity(adminSupabase, {
-      userId: user.id,
-      actionType: 'delete_user',
-      entityType: 'user',
-      entityId: targetUserId,
-      description: `Admin memadam akaun perawat: ${targetProfile?.full_name || targetProfile?.email || 'Tidak dikenali'}`
+    const authDeleteRes = await fetch(`${supabaseUrl}/auth/v1/admin/users/${targetUserId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${serviceRoleKey}`,
+        'apikey': serviceRoleKey,
+        'Content-Type': 'application/json',
+      },
     });
 
-    return NextResponse.json({ success: true, message: 'Akaun perawat berjaya dipadam.' });
+    if (!authDeleteRes.ok) {
+      let errBody = {};
+      try { errBody = await authDeleteRes.json(); } catch (_) {}
+      const errMsg = errBody?.message || errBody?.error || errBody?.msg || `HTTP ${authDeleteRes.status}`;
+      console.error('Auth delete REST failed:', authDeleteRes.status, errBody);
+      return NextResponse.json({ success: false, error: `Gagal padam auth: ${errMsg}` }, { status: 500 });
+    }
+
+    // Log activity (non-blocking)
+    try {
+      await logActivity(adminSupabase, {
+        userId: user.id,
+        actionType: 'delete_user',
+        entityType: 'user',
+        entityId: targetUserId,
+        description: `Admin memadam akaun perawat: ${targetProfile?.full_name || targetProfile?.email || targetUserId}`
+      });
+    } catch (logErr) {
+      console.warn('logActivity failed (non-blocking):', logErr?.message);
+    }
+
+    return NextResponse.json({ success: true, message: 'Akaun perawat berjaya dipadam sepenuhnya.' });
+
   } catch (error) {
-    console.error('DELETE user error:', error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    const msg = error?.message || error?.error || (typeof error === 'string' ? error : JSON.stringify(error)) || 'Ralat tidak dijangka';
+    console.error('DELETE user error:', msg, error);
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }
