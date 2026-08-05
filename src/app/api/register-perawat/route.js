@@ -36,7 +36,7 @@ export async function POST(request) {
       email_confirm: true,
       user_metadata: {
         full_name: fullName,
-        role: 'perawat'
+        role: 'practitioner'
       }
     });
 
@@ -58,7 +58,7 @@ export async function POST(request) {
         full_name: fullName,
         email,
         phone: phone || null,
-        role: 'perawat',
+        role: 'practitioner',
         is_active: false,
         is_receiving_cases: true,
         updated_at: new Date().toISOString()
