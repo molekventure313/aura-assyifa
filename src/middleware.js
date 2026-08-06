@@ -40,12 +40,21 @@ export async function middleware(request) {
     request.nextUrl.pathname === '/setup' ||
     request.nextUrl.pathname === '/daftar-perawat' ||
     request.nextUrl.pathname === '/terima-kasih' ||
+    request.nextUrl.pathname.startsWith('/sihir') ||
+    request.nextUrl.pathname.startsWith('/saka') ||
+    request.nextUrl.pathname.startsWith('/penyakit-misteri') ||
+    request.nextUrl.pathname.startsWith('/gangguan-berulang') ||
+    request.nextUrl.pathname.startsWith('/gangguan-mistik') ||
+    request.nextUrl.pathname.startsWith('/belum-zuriat') ||
+    request.nextUrl.pathname.startsWith('/kedai-tutup') ||
     request.nextUrl.pathname.startsWith('/api/submissions') ||
     request.nextUrl.pathname.startsWith('/api/tracking') ||
     request.nextUrl.pathname.startsWith('/api/setup') ||
     request.nextUrl.pathname.startsWith('/api/register-perawat') ||
     request.nextUrl.pathname.startsWith('/api/settings') ||
-    request.nextUrl.pathname.startsWith('/api/perawat');
+    request.nextUrl.pathname.startsWith('/api/perawat') ||
+    request.nextUrl.pathname.startsWith('/api/pixel-init') ||   // ← pixel script
+    request.nextUrl.pathname.startsWith('/api/pixel-debug');    // ← debug endpoint
 
   if (!user && !isPublicRoute) {
     const url = request.nextUrl.clone();
