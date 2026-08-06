@@ -43,14 +43,8 @@ async function getPixelId() {
 export default async function RootLayout({ children }) {
   const pixelId = await getPixelId();
 
-  // Detect current route via middleware-injected header
-  // /terima-kasih → fire Lead, semua lain → fire PageView
-  const headersList = await headers();
-  const pathname = headersList.get('x-pathname') || '';
-  const isTQPage = pathname === '/terima-kasih';
-  const pixelEvent = isTQPage ? 'Lead' : 'PageView';
-
-  // Official Meta Pixel base code — swap PageView → Lead on TQ page
+  // Official Meta Pixel base code — in <head> exactly per FB template
+  // Fires PageView on every page. /terima-kasih fires Lead via its own component.
   const pixelScript = pixelId ? `
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -61,7 +55,7 @@ export default async function RootLayout({ children }) {
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '${pixelId}');
-    fbq('track', '${pixelEvent}');
+    fbq('track', 'PageView');
   ` : null;
 
   return (

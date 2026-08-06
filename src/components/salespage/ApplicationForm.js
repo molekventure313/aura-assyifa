@@ -69,6 +69,13 @@ export default function ApplicationForm({ source }) {
 
     setLoading(true);
 
+    // ── Fire InitiateCheckout SEKARANG — user dah commit nak submit ──
+    // fbq confirm available (layout.js inject dalam <head>)
+    // Ini standard e-commerce pixel event untuk track checkout intent
+    try {
+      window.fbq('track', 'InitiateCheckout');
+    } catch (_) {}
+
     try {
       // ── Generate shared event_id for browser pixel + CAPI deduplication ──
       const eventId = generateEventId();
