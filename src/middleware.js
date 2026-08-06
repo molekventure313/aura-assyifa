@@ -62,6 +62,10 @@ export async function middleware(request) {
     return NextResponse.redirect(url);
   }
 
+  // Inject current pathname as header so layout.js can detect route
+  // and fire the correct pixel event (e.g. Lead on /terima-kasih)
+  supabaseResponse.headers.set('x-pathname', request.nextUrl.pathname);
+
   return supabaseResponse;
 }
 

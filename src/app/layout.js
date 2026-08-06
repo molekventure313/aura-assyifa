@@ -1,4 +1,5 @@
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+import { headers } from 'next/headers';
 import './globals.css';
 import { ToastProvider } from '@/components/ui/Toast';
 import { createAdminClient } from '@/lib/supabase/admin';
@@ -42,7 +43,14 @@ async function getPixelId() {
 export default async function RootLayout({ children }) {
   const pixelId = await getPixelId();
 
-  // Official Meta Pixel base code — injected in <head> exactly as FB recommends
+  // Detect current route via middleware-injected header
+  // /terima-kasih → fire Lead, semua lain → fire PageView
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') || '';
+  const isTQPage = pathname === '/terima-kasih';
+  const pixelEvent = isTQPage ? 'Lead' : 'PageView';
+
+  // Official Meta Pixel base code — swap PageView → Lead on TQ page
   const pixelScript = pixelId ? `
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -53,7 +61,7 @@ export default async function RootLayout({ children }) {
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '${pixelId}');
-    fbq('track', 'PageView');
+    fbq('track', '${pixelEvent}');
   ` : null;
 
   return (
