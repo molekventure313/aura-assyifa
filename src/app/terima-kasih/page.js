@@ -1,24 +1,6 @@
 'use client';
 
-import { useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-import { trackEvent } from '@/lib/tracking/pixel';
-
-// Diasingkan ke child component supaya useSearchParams boleh dibungkus Suspense
-function LeadTracker() {
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    const eventId = searchParams.get('eid') || null;
-    try {
-      trackEvent('Lead', { content_name: 'Borang Diagnos ESyifaa' }, eventId);
-    } catch (err) {
-      console.warn('Lead pixel non-blocking error:', err);
-    }
-  }, []);
-
-  return null;
-}
+import Script from 'next/script';
 
 export default function ThankYouPage() {
   return (
@@ -33,10 +15,20 @@ export default function ThankYouPage() {
         fontFamily: 'var(--font-inter), sans-serif'
       }}
     >
-      {/* LeadTracker dibungkus Suspense — diperlukan oleh Next.js untuk useSearchParams */}
-      <Suspense fallback={null}>
-        <LeadTracker />
-      </Suspense>
+      {/*
+        Official FB Pixel conversion tracking — fires Lead event on TQ page.
+        Uses Next.js Script (afterInteractive) so fbq is guaranteed ready.
+        Reads event_id from URL (?eid=) for CAPI deduplication.
+      */}
+      <Script id="pixel-lead-event" strategy="afterInteractive">{`
+        (function() {
+          if (typeof fbq === 'undefined') return;
+          var p = new URLSearchParams(window.location.search);
+          var eid = p.get('eid');
+          var opts = eid ? { eventID: eid } : {};
+          fbq('track', 'Lead', { content_name: 'Borang Diagnos ESyifaa' }, opts);
+        })();
+      `}</Script>
       <div
         style={{
           maxWidth: '620px',
