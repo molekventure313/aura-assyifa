@@ -6,6 +6,12 @@ let _cachedConfig = null;
 let _cacheExpiry = 0;
 const CACHE_TTL_MS = 60 * 1000; // 1 minute cache
 
+// Call this after saving new pixel config to force fresh DB fetch on next request
+export function resetTrackingCache() {
+  _cachedConfig = null;
+  _cacheExpiry = 0;
+}
+
 async function getTrackingConfig() {
   const now = Date.now();
   if (_cachedConfig && now < _cacheExpiry) {

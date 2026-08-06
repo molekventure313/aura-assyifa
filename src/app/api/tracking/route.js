@@ -88,6 +88,12 @@ export async function PATCH(req) {
       description: 'Tetapan Meta Pixel & CAPI dikemaskini' 
     });
 
+    // ✅ Reset in-memory cache in capi.js so next request fetches fresh from DB
+    try {
+      const { resetTrackingCache } = await import('@/lib/tracking/capi');
+      resetTrackingCache();
+    } catch (_) {}
+
     return NextResponse.json({ success: true, message: 'Tetapan berjaya disimpan!' });
   } catch (error) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });

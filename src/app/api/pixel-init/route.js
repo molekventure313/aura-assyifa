@@ -52,7 +52,10 @@ export async function GET() {
   return new Response(pixelScript, {
     headers: {
       'Content-Type': 'application/javascript',
-      'Cache-Control': 'no-store, max-age=0',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+      'Surrogate-Control': 'no-store',
+      'CDN-Cache-Control': 'no-store',
+      'Netlify-CDN-Cache-Control': 'no-store',
     },
   });
 }
