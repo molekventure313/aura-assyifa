@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { generateEventId, getPixelCookies } from '@/lib/tracking/pixel';
+import { generateEventId, getPixelCookies, trackEvent } from '@/lib/tracking/pixel';
 
 // Read UTM params from URL
 function getUTMParams() {
@@ -79,16 +79,8 @@ export default function ApplicationForm({ source }) {
       // ── Read UTM + fbclid from URL ──
       const utmParams = getUTMParams();
 
-      // ── Fire browser-side Pixel Lead event (SAME event_id as CAPI) ──
-      try {
-        if (typeof window !== 'undefined' && window.fbq) {
-          window.fbq('track', 'Lead', {
-            content_name: detectedSource || 'Salespage ESyifaa',
-          }, { eventID: eventId });
-        }
-      } catch (trackErr) {
-        console.warn('Pixel Lead event non-blocking error:', trackErr);
-      }
+      // ── Build fbc from fbclid if no cookie ──
+      const fbcValue = fbc || (utmParams.fbclid ? `fb.1.${Date.now()}.${utmParams.fbclid}` : null);
 
       const res = await fetch('/api/submissions', {
         method: 'POST',
@@ -105,7 +97,7 @@ export default function ApplicationForm({ source }) {
           landing_page_url: typeof window !== 'undefined' ? window.location.href : null,
           referrer_url: typeof window !== 'undefined' ? document.referrer : null,
           fbp: fbp || null,
-          fbc: fbc || utmParams.fbclid ? `fb.1.${Date.now()}.${utmParams.fbclid}` : null,
+          fbc: fbcValue,
           fbclid: utmParams.fbclid || null,
           utm_source:   utmParams.utm_source,
           utm_medium:   utmParams.utm_medium,
@@ -118,6 +110,9 @@ export default function ApplicationForm({ source }) {
       const json = await res.json();
 
       if (res.ok && json.success) {
+        // ── Fire browser pixel Lead ONLY on successful submission ──
+        // Uses same eventId as CAPI → Meta deduplicates, counts as 1 Lead
+        trackEvent('Lead', { content_name: detectedSource || 'Salespage ESyifaa' }, eventId);
         router.push('/terima-kasih');
       } else {
         throw new Error(json.error || 'Satu ralat telah berlaku. Sila cuba lagi.');

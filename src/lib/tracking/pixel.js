@@ -1,4 +1,35 @@
 // Client-side Meta Pixel helpers
+
+/**
+ * Fire a pixel event. If fbq is not ready yet, retry up to 10x (5 seconds total).
+ * This handles the race condition where form is submitted before pixel script loads.
+ */
+export function trackEvent(eventName, params = {}, eventId = null) {
+  if (typeof window === 'undefined') return;
+
+  const fire = () => {
+    if (!window.fbq) return false;
+    const options = eventId ? { eventID: eventId } : undefined;
+    window.fbq('track', eventName, params, options);
+    return true;
+  };
+
+  // Try immediately
+  if (fire()) return;
+
+  // fbq not ready — retry every 500ms for up to 5 seconds
+  let attempts = 0;
+  const interval = setInterval(() => {
+    attempts++;
+    if (fire() || attempts >= 10) {
+      clearInterval(interval);
+      if (attempts >= 10) {
+        console.warn(`[Pixel] fbq never ready — ${eventName} event dropped after 5s`);
+      }
+    }
+  }, 500);
+}
+
 export function initPixel(pixelId) {
   if (!pixelId || typeof window === 'undefined') return;
 
@@ -10,15 +41,8 @@ export function initPixel(pixelId) {
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  
-  window.fbq('init', pixelId);
-}
 
-export function trackEvent(eventName, params = {}, eventId = null) {
-  if (typeof window === 'undefined' || !window.fbq) return;
-  
-  const options = eventId ? { eventID: eventId } : undefined;
-  window.fbq('track', eventName, params, options);
+  window.fbq('init', pixelId);
 }
 
 export function trackPageView() {
@@ -39,7 +63,7 @@ export function generateEventId() {
 
 export function getPixelCookies() {
   if (typeof document === 'undefined') return { fbp: null, fbc: null };
-  
+
   const getCookie = (name) => {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
