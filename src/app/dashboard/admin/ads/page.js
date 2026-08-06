@@ -35,6 +35,12 @@ export default function AdsSpendPage() {
   const [editingId, setEditingId] = useState(null);
   const [submitting, setSubmitting] = useState(false);
 
+  // Commission state
+  const [commission, setCommission] = useState(null);
+  const [commLoading, setCommLoading] = useState(true);
+  const [treatmentPrice, setTreatmentPrice] = useState('');
+  const [savingPrice, setSavingPrice] = useState(false);
+
   // Theme
   const [isLightMode, setIsLightMode] = useState(false);
   useEffect(() => {
@@ -64,6 +70,49 @@ export default function AdsSpendPage() {
   }, [period]);
 
   useEffect(() => { fetchData(); }, [fetchData]);
+
+  // Fetch commission data (synced with period)
+  const fetchCommission = useCallback(async () => {
+    setCommLoading(true);
+    try {
+      const res = await fetch(`/api/admin/commission?period=${period}`);
+      const json = await res.json();
+      if (json.success) {
+        setCommission(json.data);
+        setTreatmentPrice(String(json.data.treatment_price || ''));
+      }
+    } catch (err) {
+      console.error('Commission fetch error:', err);
+    } finally {
+      setCommLoading(false);
+    }
+  }, [period]);
+
+  useEffect(() => { fetchCommission(); }, [fetchCommission]);
+
+  const saveTreatmentPrice = async () => {
+    if (!treatmentPrice || isNaN(parseFloat(treatmentPrice))) {
+      showToast('Sila masukkan harga rawatan yang sah', 'error');
+      return;
+    }
+    setSavingPrice(true);
+    try {
+      const res = await fetch('/api/admin/settings', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ treatment_price: parseFloat(treatmentPrice) }),
+      });
+      const json = await res.json();
+      if (json.success) {
+        showToast('Harga rawatan berjaya disimpan!', 'success');
+        fetchCommission();
+      } else throw new Error(json.error);
+    } catch (err) {
+      showToast(err.message || 'Gagal menyimpan harga', 'error');
+    } finally {
+      setSavingPrice(false);
+    }
+  };
 
   const handleEdit = (record) => {
     setEditingId(record.id);
@@ -392,6 +441,130 @@ export default function AdsSpendPage() {
           </div>
         </div>
 
+      </div>
+
+      {/* ── COMMISSION SECTION ── */}
+      <div style={{ marginTop: '2rem' }}>
+        {/* Section header */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
+          <span style={{ fontSize: '1.1rem' }}>💵</span>
+          <div>
+            <div style={{ fontSize: '0.68rem', fontWeight: 700, color: isLightMode ? '#047857' : '#34D399', textTransform: 'uppercase', letterSpacing: '0.08em' }}>PENGIRAAN KOMISEN</div>
+            <div style={{ fontSize: '1.1rem', fontWeight: 700, color: textPrimary }}>Komisen Perawat — {PERIODS.find(p => p.id === period)?.label}</div>
+          </div>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 260px', gap: '1.25rem', alignItems: 'start' }}>
+
+          {/* Commission table */}
+          <div>
+            {/* Commission summary cards */}
+            {commission && (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.75rem', marginBottom: '1rem' }}>
+                {[
+                  { label: 'Jumlah Sales', value: `RM ${fmt(commission.summary.total_sales)}`, color: '#10B981', icon: '💰' },
+                  { label: 'Jumlah Komisen', value: `RM ${fmt(commission.summary.total_komisen)}`, color: '#8B5CF6', icon: '📊' },
+                  { label: 'Perawat Dapat (60%)', value: `RM ${fmt(commission.summary.total_perawat_dapat)}`, color: '#F59E0B', icon: '🌿' },
+                  { label: "ESyifaa' Dapat (40%)", value: `RM ${fmt(commission.summary.total_esyifaa_dapat)}`, color: '#EC4899', icon: '🏢' },
+                ].map((c, i) => (
+                  <div key={i} style={{ padding: '0.85rem', borderRadius: '8px', background: cardBg, border: cardBorder }}>
+                    <div style={{ fontSize: '0.65rem', color: textMuted, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.35rem' }}>{c.icon} {c.label}</div>
+                    <div style={{ fontSize: '1.15rem', fontWeight: 800, color: c.color }}>{c.value}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Per-practitioner commission table */}
+            <div style={{ background: cardBg, borderRadius: '8px', border: cardBorder, overflow: 'hidden' }}>
+              {commLoading ? (
+                <div style={{ display: 'flex', justifyContent: 'center', padding: '2.5rem', gap: '0.75rem', alignItems: 'center', flexDirection: 'column' }}>
+                  <div className="spinner" style={{ width: '24px', height: '24px', borderColor: 'rgba(16,185,129,0.2)', borderTopColor: '#10B981' }} />
+                  <span style={{ color: textSecondary, fontSize: '0.8rem' }}>Mengira komisen...</span>
+                </div>
+              ) : !commission || commission.practitioners.length === 0 ? (
+                <div style={{ padding: '2.5rem', textAlign: 'center', color: textMuted, fontSize: '0.85rem' }}>
+                  <div style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>👤</div>
+                  Tiada data perawat untuk tempoh ini.
+                </div>
+              ) : (
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.78rem' }}>
+                  <thead>
+                    <tr style={{ borderBottom: isLightMode ? '1px solid #E2E8F0' : '1px solid rgba(255,255,255,0.08)' }}>
+                      {['Perawat', 'Lead', 'Kos Lead', 'Kes Selesai', 'Sales', 'Komisen', 'Perawat (60%)', "ESyifaa' (40%)"].map((h, i) => (
+                        <th key={i} style={{ padding: '0.7rem 0.85rem', color: textSecondary, fontWeight: 700, fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.05em', textAlign: i === 0 ? 'left' : 'center', whiteSpace: 'nowrap' }}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {commission.practitioners.map((p, idx) => (
+                      <tr key={p.practitioner_id} style={{ borderBottom: isLightMode ? '1px solid #F1F5F9' : '1px solid rgba(255,255,255,0.04)', background: idx % 2 === 0 ? 'transparent' : (isLightMode ? 'rgba(0,0,0,0.015)' : 'rgba(255,255,255,0.01)') }}>
+                        <td style={{ padding: '0.75rem 0.85rem', fontWeight: 700, color: textPrimary }}>🌿 {p.practitioner_name}</td>
+                        <td style={{ padding: '0.75rem 0.85rem', textAlign: 'center', color: '#10B981', fontWeight: 700 }}>{p.total_leads}</td>
+                        <td style={{ padding: '0.75rem 0.85rem', textAlign: 'center', color: '#EF4444', fontWeight: 600 }}>RM {fmt(p.kos_leads)}</td>
+                        <td style={{ padding: '0.75rem 0.85rem', textAlign: 'center', color: '#10B981', fontWeight: 700 }}>{p.rawatan_selesai}</td>
+                        <td style={{ padding: '0.75rem 0.85rem', textAlign: 'center', color: '#10B981', fontWeight: 700 }}>RM {fmt(p.sales)}</td>
+                        <td style={{ padding: '0.75rem 0.85rem', textAlign: 'center' }}>
+                          <span style={{ fontWeight: 800, color: p.komisen >= 0 ? '#8B5CF6' : '#EF4444', fontSize: '0.85rem' }}>RM {fmt(p.komisen)}</span>
+                        </td>
+                        <td style={{ padding: '0.75rem 0.85rem', textAlign: 'center' }}>
+                          <span style={{ fontWeight: 800, color: '#F59E0B', padding: '0.2rem 0.5rem', borderRadius: '4px', background: 'rgba(245,158,11,0.1)' }}>RM {fmt(p.perawat_dapat)}</span>
+                        </td>
+                        <td style={{ padding: '0.75rem 0.85rem', textAlign: 'center' }}>
+                          <span style={{ fontWeight: 800, color: '#EC4899', padding: '0.2rem 0.5rem', borderRadius: '4px', background: 'rgba(236,72,153,0.1)' }}>RM {fmt(p.esyifaa_dapat)}</span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+
+            {/* Formula note */}
+            <div style={{ marginTop: '0.75rem', padding: '0.75rem 1rem', borderRadius: '6px', background: isLightMode ? '#FFF7ED' : 'rgba(245,158,11,0.06)', border: isLightMode ? '1px solid #FDE68A' : '1px solid rgba(245,158,11,0.2)', fontSize: '0.72rem', color: textSecondary, lineHeight: 1.7 }}>
+              <strong style={{ color: '#F59E0B' }}>📐 Formula:</strong> Sales = (Rawatan Selesai × Harga Rawatan) &nbsp;|&nbsp; Komisen = Sales − Kos Lead &nbsp;|&nbsp; <span style={{ color: '#F59E0B' }}>Perawat 60%</span> + <span style={{ color: '#EC4899' }}>ESyifaa&apos; 40%</span>
+            </div>
+          </div>
+
+          {/* Treatment price settings card */}
+          <div style={{ background: cardBg, borderRadius: '8px', border: cardBorder, padding: '1.25rem', position: 'sticky', top: '1rem' }}>
+            <div style={{ fontWeight: 700, fontSize: '0.9rem', color: textPrimary, marginBottom: '0.25rem' }}>⚙️ Tetapan Komisen</div>
+            <p style={{ fontSize: '0.75rem', color: textMuted, margin: '0 0 1.25rem' }}>Set harga rawatan per kes. Sistem akan auto kira sales berdasarkan bilangan kes yang selesai.</p>
+
+            <div style={{ marginBottom: '1rem' }}>
+              <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: textSecondary, marginBottom: '0.4rem' }}>Harga Rawatan Per Kes (RM)</label>
+              <div style={{ position: 'relative' }}>
+                <span style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', fontWeight: 700, color: '#10B981', fontSize: '0.85rem' }}>RM</span>
+                <input
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  value={treatmentPrice}
+                  onChange={(e) => setTreatmentPrice(e.target.value)}
+                  placeholder="0.00"
+                  style={{ width: '100%', padding: '0.6rem 0.75rem 0.6rem 2.5rem', background: inputBg, border: inputBorder, borderRadius: '6px', color: textPrimary, fontSize: '0.95rem', fontWeight: 700, outline: 'none', boxSizing: 'border-box' }}
+                />
+              </div>
+            </div>
+
+            <button
+              onClick={saveTreatmentPrice}
+              disabled={savingPrice}
+              style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', background: '#10B981', color: '#FFFFFF', fontWeight: 700, fontSize: '0.85rem', border: 'none', cursor: savingPrice ? 'not-allowed' : 'pointer', opacity: savingPrice ? 0.7 : 1 }}
+            >
+              {savingPrice ? 'Menyimpan...' : 'Simpan Harga'}
+            </button>
+
+            {commission && (
+              <div style={{ marginTop: '1rem', padding: '0.85rem', borderRadius: '6px', background: isLightMode ? '#F0FDF4' : 'rgba(16,185,129,0.06)', border: isLightMode ? '1px solid #BBF7D0' : '1px solid rgba(16,185,129,0.15)', fontSize: '0.72rem', color: textSecondary, lineHeight: 1.7 }}>
+                <div style={{ fontWeight: 700, color: isLightMode ? '#047857' : '#34D399', marginBottom: '0.35rem' }}>📊 Kadar Komisen</div>
+                <div>🌿 Perawat: <strong style={{ color: '#F59E0B' }}>60%</strong></div>
+                <div>🏢 ESyifaa&apos;: <strong style={{ color: '#EC4899' }}>40%</strong></div>
+              </div>
+            )}
+          </div>
+
+        </div>
       </div>
     </div>
   );
