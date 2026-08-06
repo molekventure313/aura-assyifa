@@ -239,8 +239,8 @@ export default function AdsSpendPage() {
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
                 <thead>
                   <tr style={{ borderBottom: isLightMode ? '1px solid #E2E8F0' : '1px solid rgba(255,255,255,0.08)' }}>
-                    {['Tarikh', 'Spent (RM)', 'Lead Baharu', 'Kos / Lead', 'Total Sales', 'Breakdown Perawat', ''].map((h, i) => (
-                      <th key={i} style={{ padding: '0.75rem 1rem', color: textSecondary, fontWeight: 700, fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.06em', textAlign: i >= 1 && i <= 4 ? 'center' : 'left' }}>{h}</th>
+                    {['Tarikh', 'Total Sales', 'Spent', 'Lead', 'Kos Per Lead', 'Kos Per Perawat', 'Total Komisen', ''].map((h, i) => (
+                      <th key={i} style={{ padding: '0.75rem 1rem', color: textSecondary, fontWeight: 700, fontSize: '0.66rem', textTransform: 'uppercase', letterSpacing: '0.06em', textAlign: i === 0 || i === 5 ? 'left' : 'center', whiteSpace: 'nowrap' }}>{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -253,36 +253,36 @@ export default function AdsSpendPage() {
                         onClick={() => setExpandedRow(expandedRow === rec.id ? null : rec.id)}
                       >
                         {/* Tarikh */}
-                        <td style={{ padding: '0.85rem 1rem' }}>
-                          <div style={{ fontWeight: 700, color: textPrimary }}>
+                        <td style={{ padding: '0.85rem 1rem', minWidth: '110px' }}>
+                          <div style={{ fontWeight: 700, color: textPrimary, fontSize: '0.82rem' }}>
                             {new Date(rec.spend_date + 'T00:00:00').toLocaleDateString('ms-MY', { day: '2-digit', month: 'short', year: 'numeric' })}
                           </div>
-                          {rec.notes && <div style={{ fontSize: '0.7rem', color: textMuted, marginTop: '0.15rem' }}>{rec.notes}</div>}
-                        </td>
-                        {/* Spent */}
-                        <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
-                          <span style={{ fontWeight: 700, color: textPrimary, fontSize: '0.88rem' }}>RM {fmt(rec.amount)}</span>
-                        </td>
-                        {/* Total Leads */}
-                        <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
-                          <span style={{ fontWeight: 700, color: textPrimary }}>{rec.total_leads}</span>
-                        </td>
-                        {/* Kos per lead */}
-                        <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
-                          {rec.total_leads > 0
-                            ? <span style={{ fontWeight: 600, color: textSecondary, fontSize: '0.86rem' }}>RM {fmt(rec.cost_per_lead)}</span>
-                            : <span style={{ color: textMuted, fontSize: '0.78rem' }}>–</span>}
+                          {rec.notes && <div style={{ fontSize: '0.68rem', color: textMuted, marginTop: '0.15rem' }}>{rec.notes}</div>}
                         </td>
                         {/* Total Sales */}
                         <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
-                          <span style={{ fontWeight: 700, color: textPrimary, fontSize: '0.88rem' }}>RM {fmt(rec.total_sales ?? 0)}</span>
+                          <span style={{ fontWeight: 700, color: '#10B981', fontSize: '0.88rem' }}>RM {fmt(rec.total_sales ?? 0)}</span>
                         </td>
-                        {/* Breakdown preview */}
+                        {/* Spent */}
+                        <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
+                          <span style={{ fontWeight: 700, color: '#F59E0B', fontSize: '0.88rem' }}>RM {fmt(rec.amount)}</span>
+                        </td>
+                        {/* Lead */}
+                        <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
+                          <span style={{ fontWeight: 700, color: textPrimary, fontSize: '0.88rem' }}>{rec.total_leads}</span>
+                        </td>
+                        {/* Kos Per Lead */}
+                        <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
+                          {rec.total_leads > 0
+                            ? <span style={{ fontWeight: 700, color: textSecondary, fontSize: '0.85rem' }}>RM {fmt(rec.cost_per_lead)}</span>
+                            : <span style={{ color: textMuted, fontSize: '0.78rem' }}>–</span>}
+                        </td>
+                        {/* Kos Per Perawat chips */}
                         <td style={{ padding: '0.85rem 1rem' }}>
                           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}>
                             {rec.breakdown.slice(0, 3).map(b => (
-                              <span key={b.practitioner_id} style={{ fontSize: '0.68rem', padding: '0.15rem 0.45rem', borderRadius: '4px', background: isLightMode ? '#F1F5F9' : 'rgba(255,255,255,0.06)', border: isLightMode ? '1px solid #CBD5E1' : '1px solid rgba(255,255,255,0.1)', color: textSecondary, fontWeight: 600 }}>
-                                {b.practitioner_name}: RM {fmt(b.cost)}
+                              <span key={b.practitioner_id} style={{ fontSize: '0.68rem', padding: '0.15rem 0.5rem', borderRadius: '4px', background: isLightMode ? '#F1F5F9' : 'rgba(255,255,255,0.06)', border: isLightMode ? '1px solid #CBD5E1' : '1px solid rgba(255,255,255,0.1)', color: textSecondary, fontWeight: 600 }}>
+                                {b.practitioner_name}: <span style={{ color: '#F59E0B' }}>RM {fmt(b.cost)}</span>
                               </span>
                             ))}
                             {rec.breakdown.length > 3 && (
@@ -290,12 +290,16 @@ export default function AdsSpendPage() {
                             )}
                           </div>
                         </td>
+                        {/* Total Komisen */}
+                        <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
+                          <span style={{ fontWeight: 700, color: (rec.total_komisen ?? 0) >= 0 ? '#10B981' : '#F59E0B', fontSize: '0.88rem' }}>RM {fmt(rec.total_komisen ?? 0)}</span>
+                        </td>
                         {/* Actions */}
                         <td style={{ padding: '0.85rem 1rem' }}>
                           <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
                             <button
                               onClick={(e) => { e.stopPropagation(); handleEdit(rec); }}
-                              style={{ padding: '0.3rem 0.65rem', borderRadius: '5px', background: 'transparent', border: isLightMode ? '1px solid #CBD5E1' : '1px solid rgba(255,255,255,0.15)', color: textSecondary, fontSize: '0.72rem', fontWeight: 600, cursor: 'pointer' }}
+                              style={{ padding: '0.3rem 0.65rem', borderRadius: '5px', background: isLightMode ? '#F1F5F9' : 'rgba(255,255,255,0.06)', border: isLightMode ? '1px solid #CBD5E1' : '1px solid rgba(255,255,255,0.12)', color: textSecondary, fontSize: '0.72rem', fontWeight: 600, cursor: 'pointer' }}
                             >
                               Edit
                             </button>
@@ -308,9 +312,9 @@ export default function AdsSpendPage() {
 
                       {/* Expanded breakdown row — full commission table */}
                       {expandedRow === rec.id && (
-                        <tr key={`${rec.id}-expand`} style={{ background: isLightMode ? '#F8FAFC' : 'rgba(16,185,129,0.03)' }}>
-                          <td colSpan={6} style={{ padding: '1rem 1.25rem' }}>
-                            <div style={{ fontSize: '0.7rem', fontWeight: 700, color: isLightMode ? '#047857' : '#34D399', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                        <tr key={`${rec.id}-expand`} style={{ background: isLightMode ? '#F8FAFC' : 'rgba(255,255,255,0.02)' }}>
+                          <td colSpan={8} style={{ padding: '1rem 1.25rem' }}>
+                            <div style={{ fontSize: '0.68rem', fontWeight: 700, color: textSecondary, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
                               Komisen Per Perawat — {new Date(rec.spend_date + 'T00:00:00').toLocaleDateString('ms-MY', { day: '2-digit', month: 'long', year: 'numeric' })}
                             </div>
                             {rec.breakdown.length === 0 ? (
@@ -319,46 +323,38 @@ export default function AdsSpendPage() {
                               <div style={{ overflowX: 'auto' }}>
                                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.76rem' }}>
                                   <thead>
-                                    <tr style={{ borderBottom: isLightMode ? '1px solid #CBD5E1' : '1px solid rgba(255,255,255,0.1)' }}>
-                                      {['Perawat', 'Lead', 'Kos Lead', 'Kes Selesai', 'Sales', 'Komisen', 'Perawat (60%)', "ESyifaa' (40%)"].map((h, i) => (
+                                    <tr style={{ borderBottom: isLightMode ? '1px solid #CBD5E1' : '1px solid rgba(255,255,255,0.08)' }}>
+                                      {['Perawat', 'Sales', 'Lead', 'Kos Per Perawat', 'Komisen', 'Perawat (60%)', "ESyifaa' (40%)"].map((h, i) => (
                                         <th key={i} style={{ padding: '0.5rem 0.75rem', color: textSecondary, fontWeight: 700, fontSize: '0.63rem', textTransform: 'uppercase', letterSpacing: '0.05em', textAlign: i === 0 ? 'left' : 'center', whiteSpace: 'nowrap' }}>{h}</th>
                                       ))}
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    {rec.breakdown.map((b, idx) => (
+                                    {rec.breakdown.map((b) => (
                                       <tr key={b.practitioner_id} style={{ borderBottom: isLightMode ? '1px solid #F1F5F9' : '1px solid rgba(255,255,255,0.04)' }}>
-                                        <td style={{ padding: '0.55rem 0.75rem', fontWeight: 600, color: textPrimary }}>{b.practitioner_name}</td>
-                                        <td style={{ padding: '0.55rem 0.75rem', textAlign: 'center', color: textPrimary, fontWeight: 600 }}>{b.leads_count}</td>
-                                        <td style={{ padding: '0.55rem 0.75rem', textAlign: 'center', color: textSecondary, fontWeight: 500 }}>RM {fmt(b.cost)}</td>
-                                        <td style={{ padding: '0.55rem 0.75rem', textAlign: 'center', color: textPrimary, fontWeight: 600 }}>{b.rawatan_selesai ?? '–'}</td>
-                                        <td style={{ padding: '0.55rem 0.75rem', textAlign: 'center', color: textPrimary, fontWeight: 700 }}>RM {fmt(b.sales ?? 0)}</td>
-                                        <td style={{ padding: '0.55rem 0.75rem', textAlign: 'center' }}>
-                                          <span style={{ fontWeight: 700, color: textPrimary }}>RM {fmt(b.komisen ?? 0)}</span>
-                                        </td>
-                                        <td style={{ padding: '0.55rem 0.75rem', textAlign: 'center' }}>
-                                          <span style={{ fontWeight: 700, color: textSecondary }}>RM {fmt(b.perawat_dapat ?? 0)}</span>
-                                        </td>
-                                        <td style={{ padding: '0.55rem 0.75rem', textAlign: 'center' }}>
-                                          <span style={{ fontWeight: 700, color: textSecondary }}>RM {fmt(b.esyifaa_dapat ?? 0)}</span>
-                                        </td>
+                                        <td style={{ padding: '0.6rem 0.75rem', fontWeight: 600, color: textPrimary }}>{b.practitioner_name}</td>
+                                        <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: '#10B981', fontWeight: 700 }}>RM {fmt(b.sales ?? 0)}</td>
+                                        <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: textPrimary, fontWeight: 600 }}>{b.leads_count}</td>
+                                        <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: '#F59E0B', fontWeight: 600 }}>RM {fmt(b.cost)}</td>
+                                        <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 700, color: (b.komisen ?? 0) >= 0 ? '#10B981' : '#F59E0B' }}>RM {fmt(b.komisen ?? 0)}</td>
+                                        <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 700, color: textPrimary }}>RM {fmt(b.perawat_dapat ?? 0)}</td>
+                                        <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 700, color: textSecondary }}>RM {fmt(b.esyifaa_dapat ?? 0)}</td>
                                       </tr>
                                     ))}
                                     {/* Total row */}
-                                    <tr style={{ borderTop: isLightMode ? '2px solid #CBD5E1' : '2px solid rgba(255,255,255,0.1)', background: isLightMode ? '#F8FAFC' : 'rgba(255,255,255,0.03)' }}>
-                                      <td style={{ padding: '0.6rem 0.75rem', fontWeight: 800, color: textPrimary, fontSize: '0.73rem' }}>JUMLAH</td>
-                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 700, color: textPrimary }}>{rec.total_leads}</td>
-                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 700, color: textSecondary }}>RM {fmt(rec.amount)}</td>
-                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 700, color: textPrimary }}>{rec.total_selesai ?? 0}</td>
-                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 800, color: textPrimary }}>RM {fmt(rec.total_sales ?? 0)}</td>
-                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 800, color: textPrimary }}>RM {fmt(rec.total_komisen ?? 0)}</td>
-                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 700, color: textSecondary }}>RM {fmt(rec.breakdown.reduce((s, b) => s + (b.perawat_dapat ?? 0), 0))}</td>
-                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 700, color: textSecondary }}>RM {fmt(rec.breakdown.reduce((s, b) => s + (b.esyifaa_dapat ?? 0), 0))}</td>
+                                    <tr style={{ borderTop: isLightMode ? '2px solid #E2E8F0' : '2px solid rgba(255,255,255,0.1)', background: isLightMode ? '#F1F5F9' : 'rgba(255,255,255,0.03)', fontWeight: 800 }}>
+                                      <td style={{ padding: '0.6rem 0.75rem', color: textPrimary, fontSize: '0.72rem' }}>JUMLAH</td>
+                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: '#10B981' }}>RM {fmt(rec.total_sales ?? 0)}</td>
+                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: textPrimary }}>{rec.total_leads}</td>
+                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: '#F59E0B' }}>RM {fmt(rec.amount)}</td>
+                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: (rec.total_komisen ?? 0) >= 0 ? '#10B981' : '#F59E0B' }}>RM {fmt(rec.total_komisen ?? 0)}</td>
+                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: textPrimary }}>RM {fmt(rec.breakdown.reduce((s, b) => s + (b.perawat_dapat ?? 0), 0))}</td>
+                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: textSecondary }}>RM {fmt(rec.breakdown.reduce((s, b) => s + (b.esyifaa_dapat ?? 0), 0))}</td>
                                     </tr>
                                   </tbody>
                                 </table>
-                                <div style={{ marginTop: '0.6rem', fontSize: '0.68rem', color: textMuted }}>
-                                  Sales = Kes Selesai × RM{fmt(rec.treatment_price ?? 0)} &nbsp;|&nbsp; Komisen = Sales − Kos Lead &nbsp;|&nbsp; Perawat 60% + ESyifaa&apos; 40%
+                                <div style={{ marginTop: '0.6rem', fontSize: '0.67rem', color: textMuted }}>
+                                  Sales = (Telah Dibayar / Rawatan Selesai) × RM{fmt(rec.treatment_price ?? 0)} &nbsp;|&nbsp; Komisen = Sales − Kos Per Perawat &nbsp;|&nbsp; Perawat 60% + ESyifaa&apos; 40%
                                 </div>
                               </div>
                             )}
