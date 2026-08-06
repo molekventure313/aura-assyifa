@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import PixelProvider from '@/components/salespage/PixelProvider';
 
 // Main salespage components
 import HeroSection from '@/components/salespage/HeroSection';
@@ -127,13 +126,6 @@ export default function Home() {
       })
       .catch(() => setActiveSlug(null))
       .finally(() => setLoadingSlug(false));
-
-    try {
-      trackPageView();
-      trackEvent('ViewContent');
-    } catch(err) {
-      console.log('Pixel tracking non-blocking issue', err);
-    }
   }, []);
 
   // Determine which components to render
@@ -148,7 +140,6 @@ export default function Home() {
   if (loadingSlug) {
     return (
       <main style={{ minHeight: '100vh', background: '#042E23', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <PixelProvider />
         <div style={{ color: '#FDE047', fontFamily: 'sans-serif', fontSize: '1rem', opacity: 0.7 }}>Memuatkan...</div>
       </main>
     );
@@ -156,7 +147,6 @@ export default function Home() {
 
   return (
     <main style={{ minHeight: '100vh', background: '#042E23' }}>
-      <PixelProvider />
       <ActiveHero />
       <TestimonialSection />
       <ActiveProblem />
