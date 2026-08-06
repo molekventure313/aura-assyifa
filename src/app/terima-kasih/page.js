@@ -1,8 +1,19 @@
 'use client';
 
-import Script from 'next/script';
+import { useEffect } from 'react';
 
 export default function ThankYouPage() {
+  useEffect(() => {
+    // Direct fbq call — ikut FB official standard events spec
+    // fbq dah init dalam layout.js <head>, confirm available di sini
+    try {
+      var eid = new URLSearchParams(window.location.search).get('eid');
+      window.fbq('track', 'Lead', {}, eid ? { eventID: eid } : {});
+    } catch (e) {
+      console.error('[Pixel] Lead event error:', e);
+    }
+  }, []);
+
   return (
     <main
       style={{
@@ -15,20 +26,6 @@ export default function ThankYouPage() {
         fontFamily: 'var(--font-inter), sans-serif'
       }}
     >
-      {/*
-        Official FB Pixel conversion tracking — fires Lead event on TQ page.
-        Uses Next.js Script (afterInteractive) so fbq is guaranteed ready.
-        Reads event_id from URL (?eid=) for CAPI deduplication.
-      */}
-      <Script id="pixel-lead-event" strategy="afterInteractive">{`
-        (function() {
-          if (typeof fbq === 'undefined') return;
-          var p = new URLSearchParams(window.location.search);
-          var eid = p.get('eid');
-          var opts = eid ? { eventID: eid } : {};
-          fbq('track', 'Lead', { content_name: 'Borang Diagnos ESyifaa' }, opts);
-        })();
-      `}</Script>
       <div
         style={{
           maxWidth: '620px',
