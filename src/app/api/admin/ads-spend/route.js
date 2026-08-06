@@ -71,6 +71,10 @@ export async function GET(req) {
     const practMap = {};
     (practitioners || []).forEach(p => { practMap[p.id] = p.full_name; });
 
+    // Fetch treatment price for commission calculation
+    const { data: config } = await adminClient.from('tracking_config').select('treatment_price').limit(1).maybeSingle();
+    const treatmentPrice = parseFloat(config?.treatment_price || 0);
+
     // For each spend record, count new leads (non-repeat) and breakdown per practitioner
     const records = await Promise.all((spendRecords || []).map(async (spend) => {
       const dateStart = `${spend.spend_date}T00:00:00+08:00`;
@@ -103,18 +107,40 @@ export async function GET(req) {
         breakdownMap[pid].leads_count += 1;
       });
 
-      // Calculate proportional cost after all leads counted
+      // Calculate proportional cost + commission after all leads counted
+      const completedOnDay = await adminClient
+        .from('cases')
+        .select('id, assigned_to')
+        .eq('status', 'Rawatan Selesai')
+        .gte('updated_at', dateStart)
+        .lte('updated_at', dateEnd);
+      const selesaiList = completedOnDay.data || [];
+
       Object.values(breakdownMap).forEach(b => {
         b.cost = totalLeads > 0
           ? parseFloat(((b.leads_count / totalLeads) * spend.amount).toFixed(2))
           : 0;
+        b.rawatan_selesai = selesaiList.filter(c => c.assigned_to === b.practitioner_id).length;
+        b.sales = parseFloat((b.rawatan_selesai * treatmentPrice).toFixed(2));
+        b.komisen = parseFloat((b.sales - b.cost).toFixed(2));
+        b.perawat_dapat = parseFloat((Math.max(0, b.komisen) * 0.6).toFixed(2));
+        b.esyifaa_dapat = parseFloat((Math.max(0, b.komisen) * 0.4).toFixed(2));
       });
+
+      const breakdownList = Object.values(breakdownMap).sort((a, b) => b.leads_count - a.leads_count);
+      const dayTotalSelesai = selesaiList.length;
+      const daySales = parseFloat((dayTotalSelesai * treatmentPrice).toFixed(2));
+      const dayKomisen = parseFloat((daySales - spend.amount).toFixed(2));
 
       return {
         ...spend,
         total_leads: totalLeads,
         cost_per_lead: parseFloat(costPerLead.toFixed(4)),
-        breakdown: Object.values(breakdownMap).sort((a, b) => b.leads_count - a.leads_count),
+        total_selesai: dayTotalSelesai,
+        total_sales: daySales,
+        total_komisen: dayKomisen,
+        treatment_price: treatmentPrice,
+        breakdown: breakdownList,
       };
     }));
 
