@@ -2,7 +2,21 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { trackFormSubmit } from '@/lib/tracking/pixel';
+import { generateEventId, getPixelCookies } from '@/lib/tracking/pixel';
+
+// Read UTM params from URL
+function getUTMParams() {
+  if (typeof window === 'undefined') return {};
+  const p = new URLSearchParams(window.location.search);
+  return {
+    utm_source:   p.get('utm_source')   || null,
+    utm_medium:   p.get('utm_medium')   || null,
+    utm_campaign: p.get('utm_campaign') || null,
+    utm_content:  p.get('utm_content')  || null,
+    utm_term:     p.get('utm_term')     || null,
+    fbclid:       p.get('fbclid')       || null,
+  };
+}
 
 // Map salespage paths to source slugs (must match stats API SALESPAGE_LABELS keys)
 const PATH_TO_SOURCE = {
@@ -56,12 +70,21 @@ export default function ApplicationForm({ source }) {
     setLoading(true);
 
     try {
-      // Fire Lead event via Meta Pixel (initialized by layout.js server-side)
+      // ── Generate shared event_id for browser pixel + CAPI deduplication ──
+      const eventId = generateEventId();
+
+      // ── Read fbp / fbc cookies for CAPI matching ──
+      const { fbp, fbc } = getPixelCookies();
+
+      // ── Read UTM + fbclid from URL ──
+      const utmParams = getUTMParams();
+
+      // ── Fire browser-side Pixel Lead event (SAME event_id as CAPI) ──
       try {
         if (typeof window !== 'undefined' && window.fbq) {
           window.fbq('track', 'Lead', {
             content_name: detectedSource || 'Salespage ESyifaa',
-          });
+          }, { eventID: eventId });
         }
       } catch (trackErr) {
         console.warn('Pixel Lead event non-blocking error:', trackErr);
@@ -78,7 +101,17 @@ export default function ApplicationForm({ source }) {
           notes: formData.notes,
           honeypot: formData.honeypot,
           source: detectedSource,
+          event_id: eventId,
           landing_page_url: typeof window !== 'undefined' ? window.location.href : null,
+          referrer_url: typeof window !== 'undefined' ? document.referrer : null,
+          fbp: fbp || null,
+          fbc: fbc || utmParams.fbclid ? `fb.1.${Date.now()}.${utmParams.fbclid}` : null,
+          fbclid: utmParams.fbclid || null,
+          utm_source:   utmParams.utm_source,
+          utm_medium:   utmParams.utm_medium,
+          utm_campaign: utmParams.utm_campaign,
+          utm_content:  utmParams.utm_content,
+          utm_term:     utmParams.utm_term,
         })
       });
 
