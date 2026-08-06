@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -79,14 +79,14 @@ export default function Sidebar({ isOpen, onClose }) {
 
   const practitionerNav = [
     { section: 'UTAMA' },
-    { label: 'Papan Pemuka', href: '/dashboard/perawat' },
+    { label: 'Dashboard', href: '/dashboard/perawat' },
     { label: 'Kes Saya', href: '/dashboard/perawat/kes-saya' },
     { label: 'Follow-up', href: '/dashboard/perawat/follow-up' }
   ];
   
   const adminNav = [
     { section: 'UTAMA' },
-    { label: 'Papan Pemuka', href: '/dashboard/admin' },
+    { label: 'Dashboard', href: '/dashboard/admin' },
     { label: 'Semua Kes', href: '/dashboard/admin/kes' },
     { section: 'PENGURUSAN' },
     { label: 'Perawat', href: '/dashboard/admin/perawat' },
