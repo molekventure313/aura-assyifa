@@ -82,7 +82,7 @@ export async function GET(req) {
       const totalLeads = newLeads.length;
       const costPerLead = totalLeads > 0 ? spend.amount / totalLeads : 0;
 
-      // Breakdown per practitioner
+      // Breakdown per practitioner — proportional cost
       const breakdownMap = {};
       newLeads.forEach(c => {
         const pid = c.assigned_to || 'unassigned';
@@ -95,7 +95,13 @@ export async function GET(req) {
           };
         }
         breakdownMap[pid].leads_count += 1;
-        breakdownMap[pid].cost = parseFloat((breakdownMap[pid].leads_count * costPerLead).toFixed(2));
+      });
+
+      // Calculate proportional cost after all leads counted
+      Object.values(breakdownMap).forEach(b => {
+        b.cost = totalLeads > 0
+          ? parseFloat(((b.leads_count / totalLeads) * spend.amount).toFixed(2))
+          : 0;
       });
 
       return {

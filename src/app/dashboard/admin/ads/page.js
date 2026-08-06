@@ -22,7 +22,7 @@ function getTodayMY() {
 
 export default function AdsSpendPage() {
   const { showToast } = useToast();
-  const [period, setPeriod] = useState('month');
+  const [period, setPeriod] = useState('today');
   const [data, setData] = useState({ records: [], summary: { total_spent: 0, total_leads: 0, avg_cost_per_lead: 0 } });
   const [loading, setLoading] = useState(true);
   const [expandedRow, setExpandedRow] = useState(null);
@@ -241,7 +241,7 @@ export default function AdsSpendPage() {
                           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}>
                             {rec.breakdown.slice(0, 3).map(b => (
                               <span key={b.practitioner_id} style={{ fontSize: '0.68rem', padding: '0.15rem 0.45rem', borderRadius: '4px', background: isLightMode ? '#ECFDF5' : 'rgba(16,185,129,0.1)', border: isLightMode ? '1px solid #A7F3D0' : '1px solid rgba(16,185,129,0.25)', color: isLightMode ? '#047857' : '#34D399', fontWeight: 600 }}>
-                                {b.practitioner_name}: {b.leads_count}
+                                {b.practitioner_name}: <strong>RM {fmt(b.cost)}</strong>
                               </span>
                             ))}
                             {rec.breakdown.length > 3 && (
