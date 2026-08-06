@@ -178,23 +178,6 @@ export default function AdsSpendPage() {
         </p>
       </div>
 
-      {/* Summary Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
-        {[
-          { label: 'Jumlah Spent', value: `RM ${fmt(summary.total_spent)}`, icon: '💰', color: '#F59E0B', desc: 'Perbelanjaan iklan' },
-          { label: 'Jumlah Lead Baharu', value: summary.total_leads, icon: '👥', color: '#10B981', desc: 'Pelanggan baharu' },
-          { label: 'Purata Kos / Lead', value: `RM ${fmt(summary.avg_cost_per_lead)}`, icon: '📉', color: '#8B5CF6', desc: 'Kos per lead purata' },
-        ].map((card, i) => (
-          <div key={i} style={{ padding: '1.25rem', borderRadius: '8px', background: cardBg, border: cardBorder, boxShadow: isLightMode ? '0 1px 3px rgba(0,0,0,0.05)' : 'none' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-              <span style={{ fontSize: '1.1rem' }}>{card.icon}</span>
-              <span style={{ fontSize: '0.7rem', color: textMuted, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{card.label}</span>
-            </div>
-            <div style={{ fontSize: '1.6rem', fontWeight: 800, color: card.color, letterSpacing: '-0.03em', lineHeight: 1 }}>{card.value}</div>
-            <div style={{ fontSize: '0.72rem', color: textMuted, marginTop: '0.3rem' }}>{card.desc}</div>
-          </div>
-        ))}
-      </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: '1.25rem', alignItems: 'start' }}>
 

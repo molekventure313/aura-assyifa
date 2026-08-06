@@ -148,6 +148,8 @@ export async function GET(req) {
     const totalSpent = records.reduce((s, r) => s + parseFloat(r.amount || 0), 0);
     const totalLeads = records.reduce((s, r) => s + r.total_leads, 0);
     const avgCostPerLead = totalLeads > 0 ? totalSpent / totalLeads : 0;
+    const totalSales = records.reduce((s, r) => s + (r.total_sales || 0), 0);
+    const totalKomisen = records.reduce((s, r) => s + (r.total_komisen || 0), 0);
 
     return NextResponse.json({
       success: true,
@@ -157,6 +159,8 @@ export async function GET(req) {
           total_spent: parseFloat(totalSpent.toFixed(2)),
           total_leads: totalLeads,
           avg_cost_per_lead: parseFloat(avgCostPerLead.toFixed(4)),
+          total_sales: parseFloat(totalSales.toFixed(2)),
+          total_komisen: parseFloat(totalKomisen.toFixed(2)),
         }
       }
     });

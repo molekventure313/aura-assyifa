@@ -9,6 +9,7 @@ export default function AdminDashboardPage() {
   const [period, setPeriod] = useState('today');
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [adsData, setAdsData] = useState(null);
   const { showToast } = useToast();
 
   // Theme observer state
@@ -43,8 +44,17 @@ export default function AdminDashboardPage() {
     }
   };
 
+  const fetchAds = async () => {
+    try {
+      const res = await fetch(`/api/admin/ads-spend?period=${period}`);
+      const json = await res.json();
+      if (json.success) setAdsData(json.data.summary);
+    } catch {}
+  };
+
   useEffect(() => {
     fetchStats();
+    fetchAds();
   }, [period]);
 
   const dashboard = data?.dashboard || {};
@@ -155,6 +165,22 @@ export default function AdminDashboardPage() {
         </div>
       ) : (
         <>
+          {/* Ads Metrics Row — 5 cards */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1rem', marginBottom: '1.25rem' }}>
+            {[
+              { label: 'Total Sales', value: adsData ? `RM ${(adsData.total_sales ?? 0).toFixed(2)}` : '—', color: '#10B981' },
+              { label: 'Total Spent', value: adsData ? `RM ${(adsData.total_spent ?? 0).toFixed(2)}` : '—', color: '#F59E0B' },
+              { label: 'Lead', value: adsData ? adsData.total_leads ?? 0 : '—', color: textPrimary },
+              { label: 'Kos Per Lead', value: adsData && adsData.total_leads > 0 ? `RM ${(adsData.avg_cost_per_lead ?? 0).toFixed(2)}` : '—', color: textSecondary },
+              { label: 'Total Komisen', value: adsData ? `RM ${(adsData.total_komisen ?? 0).toFixed(2)}` : '—', color: '#10B981' },
+            ].map((card, i) => (
+              <div key={i} style={{ padding: '1rem 1.25rem', borderRadius: '8px', background: cardBg, border: cardBorder, boxShadow: isLightMode ? '0 1px 3px rgba(0,0,0,0.05)' : 'none' }}>
+                <div style={{ fontSize: '0.65rem', fontWeight: 700, color: textSecondary, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.45rem' }}>{card.label}</div>
+                <div style={{ fontSize: '1.35rem', fontWeight: 800, color: card.color, letterSpacing: '-0.02em', lineHeight: 1 }}>{card.value}</div>
+              </div>
+            ))}
+          </div>
+
           {/* Key Metrics Grid (4 Main Cards) */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem', marginBottom: '1.75rem' }}>
             
