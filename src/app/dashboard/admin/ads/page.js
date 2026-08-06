@@ -347,14 +347,16 @@ export default function AdsSpendPage() {
 
               {/* Notes */}
               <div style={{ marginBottom: '1rem' }}>
-                <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: textSecondary, marginBottom: '0.4rem' }}>Nota (Pilihan)</label>
-                <input
-                  type="text"
+                <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: textSecondary, marginBottom: '0.4rem' }}>Platform Iklan</label>
+                <select
                   value={formNotes}
                   onChange={(e) => setFormNotes(e.target.value)}
-                  placeholder="cth: Facebook Ads, TikTok..."
-                  style={{ width: '100%', padding: '0.55rem 0.75rem', background: inputBg, border: inputBorder, borderRadius: '6px', color: textPrimary, fontSize: '0.8rem', outline: 'none', boxSizing: 'border-box' }}
-                />
+                  style={{ width: '100%', padding: '0.55rem 0.75rem', background: inputBg, border: inputBorder, borderRadius: '6px', color: formNotes ? textPrimary : textMuted, fontSize: '0.82rem', fontWeight: 600, outline: 'none', boxSizing: 'border-box', cursor: 'pointer' }}
+                >
+                  <option value="">-- Pilih Platform --</option>
+                  <option value="Facebook Ads">📘 Facebook Ads</option>
+                  <option value="TikTok Ads">🎵 TikTok Ads</option>
+                </select>
               </div>
 
               {/* Submit */}
