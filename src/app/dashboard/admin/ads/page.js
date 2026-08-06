@@ -39,6 +39,36 @@ export default function AdsSpendPage() {
   const [treatmentPrice, setTreatmentPrice] = useState('');
   const [savingPrice, setSavingPrice] = useState(false);
 
+  // Theme
+  const [isLightMode, setIsLightMode] = useState(false);
+  useEffect(() => {
+    const checkTheme = () => {
+      const isLight = document.body.classList.contains('light-mode') || document.documentElement.getAttribute('data-theme') === 'light';
+      setIsLightMode(isLight);
+    };
+    checkTheme();
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => observer.disconnect();
+  }, []);
+
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(`/api/admin/ads-spend?period=${period}`);
+      const json = await res.json();
+      if (json.success) setData(json.data);
+      else throw new Error(json.error);
+    } catch (err) {
+      showToast(err.message || 'Gagal memuatkan data iklan', 'error');
+    } finally {
+      setLoading(false);
+    }
+  }, [period]);
+
+  useEffect(() => { fetchData(); }, [fetchData]);
+
   useEffect(() => {
     fetch('/api/admin/settings')
       .then(r => r.json())
