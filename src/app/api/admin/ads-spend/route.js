@@ -12,6 +12,12 @@ function getDateRange(period) {
   if (period === 'today') {
     return { from: today, to: today };
   }
+  if (period === 'yesterday') {
+    const yesterday = new Date(myNow);
+    yesterday.setUTCDate(myNow.getUTCDate() - 1);
+    const yStr = yesterday.toISOString().split('T')[0];
+    return { from: yStr, to: yStr };
+  }
   if (period === 'week') {
     const dayOfWeek = myNow.getUTCDay(); // 0=Sun
     const startOfWeek = new Date(myNow);

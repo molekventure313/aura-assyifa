@@ -5,8 +5,9 @@ import { useToast } from '@/components/ui/Toast';
 
 const PERIODS = [
   { id: 'today', label: 'Hari Ini' },
-  { id: 'week', label: 'Minggu Ini' },
-  { id: 'month', label: 'Bulan Ini' },
+  { id: 'yesterday', label: 'Kelmarin' },
+  { id: 'week', label: 'Mingguan' },
+  { id: 'month', label: 'Bulanan' },
   { id: 'all', label: 'Keseluruhan' },
 ];
 

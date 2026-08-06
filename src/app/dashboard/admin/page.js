@@ -121,8 +121,9 @@ export default function AdminDashboardPage() {
         <div style={{ display: 'flex', alignItems: 'center', background: isLightMode ? '#F1F5F9' : '#090A0F', padding: '3px', borderRadius: '6px', border: isLightMode ? '1px solid #CBD5E1' : '1px solid rgba(255,255,255,0.08)' }}>
           {[
             { id: 'today', label: 'Hari Ini' },
-            { id: 'week', label: 'Minggu Ini' },
-            { id: 'month', label: 'Bulan Ini' },
+            { id: 'yesterday', label: 'Kelmarin' },
+            { id: 'week', label: 'Mingguan' },
+            { id: 'month', label: 'Bulanan' },
             { id: 'all', label: 'Keseluruhan' }
           ].map((p) => (
             <button

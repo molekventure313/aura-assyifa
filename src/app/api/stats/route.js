@@ -16,6 +16,29 @@ export async function GET(req) {
     const period = searchParams.get('period') || 'today';
     const roleParam = searchParams.get('role');
 
+    // Build date range for filtering (Malaysia UTC+8)
+    const nowUTC = new Date();
+    const myNow = new Date(nowUTC.getTime() + 8 * 60 * 60 * 1000);
+    const todayStr = myNow.toISOString().split('T')[0];
+
+    let dateFrom = null;
+    if (period === 'today') {
+      dateFrom = `${todayStr}T00:00:00+08:00`;
+    } else if (period === 'yesterday') {
+      const yest = new Date(myNow);
+      yest.setUTCDate(myNow.getUTCDate() - 1);
+      const yStr = yest.toISOString().split('T')[0];
+      dateFrom = `${yStr}T00:00:00+08:00`;
+    } else if (period === 'week') {
+      const dow = myNow.getUTCDay();
+      const startOfWeek = new Date(myNow);
+      startOfWeek.setUTCDate(myNow.getUTCDate() - dow);
+      dateFrom = `${startOfWeek.toISOString().split('T')[0]}T00:00:00+08:00`;
+    } else if (period === 'month') {
+      dateFrom = `${myNow.getUTCFullYear()}-${String(myNow.getUTCMonth() + 1).padStart(2, '0')}-01T00:00:00+08:00`;
+    }
+    // period === 'all': no dateFrom filter
+
     const isAdminRequest = roleParam === 'admin' || ['admin', 'super_admin'].includes(profile.role);
 
     let data = {};
@@ -24,7 +47,11 @@ export async function GET(req) {
       // Direct live calculations for Admin Dashboard stats
       const { data: customers } = await adminClient.from('customers').select('id, is_repeat');
       const { data: practitionerProfiles } = await adminClient.from('profiles').select('id, full_name, email, is_active, max_active_cases').in('role', ['practitioner', 'perawat']);
-      const { data: allCases } = await adminClient.from('cases').select('id, assigned_to, status, created_at');
+
+      // Filter cases by period if dateFrom is set
+      let casesQuery = adminClient.from('cases').select('id, assigned_to, status, created_at');
+      if (dateFrom) casesQuery = casesQuery.gte('created_at', dateFrom);
+      const { data: allCases } = await casesQuery;
 
       const totalCustomers = (customers || []).length;
       const totalPractitioners = (practitionerProfiles || []).length;
