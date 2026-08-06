@@ -1,14 +1,21 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { trackEvent } from '@/lib/tracking/pixel';
 
 export default function ThankYouPage() {
+  const searchParams = useSearchParams();
+
   useEffect(() => {
+    // Read event_id dari URL (?eid=evt_xxx) — same ID yang CAPI guna
+    // Meta akan dedup browser pixel + CAPI → kira sebagai 1 Lead sahaja
+    const eventId = searchParams.get('eid') || null;
+
     try {
-      trackEvent('CompleteRegistration');
-    } catch(err) {
-      console.log('Pixel tracking issue', err);
+      trackEvent('Lead', { content_name: 'Borang Diagnos ESyifaa' }, eventId);
+    } catch (err) {
+      console.warn('Lead pixel non-blocking error:', err);
     }
   }, []);
 

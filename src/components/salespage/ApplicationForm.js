@@ -110,10 +110,9 @@ export default function ApplicationForm({ source }) {
       const json = await res.json();
 
       if (res.ok && json.success) {
-        // ── Fire browser pixel Lead ONLY on successful submission ──
-        // Uses same eventId as CAPI → Meta deduplicates, counts as 1 Lead
-        trackEvent('Lead', { content_name: detectedSource || 'Salespage ESyifaa' }, eventId);
-        router.push('/terima-kasih');
+        // Redirect ke TQ page — Lead event akan fire di sana
+        // Pass event_id supaya TQ page boleh dedup dengan CAPI
+        router.push(`/terima-kasih?eid=${eventId}`);
       } else {
         throw new Error(json.error || 'Satu ralat telah berlaku. Sila cuba lagi.');
       }
