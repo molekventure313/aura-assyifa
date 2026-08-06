@@ -167,11 +167,11 @@ export default function AdsSpendPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.3rem' }}>
           <span style={{ fontSize: '1.2rem' }}>📊</span>
           <span style={{ fontSize: '0.7rem', fontWeight: 700, color: isLightMode ? '#047857' : '#34D399', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-            ANALITIK KOS IKLAN
+            KOS ADS & KOMISEN
           </span>
         </div>
         <h1 style={{ fontSize: '1.45rem', fontWeight: 700, margin: '0 0 0.2rem', letterSpacing: '-0.02em' }}>
-          Perbelanjaan Iklan & Kos Per Lead
+          Kos Ads & Komisen
         </h1>
         <p style={{ margin: 0, fontSize: '0.85rem', color: textSecondary }}>
           Masukkan perbelanjaan iklan harian dan sistem akan mengira kos per lead secara automatik mengikut agihan perawat.

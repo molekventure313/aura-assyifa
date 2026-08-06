@@ -95,7 +95,7 @@ export default function Sidebar({ isOpen, onClose }) {
     { section: 'PENGURUSAN' },
     { label: 'Perawat', href: '/dashboard/admin/perawat' },
     { section: 'TETAPAN' },
-    { label: 'Kos Iklan', href: '/dashboard/admin/ads' },
+    { label: 'Kos Ads & Komisen', href: '/dashboard/admin/ads' },
     { label: 'Salespage', href: '/dashboard/admin/salespage' },
     { label: 'Tracking & Pixel', href: '/dashboard/admin/tracking' },
     { label: 'Log Aktiviti', href: '/dashboard/admin/log' }
