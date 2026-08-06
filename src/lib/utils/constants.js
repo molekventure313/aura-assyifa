@@ -4,6 +4,7 @@ export const CASE_STATUSES = {
   SEDANG_DIURUS: { id: 'Sedang Diurus', label: 'Sedang Diurus', color: '#FFFFFF', bgColor: '#F59E0B', description: 'Sedang diuruskan oleh pengamal' },
   TIDAK_DAPAT_DIHUBUNGI: { id: 'Tidak Dapat Dihubungi', label: 'Tidak Dapat Dihubungi', color: '#FFFFFF', bgColor: '#EF4444', description: 'Panggilan/mesej tidak berjawab' },
   PERLU_FOLLOW_UP: { id: 'Perlu Follow-up', label: 'Perlu Follow-up', color: '#FFFFFF', bgColor: '#8B5CF6', description: 'Perlukan tindakan susulan' },
+  TELAH_DIBAYAR: { id: 'Telah Dibayar', label: 'Telah Dibayar', color: '#FFFFFF', bgColor: '#0EA5E9', description: 'Pembayaran telah diterima' },
   RAWATAN_SELESAI: { id: 'Rawatan Selesai', label: 'Rawatan Selesai', color: '#FFFFFF', bgColor: '#059669', description: 'Rawatan telah berjaya' },
   PELANGGAN_BATAL: { id: 'Pelanggan Batal', label: 'Pelanggan Batal', color: '#FFFFFF', bgColor: '#6B7280', description: 'Pelanggan membatalkan permohonan' },
   KES_BERULANG: { id: 'Kes Berulang', label: 'Kes Berulang', color: '#FFFFFF', bgColor: '#EC4899', description: 'Pelanggan lama membuat permohonan baru' },

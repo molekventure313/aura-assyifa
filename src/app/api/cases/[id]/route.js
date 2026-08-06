@@ -179,7 +179,7 @@ export async function PATCH(req, { params }) {
         updated_at: new Date().toISOString(),
       };
 
-      if (['Rawatan Selesai', 'Pelanggan Batal', 'Diarkibkan'].includes(status)) {
+      if (['Rawatan Selesai', 'Telah Dibayar', 'Pelanggan Batal', 'Diarkibkan'].includes(status)) {
         updateData.completed_at = new Date().toISOString();
       }
 

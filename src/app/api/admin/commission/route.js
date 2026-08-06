@@ -73,12 +73,12 @@ export async function GET(req) {
     const totalLeads = newLeads.length;
     const costPerLead = totalLeads > 0 ? totalSpent / totalLeads : 0;
 
-    // Get completed cases (Rawatan Selesai) in period — for sales calculation
+    // Get completed cases (Rawatan Selesai + Telah Dibayar) in period — for sales calculation
     // Using updated_at as proxy for completion date
     let completedQuery = adminClient
       .from('cases')
       .select('id, assigned_to')
-      .eq('status', 'Rawatan Selesai');
+      .in('status', ['Rawatan Selesai', 'Telah Dibayar']);
     if (from) completedQuery = completedQuery.gte('updated_at', from);
     if (to) completedQuery = completedQuery.lte('updated_at', to);
     const { data: completedCases } = await completedQuery;

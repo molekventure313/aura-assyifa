@@ -333,6 +333,7 @@ export default function AdminCasesPage() {
                         >
                           <option value="Sedang Diurus">Sedang Diurus</option>
                           <option value="Perlu Follow-up">Perlu Follow-up</option>
+                          <option value="Telah Dibayar">Telah Dibayar</option>
                           <option value="Rawatan Selesai">Rawatan Selesai</option>
                           <option value="Tidak Dapat Dihubungi">Tidak Dapat Dihubungi</option>
                         </select>

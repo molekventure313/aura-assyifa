@@ -134,6 +134,7 @@ export default function PractitionerKesSayaPage() {
             <option value="all">Semua Status ({cases.length})</option>
             <option value="Sedang Diurus">Sedang Diurus</option>
             <option value="Perlu Follow-up">Perlu Follow-up</option>
+            <option value="Telah Dibayar">Telah Dibayar</option>
             <option value="Rawatan Selesai">Rawatan Selesai</option>
             <option value="Tidak Dapat Dihubungi">Tidak Dapat Dihubungi</option>
           </select>
@@ -248,6 +249,7 @@ export default function PractitionerKesSayaPage() {
                   >
                     <option value="Sedang Diurus">Sedang Diurus</option>
                     <option value="Perlu Follow-up">Perlu Follow-up</option>
+                    <option value="Telah Dibayar">Telah Dibayar</option>
                     <option value="Rawatan Selesai">Rawatan Selesai</option>
                     <option value="Tidak Dapat Dihubungi">Tidak Dapat Dihubungi</option>
                   </select>

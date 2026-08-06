@@ -111,7 +111,7 @@ export async function GET(req) {
       const completedOnDay = await adminClient
         .from('cases')
         .select('id, assigned_to')
-        .eq('status', 'Rawatan Selesai')
+        .in('status', ['Rawatan Selesai', 'Telah Dibayar'])
         .gte('updated_at', dateStart)
         .lte('updated_at', dateEnd);
       const selesaiList = completedOnDay.data || [];
