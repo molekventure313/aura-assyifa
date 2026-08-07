@@ -5,31 +5,31 @@ export default function ProblemSection() {
     {
       title: 'Gangguan Jin',
       desc: 'Diganggu makhluk halus, terasa dirasuk, ada kehadiran asing atau mimpi buruk berulang.',
-      img: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=600&q=80',
+      img: '/images/Homepage/Gemini_Generated_Image_l71qqbl71qqbl71q.jfif',
       emoji: '👁️'
     },
     {
       title: 'Sihir',
       desc: 'Terkena sihir penghalang, pemisah rumah tangga, atau sihir yang menyebabkan kesakitan kronik.',
-      img: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=600&q=80',
+      img: '/images/Homepage/Gemini_Generated_Image_rfk0wirfk0wirfk0.jfif',
       emoji: '🪄'
     },
     {
       title: 'Saka',
       desc: 'Warisan gangguan turun-temurun yang memberi kesan kepada kesihatan, rezeki dan perhubungan.',
-      img: 'https://images.unsplash.com/photo-1527489377706-5bf97e608852?auto=format&fit=crop&w=600&q=80',
+      img: '/images/Homepage/Gemini_Generated_Image_ys0b2bys0b2bys0b.jfif',
       emoji: '🔗'
     },
     {
       title: 'Penyakit Misteri',
       desc: 'Sakit badan yang tidak ditemui punca oleh doktor, terus berulang atau semakin teruk.',
-      img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80',
+      img: '/images/Homepage/Gemini_Generated_Image_zeydo8zeydo8zeyd.jfif',
       emoji: '🩺'
     },
     {
       title: 'Perniagaan Tersekat',
       desc: 'Rezeki terhalang, pelanggan lari, usaha perniagaan tidak maju walaupun sudah berusaha keras.',
-      img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80',
+      img: '/images/Homepage/Gemini_Generated_Image_qz37oqqz37oqqz37.jfif',
       emoji: '🚧'
     }
   ];
@@ -76,7 +76,7 @@ export default function ProblemSection() {
               <img 
                 src={p.img} 
                 alt={p.title}
-                style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block' }}
+                style={{ width: '100%', height: '200px', objectFit: 'cover', objectPosition: 'center 20%', display: 'block' }}
               />
               <div style={{ padding: '1.1rem' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', marginBottom: '0.5rem' }}>
