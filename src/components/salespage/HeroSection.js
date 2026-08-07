@@ -40,39 +40,12 @@ export default function HeroSection() {
             letterSpacing: '-0.02em'
           }}
         >
-          Ramai Pesakit Kongsi Perubahan Positif Selepas Mendapatkan Rawatan ESyifaa
+          Masalah{' '}
+          <span style={{ color: '#4ADE80' }}>Gangguan Jin, Sihir, Saka</span>{' '}
+          Selesai Selepas Dapatkan Rawatan Di ESyifa&apos;
         </h1>
 
-        {/* Masih alami gangguan sub-points card */}
-        <div 
-          style={{ 
-            background: '#064E3B', 
-            border: '2px solid #FDE047', 
-            borderRadius: '12px', 
-            padding: '1.35rem 1.5rem', 
-            marginBottom: '1.75rem',
-            textAlign: 'left',
-            boxShadow: '0 8px 20px rgba(0,0,0,0.3)'
-          }}
-        >
-          <div style={{ fontWeight: 800, fontSize: '1rem', color: '#FDE047', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Masih alami gangguan seperti:
-          </div>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.975rem', color: '#FFFFFF' }}>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Sukar tidur atau mimpi yang mengganggu.</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Badan terasa berat tanpa sebab yang jelas.</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <span style={{ color: '#FDE047', fontWeight: 800 }}>✔</span>
-              <span>Rasa tidak tenang dan sering mengalami gangguan yang berulang.</span>
-            </li>
-          </ul>
-        </div>
+
 
         {/* Description (Putih) */}
         <p 
@@ -85,31 +58,25 @@ export default function HeroSection() {
             margin: '0 auto 2rem auto'
           }}
         >
-          ESyifaa membantu anda mendapatkan ikhtiar rawatan secara patuh syariah bagi menangani gangguan mistik. Ramai pesakit berkongsi bahawa mereka berasa lebih tenang, lebih mudah beribadah dan dapat menjalani kehidupan harian dengan lebih baik selepas menjalani rawatan.
+          Sakit misteri makin reda, mimpi menakutkan semakin berkurang, perniagaan kembali lancar dan hubungan rumah tangga jadi lebih harmoni.
         </p>
 
-        {/* Hero Image Showcase */}
-        <div style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
-          <img 
-            src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1200&q=80" 
-            alt="Gambar Hero ESyifaa Ikhtiar Rawatan Islam" 
-            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '420px', objectFit: 'cover' }}
-          />
-        </div>
-
-        {/* Video Testimoni Terbaik Player Card */}
+        {/* Video Testimoni — YouTube Shorts (portrait 9:16, max width 360px) */}
         <div style={{ marginBottom: '2.5rem', background: '#042E23', border: '2px solid #FDE047', borderRadius: '12px', padding: '1.25rem', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
           <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#FDE047', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             🎬 Video Testimoni Terbaik Pesakit ESyifaa
           </div>
-          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: '8px', overflow: 'hidden', background: '#000' }}>
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1&modestbranding=1" 
-              title="Video Testimoni Terbaik ESyifaa" 
-              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-            />
+          {/* Shorts: 9:16 portrait, constrained width supaya nampak betul kat desktop & mobile */}
+          <div style={{ maxWidth: '340px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', background: '#000' }}>
+            <div style={{ position: 'relative', paddingBottom: '177.78%', height: 0 }}>
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/HBg1N_floAo?controls=1&modestbranding=1&rel=0&playsinline=1"
+                title="Video Testimoni ESyifaa Shorts"
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0, borderRadius: '12px' }}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
 
