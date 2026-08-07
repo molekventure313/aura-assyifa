@@ -63,9 +63,6 @@ export default function HeroSection() {
 
         {/* Video Testimoni — YouTube Shorts (portrait 9:16, max width 360px) */}
         <div style={{ marginBottom: '2.5rem', background: '#042E23', border: '2px solid #FDE047', borderRadius: '12px', padding: '1.25rem', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
-          <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#FDE047', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            🎬 Video Testimoni Terbaik Pesakit ESyifaa
-          </div>
           {/* Shorts: 9:16 portrait, constrained width supaya nampak betul kat desktop & mobile */}
           <div style={{ maxWidth: '340px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', background: '#000' }}>
             <div style={{ position: 'relative', paddingBottom: '177.78%', height: 0 }}>
