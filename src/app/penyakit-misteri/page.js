@@ -1,5 +1,4 @@
-'use client';
-import PixelProvider from '@/components/salespage/PixelProvider';
+﻿'use client';
 import HeroSection from '@/components/salespage/variants/penyakit-misteri/HeroSection';
 import TestimonialSection from '@/components/salespage/TestimonialSection';
 import ProblemSection from '@/components/salespage/variants/penyakit-misteri/ProblemSection';
@@ -18,7 +17,6 @@ export default function PenyakitMisteriPage() {
 
   return (
     <main style={{ minHeight: '100vh', background: '#042E23' }}>
-      <PixelProvider />
       <HeroSection />
       <TestimonialSection />
       <ProblemSection />
@@ -35,10 +33,10 @@ export default function PenyakitMisteriPage() {
       <footer style={{ background: '#021812', color: '#FFFFFF', padding: '2rem 1rem', textAlign: 'center', fontSize: '0.85rem', borderTop: '1px solid rgba(254, 243, 199, 0.15)' }}>
         <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ margin: '0 0 0.5rem 0', fontWeight: 800, fontSize: '1.05rem', color: '#FEF3C7' }}>
-            ESyifaa Â· Rawatan Jarak Jauh Gangguan Jin, Sihir, Santau &amp; Saka
+            ESyifaa Ã‚Â· Rawatan Jarak Jauh Gangguan Jin, Sihir, Santau &amp; Saka
           </p>
           <p style={{ margin: 0, opacity: 0.85, fontSize: '0.8rem', color: '#D1D5DB' }}>
-            Â© {new Date().getFullYear()} ESyifaa. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
+            Ã‚Â© {new Date().getFullYear()} ESyifaa. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
           </p>
         </div>
       </footer>
