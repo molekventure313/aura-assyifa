@@ -5,31 +5,31 @@ export default function ProblemSection() {
     {
       title: 'Gangguan Jin',
       desc: 'Diganggu makhluk halus, terasa dirasuk, ada kehadiran asing atau mimpi buruk berulang.',
-      img: '/images/Homepage/Gemini_Generated_Image_l71qqbl71qqbl71q.jfif',
+      img: '/images/Homepage/Gemini_Generated_Image_l71qqbl71qqbl71q.jpg',
       emoji: '👁️'
     },
     {
       title: 'Sihir',
       desc: 'Terkena sihir penghalang, pemisah rumah tangga, atau sihir yang menyebabkan kesakitan kronik.',
-      img: '/images/Homepage/Gemini_Generated_Image_rfk0wirfk0wirfk0.jfif',
+      img: '/images/Homepage/Gemini_Generated_Image_rfk0wirfk0wirfk0.jpg',
       emoji: '🪄'
     },
     {
       title: 'Saka',
       desc: 'Warisan gangguan turun-temurun yang memberi kesan kepada kesihatan, rezeki dan perhubungan.',
-      img: '/images/Homepage/Gemini_Generated_Image_ys0b2bys0b2bys0b.jfif',
+      img: '/images/Homepage/Gemini_Generated_Image_ys0b2bys0b2bys0b.jpg',
       emoji: '🔗'
     },
     {
       title: 'Penyakit Misteri',
       desc: 'Sakit badan yang tidak ditemui punca oleh doktor, terus berulang atau semakin teruk.',
-      img: '/images/Homepage/Gemini_Generated_Image_zeydo8zeydo8zeyd.jfif',
+      img: '/images/Homepage/Gemini_Generated_Image_zeydo8zeydo8zeyd.jpg',
       emoji: '🩺'
     },
     {
       title: 'Perniagaan Tersekat',
       desc: 'Rezeki terhalang, pelanggan lari, usaha perniagaan tidak maju walaupun sudah berusaha keras.',
-      img: '/images/Homepage/Gemini_Generated_Image_qz37oqqz37oqqz37.jfif',
+      img: '/images/Homepage/Gemini_Generated_Image_qz37oqqz37oqqz37.jpg',
       emoji: '🚧'
     }
   ];
