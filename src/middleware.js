@@ -40,6 +40,7 @@ export async function middleware(request) {
     request.nextUrl.pathname === '/setup' ||
     request.nextUrl.pathname === '/daftar-perawat' ||
     request.nextUrl.pathname === '/terima-kasih' ||
+    request.nextUrl.pathname === '/tasbih-esyifa' ||
     request.nextUrl.pathname.startsWith('/sihir') ||
     request.nextUrl.pathname.startsWith('/saka') ||
     request.nextUrl.pathname.startsWith('/penyakit-misteri') ||
