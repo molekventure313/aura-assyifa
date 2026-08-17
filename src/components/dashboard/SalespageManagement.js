@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
+// Salespage homepage variants (boleh ditetapkan sebagai homepage)
 const SALESPAGES = [
   {
     slug: 'sihir',
@@ -44,6 +45,32 @@ const SALESPAGES = [
     desc: 'Pelanggan lari, rezeki tersekat & gangguan pada premis perniagaan.',
     url: '/kedai-tutup',
     color: '#C2410C',
+  },
+  {
+    slug: 'fsp',
+    label: 'FSP 10% — Formula Homepage Baru',
+    desc: 'Clone homepage dengan 15 sections FSP proven 10% conversion rate. Lead → Borang Diagnos Percuma.',
+    url: '/fsp',
+    color: '#059669',
+  },
+];
+
+// Salespage produk standalone (preview sahaja — bukan homepage variant)
+const PRODUCT_PAGES = [
+  {
+    label: 'Tasbih E-Syifa\' (Asal)',
+    desc: 'Salespage produk tasbih ruqyah syar\'iyyah — versi asal.',
+    url: '/tasbih-esyifa',
+    color: '#D97706',
+    icon: '📿',
+  },
+  {
+    label: 'Tasbih E-Syifa\' (FSP V2)',
+    desc: 'Clone tasbih dengan 15 sections FSP — versi upgrade dengan Fears, Authority, Goals & 3-kolum comparison.',
+    url: '/tasbih-v2',
+    color: '#F59E0B',
+    icon: '📿',
+    isNew: true,
   },
 ];
 
@@ -293,6 +320,76 @@ export default function SalespageManagement({ isLightMode, cardBg, cardBorder, t
             </div>
           );
         })}
+      </div>
+
+      {/* ── Salespage Produk Standalone ── */}
+      <div
+        style={{
+          background: cardBg,
+          border: cardBorder,
+          borderRadius: '10px',
+          padding: '1.5rem',
+          marginTop: '1.75rem',
+          boxShadow: isLightMode ? '0 1px 3px rgba(0,0,0,0.05)' : 'none',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
+          <span style={{ fontSize: '1rem' }}>📿</span>
+          <h3 style={{ margin: 0, fontSize: '1rem', fontWeight: 700, color: textPrimary }}>Salespage Produk</h3>
+        </div>
+        <p style={{ margin: '0 0 1.25rem 0', fontSize: '0.8rem', color: textSecondary }}>
+          Salespage produk standalone — tidak boleh dijadikan homepage. Preview & akses terus melalui URL.
+        </p>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '0.85rem' }}>
+          {PRODUCT_PAGES.map((page, i) => (
+            <div
+              key={i}
+              style={{
+                background: isLightMode ? '#F8FAFC' : '#0D0F18',
+                border: `1px solid ${isLightMode ? '#E2E8F0' : 'rgba(255,255,255,0.07)'}`,
+                borderRadius: '8px',
+                padding: '1rem 1.1rem',
+                display: 'flex', flexDirection: 'column', gap: '0.65rem',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
+                <div style={{
+                  width: '32px', height: '32px', borderRadius: '7px', flexShrink: 0,
+                  background: `${page.color}22`, border: `1px solid ${page.color}44`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem'
+                }}>
+                  {page.icon}
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.1rem' }}>
+                    <span style={{ fontWeight: 700, fontSize: '0.85rem', color: textPrimary }}>{page.label}</span>
+                    {page.isNew && (
+                      <span style={{ fontSize: '0.6rem', fontWeight: 800, color: '#fff', background: '#059669', padding: '0.1rem 0.4rem', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>BARU</span>
+                    )}
+                  </div>
+                  <div style={{ fontSize: '0.73rem', color: textSecondary, lineHeight: 1.4 }}>{page.desc}</div>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: isLightMode ? '#F1F5F9' : '#1A1D2A', padding: '0.3rem 0.6rem', borderRadius: '5px' }}>
+                <span style={{ fontSize: '0.68rem', color: textSecondary, fontFamily: 'monospace' }}>localhost:3000{page.url}</span>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <a
+                  href={page.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: '0.73rem', color: isLightMode ? '#047857' : '#34D399', textDecoration: 'none', fontWeight: 500 }}
+                >
+                  Lihat Preview →
+                </a>
+                <span style={{ fontSize: '0.68rem', color: textSecondary, fontStyle: 'italic' }}>Produk Standalone</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

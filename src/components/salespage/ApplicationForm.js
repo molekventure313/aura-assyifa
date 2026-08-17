@@ -26,6 +26,7 @@ const PATH_TO_SOURCE = {
   '/gangguan-berulang': 'gangguan-berulang',
   '/belum-zuriat': 'belum-zuriat',
   '/kedai-tutup': 'kedai-tutup',
+  '/fsp': 'fsp',
 };
 
 export default function ApplicationForm({ source }) {
