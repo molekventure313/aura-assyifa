@@ -41,8 +41,16 @@ export default function ApplicationForm({ source }) {
     }
   }, [source]);
 
+  const DIAL_CODES = [
+    { code: '+60',  flag: '🇲🇾', label: 'MY' },
+    { code: '+673', flag: '🇧🇳', label: 'BN' },
+    { code: '+65',  flag: '🇸🇬', label: 'SG' },
+    { code: '+62',  flag: '🇮🇩', label: 'ID' },
+  ];
+
   const [formData, setFormData] = useState({
     full_name: '',
+    dialCode: '+60',
     phone: '',
     appointment_session: 'Pagi',
     problem: '',
@@ -94,7 +102,7 @@ export default function ApplicationForm({ source }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           full_name: formData.full_name,
-          phone: formData.phone,
+          phone: `${formData.dialCode}${formData.phone.replace(/^0+/, '')}`,
           appointment_session: formData.appointment_session,
           problem: formData.problem,
           notes: formData.notes,
@@ -293,31 +301,63 @@ export default function ApplicationForm({ source }) {
               />
             </div>
 
-            {/* Nombor WhatsApp */}
+            {/* Nombor WhatsApp + Country Code */}
             <div style={{ marginBottom: '1.25rem' }}>
               <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 800, fontSize: '0.9rem', color: '#06231C' }}>
                 Nombor WhatsApp <span style={{ color: '#DC2626' }}>*</span>
               </label>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Contoh: 0123456789"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-                style={{
-                  width: '100%',
-                  padding: '0.85rem 1rem',
-                  background: '#F9FAFB',
-                  border: '1.5px solid #CBD5E1',
-                  borderRadius: '10px',
-                  color: '#0F172A',
-                  fontSize: '0.95rem',
-                  outline: 'none',
-                  fontWeight: 500,
-                  boxSizing: 'border-box'
-                }}
-              />
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                {/* Dial Code Selector */}
+                <select
+                  name="dialCode"
+                  value={formData.dialCode}
+                  onChange={handleChange}
+                  style={{
+                    flexShrink: 0,
+                    padding: '0.85rem 0.6rem',
+                    background: '#F9FAFB',
+                    border: '1.5px solid #CBD5E1',
+                    borderRadius: '10px',
+                    color: '#0F172A',
+                    fontSize: '0.9rem',
+                    fontWeight: 700,
+                    outline: 'none',
+                    cursor: 'pointer',
+                    minWidth: '95px',
+                  }}
+                >
+                  {DIAL_CODES.map(d => (
+                    <option key={d.code} value={d.code}>
+                      {d.flag} {d.label} {d.code}
+                    </option>
+                  ))}
+                </select>
+                {/* Phone Number */}
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder={formData.dialCode === '+60' ? '123456789' : formData.dialCode === '+65' ? '91234567' : formData.dialCode === '+673' ? '7123456' : '81234567890'}
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  style={{
+                    flex: 1,
+                    padding: '0.85rem 1rem',
+                    background: '#F9FAFB',
+                    border: '1.5px solid #CBD5E1',
+                    borderRadius: '10px',
+                    color: '#0F172A',
+                    fontSize: '0.95rem',
+                    outline: 'none',
+                    fontWeight: 500,
+                    boxSizing: 'border-box',
+                    minWidth: 0,
+                  }}
+                />
+              </div>
+              <p style={{ margin: '0.3rem 0 0', fontSize: '0.75rem', color: '#6B7280' }}>
+                Terbuka untuk Malaysia, Brunei, Singapura &amp; Indonesia
+              </p>
             </div>
 
             {/* Waktu Sesuai Dihubungi */}
