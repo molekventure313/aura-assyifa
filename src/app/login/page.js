@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -90,7 +90,11 @@ export default function LoginPage() {
         {/* Brand Header */}
         <div style={{ marginBottom: '1.75rem', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
-            <span style={{ fontSize: '1.4rem', lineHeight: 1 }}>🌿</span>
+            <img
+              src="/images/logo-esyifa.png"
+              alt="E-Syifa Logo"
+              style={{ width: '44px', height: '44px', objectFit: 'contain' }}
+            />
             <span 
               style={{ 
                 fontSize: '1.25rem', 

@@ -145,7 +145,17 @@ export default function Sidebar({ isOpen, onClose }) {
         {/* Brand Header */}
         <div style={{ padding: '1.25rem 1.25rem 1rem 1.25rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-            <span style={{ fontSize: '1.4rem', lineHeight: 1 }}>🌿</span>
+            <img
+              src="/images/logo-esyifa.png"
+              alt="E-Syifa"
+              style={{
+                width: '36px', height: '36px',
+                objectFit: 'contain',
+                borderRadius: '6px',
+                background: isLightMode ? 'transparent' : 'rgba(255,255,255,0.05)',
+                flexShrink: 0,
+              }}
+            />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ fontWeight: 700, fontSize: '1.05rem', color: isLightMode ? '#0F172A' : '#F9FAFB', letterSpacing: '-0.02em' }}>
                 E-SYIFAA'
