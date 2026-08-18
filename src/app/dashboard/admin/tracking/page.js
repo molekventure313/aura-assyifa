@@ -13,6 +13,7 @@ export default function TrackingSettingsPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [testingEvent, setTestingEvent] = useState(false);
+  const [testingWasapbot, setTestingWasapbot] = useState(false);
   const { showToast } = useToast();
 
   useEffect(() => {
@@ -370,6 +371,66 @@ export default function TrackingSettingsPage() {
 
         </form>
       )}
+
+      {/* ─── WasapBot Notification Test ─── */}
+      <div style={{
+        marginTop: '1.5rem',
+        background: '#0A1628',
+        border: '1px solid rgba(16, 185, 129, 0.15)',
+        borderRadius: '12px',
+        padding: '1.5rem',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem' }}>
+              <span style={{ fontSize: '1.2rem' }}>💬</span>
+              <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#F9FAFB' }}>WasapBot — Notifikasi Kumpulan WA</span>
+            </div>
+            <p style={{ margin: 0, fontSize: '0.8rem', color: '#9CA3AF', lineHeight: 1.6 }}>
+              Hantar mesej ujian ke kumpulan WhatsApp perawat untuk verify integrasi berfungsi.
+              Pastikan env vars <code style={{ background: 'rgba(255,255,255,0.08)', padding: '0.1rem 0.35rem', borderRadius: '3px', fontSize: '0.75rem' }}>WASAPBOT_INSTANCE_ID</code>,{' '}
+              <code style={{ background: 'rgba(255,255,255,0.08)', padding: '0.1rem 0.35rem', borderRadius: '3px', fontSize: '0.75rem' }}>WASAPBOT_ACCESS_TOKEN</code> dan{' '}
+              <code style={{ background: 'rgba(255,255,255,0.08)', padding: '0.1rem 0.35rem', borderRadius: '3px', fontSize: '0.75rem' }}>WASAPBOT_GROUP_ID</code>{' '}
+              dah ditetapkan dalam Netlify.
+            </p>
+          </div>
+          <button
+            type="button"
+            disabled={testingWasapbot}
+            onClick={async () => {
+              setTestingWasapbot(true);
+              try {
+                const res = await fetch('/api/notifications/test-wasapbot', { method: 'POST' });
+                const json = await res.json();
+                if (res.ok && json.success) {
+                  showToast('✅ Test notification berjaya dihantar ke group WA!', 'success');
+                } else {
+                  throw new Error(json.error || 'Gagal hantar notifikasi');
+                }
+              } catch (err) {
+                showToast(err.message || 'Ralat semasa test WasapBot', 'error');
+              } finally {
+                setTestingWasapbot(false);
+              }
+            }}
+            style={{
+              flexShrink: 0,
+              padding: '0.65rem 1.4rem',
+              background: testingWasapbot ? 'rgba(16,185,129,0.1)' : '#064E3B',
+              border: '1px solid rgba(16, 185, 129, 0.35)',
+              borderRadius: '8px',
+              color: '#34D399',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              cursor: testingWasapbot ? 'not-allowed' : 'pointer',
+              opacity: testingWasapbot ? 0.7 : 1,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {testingWasapbot ? '⏳ Menghantar...' : '🧪 Hantar Test ke Group WA'}
+          </button>
+        </div>
+      </div>
 
     </div>
   );
