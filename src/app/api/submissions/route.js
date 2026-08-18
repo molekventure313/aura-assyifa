@@ -3,6 +3,7 @@ import { createAdminClient } from '@/lib/supabase/admin';
 import { validateMalaysianPhone } from '@/lib/utils/phone';
 import { logActivity } from '@/lib/utils/logger';
 import { sendCAPIEvent } from '@/lib/tracking/capi';
+import { sendGroupNotification, buildLeadMessage } from '@/lib/notifications/wasapbot';
 
 export async function POST(req) {
   try {
@@ -277,6 +278,22 @@ export async function POST(req) {
       });
     } catch (capiError) {
       console.error('CAPI Error (non-blocking):', capiError);
+    }
+
+    // ─── Send WasapBot Group Notification ───
+    try {
+      const message = buildLeadMessage({
+        name:       cleanName,
+        phone:      formattedPhone,
+        session:    selectedSession,
+        source:     source || 'Direct',
+        problem:    problem || '',
+        assignedTo: assignedPractitioner ? assignedPractitioner.full_name : null,
+        isRepeat:   isRepeat,
+      });
+      await sendGroupNotification(message);
+    } catch (waErr) {
+      console.error('WasapBot Error (non-blocking):', waErr);
     }
 
     return NextResponse.json({
