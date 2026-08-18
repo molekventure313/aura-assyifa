@@ -258,14 +258,16 @@ export async function DELETE(req, { params }) {
       return NextResponse.json({ success: false, error: 'Hanya admin boleh memadam kes' }, { status: 403 });
     }
 
-    // Get case info for logging before deletion
+    // Get case info (including customer_id) before deletion
     const { data: caseData } = await adminClient
       .from('cases')
-      .select('id, customers(full_name)')
+      .select('id, customer_id, customers(full_name)')
       .eq('id', id)
       .maybeSingle();
 
-    // Delete related records first (in case FK constraints don't cascade)
+    const customerId = caseData?.customer_id;
+
+    // Delete related records first
     await adminClient.from('case_notes').delete().eq('case_id', id);
     await adminClient.from('case_status_history').delete().eq('case_id', id);
     await adminClient.from('follow_ups').delete().eq('case_id', id);
@@ -277,6 +279,21 @@ export async function DELETE(req, { params }) {
       .eq('id', id);
 
     if (deleteError) throw deleteError;
+
+    // ─── Cascade: delete customer jika tiada kes lain ───
+    if (customerId) {
+      const { data: remainingCases } = await adminClient
+        .from('cases')
+        .select('id')
+        .eq('customer_id', customerId)
+        .limit(1);
+
+      if (!remainingCases || remainingCases.length === 0) {
+        // Tiada kes lain — buang submission dan customer sekali
+        await adminClient.from('submissions').delete().eq('customer_id', customerId);
+        await adminClient.from('customers').delete().eq('id', customerId);
+      }
+    }
 
     await logActivity(adminClient, {
       userId: user.id,
