@@ -1,5 +1,7 @@
 'use client';
 
+import PageViewTracker from '@/components/salespage/PageViewTracker';
+
 // ─── Nombor WhatsApp — tukar kepada nombor sebenar ───
 const WA_NUMBER = '60XXXXXXXXXX';
 const WA_MESSAGE = encodeURIComponent("Assalamualaikum, saya berminat untuk mendapatkan Tasbih E-Syifa'. Boleh saya tahu maklumat lanjut?");
@@ -175,6 +177,7 @@ export default function TasbihEsyifaPage() {
 
   return (
     <main style={{ background: '#042E23', minHeight: '100vh' }}>
+      <PageViewTracker slug="tasbih-esyifa" />
 
       {/* ═══════════════════════════════════════════
           HERO

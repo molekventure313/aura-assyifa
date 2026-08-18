@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import HeroSection from '@/components/salespage/variants/belum-zuriat/HeroSection';
 import TestimonialSection from '@/components/salespage/TestimonialSection';
@@ -13,11 +13,13 @@ import GuaranteeSection from '@/components/salespage/GuaranteeSection';
 import ApplicationForm from '@/components/salespage/ApplicationForm';
 import FAQSection from '@/components/salespage/variants/belum-zuriat/FAQSection';
 import ClosingSection from '@/components/salespage/variants/belum-zuriat/ClosingSection';
+import PageViewTracker from '@/components/salespage/PageViewTracker';
 
 export default function Home() {
 
   return (
     <main style={{ minHeight: '100vh', background: '#042E23' }}>
+      <PageViewTracker slug="belum-zuriat" />
       {/* SECTION 1: HERO BANNER */}
       <HeroSection />
 

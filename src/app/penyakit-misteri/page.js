@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import HeroSection from '@/components/salespage/variants/penyakit-misteri/HeroSection';
 import TestimonialSection from '@/components/salespage/TestimonialSection';
 import ProblemSection from '@/components/salespage/variants/penyakit-misteri/ProblemSection';
@@ -12,11 +12,13 @@ import ProcessSection from '@/components/salespage/ProcessSection';
 import ApplicationForm from '@/components/salespage/ApplicationForm';
 import FAQSection from '@/components/salespage/variants/penyakit-misteri/FAQSection';
 import ClosingSection from '@/components/salespage/variants/penyakit-misteri/ClosingSection';
+import PageViewTracker from '@/components/salespage/PageViewTracker';
 
 export default function PenyakitMisteriPage() {
 
   return (
     <main style={{ minHeight: '100vh', background: '#042E23' }}>
+      <PageViewTracker slug="penyakit-misteri" />
       <HeroSection />
       <TestimonialSection />
       <ProblemSection />

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import HeroSection from '@/components/salespage/variants/saka/HeroSection';
 import TestimonialSection from '@/components/salespage/TestimonialSection';
 import ProblemSection from '@/components/salespage/variants/saka/ProblemSection';
@@ -12,11 +12,13 @@ import ProcessSection from '@/components/salespage/ProcessSection';
 import ApplicationForm from '@/components/salespage/ApplicationForm';
 import FAQSection from '@/components/salespage/variants/saka/FAQSection';
 import ClosingSection from '@/components/salespage/variants/saka/ClosingSection';
+import PageViewTracker from '@/components/salespage/PageViewTracker';
 
 export default function SakaPage() {
 
   return (
     <main style={{ minHeight: '100vh', background: '#042E23' }}>
+      <PageViewTracker slug="saka" />
       <HeroSection />
       <TestimonialSection />
       <ProblemSection />

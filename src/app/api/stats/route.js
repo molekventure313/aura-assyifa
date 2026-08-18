@@ -45,7 +45,9 @@ export async function GET(req) {
 
     if (isAdminRequest) {
       // Direct live calculations for Admin Dashboard stats
-      const { data: customers } = await adminClient.from('customers').select('id, is_repeat');
+      let customersQuery = adminClient.from('customers').select('id, is_repeat, created_at');
+      if (dateFrom) customersQuery = customersQuery.gte('created_at', dateFrom);
+      const { data: customers } = await customersQuery;
       const { data: practitionerProfiles } = await adminClient.from('profiles').select('id, full_name, email, is_active, max_active_cases').in('role', ['practitioner', 'perawat']);
 
       // Filter cases by period if dateFrom is set

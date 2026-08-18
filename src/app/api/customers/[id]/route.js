@@ -60,6 +60,31 @@ export async function DELETE(req, { params }) {
     if (profile.role !== 'super_admin') return NextResponse.json({ success: false, error: 'Forbidden' }, { status: 403 });
 
     const adminSupabase = createAdminClient();
+
+    // ─── Cascade Delete: history → notes → cases → submissions → customer ───
+
+    // 1. Get all case IDs for this customer
+    const { data: customerCases } = await adminSupabase
+      .from('cases')
+      .select('id')
+      .eq('customer_id', id);
+
+    const caseIds = (customerCases || []).map(c => c.id);
+
+    // 2. Delete case_status_history
+    if (caseIds.length > 0) {
+      await adminSupabase.from('case_status_history').delete().in('case_id', caseIds);
+      await adminSupabase.from('case_notes').delete().in('case_id', caseIds);
+      await adminSupabase.from('follow_ups').delete().in('case_id', caseIds);
+    }
+
+    // 3. Delete cases
+    await adminSupabase.from('cases').delete().eq('customer_id', id);
+
+    // 4. Delete submissions
+    await adminSupabase.from('submissions').delete().eq('customer_id', id);
+
+    // 5. Delete customer
     const { error } = await adminSupabase.from('customers').delete().eq('id', id);
     if (error) throw error;
 

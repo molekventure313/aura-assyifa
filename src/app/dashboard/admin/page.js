@@ -290,57 +290,8 @@ export default function AdminDashboardPage() {
 
           </div>
 
-          {/* Salespage Breakdown Section */}
-          {salespageBreakdown.length > 0 && (
-            <div style={{ marginBottom: '2.25rem', padding: '1.5rem', borderRadius: '8px', background: cardBg, border: cardBorder, boxShadow: isLightMode ? '0 1px 3px rgba(0,0,0,0.05)' : 'none' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-                <div>
-                  <h2 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: textPrimary }}>Pesakit Mengikut Salespage</h2>
-                  <p style={{ margin: '0.15rem 0 0', fontSize: '0.775rem', color: textMuted }}>Jumlah permohonan diagnos diterima dari setiap salespage</p>
-                </div>
-              </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '0.85rem' }}>
-                {salespageBreakdown.map((sp, idx) => {
-                  const maxCount = Math.max(...salespageBreakdown.map(s => s.count), 1);
-                  const pct = Math.round((sp.count / maxCount) * 100);
-                  const isTop = idx === 0 && sp.count > 0;
-                  const barColor = isTop ? '#10B981' : (isLightMode ? '#CBD5E1' : 'rgba(255,255,255,0.2)');
-                  const barFill = sp.count > 0 ? (isTop ? '#10B981' : (isLightMode ? '#6366F1' : '#818CF8')) : '#EF4444';
 
-                  return (
-                    <div
-                      key={sp.slug}
-                      style={{
-                        background: subCardBg,
-                        border: isTop
-                          ? (isLightMode ? '1px solid #A7F3D0' : '1px solid rgba(16,185,129,0.35)')
-                          : (isLightMode ? '1px solid #E2E8F0' : '1px solid rgba(255,255,255,0.05)'),
-                        borderRadius: '8px',
-                        padding: '1rem 1.1rem',
-                      }}
-                    >
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                        <span style={{ fontSize: '0.825rem', fontWeight: 700, color: textPrimary }}>{sp.label}</span>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                          {isTop && (
-                            <span style={{ fontSize: '0.6rem', padding: '0.1rem 0.4rem', borderRadius: '3px', background: 'rgba(16,185,129,0.15)', color: isLightMode ? '#047857' : '#34D399', fontWeight: 700, textTransform: 'uppercase' }}>Teratas</span>
-                          )}
-                          <span style={{ fontSize: '1.15rem', fontWeight: 800, color: sp.count > 0 ? textPrimary : '#EF4444' }}>{sp.count}</span>
-                          <span style={{ fontSize: '0.7rem', color: textMuted }}>pesakit</span>
-                        </div>
-                      </div>
-
-                      {/* Bar */}
-                      <div style={{ width: '100%', height: '5px', background: isLightMode ? '#E2E8F0' : 'rgba(255,255,255,0.08)', borderRadius: '3px', overflow: 'hidden' }}>
-                        <div style={{ width: `${pct}%`, height: '100%', background: barFill, borderRadius: '3px', transition: 'width 0.4s ease' }} />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
 
           {/* Main 2-Column Section: Practitioner Performance & Recent Incoming Stream */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '1.75rem' }}>
