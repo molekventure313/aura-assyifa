@@ -49,9 +49,12 @@ export async function middleware(request) {
     request.nextUrl.pathname.startsWith('/belum-zuriat') ||
     request.nextUrl.pathname.startsWith('/kedai-tutup') ||
     request.nextUrl.pathname.startsWith('/fsp') ||
+    request.nextUrl.pathname.startsWith('/fsp-checkout') ||
+    request.nextUrl.pathname.startsWith('/payment-success') ||
     request.nextUrl.pathname.startsWith('/tasbih-esyifa') ||
     request.nextUrl.pathname.startsWith('/tasbih-v2') ||
     request.nextUrl.pathname.startsWith('/api/submissions') ||
+    request.nextUrl.pathname.startsWith('/api/payments') ||
     request.nextUrl.pathname.startsWith('/api/tracking') ||
     request.nextUrl.pathname.startsWith('/api/setup') ||
     request.nextUrl.pathname.startsWith('/api/register-perawat') ||

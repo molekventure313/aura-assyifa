@@ -58,6 +58,14 @@ const SALESPAGES = [
 // Salespage produk standalone (preview sahaja — bukan homepage variant)
 const PRODUCT_PAGES = [
   {
+    label: 'FSP Direct FPX Checkout',
+    desc: 'Clone FSP 10% dengan bayaran terus FPX Online Banking via Chip Gateway (RM50).',
+    url: '/fsp-checkout',
+    color: '#10B981',
+    icon: '💳',
+    isNew: true,
+  },
+  {
     label: 'Tasbih E-Syifa\' (Asal)',
     desc: 'Salespage produk tasbih ruqyah syar\'iyyah — versi asal.',
     url: '/tasbih-esyifa',
