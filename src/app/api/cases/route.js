@@ -58,9 +58,7 @@ export async function GET(req) {
       }
     }
 
-    // ─── EXCLUDE FPX payment cases from this list (they go to Pesakit Berbayar) ───
-    // Filter: only include cases where submission.payment_type != 'fpx_payment' OR submission is null
-    query = query.or('submission_id.is.null,submission.payment_type.neq.fpx_payment');
+    // ─── FPX cases excluded at JS level below (PostgREST cannot filter on joined columns) ───
 
     query = query.order('created_at', { ascending: false }).range(offset, offset + limit - 1);
 
