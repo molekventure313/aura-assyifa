@@ -131,17 +131,22 @@ export default function AdminCasesPage() {
     }
   };
 
-  const formatTimeAgo = (dateStr) => {
-    if (!dateStr) return '';
-    const diffMs = new Date() - new Date(dateStr);
-    const diffMins = Math.floor(diffMs / 60000);
-    const diffHours = Math.floor(diffMins / 60);
-    const diffDays = Math.floor(diffHours / 24);
+  const formatDate = (dateStr) => {
+    if (!dateStr) return '—';
+    return new Date(dateStr).toLocaleDateString('ms-MY', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    });
+  };
 
-    if (diffMins < 1) return 'Baru sahaja';
-    if (diffMins < 60) return `${diffMins}m lepas`;
-    if (diffHours < 24) return `${diffHours}j lepas`;
-    return `${diffDays}h lepas`;
+  const formatTime = (dateStr) => {
+    if (!dateStr) return '';
+    return new Date(dateStr).toLocaleTimeString('ms-MY', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    });
   };
 
   const filteredCases = (Array.isArray(cases) ? cases : []).filter(c => {
@@ -469,10 +474,8 @@ export default function AdminCasesPage() {
 
                     {/* Masa Permohonan */}
                     <td style={{ padding: '0.85rem 0.5rem', textAlign: 'right', color: textMuted, fontSize: '0.775rem' }}>
-                      <div style={{ fontWeight: 600, color: textPrimary }}>{formatTimeAgo(c.created_at)}</div>
-                      <div style={{ fontSize: '0.675rem', opacity: 0.85 }}>
-                        {c.created_at ? new Date(c.created_at).toLocaleTimeString('ms-MY', { hour: '2-digit', minute: '2-digit' }) : ''}
-                      </div>
+                      <div style={{ fontWeight: 600, color: textPrimary }}>{formatDate(c.created_at)}</div>
+                      <div style={{ fontSize: '0.675rem', opacity: 0.85 }}>{formatTime(c.created_at)}</div>
                     </td>
                   </tr>
                 );
