@@ -209,7 +209,18 @@ export async function POST(req) {
       } catch (_) {}
 
     } else {
-      console.warn('CHIP_API_KEY or CHIP_BRAND_ID not set. Using test mode fallback.');
+      // Chip credentials not set in Netlify environment variables
+      // This should never happen in production — add CHIP_API_KEY and CHIP_BRAND_ID in Netlify dashboard
+      const isDev = process.env.NODE_ENV === 'development';
+      if (!isDev) {
+        console.error('CHIP_API_KEY or CHIP_BRAND_ID missing in production environment variables!');
+        return NextResponse.json(
+          { success: false, error: 'Sistem pembayaran belum dikonfigurasi. Sila hubungi admin.' },
+          { status: 503 }
+        );
+      }
+      // Development fallback mock mode only
+      console.warn('[DEV MODE] CHIP credentials not set. Using mock mode fallback.');
       bill_id = `MOCK_CHIP_${Date.now()}`;
       checkout_url = `/payment-success?submission_id=${submissionId}&mock=true`;
     }
