@@ -336,6 +336,7 @@ export default function AdminCasesPage() {
                             outline: 'none'
                           }}
                         >
+                          <option value="Belum Diambil">Belum Diambil</option>
                           <option value="Sedang Diurus">Sedang Diurus</option>
                           <option value="Perlu Follow-up">Perlu Follow-up</option>
                           <option value="Telah Dibayar">Telah Dibayar</option>

@@ -58,7 +58,7 @@ export async function GET(req) {
       const totalCustomers = (customers || []).length;
       const totalPractitioners = (practitionerProfiles || []).length;
       const newCases = (allCases || []).filter(c => ['Baru', 'Belum Diambil'].includes(c.status) || !c.assigned_to).length;
-      const inProgress = (allCases || []).filter(c => ['Sedang Diurus', 'Perlu Follow-up'].includes(c.status)).length;
+      const inProgress = (allCases || []).filter(c => ['Belum Diambil', 'Sedang Diurus', 'Perlu Follow-up'].includes(c.status)).length;
       const completed = (allCases || []).filter(c => c.status === 'Rawatan Selesai').length;
       const unclaimedCases = (allCases || []).filter(c => !c.assigned_to).length;
       const repeatCustomers = (customers || []).filter(c => c.is_repeat).length;
@@ -67,7 +67,7 @@ export async function GET(req) {
       const practitionerPerformance = (practitionerProfiles || []).map(p => {
         const pCases = (allCases || []).filter(c => c.assigned_to === p.id);
         const pCompleted = pCases.filter(c => c.status === 'Rawatan Selesai').length;
-        const pPending = pCases.filter(c => ['Sedang Diurus', 'Perlu Follow-up', 'Baru'].includes(c.status)).length;
+        const pPending = pCases.filter(c => ['Belum Diambil', 'Sedang Diurus', 'Perlu Follow-up', 'Baru'].includes(c.status)).length;
         return {
           id: p.id,
           name: p.full_name,
@@ -187,7 +187,7 @@ export async function GET(req) {
         created_at: c.created_at,
       }));
 
-      const activeCases = myCases.filter(c => ['Sedang Diurus', 'Perlu Follow-up', 'Baru'].includes(c.status));
+      const activeCases = myCases.filter(c => ['Belum Diambil', 'Sedang Diurus', 'Perlu Follow-up', 'Baru'].includes(c.status));
       const completedCases = myCases.filter(c => c.status === 'Rawatan Selesai');
       const followUpCases = myCases.filter(c => c.status === 'Perlu Follow-up');
 

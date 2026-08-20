@@ -96,7 +96,7 @@ export async function PATCH(req, { params }) {
         .from('cases')
         .update({
           assigned_to: targetPractitionerId,
-          status: 'Sedang Diurus',
+          status: 'Belum Diambil',
           updated_at: new Date().toISOString()
         })
         .eq('id', id);
@@ -107,7 +107,7 @@ export async function PATCH(req, { params }) {
         case_id: id,
         changed_by: userId,
         old_status: 'Baru',
-        new_status: 'Sedang Diurus',
+        new_status: 'Belum Diambil',
         notes: `Admin menukar agihan kes kepada perawat ${targetProfile?.full_name || 'Perawat'}`
       });
 

@@ -207,7 +207,7 @@ export async function POST(req) {
 
     // NO fallback to inactive practitioners — if all are inactive, case stays unassigned ('Baru')
 
-    const caseInitialStatus = assignedPractitioner ? 'Sedang Diurus' : 'Baru';
+    const caseInitialStatus = assignedPractitioner ? 'Belum Diambil' : 'Baru';
 
     // ─── Create case record ───
     const { data: newCase, error: caseError } = await supabase
