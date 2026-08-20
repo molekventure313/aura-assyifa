@@ -36,7 +36,8 @@ export async function GET(req) {
       .select(`
         *,
         customer:customers!cases_customer_id_fkey (id, full_name, phone, state, is_repeat, problem),
-        practitioner:profiles!cases_assigned_to_fkey (id, full_name, email)
+        practitioner:profiles!cases_assigned_to_fkey (id, full_name, email),
+        submission:submissions!cases_submission_id_fkey (id, payment_type)
       `, { count: 'exact' });
 
     // ─── STRICT FILTERING LOGIC ───
@@ -57,6 +58,10 @@ export async function GET(req) {
       }
     }
 
+    // ─── EXCLUDE FPX payment cases from this list (they go to Pesakit Berbayar) ───
+    // Filter: only include cases where submission.payment_type != 'fpx_payment' OR submission is null
+    query = query.or('submission_id.is.null,submission.payment_type.neq.fpx_payment');
+
     query = query.order('created_at', { ascending: false }).range(offset, offset + limit - 1);
 
     const { data: cases, error, count } = await query;
@@ -72,9 +77,11 @@ export async function GET(req) {
       is_repeat: c.customer?.is_repeat || false,
       assigned_to: c.assigned_to,
       practitioner_name: c.practitioner?.full_name || 'Belum Diagih',
+      payment_type: c.submission?.payment_type || 'appointment',
       status: c.status || 'Baru',
       created_at: c.created_at,
-    }));
+    // filter out FPX payment cases at JS level too as a safety net
+    })).filter(c => c.payment_type !== 'fpx_payment');
 
     return NextResponse.json({
       success: true,

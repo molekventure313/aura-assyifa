@@ -135,6 +135,7 @@ export async function POST(req) {
         problem: combinedProblemNotes,
         notes: notes || null,
         source: source || 'Direct',
+        payment_type: 'appointment',   // ← Explicitly mark as appointment (non-FPX)
         utm_source: utm_source || null,
         utm_medium: utm_medium || null,
         utm_campaign: utm_campaign || null,

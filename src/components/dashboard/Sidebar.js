@@ -92,6 +92,8 @@ export default function Sidebar({ isOpen, onClose }) {
     { section: 'UTAMA' },
     { label: 'Dashboard', href: '/dashboard/admin' },
     { label: 'Semua Kes', href: '/dashboard/admin/kes' },
+    { section: 'PEMBAYARAN FPX' },
+    { label: '💳 Pesakit Berbayar', href: '/dashboard/admin/pesakit-berbayar' },
     { section: 'PENGURUSAN' },
     { label: 'Perawat', href: '/dashboard/admin/perawat' },
     { label: 'Pelanggan', href: '/dashboard/admin/pelanggan' },

@@ -14,89 +14,57 @@ export async function POST(req) {
       honeypot,
       event_id,
       amount_in_myr = 50.00,
-      // UTM params
-      utm_source,
-      utm_medium,
-      utm_campaign,
-      utm_content,
-      utm_term,
-      // Tracking
-      landing_page_url,
-      referrer_url,
-      fbclid,
-      fbp,
-      fbc,
+      utm_source, utm_medium, utm_campaign, utm_content, utm_term,
+      landing_page_url, referrer_url, fbclid, fbp, fbc,
     } = body;
 
-    // Check honeypot (spam protection)
+    // Honeypot
     if (honeypot) {
-      return NextResponse.json({
-        success: true,
-        checkout_url: '/payment-success?mock=true',
-      });
+      return NextResponse.json({ success: true, checkout_url: '/payment-success?mock=true' });
     }
 
-    // Validate required fields
-    if (!full_name || !full_name.trim() || !phone || !phone.trim()) {
-      return NextResponse.json(
-        { success: false, error: 'Sila isi nama penuh dan nombor telefon.' },
-        { status: 400 }
-      );
+    // Validate
+    if (!full_name?.trim() || !phone?.trim()) {
+      return NextResponse.json({ success: false, error: 'Sila isi nama penuh dan nombor telefon.' }, { status: 400 });
     }
 
-    // Validate phone
     const phoneResult = validateMalaysianPhone(phone);
     if (!phoneResult.valid) {
-      return NextResponse.json(
-        { success: false, error: phoneResult.error || 'Sila masukkan nombor telefon yang sah.' },
-        { status: 400 }
-      );
+      return NextResponse.json({ success: false, error: phoneResult.error || 'Sila masukkan nombor telefon yang sah.' }, { status: 400 });
     }
 
-    const formattedPhone = phoneResult.formatted; // e.g. 60139556403
+    const formattedPhone = phoneResult.formatted;
     const cleanName = full_name.trim();
-
-    // Extract request metadata
-    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
-      || req.headers.get('x-real-ip')
-      || 'unknown';
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || req.headers.get('x-real-ip') || 'unknown';
     const user_agent = req.headers.get('user-agent') || 'unknown';
 
     const supabase = createAdminClient();
     const initialProblemNotes = `[Bayaran FPX: RM${amount_in_myr.toFixed(2)}] ${problem ? `Simptom: ${problem}` : ''}`;
 
-    // ─── Try Check/Create Customer (robust if RLS policy active without service key) ───
+    // ─── Try Check/Create Customer ───
     let customerId = null;
     try {
-      const { data: existingCustomer } = await supabase
+      const { data: existing } = await supabase
         .from('customers')
         .select('id, submission_count')
         .eq('phone', formattedPhone)
         .maybeSingle();
 
-      if (existingCustomer) {
-        customerId = existingCustomer.id;
+      if (existing) {
+        customerId = existing.id;
       } else {
-        const { data: newCustomer } = await supabase
+        const { data: newCust } = await supabase
           .from('customers')
-          .insert({
-            full_name: cleanName,
-            phone: formattedPhone,
-            problem: initialProblemNotes,
-            submission_count: 1,
-            is_repeat: false,
-            first_submission_at: new Date().toISOString(),
-          })
+          .insert({ full_name: cleanName, phone: formattedPhone, problem: initialProblemNotes, submission_count: 1, is_repeat: false, first_submission_at: new Date().toISOString() })
           .select('id')
           .single();
-
-        if (newCustomer) customerId = newCustomer.id;
+        if (newCust) customerId = newCust.id;
       }
-    } catch (custErr) {
-      console.warn('Customer DB insert skipped (RLS/Service key):', custErr.message);
+    } catch (e) {
+      console.warn('Customer DB skipped (RLS):', e.message);
     }
 
-    // ─── Create initial Submission record ───
+    // ─── Create Submission with payment_type = fpx_payment ───
     let submissionId = `sub_${Date.now()}`;
     const submissionData = {
       full_name: cleanName,
@@ -104,22 +72,15 @@ export async function POST(req) {
       problem: initialProblemNotes,
       notes: `[STATUS: pending_payment] [AMOUNT: MYR ${amount_in_myr.toFixed(2)}]`,
       source: source || 'fsp-checkout',
-      utm_source: utm_source || null,
-      utm_medium: utm_medium || null,
-      utm_campaign: utm_campaign || null,
-      utm_content: utm_content || null,
-      utm_term: utm_term || null,
-      landing_page_url: landing_page_url || null,
-      referrer_url: referrer_url || null,
-      fbclid: fbclid || null,
-      fbp: fbp || null,
-      fbc: fbc || null,
-      ip_address: ip,
-      user_agent,
-      event_id: event_id || null,
-      consent_contact: true,
+      payment_type: 'fpx_payment',      // ← KEY: mark as FPX payment
+      payment_status: 'pending',         // ← Initial status
+      utm_source: utm_source || null, utm_medium: utm_medium || null,
+      utm_campaign: utm_campaign || null, utm_content: utm_content || null,
+      utm_term: utm_term || null, landing_page_url: landing_page_url || null,
+      referrer_url: referrer_url || null, fbclid: fbclid || null,
+      fbp: fbp || null, fbc: fbc || null,
+      ip_address: ip, user_agent, event_id: event_id || null, consent_contact: true,
     };
-
     if (customerId) submissionData.customer_id = customerId;
 
     try {
@@ -132,25 +93,22 @@ export async function POST(req) {
       if (!subErr && submission) {
         submissionId = submission.id;
       }
-    } catch (subErr) {
-      console.warn('Submission DB insert skipped (RLS/Service key):', subErr.message);
+    } catch (e) {
+      console.warn('Submission DB skipped (RLS):', e.message);
     }
 
-    // ─── Call Chip Payment Gateway API ───
+    // ─── Call Chip API ───
     const CHIP_API_KEY = process.env.CHIP_API_KEY;
     const CHIP_BRAND_ID = process.env.CHIP_BRAND_ID;
-    const APP_URL = process.env.NEXT_PUBLIC_APP_URL || process.env.APP_URL || 'http://localhost:3000';
+    const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
     let checkout_url = '';
     let bill_id = '';
 
     if (CHIP_API_KEY && CHIP_BRAND_ID) {
-      const chipPhone = formattedPhone;
-      const chipEmail = `${chipPhone}@esyifaa.com`;
-      const amountInSen = Math.round(amount_in_myr * 100); // RM50.00 -> 5000 sen
+      const amountInSen = Math.round(amount_in_myr * 100);
 
       let callbackUrl = `${APP_URL}/api/payments/chip/webhook`;
-      // Chip API rejects callback URLs with custom ports (e.g. :3000). Use production domain as fallback.
       if (callbackUrl.includes('localhost') || callbackUrl.includes(':3000')) {
         callbackUrl = 'https://e-syifa.com/api/payments/chip/webhook';
       }
@@ -158,22 +116,15 @@ export async function POST(req) {
       const chipPayload = {
         brand_id: CHIP_BRAND_ID,
         client: {
-          email: chipEmail,
-          phone: chipPhone,
+          email: `${formattedPhone}@esyifaa.com`,
+          phone: formattedPhone,
           full_name: cleanName,
         },
         purchase: {
           currency: 'MYR',
-          products: [
-            {
-              name: "Pakej Rawatan Jarak Jauh ESyifaa'",
-              price: amountInSen,
-              quantity: 1,
-            },
-          ],
+          products: [{ name: "Pakej Rawatan Jarak Jauh ESyifaa'", price: amountInSen, quantity: 1 }],
           return_url: `${APP_URL}/payment-success?submission_id=${submissionId}`,
         },
-        // IMPORTANT: success_callback MUST be at top level with standard port (http/https)
         success_callback: callbackUrl,
         success_redirect: `${APP_URL}/payment-success?submission_id=${submissionId}`,
         failure_redirect: `${APP_URL}/fsp-checkout?status=failed`,
@@ -181,10 +132,7 @@ export async function POST(req) {
 
       const chipRes = await fetch('https://gate.chip-in.asia/api/v1/purchases/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${CHIP_API_KEY}`,
-        },
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${CHIP_API_KEY}` },
         body: JSON.stringify(chipPayload),
       });
 
@@ -198,63 +146,41 @@ export async function POST(req) {
       bill_id = chipData.id;
       checkout_url = chipData.checkout_url || chipData.payment_url;
 
-      // Update submission notes with Chip Bill ID if submission ID is UUID
+      // Update submission with chip_bill_id in proper column
       try {
         await supabase
           .from('submissions')
-          .update({
-            notes: `[CHIP_BILL_ID:${bill_id}] [STATUS: pending_payment] [AMOUNT: MYR ${amount_in_myr.toFixed(2)}]`,
-          })
+          .update({ chip_bill_id: bill_id, notes: `[CHIP_BILL_ID:${bill_id}] [STATUS: pending_payment] [AMOUNT: MYR ${amount_in_myr.toFixed(2)}]` })
           .eq('id', submissionId);
       } catch (_) {}
 
     } else {
-      // Chip credentials not set in Netlify environment variables
-      // This should never happen in production — add CHIP_API_KEY and CHIP_BRAND_ID in Netlify dashboard
       const isDev = process.env.NODE_ENV === 'development';
       if (!isDev) {
-        console.error('CHIP_API_KEY or CHIP_BRAND_ID missing in production environment variables!');
-        return NextResponse.json(
-          { success: false, error: 'Sistem pembayaran belum dikonfigurasi. Sila hubungi admin.' },
-          { status: 503 }
-        );
+        console.error('CHIP credentials missing in production!');
+        return NextResponse.json({ success: false, error: 'Sistem pembayaran belum dikonfigurasi. Sila hubungi admin.' }, { status: 503 });
       }
-      // Development fallback mock mode only
-      console.warn('[DEV MODE] CHIP credentials not set. Using mock mode fallback.');
       bill_id = `MOCK_CHIP_${Date.now()}`;
       checkout_url = `/payment-success?submission_id=${submissionId}&mock=true`;
+      try {
+        await supabase.from('submissions').update({ chip_bill_id: bill_id }).eq('id', submissionId);
+      } catch (_) {}
     }
 
-    // Log Activity (safely)
+    // Log activity
     try {
       await logActivity(supabase, {
-        userId: null,
-        actionType: 'chip_payment_create',
-        entityType: 'submission',
-        entityId: submissionId,
-        newValues: {
-          customer_id: customerId,
-          bill_id,
-          amount: amount_in_myr,
-          source: source || 'fsp-checkout',
-        },
+        userId: null, actionType: 'chip_payment_create', entityType: 'submission', entityId: submissionId,
+        newValues: { customer_id: customerId, bill_id, amount: amount_in_myr, source: source || 'fsp-checkout' },
         description: `Inisiasi bayaran Chip FPX (RM${amount_in_myr.toFixed(2)}) oleh ${cleanName} (${formattedPhone})`,
         ipAddress: ip,
       });
     } catch (_) {}
 
-    return NextResponse.json({
-      success: true,
-      checkout_url,
-      submission_id: submissionId,
-      bill_id,
-    });
+    return NextResponse.json({ success: true, checkout_url, submission_id: submissionId, bill_id });
 
   } catch (error) {
     console.error('Chip Create Payment API Error:', error);
-    return NextResponse.json(
-      { success: false, error: error.message || 'Satu ralat telah berlaku. Sila cuba lagi.' },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: error.message || 'Satu ralat telah berlaku. Sila cuba lagi.' }, { status: 500 });
   }
 }
