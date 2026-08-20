@@ -34,7 +34,7 @@ export default function FspPaymentSection() {
           letterSpacing: '-0.02em',
           lineHeight: 1.3
         }}>
-          Mudah. Selamat. Bayar Selepas Diagnos Sahaja.
+          Mudah. Selamat. Bayar Terus Melalui FPX Online.
         </h2>
 
         <p style={{
@@ -42,8 +42,7 @@ export default function FspPaymentSection() {
           marginBottom: '2.5rem', lineHeight: 1.7,
           maxWidth: '560px', margin: '0 auto 2.5rem auto'
         }}>
-          Diagnos percuma dahulu. Perawat akan terangkan situasi anda. Baru anda putuskan
-          sama ada nak teruskan rawatan (RM50) atau tidak.
+          Isi borang ringkas, bayar RM50 melalui FPX — perawat kami akan terus hubungi anda dan mulakan rawatan segera.
         </p>
 
         {/* Payment methods */}
@@ -106,8 +105,8 @@ export default function FspPaymentSection() {
             <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
               {[
                 { step: '1', text: 'Isi Borang' },
-                { step: '2', text: 'Diagnos Percuma' },
-                { step: '3', text: 'Setuju → Bayar RM50' },
+                { step: '2', text: 'Bayar RM50 FPX' },
+                { step: '3', text: 'Perawat Hubungi' },
                 { step: '4', text: 'Rawatan Dijalankan' },
               ].map((s, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
@@ -183,7 +182,7 @@ export default function FspPaymentSection() {
             border: '2px solid #FEF08A'
           }}
         >
-          🩺 Minta Diagnos Percuma Sekarang
+          💳 Bayar RM50 & Mulakan Rawatan Sekarang
         </a>
 
       </div>

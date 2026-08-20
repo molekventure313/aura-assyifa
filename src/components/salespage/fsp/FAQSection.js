@@ -8,11 +8,11 @@ export default function FspFAQSection() {
   const faqs = [
     {
       q: 'Adakah rawatan ini patuh syariah?',
-      a: 'Ya, 100%. Rawatan dijalankan menggunakan bacaan Al-Quran, Asmaul Husna dan doa-doa yang bersumber dari Sunnah Nabi ﷺ. Tiada unsur syirik, bid\'ah atau kaedah lagha dalam setiap rawatan kami.'
+      a: 'Ya, 100%. Rawatan dijalankan menggunakan bacaan Al-Quran, Asmaul Husna dan doa-doa yang bersumber dari Sunnah Nabi ﹰ. Tiada unsur syirik, bid\'ah atau kaedah lagha dalam setiap rawatan kami.'
     },
     {
-      q: 'Berapa lama saya perlu tunggu selepas isi borang?',
-      a: 'Perawat kami akan menghubungi anda melalui WhatsApp secepat mungkin — biasanya dalam masa beberapa jam sahaja. Respon lebih cepat semasa waktu pagi hingga petang.'
+      q: 'Berapa lama perawat akan hubungi saya selepas bayaran berjaya?',
+      a: 'Perawat kami akan menerima notifikasi segera selepas bayaran berjaya dan akan menghubungi anda melalui WhatsApp dalam masa yang singkat. Respon lebih cepat semasa waktu pagi hingga petang.'
     },
     {
       q: 'Adakah perlu hadir secara fizikal untuk rawatan?',
@@ -27,8 +27,8 @@ export default function FspFAQSection() {
       a: 'Bergantung kepada tahap gangguan. Ada yang sembuh selepas satu sesi, ada yang memerlukan beberapa sesi. Itulah sebabnya kami sediakan rawatan susulan percuma sehingga anda benar-benar pulih, in shaa Allah.'
     },
     {
-      q: 'Adakah diagnos benar-benar percuma?',
-      a: 'Ya, 100% percuma. Selepas mengisi borang, perawat kami akan hubungi anda dan jalankan sesi diagnos tanpa sebarang bayaran. Anda boleh putuskan sendiri sama ada nak teruskan rawatan atau tidak selepas diagnos.'
+      q: 'Saya masih ragu-ragu. Boleh cuba dahulu sebelum bayar?',
+      a: 'Boleh! Kami menawarkan scanning air tawar percuma untuk mereka yang masih ragu-ragu. Hubungi perawat kami di WhatsApp dengan mesej \'Saya nak scan guna air tawar\'. Jika ada gangguan, badan anda akan bereaksi bila minum air tersebut.'
     },
     {
       q: 'Bagaimana jika tiada perubahan selepas rawatan?',

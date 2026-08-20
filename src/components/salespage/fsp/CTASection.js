@@ -32,15 +32,14 @@ export default function FspCTASection() {
           lineHeight: 1.3,
           letterSpacing: '-0.02em'
         }}>
-          Selesaikan Gangguan Jin, Sihir & Saka Sekarang — Mulakan Dengan Diagnos Percuma
+          Selesaikan Gangguan Jin, Sihir & Saka Sekarang — Bayar Terus RM50
         </h2>
 
         <p style={{ fontSize: '1.05rem', lineHeight: 1.65, color: '#FFFFFF', marginBottom: '0.75rem', maxWidth: '720px', margin: '0 auto 0.75rem auto' }}>
-          Pilih pakej sesuai, isi borang di bawah & perawat kami akan hubungi anda secepat mungkin untuk sesi diagnos.
+          Bayaran selamat melalui FPX (internet banking). Sebaik bayaran berjaya, perawat kami akan terus hubungi anda melalui WhatsApp.
         </p>
         <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#A7F3D0', marginBottom: '2rem', maxWidth: '620px', margin: '0 auto 2rem auto' }}>
-          Sebelum apa-apa keputusan dibuat, biar perawat kami <strong style={{ color: '#FDE047' }}>diagnos dahulu secara percuma</strong>.
-          Anda tidak perlu komit apa-apa. Tiada bayaran. Tiada paksaan.
+          Tiada diagnos dulu. Tiada tunggu lama. <strong style={{ color: '#FDE047' }}>Bayar, dan rawatan dimulakan segera.</strong>
         </p>
 
         {/* Package highlight */}
@@ -57,10 +56,10 @@ export default function FspCTASection() {
           gap: '0.5rem'
         }}>
           <div style={{ fontSize: '0.75rem', color: '#A7F3D0', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            Pakej Rawatan Penuh
+            Pakej Rawatan Penuh — Sekali Bayar
           </div>
           <div style={{ fontSize: 'clamp(2.5rem, 7vw, 3.5rem)', fontWeight: 900, color: '#FDE047', lineHeight: 1 }}>RM50</div>
-          <div style={{ fontSize: '0.9rem', color: '#D1FAE5' }}>Sekali bayar — rawatan + monitoring + air & garam berisian percuma</div>
+          <div style={{ fontSize: '0.9rem', color: '#D1FAE5' }}>Rawatan + monitoring 7 hari + air & garam berisian percuma</div>
           <div style={{
             display: 'flex', flexWrap: 'wrap', gap: '0.5rem',
             justifyContent: 'center', marginTop: '0.5rem'
@@ -93,10 +92,10 @@ export default function FspCTASection() {
               border: '2px solid #FEF08A'
             }}
           >
-            🩺 Isi Borang Diagnos Percuma Sekarang
+            💳 Bayar RM50 & Mulakan Rawatan Sekarang
           </a>
           <span style={{ fontSize: '0.78rem', color: '#6EE7B7', fontStyle: 'italic' }}>
-            Percuma. Tiada obligasi. Tiada paksaan.
+            Selamat · FPX · Patuh Syariah · Terus ke Rawatan
           </span>
         </div>
 

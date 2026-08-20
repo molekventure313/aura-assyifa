@@ -44,7 +44,7 @@ export default function FspClosingSection() {
             Jangan biarkan gangguan ini terus mengakar dan menjejaskan kehidupan anda, pasangan dan anak-anak. Setiap hari yang berlalu adalah peluang untuk sembuh yang dibiarkan berlalu begitu sahaja.
           </p>
           <p style={{ margin: 0, fontWeight: 800, color: '#FDE047' }}>
-            Mulakan dengan diagnos percuma hari ini — tiada risiko, tiada paksaan. Biar kami bantu anda dengan izin Allah.
+            Bayar RM50 sekarang dan biarkan perawat kami mulakan rawatan hari ini — dengan izin Allah.
           </p>
         </div>
 
@@ -63,10 +63,10 @@ export default function FspClosingSection() {
               border: '2px solid #FEF08A'
             }}
           >
-            🩺 Mohon Diagnos Percuma Sekarang
+            💳 Bayar RM50 & Mulakan Rawatan Sekarang
           </a>
           <p style={{ marginTop: '0.75rem', fontSize: '0.8rem', color: '#6EE7B7', fontStyle: 'italic' }}>
-            Percuma. Tiada obligasi. Respon melalui WhatsApp.
+            Selamat · FPX Online · Patuh Syariah
           </p>
         </div>
 

@@ -101,10 +101,10 @@ export default function FspHeroSection() {
               border: '2px solid #FEF08A'
             }}
           >
-            🩺 Mohon Diagnos Percuma Sekarang
+            💳 Bayar RM50 & Mulakan Rawatan Sekarang
           </a>
           <span style={{ fontSize: '0.78rem', color: '#6EE7B7', fontStyle: 'italic' }}>
-            Percuma. Tiada obligasi. Tiada paksaan.
+            Selamat · Rawatan Jarak Jauh · Patuh Syariah
           </span>
         </div>
 
