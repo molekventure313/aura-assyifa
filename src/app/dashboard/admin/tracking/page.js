@@ -4,11 +4,17 @@ import { useState, useEffect } from 'react';
 import { useToast } from '@/components/ui/Toast';
 
 export default function TrackingSettingsPage() {
+  const [activeTab, setActiveTab] = useState('lead'); // 'lead' | 'fpx'
+  
   const [settings, setSettings] = useState({
     meta_pixel_id: '',
     meta_access_token: '',
     meta_test_code: '',
-    is_active: false
+    is_active: false,
+    fpx_pixel_id: '',
+    fpx_access_token: '',
+    fpx_test_code: '',
+    fpx_is_active: false
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -28,7 +34,11 @@ export default function TrackingSettingsPage() {
             meta_pixel_id: d.meta_pixel_id || '',
             meta_access_token: d.meta_access_token || '',
             meta_test_code: d.meta_test_event_code || d.meta_test_code || '',
-            is_active: !!d.is_active
+            is_active: !!d.is_active,
+            fpx_pixel_id: d.fpx_pixel_id || '',
+            fpx_access_token: d.fpx_access_token || '',
+            fpx_test_code: d.fpx_test_event_code || d.fpx_test_code || '',
+            fpx_is_active: !!d.fpx_is_active
           });
         }
       } catch (e) {
@@ -64,44 +74,56 @@ export default function TrackingSettingsPage() {
 
   const [togglingActive, setTogglingActive] = useState(false);
 
-  const handleToggleActive = async (newValue) => {
+  const handleToggleActive = async (newValue, isFpx = false) => {
+    const key = isFpx ? 'fpx_is_active' : 'is_active';
+    const originalValue = settings[key];
+    
     // Optimistically update UI
-    setSettings(prev => ({ ...prev, is_active: newValue }));
+    setSettings(prev => ({ ...prev, [key]: newValue }));
     setTogglingActive(true);
     try {
       const res = await fetch('/api/tracking', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...settings, is_active: newValue })
+        body: JSON.stringify({ ...settings, [key]: newValue })
       });
       const json = await res.json();
       if (res.ok && json.success) {
         showToast(newValue ? 'Pixel Tracking diaktifkan!' : 'Pixel Tracking dinyahaktifkan.', 'success');
       } else {
         // Revert on failure
-        setSettings(prev => ({ ...prev, is_active: !newValue }));
+        setSettings(prev => ({ ...prev, [key]: originalValue }));
         throw new Error(json.error || 'Gagal menyimpan status');
       }
     } catch (err) {
-      setSettings(prev => ({ ...prev, is_active: !newValue }));
+      setSettings(prev => ({ ...prev, [key]: originalValue }));
       showToast(err.message || 'Ralat semasa menyimpan status', 'error');
     } finally {
       setTogglingActive(false);
     }
   };
 
-  const handleSendTestEvent = async () => {
+  const handleSendTestEvent = async (isFpx = false) => {
     setTestingEvent(true);
     try {
+      const payload = isFpx ? {
+        event_name: 'Purchase',
+        event_id: `test_fpx_${Date.now()}`,
+        url: typeof window !== 'undefined' ? window.location.href : '',
+        user_data: {},
+        is_fpx: true,
+        custom_data: { value: 50.00, currency: 'MYR' }
+      } : {
+        event_name: 'TestEvent',
+        event_id: `test_${Date.now()}`,
+        url: typeof window !== 'undefined' ? window.location.href : '',
+        user_data: {}
+      };
+      
       const res = await fetch('/api/tracking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          event_name: 'TestEvent',
-          event_id: `test_${Date.now()}`,
-          url: typeof window !== 'undefined' ? window.location.href : '',
-          user_data: {}
-        })
+        body: JSON.stringify(payload)
       });
       const json = await res.json();
       if (res.ok && json.success) {
@@ -115,6 +137,8 @@ export default function TrackingSettingsPage() {
       setTestingEvent(false);
     }
   };
+
+  const isCurrentActive = activeTab === 'fpx' ? settings.fpx_is_active : settings.is_active;
 
   return (
     <div style={{ fontFamily: 'var(--font-inter), -apple-system, sans-serif', color: '#F9FAFB', padding: '0.25rem 0', maxWidth: '880px', margin: '0 auto' }}>
@@ -152,16 +176,44 @@ export default function TrackingSettingsPage() {
           style={{ 
             padding: '0.4rem 0.85rem', 
             borderRadius: '6px', 
-            background: settings.is_active ? 'rgba(16, 185, 129, 0.12)' : 'rgba(239, 68, 68, 0.12)', 
-            border: settings.is_active ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid rgba(239, 68, 68, 0.3)',
-            color: settings.is_active ? '#10B981' : '#EF4444',
+            background: isCurrentActive ? 'rgba(16, 185, 129, 0.12)' : 'rgba(239, 68, 68, 0.12)', 
+            border: isCurrentActive ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid rgba(239, 68, 68, 0.3)',
+            color: isCurrentActive ? '#10B981' : '#EF4444',
             fontSize: '0.75rem',
             fontWeight: 600,
             textTransform: 'uppercase'
           }}
         >
-          {settings.is_active ? 'Pixel Aktif' : 'Pixel Dinyahaktifkan'}
+          {isCurrentActive ? 'Pixel Aktif' : 'Pixel Dinyahaktifkan'}
         </div>
+      </div>
+
+      {/* Tab Switcher */}
+      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' }}>
+        <button 
+          type="button" 
+          onClick={() => setActiveTab('lead')}
+          style={{
+            flex: 1, padding: '0.75rem', borderRadius: '8px', fontWeight: 600, fontSize: '0.9rem', cursor: 'pointer',
+            background: activeTab === 'lead' ? 'rgba(52, 211, 153, 0.1)' : '#10131A',
+            border: activeTab === 'lead' ? '1px solid #34D399' : '1px solid rgba(255,255,255,0.08)',
+            color: activeTab === 'lead' ? '#34D399' : '#9CA3AF',
+            transition: 'all 0.2s ease'
+          }}>
+          Pixel Utama (Lead)
+        </button>
+        <button 
+          type="button" 
+          onClick={() => setActiveTab('fpx')}
+          style={{
+            flex: 1, padding: '0.75rem', borderRadius: '8px', fontWeight: 600, fontSize: '0.9rem', cursor: 'pointer',
+            background: activeTab === 'fpx' ? 'rgba(52, 211, 153, 0.1)' : '#10131A',
+            border: activeTab === 'fpx' ? '1px solid #34D399' : '1px solid rgba(255,255,255,0.08)',
+            color: activeTab === 'fpx' ? '#34D399' : '#9CA3AF',
+            transition: 'all 0.2s ease'
+          }}>
+          Pixel FPX (Purchase)
+        </button>
       </div>
 
       {loading ? (
@@ -181,36 +233,42 @@ export default function TrackingSettingsPage() {
               padding: '1.75rem' 
             }}
           >
+            {activeTab === 'fpx' && (
+              <div style={{ background: 'rgba(59, 130, 246, 0.1)', border: '1px solid rgba(59, 130, 246, 0.3)', padding: '0.75rem 1rem', borderRadius: '6px', marginBottom: '1.5rem', color: '#60A5FA', fontSize: '0.8rem', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontSize: '1rem' }}>ℹ️</span> Pixel ini trigger InitiateCheckout bila borang FPX disubmit, dan Purchase bila bayaran berjaya.
+              </div>
+            )}
+
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
               <div>
                 <h2 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#F9FAFB', margin: '0 0 0.2rem 0' }}>
                   Meta Pixel &amp; Conversions API (CAPI)
                 </h2>
                 <p style={{ fontSize: '0.8rem', color: '#9CA3AF', margin: 0 }}>
-                  Menghantar acara Lead dari salespage terus ke Facebook Pixel &amp; CAPI.
+                  Menghantar acara {activeTab === 'fpx' ? 'Purchase' : 'Lead'} dari salespage terus ke Facebook Pixel &amp; CAPI.
                 </p>
               </div>
 
               {/* Custom Switch Toggle */}
               <label style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', cursor: togglingActive ? 'not-allowed' : 'pointer', opacity: togglingActive ? 0.7 : 1 }}>
-                <span style={{ fontSize: '0.8rem', fontWeight: 600, color: settings.is_active ? '#34D399' : '#9CA3AF' }}>
-                  {togglingActive ? 'Menyimpan...' : (settings.is_active ? 'Aktif' : 'Nyahaktif')}
+                <span style={{ fontSize: '0.8rem', fontWeight: 600, color: isCurrentActive ? '#34D399' : '#9CA3AF' }}>
+                  {togglingActive ? 'Menyimpan...' : (isCurrentActive ? 'Aktif' : 'Nyahaktif')}
                 </span>
                 <input 
                   type="checkbox" 
-                  checked={settings.is_active}
+                  checked={isCurrentActive}
                   disabled={togglingActive}
-                  onChange={(e) => handleToggleActive(e.target.checked)}
+                  onChange={(e) => handleToggleActive(e.target.checked, activeTab === 'fpx')}
                   style={{ display: 'none' }}
                 />
                 <div 
                   style={{ 
                     width: '42px', 
                     height: '24px', 
-                    background: settings.is_active ? '#064E3B' : '#090A0F', 
+                    background: isCurrentActive ? '#064E3B' : '#090A0F', 
                     borderRadius: '999px', 
                     padding: '2px',
-                    border: settings.is_active ? '1px solid rgba(16, 185, 129, 0.5)' : '1px solid rgba(255,255,255,0.15)',
+                    border: isCurrentActive ? '1px solid rgba(16, 185, 129, 0.5)' : '1px solid rgba(255,255,255,0.15)',
                     transition: 'all 0.2s ease',
                     position: 'relative'
                   }}
@@ -219,9 +277,9 @@ export default function TrackingSettingsPage() {
                     style={{ 
                       width: '18px', 
                       height: '18px', 
-                      background: settings.is_active ? '#34D399' : '#9CA3AF', 
+                      background: isCurrentActive ? '#34D399' : '#9CA3AF', 
                       borderRadius: '50%',
-                      transform: settings.is_active ? 'translateX(18px)' : 'translateX(0)',
+                      transform: isCurrentActive ? 'translateX(18px)' : 'translateX(0)',
                       transition: 'transform 0.2s ease'
                     }} 
                   />
@@ -236,8 +294,8 @@ export default function TrackingSettingsPage() {
                 </label>
                 <input 
                   type="text" 
-                  value={settings.meta_pixel_id || ''}
-                  onChange={(e) => setSettings({ ...settings, meta_pixel_id: e.target.value })}
+                  value={activeTab === 'fpx' ? settings.fpx_pixel_id : settings.meta_pixel_id}
+                  onChange={(e) => setSettings({ ...settings, [activeTab === 'fpx' ? 'fpx_pixel_id' : 'meta_pixel_id']: e.target.value })}
                   placeholder="Contoh: 123456789012345"
                   style={{
                     width: '100%',
@@ -259,8 +317,8 @@ export default function TrackingSettingsPage() {
                 </label>
                 <textarea 
                   rows="3"
-                  value={settings.meta_access_token || ''}
-                  onChange={(e) => setSettings({ ...settings, meta_access_token: e.target.value })}
+                  value={activeTab === 'fpx' ? settings.fpx_access_token : settings.meta_access_token}
+                  onChange={(e) => setSettings({ ...settings, [activeTab === 'fpx' ? 'fpx_access_token' : 'meta_access_token']: e.target.value })}
                   placeholder="EAAB..."
                   style={{
                     width: '100%',
@@ -283,8 +341,8 @@ export default function TrackingSettingsPage() {
                 </label>
                 <input 
                   type="text" 
-                  value={settings.meta_test_code || ''}
-                  onChange={(e) => setSettings({ ...settings, meta_test_code: e.target.value })}
+                  value={activeTab === 'fpx' ? settings.fpx_test_code : settings.meta_test_code}
+                  onChange={(e) => setSettings({ ...settings, [activeTab === 'fpx' ? 'fpx_test_code' : 'meta_test_code']: e.target.value })}
                   placeholder="Contoh: TEST12345"
                   style={{
                     width: '100%',
@@ -303,7 +361,7 @@ export default function TrackingSettingsPage() {
               <div style={{ paddingTop: '0.5rem' }}>
                 <button
                   type="button"
-                  onClick={handleSendTestEvent}
+                  onClick={() => handleSendTestEvent(activeTab === 'fpx')}
                   disabled={testingEvent}
                   style={{
                     padding: '0.55rem 1.1rem',

@@ -87,12 +87,28 @@ export default function SalespageManagement({ isLightMode, cardBg, cardBorder, t
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(null); // slug being saved
 
+  const [trackingTypes, setTrackingTypes] = useState({});
+  const [togglingTracking, setTogglingTracking] = useState({});
+
   useEffect(() => {
     fetch('/api/settings/homepage')
       .then(r => r.json())
       .then(json => setActiveSlug(json.slug || null))
       .catch(() => setActiveSlug(null))
       .finally(() => setLoading(false));
+
+    fetch('/api/settings/salespage')
+      .then(r => r.json())
+      .then(json => {
+        if (json.data && Array.isArray(json.data)) {
+          const types = {};
+          json.data.forEach(page => {
+            types[page.slug] = page.tracking_type;
+          });
+          setTrackingTypes(types);
+        }
+      })
+      .catch(err => console.error(err));
   }, []);
 
   const setAsHomepage = async (slug) => {
@@ -128,6 +144,28 @@ export default function SalespageManagement({ isLightMode, cardBg, cardBorder, t
       console.error(err);
     } finally {
       setSaving(null);
+    }
+  };
+
+  const toggleTracking = async (slug, currentType) => {
+    const newType = currentType === 'purchase' ? 'lead' : 'purchase';
+    setTogglingTracking(prev => ({ ...prev, [slug]: true }));
+    try {
+      const res = await fetch('/api/settings/salespage', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug, tracking_type: newType })
+      });
+      const json = await res.json();
+      if (json.success) {
+        setTrackingTypes(prev => ({ ...prev, [slug]: newType }));
+      } else {
+        console.error(json.error || 'Failed to update tracking type');
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setTogglingTracking(prev => ({ ...prev, [slug]: false }));
     }
   };
 
@@ -237,6 +275,7 @@ export default function SalespageManagement({ isLightMode, cardBg, cardBorder, t
         {SALESPAGES.map((page) => {
           const isActive = activeSlug === page.slug;
           const isSaving = saving === page.slug;
+          const trackingType = trackingTypes[page.slug];
 
           return (
             <div
@@ -325,6 +364,22 @@ export default function SalespageManagement({ isLightMode, cardBg, cardBorder, t
                   </button>
                 )}
               </div>
+
+              {/* Badge + Toggle Row */}
+              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginTop:'0.4rem', paddingTop:'0.4rem', borderTop: `1px solid ${isLightMode ? '#E2E8F0' : 'rgba(255,255,255,0.07)'}` }}>
+                <span style={{ fontSize:'0.68rem', fontWeight:700, padding:'0.2rem 0.6rem', borderRadius:'999px',
+                  background: trackingType === 'purchase' ? 'rgba(234,179,8,0.15)' : 'rgba(16,185,129,0.12)',
+                  color: trackingType === 'purchase' ? '#EAB308' : '#34D399',
+                  border: `1px solid ${trackingType === 'purchase' ? 'rgba(234,179,8,0.3)' : 'rgba(16,185,129,0.25)'}` }}>
+                  {trackingType === 'purchase' ? '💛 Purchase — FPX' : '🟢 Lead — Utama'}
+                </span>
+                <button onClick={() => toggleTracking(page.slug, trackingType)} disabled={!!togglingTracking[page.slug]}
+                  style={{ fontSize:'0.68rem', fontWeight:600, padding:'0.2rem 0.6rem', borderRadius:'4px',
+                    background:'transparent', border:`1px solid ${isLightMode ? '#CBD5E1' : 'rgba(255,255,255,0.15)'}`,
+                    color: textSecondary, cursor:'pointer' }}>
+                  {togglingTracking[page.slug] ? '...' : trackingType === 'purchase' ? 'Tukar ke Lead' : 'Tukar ke Purchase'}
+                </button>
+              </div>
             </div>
           );
         })}
@@ -350,53 +405,73 @@ export default function SalespageManagement({ isLightMode, cardBg, cardBorder, t
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '0.85rem' }}>
-          {PRODUCT_PAGES.map((page, i) => (
-            <div
-              key={i}
-              style={{
-                background: isLightMode ? '#F8FAFC' : '#0D0F18',
-                border: `1px solid ${isLightMode ? '#E2E8F0' : 'rgba(255,255,255,0.07)'}`,
-                borderRadius: '8px',
-                padding: '1rem 1.1rem',
-                display: 'flex', flexDirection: 'column', gap: '0.65rem',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
-                <div style={{
-                  width: '32px', height: '32px', borderRadius: '7px', flexShrink: 0,
-                  background: `${page.color}22`, border: `1px solid ${page.color}44`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem'
-                }}>
-                  {page.icon}
-                </div>
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.1rem' }}>
-                    <span style={{ fontWeight: 700, fontSize: '0.85rem', color: textPrimary }}>{page.label}</span>
-                    {page.isNew && (
-                      <span style={{ fontSize: '0.6rem', fontWeight: 800, color: '#fff', background: '#059669', padding: '0.1rem 0.4rem', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>BARU</span>
-                    )}
+          {PRODUCT_PAGES.map((page, i) => {
+            const pSlug = page.url.replace(/^\//, '');
+            const pType = trackingTypes[pSlug];
+
+            return (
+              <div
+                key={i}
+                style={{
+                  background: isLightMode ? '#F8FAFC' : '#0D0F18',
+                  border: `1px solid ${isLightMode ? '#E2E8F0' : 'rgba(255,255,255,0.07)'}`,
+                  borderRadius: '8px',
+                  padding: '1rem 1.1rem',
+                  display: 'flex', flexDirection: 'column', gap: '0.65rem',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
+                  <div style={{
+                    width: '32px', height: '32px', borderRadius: '7px', flexShrink: 0,
+                    background: `${page.color}22`, border: `1px solid ${page.color}44`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem'
+                  }}>
+                    {page.icon}
                   </div>
-                  <div style={{ fontSize: '0.73rem', color: textSecondary, lineHeight: 1.4 }}>{page.desc}</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.1rem' }}>
+                      <span style={{ fontWeight: 700, fontSize: '0.85rem', color: textPrimary }}>{page.label}</span>
+                      {page.isNew && (
+                        <span style={{ fontSize: '0.6rem', fontWeight: 800, color: '#fff', background: '#059669', padding: '0.1rem 0.4rem', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>BARU</span>
+                      )}
+                    </div>
+                    <div style={{ fontSize: '0.73rem', color: textSecondary, lineHeight: 1.4 }}>{page.desc}</div>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: isLightMode ? '#F1F5F9' : '#1A1D2A', padding: '0.3rem 0.6rem', borderRadius: '5px' }}>
+                  <span style={{ fontSize: '0.68rem', color: textSecondary, fontFamily: 'monospace' }}>localhost:3000{page.url}</span>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <a
+                    href={page.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: '0.73rem', color: isLightMode ? '#047857' : '#34D399', textDecoration: 'none', fontWeight: 500 }}
+                  >
+                    Lihat Preview →
+                  </a>
+                </div>
+
+                {/* Badge + Toggle Row for Standalone Products */}
+                <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginTop:'0.4rem', paddingTop:'0.4rem', borderTop: `1px solid ${isLightMode ? '#E2E8F0' : 'rgba(255,255,255,0.07)'}` }}>
+                  <span style={{ fontSize:'0.68rem', fontWeight:700, padding:'0.2rem 0.6rem', borderRadius:'999px',
+                    background: pType === 'purchase' ? 'rgba(234,179,8,0.15)' : 'rgba(16,185,129,0.12)',
+                    color: pType === 'purchase' ? '#EAB308' : '#34D399',
+                    border: `1px solid ${pType === 'purchase' ? 'rgba(234,179,8,0.3)' : 'rgba(16,185,129,0.25)'}` }}>
+                    {pType === 'purchase' ? '💛 Purchase — FPX' : '🟢 Lead — Utama'}
+                  </span>
+                  <button onClick={() => toggleTracking(pSlug, pType)} disabled={!!togglingTracking[pSlug]}
+                    style={{ fontSize:'0.68rem', fontWeight:600, padding:'0.2rem 0.6rem', borderRadius:'4px',
+                      background:'transparent', border:`1px solid ${isLightMode ? '#CBD5E1' : 'rgba(255,255,255,0.15)'}`,
+                      color: textSecondary, cursor:'pointer' }}>
+                    {togglingTracking[pSlug] ? '...' : pType === 'purchase' ? 'Tukar ke Lead' : 'Tukar ke Purchase'}
+                  </button>
                 </div>
               </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: isLightMode ? '#F1F5F9' : '#1A1D2A', padding: '0.3rem 0.6rem', borderRadius: '5px' }}>
-                <span style={{ fontSize: '0.68rem', color: textSecondary, fontFamily: 'monospace' }}>localhost:3000{page.url}</span>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <a
-                  href={page.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ fontSize: '0.73rem', color: isLightMode ? '#047857' : '#34D399', textDecoration: 'none', fontWeight: 500 }}
-                >
-                  Lihat Preview →
-                </a>
-                <span style={{ fontSize: '0.68rem', color: textSecondary, fontStyle: 'italic' }}>Produk Standalone</span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>

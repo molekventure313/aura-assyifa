@@ -12,7 +12,17 @@ function PaymentSuccessContent() {
   const [status, setStatus] = useState(isMock ? 'completed' : 'pending');
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(!isMock);
+  const [fpxPixelId, setFpxPixelId] = useState(null);
 
+  // Fetch FPX pixel ID on mount for backup client-side Purchase event
+  useEffect(() => {
+    fetch('/api/tracking/fpx-pixel-id')
+      .then(r => r.json())
+      .then(json => { if (json.fpx_pixel_id) setFpxPixelId(json.fpx_pixel_id); })
+      .catch(() => {});
+  }, []);
+
+  // Poll payment status from Chip
   useEffect(() => {
     if (isMock) {
       setData({
@@ -66,6 +76,21 @@ function PaymentSuccessContent() {
       isSubscribed = false;
     };
   }, [submissionId, isMock]);
+
+  // Backup Purchase pixel event when status becomes completed
+  // This covers cases where CAPI webhook was delayed or missed
+  useEffect(() => {
+    if (status !== 'completed' || !fpxPixelId) return;
+    try {
+      if (typeof window !== 'undefined' && window.fbq) {
+        window.fbq('trackSingle', fpxPixelId, 'Purchase', {
+          value: 50.00,
+          currency: 'MYR',
+          content_name: 'Pakej Rawatan FPX RM50',
+        });
+      }
+    } catch (_) {}
+  }, [status, fpxPixelId]);
 
   return (
     <div style={{ maxWidth: '640px', margin: '0 auto' }}>

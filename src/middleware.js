@@ -60,8 +60,10 @@ export async function middleware(request) {
     request.nextUrl.pathname.startsWith('/api/register-perawat') ||
     request.nextUrl.pathname.startsWith('/api/settings') ||
     request.nextUrl.pathname.startsWith('/api/perawat') ||
-    request.nextUrl.pathname.startsWith('/api/pixel-init') ||   // ← pixel script
-    request.nextUrl.pathname.startsWith('/api/pixel-debug');    // ← debug endpoint
+    request.nextUrl.pathname.startsWith('/api/pixel-init') ||
+    request.nextUrl.pathname.startsWith('/api/pixel-fpx-init') ||  // ← FPX pixel init script
+    request.nextUrl.pathname.startsWith('/api/pixel-debug') ||     // ← debug endpoint
+    request.nextUrl.pathname === '/api/tracking/fpx-pixel-id';     // ← public FPX pixel ID
 
   if (!user && !isPublicRoute) {
     const url = request.nextUrl.clone();

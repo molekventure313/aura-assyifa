@@ -27,6 +27,27 @@ const DIAL_CODES = [
 
 export default function FspChipCheckoutForm({ source = 'fsp-checkout' }) {
   const router = useRouter();
+  const [fpxPixelId, setFpxPixelId] = useState(null);
+
+  // On mount: inject FPX pixel script + fetch fpx_pixel_id for trackSingle
+  useEffect(() => {
+    // Inject /api/pixel-fpx-init script (sets fbq init for FPX pixel + window.__fpxPixelId)
+    const script = document.createElement('script');
+    script.src = '/api/pixel-fpx-init';
+    script.async = true;
+    document.head.appendChild(script);
+
+    // Also fetch fpx_pixel_id for programmatic trackSingle calls
+    fetch('/api/tracking/fpx-pixel-id')
+      .then(r => r.json())
+      .then(json => { if (json.fpx_pixel_id) setFpxPixelId(json.fpx_pixel_id); })
+      .catch(() => {});
+
+    return () => {
+      // Cleanup script on unmount
+      try { document.head.removeChild(script); } catch (_) {}
+    };
+  }, []);
 
   const [formData, setFormData] = useState({
     full_name: '',
@@ -55,13 +76,16 @@ export default function FspChipCheckoutForm({ source = 'fsp-checkout' }) {
 
     setLoading(true);
 
-    // Fire InitiateCheckout Meta Pixel Event
+    // Fire InitiateCheckout using trackSingle — targets FPX pixel only (not main pixel)
     try {
+      const pid = fpxPixelId || (typeof window !== 'undefined' && window.__fpxPixelId);
       if (typeof window !== 'undefined' && window.fbq) {
-        window.fbq('track', 'InitiateCheckout', {
-          value: 50.00,
-          currency: 'MYR',
-        });
+        if (pid) {
+          window.fbq('trackSingle', pid, 'InitiateCheckout', { value: 50.00, currency: 'MYR' });
+        } else {
+          // Fallback: if FPX pixel ID not loaded yet, use track (fires to all initialised pixels)
+          window.fbq('track', 'InitiateCheckout', { value: 50.00, currency: 'MYR' });
+        }
       }
     } catch (_) {}
 

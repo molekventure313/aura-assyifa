@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { logActivity } from '@/lib/utils/logger';
-import { sendCAPIEvent } from '@/lib/tracking/capi';
+import { sendFpxCAPIEvent } from '@/lib/tracking/capi';
 import { sendGroupNotification, buildLeadMessage } from '@/lib/notifications/wasapbot';
 
 function verifySignature(rawBody, signatureHeader, publicKeyPem) {
@@ -165,21 +165,21 @@ export async function POST(req) {
         console.warn('Case creation skipped (RLS/customer_id missing):', e.message);
       }
 
-      // 4. Meta CAPI Purchase event
+      // 4. Meta CAPI Purchase event — uses FPX pixel (not main pixel)
       try {
-        await sendCAPIEvent({
+        await sendFpxCAPIEvent({
           eventName: 'Purchase',
           eventId: submission.event_id || submission.id,
           sourceUrl: submission.landing_page_url || null,
           userData: { phone: submission.phone, client_ip_address: submission.ip_address, client_user_agent: submission.user_agent },
-          customData: { currency: 'MYR', value: 50.00 },
+          customData: { currency: 'MYR', value: 50.00, content_name: 'Pakej Rawatan FPX RM50' },
           clientIpAddress: submission.ip_address,
           clientUserAgent: submission.user_agent,
           fbp: submission.fbp || null,
           fbc: submission.fbc || null,
         });
       } catch (e) {
-        console.error('CAPI Purchase Error (non-blocking):', e.message);
+        console.error('CAPI FPX Purchase Error (non-blocking):', e.message);
       }
 
       // 5. WasapBot Notification

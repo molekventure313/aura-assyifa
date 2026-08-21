@@ -1,22 +1,29 @@
 import { hashUserData } from '../utils/hash';
 import { createAdminClient } from '../supabase/admin';
 
-// Cache config in memory for the server process lifetime to avoid repeated DB calls
+// ─── MAIN PIXEL CACHE ───
 let _cachedConfig = null;
 let _cacheExpiry = 0;
-const CACHE_TTL_MS = 60 * 1000; // 1 minute cache
+const CACHE_TTL_MS = 60 * 1000;
 
-// Call this after saving new pixel config to force fresh DB fetch on next request
+// ─── FPX PIXEL CACHE ───
+let _cachedFpxConfig = null;
+let _fpxCacheExpiry = 0;
+
 export function resetTrackingCache() {
   _cachedConfig = null;
   _cacheExpiry = 0;
 }
 
+export function resetFpxTrackingCache() {
+  _cachedFpxConfig = null;
+  _fpxCacheExpiry = 0;
+}
+
+// ─── Fetch Main Pixel Config ───
 async function getTrackingConfig() {
   const now = Date.now();
-  if (_cachedConfig && now < _cacheExpiry) {
-    return _cachedConfig;
-  }
+  if (_cachedConfig && now < _cacheExpiry) return _cachedConfig;
 
   try {
     const adminClient = createAdminClient();
@@ -40,45 +47,97 @@ async function getTrackingConfig() {
     return _cachedConfig;
   } catch (err) {
     console.warn('getTrackingConfig error:', err?.message);
-    // Fallback to env vars if DB fails
     const pixelId = process.env.META_PIXEL_ID;
     const accessToken = process.env.META_ACCESS_TOKEN;
     if (pixelId && accessToken) {
-      return {
-        pixelId,
-        accessToken,
-        testEventCode: process.env.META_TEST_EVENT_CODE || null,
-      };
+      return { pixelId, accessToken, testEventCode: process.env.META_TEST_EVENT_CODE || null };
     }
     return null;
   }
 }
 
-export async function sendCAPIEvent({ 
-  eventName, 
-  eventId, 
-  eventTime = Math.floor(Date.now() / 1000), 
-  sourceUrl, 
-  userData = {}, 
-  customData = {}, 
-  clientIpAddress, 
-  clientUserAgent, 
-  fbp, 
-  fbc, 
+// ─── Fetch FPX Pixel Config ───
+async function getFpxTrackingConfig() {
+  const now = Date.now();
+  if (_cachedFpxConfig && now < _fpxCacheExpiry) return _cachedFpxConfig;
+
+  try {
+    const adminClient = createAdminClient();
+    const { data } = await adminClient
+      .from('tracking_config')
+      .select('fpx_pixel_id, fpx_access_token, fpx_test_event_code, fpx_is_active')
+      .limit(1)
+      .single();
+
+    if (data?.fpx_is_active && data?.fpx_pixel_id && data?.fpx_access_token) {
+      _cachedFpxConfig = {
+        pixelId: data.fpx_pixel_id,
+        accessToken: data.fpx_access_token,
+        testEventCode: data.fpx_test_event_code || null,
+      };
+    } else {
+      _cachedFpxConfig = null;
+    }
+
+    _fpxCacheExpiry = now + CACHE_TTL_MS;
+    return _cachedFpxConfig;
+  } catch (err) {
+    console.warn('getFpxTrackingConfig error:', err?.message);
+    return null;
+  }
+}
+
+// ─── Send CAPI Event (Main Pixel — Lead, etc.) ───
+export async function sendCAPIEvent({
+  eventName,
+  eventId,
+  eventTime = Math.floor(Date.now() / 1000),
+  sourceUrl,
+  userData = {},
+  customData = {},
+  clientIpAddress,
+  clientUserAgent,
+  fbp,
+  fbc,
   actionSource = 'website'
 }) {
   const config = await getTrackingConfig();
-
   if (!config) {
-    console.warn('Meta CAPI credentials missing or tracking disabled, skipping CAPI event.');
+    console.warn('Meta CAPI (main) credentials missing or disabled, skipping.');
     return null;
   }
+  return _sendToMeta({ config, eventName, eventId, eventTime, sourceUrl, userData, customData, clientIpAddress, clientUserAgent, fbp, fbc, actionSource });
+}
 
+// ─── Send CAPI Event (FPX Pixel — Purchase, InitiateCheckout) ───
+export async function sendFpxCAPIEvent({
+  eventName,
+  eventId,
+  eventTime = Math.floor(Date.now() / 1000),
+  sourceUrl,
+  userData = {},
+  customData = {},
+  clientIpAddress,
+  clientUserAgent,
+  fbp,
+  fbc,
+  actionSource = 'website'
+}) {
+  const config = await getFpxTrackingConfig();
+  if (!config) {
+    console.warn('Meta CAPI (FPX) credentials missing or disabled, skipping.');
+    return null;
+  }
+  return _sendToMeta({ config, eventName, eventId, eventTime, sourceUrl, userData, customData, clientIpAddress, clientUserAgent, fbp, fbc, actionSource });
+}
+
+// ─── Shared Meta Graph API sender ───
+async function _sendToMeta({ config, eventName, eventId, eventTime, sourceUrl, userData, customData, clientIpAddress, clientUserAgent, fbp, fbc, actionSource }) {
   const { pixelId, accessToken, testEventCode } = config;
 
   try {
     const hashedUser = hashUserData(userData);
-    
+
     const eventPayload = {
       data: [{
         event_name: eventName,
@@ -103,13 +162,8 @@ export async function sendCAPIEvent({
 
     const response = await fetch(`https://graph.facebook.com/v18.0/${pixelId}/events`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        ...eventPayload,
-        access_token: accessToken,
-      }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...eventPayload, access_token: accessToken }),
     });
 
     const result = await response.json();
