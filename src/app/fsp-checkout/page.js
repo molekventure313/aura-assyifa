@@ -11,7 +11,6 @@ import FspProcessSection from '@/components/salespage/fsp/ProcessSection';
 import FspPaymentSection from '@/components/salespage/fsp/PaymentSection';
 import FspGuaranteeSection from '@/components/salespage/fsp/GuaranteeSection';
 import FspChipCheckoutForm from '@/components/salespage/fsp/FspChipCheckoutForm';
-import FspWhatsappSection from '@/components/salespage/fsp/WhatsappSection';
 import FspFAQSection from '@/components/salespage/fsp/FAQSection';
 import FspClosingSection from '@/components/salespage/fsp/ClosingSection';
 
@@ -88,10 +87,7 @@ export default function FspCheckoutPage() {
       {/* BORANG DIRECT FPX CHECKOUT — terus selepas jaminan */}
       <FspChipCheckoutForm source="fsp-checkout" />
 
-      {/* #15 — WhatsApp / Hubungi Kami */}
-      <FspWhatsappSection />
-
-      {/* #16 — Soalan Lazim */}
+      {/* #15 — Soalan Lazim */}
       <FspFAQSection />
 
       {/* Closing */}

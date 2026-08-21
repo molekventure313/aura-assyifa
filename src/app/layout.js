@@ -21,7 +21,7 @@ export const metadata = {
   description: "Rawatan secara jarak jauh menggunakan bacaan ayat-ayat al-Quran dan doa berlandaskan syarak untuk membantu anda kembali tenang.",
 };
 
-// Fetch pixel ID server-side — runs at request time, always fresh from DB
+// Fetch Pixel UTAMA ID — only used for 'lead' tracking pages
 async function getPixelId() {
   try {
     const adminClient = createAdminClient();
@@ -40,8 +40,39 @@ async function getPixelId() {
   return null;
 }
 
+// Check tracking_type for current page slug
+// Returns 'purchase' | 'lead' | null
+// 'purchase' pages use FPX pixel only — Pixel UTAMA must NOT load
+async function getTrackingType(slug) {
+  if (!slug) return 'lead';
+  try {
+    const adminClient = createAdminClient();
+    const { data } = await adminClient
+      .from('salespages')
+      .select('tracking_type')
+      .eq('slug', slug)
+      .maybeSingle();
+    return data?.tracking_type || 'lead';
+  } catch (e) {
+    console.warn('layout: failed to fetch tracking_type', e?.message);
+    return 'lead';
+  }
+}
+
 export default async function RootLayout({ children }) {
-  const pixelId = await getPixelId();
+  // Get current page path from middleware-forwarded header
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') || '';
+
+  // Extract slug from pathname: '/fsp-checkout' → 'fsp-checkout'
+  const slug = pathname.replace(/^\//, '').split('/')[0] || '';
+
+  // Check if this page uses FPX pixel (Purchase) or Lead pixel
+  const trackingType = await getTrackingType(slug);
+  const isFpxPage = trackingType === 'purchase';
+
+  // Skip Pixel UTAMA for FPX pages — FPX pixel loads via FspChipCheckoutForm instead
+  const pixelId = isFpxPage ? null : await getPixelId();
 
   // Official Meta Pixel base code — in <head> exactly per FB template
   // Fires PageView on every page. /terima-kasih fires Lead via its own component.
