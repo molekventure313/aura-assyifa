@@ -2,8 +2,13 @@ import { createServerClient } from '@supabase/ssr';
 import { NextResponse } from 'next/server';
 
 export async function middleware(request) {
+  // Inject x-pathname into REQUEST headers so server components
+  // (layout.js) can read it via headers() — response headers are NOT readable there
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-pathname', request.nextUrl.pathname);
+
   let supabaseResponse = NextResponse.next({
-    request,
+    request: { headers: requestHeaders },
   });
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cvygzimtwhezxulvydrn.supabase.co';
@@ -20,7 +25,7 @@ export async function middleware(request) {
         setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value, options }) => request.cookies.set(name, value));
           supabaseResponse = NextResponse.next({
-            request,
+            request: { headers: requestHeaders },
           });
           cookiesToSet.forEach(({ name, value, options }) =>
             supabaseResponse.cookies.set(name, value, options)
@@ -70,10 +75,6 @@ export async function middleware(request) {
     url.pathname = '/login';
     return NextResponse.redirect(url);
   }
-
-  // Inject current pathname as header so layout.js can detect route
-  // and fire the correct pixel event (e.g. Lead on /terima-kasih)
-  supabaseResponse.headers.set('x-pathname', request.nextUrl.pathname);
 
   return supabaseResponse;
 }
