@@ -10,8 +10,6 @@ import FspTestimonialPart2Section from '@/components/salespage/fsp/TestimonialPa
 import FspProcessSection from '@/components/salespage/fsp/ProcessSection';
 import FspPaymentSection from '@/components/salespage/fsp/PaymentSection';
 import FspGuaranteeSection from '@/components/salespage/fsp/GuaranteeSection';
-import FspAirTawarSection from '@/components/salespage/fsp/AirTawarSection';
-import FspCTASection from '@/components/salespage/fsp/CTASection';
 import FspChipCheckoutForm from '@/components/salespage/fsp/FspChipCheckoutForm';
 import FspWhatsappSection from '@/components/salespage/fsp/WhatsappSection';
 import FspFAQSection from '@/components/salespage/fsp/FAQSection';
@@ -87,13 +85,7 @@ export default function FspCheckoutPage() {
       {/* #12 — Jaminan Pulang Wang */}
       <FspGuaranteeSection />
 
-      {/* #13 — Masih Ragu-Ragu? Cuba Scanning Air Tawar Percuma */}
-      <FspAirTawarSection />
-
-      {/* #14 — CTA & Pakej (Bayar RM50) */}
-      <FspCTASection />
-
-      {/* BORANG DIRECT FPX CHECKOUT — selepas semua convincing sections */}
+      {/* BORANG DIRECT FPX CHECKOUT — terus selepas jaminan */}
       <FspChipCheckoutForm source="fsp-checkout" />
 
       {/* #15 — WhatsApp / Hubungi Kami */}
