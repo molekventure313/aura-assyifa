@@ -39,7 +39,7 @@ export default function FspCTASection() {
           Bayaran selamat melalui FPX (internet banking). Sebaik bayaran berjaya, perawat kami akan terus hubungi anda melalui WhatsApp.
         </p>
         <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#A7F3D0', marginBottom: '2rem', maxWidth: '620px', margin: '0 auto 2rem auto' }}>
-          Tiada diagnos dulu. Tiada tunggu lama. <strong style={{ color: '#FDE047' }}>Bayar, dan rawatan dimulakan segera.</strong>
+          Bayar RM50 terus sekarang. Rawatan dimulakan segera — <strong style={{ color: '#FDE047' }}>perawat hubungi anda dalam masa 24 jam.</strong>
         </p>
 
         {/* Package highlight */}

@@ -172,8 +172,8 @@ export default function FspChipCheckoutForm({ source = 'fsp-checkout' }) {
             maxWidth: '540px',
             margin: '0 auto'
           }}>
-            Lengkapkan butiran anda di bawah dan buat pembayaran selamat secara <strong style={{ color: '#FDE047' }}>FPX Online Banking</strong>.
-            Perawat kami akan terus dihubungkan untuk sesi diagnos & rawatan anda.
+            Bayar RM50 melalui <strong style={{ color: '#FDE047' }}>FPX Online Banking</strong>.
+            Perawat kami akan terus dihubungkan dan rawatan dimulakan segera.
           </p>
         </div>
 

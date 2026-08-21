@@ -117,9 +117,8 @@ export default function FspMethodSection() {
               Cara Rawatan Dijalankan:
             </p>
             <p style={{ margin: 0, fontSize: '0.85rem', color: '#A7F3D0', lineHeight: 1.75 }}>
-              Anda tidak perlu hadir secara fizikal. Setelah borang diisi, perawat akan diagnos melalui WhatsApp.
-              Jika anda setuju untuk rawatan, perawat akan jalankan rawatan dari jauh.
-              Badan anda akan merespon — sendawa, sengal, pening — sebagai tanda rawatan berkesan.
+              Anda tidak perlu hadir secara fizikal. Selepas bayaran FPX disahkan, perawat akan terus hubungi anda melalui WhatsApp.
+              Rawatan dijalankan dari jauh — badan anda akan merespon (sendawa, sengal, pening) sebagai tanda rawatan berkesan.
               Rawatan diteruskan sehingga semua tindakbalas hilang sepenuhnya.
             </p>
           </div>

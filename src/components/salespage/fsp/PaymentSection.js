@@ -72,22 +72,40 @@ export default function FspPaymentSection() {
             <p style={{ fontSize: '0.8rem', color: '#A7F3D0', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '1rem' }}>
               Kaedah Pembayaran Yang Diterima:
             </p>
-            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {[
-                { icon: '🏦', label: 'FPX Online Banking' },
-                { icon: '💳', label: 'Bank Transfer' },
-                { icon: '📱', label: 'Maybank / CIMB / RHB' },
-                { icon: '💚', label: 'Touch \'n Go eWallet' },
+                {
+                  icon: '🏦',
+                  label: 'FPX Online Banking',
+                  desc: 'Bayar terus melalui internet banking — Maybank2u, CIMB Clicks, Public Bank, RHB, Hong Leong, Bank Islam & semua bank utama Malaysia',
+                  highlight: true
+                },
+                {
+                  icon: '📱',
+                  label: 'QR Pay / DuitNow QR',
+                  desc: 'Scan QR code menggunakan mana-mana aplikasi bank atau e-wallet. Cepat, mudah, selamat.',
+                  highlight: true
+                },
+                {
+                  icon: '💳',
+                  label: 'Debit / Kredit (Visa & Mastercard)',
+                  desc: 'Pembayaran kad melalui Chip Gateway — 256-bit SSL terjamin.',
+                  highlight: false
+                },
               ].map((m, i) => (
                 <div key={i} style={{
-                  display: 'flex', alignItems: 'center', gap: '0.4rem',
-                  background: 'rgba(253,224,71,0.12)',
-                  border: '1px solid rgba(253,224,71,0.3)',
-                  borderRadius: '999px',
-                  padding: '0.4rem 1rem',
-                  fontSize: '0.82rem', fontWeight: 600, color: '#FEF3C7'
+                  display: 'flex', alignItems: 'flex-start', gap: '0.85rem',
+                  background: m.highlight ? 'rgba(253,224,71,0.12)' : 'rgba(255,255,255,0.05)',
+                  border: m.highlight ? '1.5px solid rgba(253,224,71,0.4)' : '1px solid rgba(255,255,255,0.1)',
+                  borderRadius: '12px',
+                  padding: '0.85rem 1rem',
+                  textAlign: 'left'
                 }}>
-                  <span>{m.icon}</span> {m.label}
+                  <span style={{ fontSize: '1.6rem', flexShrink: 0, lineHeight: 1, marginTop: '0.1rem' }}>{m.icon}</span>
+                  <div>
+                    <div style={{ fontWeight: 800, fontSize: '0.88rem', color: '#FDE047', marginBottom: '0.2rem' }}>{m.label}</div>
+                    <div style={{ fontSize: '0.78rem', color: '#D1FAE5', lineHeight: 1.55 }}>{m.desc}</div>
+                  </div>
                 </div>
               ))}
             </div>

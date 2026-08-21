@@ -6,13 +6,13 @@ import FspExpertSection from '@/components/salespage/fsp/ExpertSection';
 import FspSolutionSection from '@/components/salespage/fsp/SolutionSection';
 import FspMethodSection from '@/components/salespage/fsp/MethodSection';
 import FspGoalsSection from '@/components/salespage/fsp/GoalsSection';
-import FspProcessSection from '@/components/salespage/fsp/ProcessSection';
-import FspChipCheckoutForm from '@/components/salespage/fsp/FspChipCheckoutForm';
 import FspTestimonialPart2Section from '@/components/salespage/fsp/TestimonialPart2Section';
+import FspProcessSection from '@/components/salespage/fsp/ProcessSection';
 import FspPaymentSection from '@/components/salespage/fsp/PaymentSection';
 import FspGuaranteeSection from '@/components/salespage/fsp/GuaranteeSection';
 import FspAirTawarSection from '@/components/salespage/fsp/AirTawarSection';
 import FspCTASection from '@/components/salespage/fsp/CTASection';
+import FspChipCheckoutForm from '@/components/salespage/fsp/FspChipCheckoutForm';
 import FspWhatsappSection from '@/components/salespage/fsp/WhatsappSection';
 import FspFAQSection from '@/components/salespage/fsp/FAQSection';
 import FspClosingSection from '@/components/salespage/fsp/ClosingSection';
@@ -26,23 +26,24 @@ export const metadata = {
  * FSP Direct FPX Checkout — Bayar Terus RM50
  * Route: /fsp-checkout
  *
- * Flow:
- * #1  Hero Banner (Bayar RM50 Sekarang)
- * #2  Testimoni Part 1
- * #3  Problems (6 masalah)
+ * Section order ikut FSP10 framework (Elementor original):
+ *
+ * #1  Hero Banner
+ * #2  Testimoni Part 1  ← social proof terus selepas hero
+ * #3  Problem (6 masalah)
  * #4  Fears (akibat jika tidak dirawat)
- * #5  Pakar / Authority (dalil Al-Quran & Hadith)
+ * #5  Expert / Authority (dalil Al-Quran & Hadith)
  * #6  Solution (ESyifaa intro + 10 manfaat)
- * #7  Fungsi Elemen / Method (kaedah rawatan)
+ * #7  Method (kaedah rawatan 4 elemen)
  * #8  Goals (5 perubahan selepas rawatan)
- * #9  Cara Rawatan (4 langkah: Bayar → Perawat Hubungi → Rawatan → Susulan)
- * [FspChipCheckoutForm] (Borang Direct FPX Online Payment)
- * #10 Testimoni Part 2
- * #11 Payment Info (cara bayar FPX)
+ * #9  Testimoni Part 2  ← reinforce sebelum push ke payment
+ * #10 Process (4 langkah: Bayar → Perawat → Rawatan → Susulan)
+ * #11 Payment Info (FPX + QR cara bayar)
  * #12 Jaminan (guarantee + refund)
- * [NEW] #13 Air Tawar Section (untuk yang masih ragu-ragu)
+ * #13 Masih ragu? Air Tawar percuma
  * #14 CTA + Pakej (Bayar RM50)
- * #15 Whatsapp CTA
+ * ──── [CHECKOUT FORM] ← hampir akhir, selepas semua convincing sections
+ * #15 WhatsApp CTA
  * #16 FAQ
  * Closing
  */
@@ -50,55 +51,55 @@ export default function FspCheckoutPage() {
   return (
     <main style={{ minHeight: '100vh', background: '#042E23' }}>
 
-      {/* SECTION #1 — Hero Banner */}
+      {/* #1 — Hero Banner */}
       <FspHeroSection />
 
-      {/* SECTION #2 — Testimoni Part 1 */}
+      {/* #2 — Testimoni Part 1 (social proof terus selepas hero) */}
       <FspTestimonialSection />
 
-      {/* SECTION #3 — Problems */}
+      {/* #3 — Problems */}
       <FspProblemSection />
 
-      {/* SECTION #4 — Fears (Akibat Jika Tidak Dirawat) */}
+      {/* #4 — Fears (Akibat Jika Tidak Dirawat) */}
       <FspFearsSection />
 
-      {/* SECTION #5 — Pakar / Authority (Dalil Al-Quran & Hadith) */}
+      {/* #5 — Pakar / Authority (Dalil Al-Quran & Hadith) */}
       <FspExpertSection />
 
-      {/* SECTION #6 — Solution (Perkenalkan ESyifaa + 10 Manfaat) */}
+      {/* #6 — Solution (Perkenalkan ESyifaa + 10 Manfaat) */}
       <FspSolutionSection />
 
-      {/* SECTION #7 — Fungsi Elemen / Kaedah Rawatan */}
+      {/* #7 — Kaedah Rawatan (4 Elemen) */}
       <FspMethodSection />
 
-      {/* SECTION #8 — Goals (5 Perubahan Selepas Rawatan) */}
+      {/* #8 — Goals (5 Perubahan Selepas Rawatan) */}
       <FspGoalsSection />
 
-      {/* SECTION #9 — Cara Rawatan (4 Langkah: Bayar Terus) */}
-      <FspProcessSection />
-
-      {/* BORANG DIRECT FPX CHECKOUT (CHIP PAYMENT GATEWAY) */}
-      <FspChipCheckoutForm source="fsp-checkout" />
-
-      {/* SECTION #10 — Testimoni Part 2 */}
+      {/* #9 — Testimoni Part 2 (reinforce sebelum push ke payment) */}
       <FspTestimonialPart2Section />
 
-      {/* SECTION #11 — Cara Bayar FPX & Pakej */}
+      {/* #10 — Cara Rawatan (4 Langkah: Bayar → Perawat → Rawatan → Susulan) */}
+      <FspProcessSection />
+
+      {/* #11 — Cara Bayar FPX + QR */}
       <FspPaymentSection />
 
-      {/* SECTION #12 — Jaminan */}
+      {/* #12 — Jaminan Pulang Wang */}
       <FspGuaranteeSection />
 
-      {/* SECTION #13 — Masih Ragu-Ragu? Cuba Scanning Air Tawar Percuma */}
+      {/* #13 — Masih Ragu-Ragu? Cuba Scanning Air Tawar Percuma */}
       <FspAirTawarSection />
 
-      {/* SECTION #14 — CTA & Pakej (Bayar RM50) */}
+      {/* #14 — CTA & Pakej (Bayar RM50) */}
       <FspCTASection />
 
-      {/* SECTION #15 — Whatsapp / Hubungi Kami */}
+      {/* BORANG DIRECT FPX CHECKOUT — selepas semua convincing sections */}
+      <FspChipCheckoutForm source="fsp-checkout" />
+
+      {/* #15 — WhatsApp / Hubungi Kami */}
       <FspWhatsappSection />
 
-      {/* SECTION #16 — Soalan Lazim */}
+      {/* #16 — Soalan Lazim */}
       <FspFAQSection />
 
       {/* Closing */}

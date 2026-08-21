@@ -133,7 +133,7 @@ export default function FspFearsSection() {
               Jangan tunggu sehingga keadaan bertambah parah. Setiap hari yang berlalu tanpa rawatan adalah peluang gangguan itu mengakar lebih dalam.
             </p>
             <p style={{ margin: 0, fontSize: '0.82rem', color: '#FDE047', fontWeight: 700 }}>
-              Ambil langkah pertama hari ini — diagnos percuma, tiada komitmen.
+              Bayar RM50 hari ini — rawatan dimulakan segera, perawat hubungi anda dalam masa 24 jam.
             </p>
           </div>
         </div>

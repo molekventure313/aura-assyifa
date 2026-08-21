@@ -16,7 +16,7 @@ export default function FspSolutionSection() {
     { icon: '🔄', title: 'Rawatan Susulan Percuma', desc: 'Jika masih diperlukan, rawatan susulan diberikan tanpa kos tambahan.' },
     { icon: '📿', title: 'Menggunakan Asmaul Husna Allah', desc: 'Setiap rawatan menggunakan nama-nama Allah Yang Maha Agung — bersih dan berkuasa.' },
     { icon: '🛡️', title: 'Jaminan Pulang Wang 100%', desc: 'Tiada perubahan langsung selepas rawatan? Kami refund penuh tanpa soal.' },
-    { icon: '🤝', title: 'Diagnos Percuma Dahulu', desc: 'Tiada bayaran untuk sesi diagnos. Anda tentukan sendiri sama ada nak teruskan atau tidak.' },
+    { icon: '🤝', title: 'Bayar Terus, Rawatan Terus', desc: 'Bayar RM50 sahaja — perawat terus dihubungkan. Tiada proses panjang, tiada tunggu lama.' },
     { icon: '🔒', title: 'Privasi Sepenuhnya Terjaga', desc: 'Semua maklumat pesakit adalah sulit. Kami amanah dengan kepercayaan anda.' },
   ];
 
@@ -142,7 +142,7 @@ export default function FspSolutionSection() {
             border: '2px solid #FEF08A'
           }}
         >
-          🩺 Mohon Diagnos Percuma Sekarang
+          💳 Bayar RM50 & Mulakan Rawatan Sekarang
         </a>
 
       </div>
