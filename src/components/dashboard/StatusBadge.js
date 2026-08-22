@@ -14,6 +14,7 @@ export default function StatusBadge({ status, className = '' }) {
       case 'Telah Dibayar':
         return { bg: 'rgba(14, 165, 233, 0.12)', border: 'rgba(14, 165, 233, 0.3)', text: '#0EA5E9' };
       case 'Pelanggan Batal':
+      case 'Tidak Teruskan':
       case 'Tidak Dapat Dihubungi':
         return { bg: 'rgba(107, 114, 128, 0.15)', border: 'rgba(107, 114, 128, 0.3)', text: '#9CA3AF' };
       default:

@@ -22,6 +22,7 @@ export default function Badge({
       'Perlu Follow-up': 'warning',
       'Rawatan Selesai': 'success',
       'Telah Dibayar': 'info',
+      'Tidak Teruskan': 'danger',
       'Pelanggan Batal': 'danger',
       'Kes Berulang': 'secondary',
       'Diarkibkan': 'ghost'
