@@ -14,12 +14,21 @@ function PaymentSuccessContent() {
   const [loading, setLoading] = useState(!isMock);
   const [fpxPixelId, setFpxPixelId] = useState(null);
 
-  // Fetch FPX pixel ID on mount for backup client-side Purchase event
+  // Inject FPX pixel script + fetch pixel ID for client-side Purchase backup
+  // Mirrors FspChipCheckoutForm pattern — fbq('init', fpxPixelId) MUST be called
+  // before fbq('trackSingle') or the event is silently dropped by Meta
   useEffect(() => {
+    const script = document.createElement('script');
+    script.src = '/api/pixel-fpx-init';
+    script.async = true;
+    document.head.appendChild(script);
+
     fetch('/api/tracking/fpx-pixel-id')
       .then(r => r.json())
       .then(json => { if (json.fpx_pixel_id) setFpxPixelId(json.fpx_pixel_id); })
       .catch(() => {});
+
+    return () => { try { document.head.removeChild(script); } catch (_) {} };
   }, []);
 
   // Poll payment status from Chip
