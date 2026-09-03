@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function TestimonialSection() {
   const images = [
@@ -23,7 +23,7 @@ export default function TestimonialSection() {
         </span>
         
         <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#0F172A', marginTop: '0.4rem', marginBottom: '2rem', letterSpacing: '-0.02em' }}>
-          Apa Kata Pesakit Yang Pernah Mendapatkan Rawatan ESyifaa
+          Apa Kata Pesakit Yang Pernah Mendapatkan Rawatan Aura Assyifa
         </h2>
 
         {/* 3 Image Testimonial Grid */}
@@ -49,7 +49,7 @@ export default function TestimonialSection() {
             >
               <img 
                 src={imgSrc} 
-                alt={`Testimoni Pesakit ESyifaa ${idx + 1}`}
+                alt={`Testimoni Pesakit Aura Assyifa ${idx + 1}`}
                 style={{ 
                   width: '100%', 
                   height: 'auto', 

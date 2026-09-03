@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -7,12 +7,12 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      q: 'Bagaimana ESyifaa merawat penyakit misteri yang doktor tak boleh kesan?',
+      q: 'Bagaimana Aura Assyifa merawat penyakit misteri yang doktor tak boleh kesan?',
       a: 'Melalui sesi konsultasi dan imbasan jarak jauh, perawat akan meneliti sama ada kesakitan berpunca daripada gangguan halus atau sihir, seterusnya dirawat menggunakan bacaan Al-Quran dan doa syarak.'
     },
     {
       q: 'Adakah saya perlu menghentikan rawatan doktor / hospital?',
-      a: 'Tidak. Rawatan ESyifaa adalah ikhtiar rohani patuh syariah yang melengkapi rawatan perubatan moden anda. Anda digalakkan meneruskan kedua-dua ikhtiar.'
+      a: 'Tidak. Rawatan Aura Assyifa adalah ikhtiar rohani patuh syariah yang melengkapi rawatan perubatan moden anda. Anda digalakkan meneruskan kedua-dua ikhtiar.'
     },
     {
       q: 'Bolehkah rawatan dijalankan secara jarak jauh?',
@@ -24,7 +24,7 @@ export default function FAQSection() {
     },
     {
       q: 'Adakah diagnos awal percuma?',
-      a: 'Ya. Sesi diagnos dan konsultasi awal bersama perawat ESyifaa adalah percuma sepenuhnya.'
+      a: 'Ya. Sesi diagnos dan konsultasi awal bersama perawat Aura Assyifa adalah percuma sepenuhnya.'
     }
   ];
 

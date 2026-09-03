@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function ClosingSection() {
   const scrollToForm = (e) => {
@@ -34,10 +34,10 @@ export default function ClosingSection() {
             Perniagaan yang merosot akibat gangguan mistik tidak akan pulih hanya dengan menukar strategi perniagaan semata-mata. Punca sebenar perlu ditangani terlebih dahulu.
           </p>
           <p style={{ margin: 0 }}>
-            ESyifaa telah membantu ramai peniaga yang hampir berputus asa untuk kembali membina perniagaan mereka dengan lebih kukuh.
+            Aura Assyifa telah membantu ramai peniaga yang hampir berputus asa untuk kembali membina perniagaan mereka dengan lebih kukuh.
           </p>
           <p style={{ margin: 0 }}>
-            Hubungi ESyifaa hari ini untuk mendapatkan penilaian awal percuma. Sebelum anda membuat sebarang keputusan besar mengenai perniagaan anda, pastikan faktor gangguan mistik telah diketepikan.
+            Hubungi Aura Assyifa hari ini untuk mendapatkan penilaian awal percuma. Sebelum anda membuat sebarang keputusan besar mengenai perniagaan anda, pastikan faktor gangguan mistik telah diketepikan.
           </p>
         </div>
 

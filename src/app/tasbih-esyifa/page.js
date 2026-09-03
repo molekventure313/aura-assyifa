@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import PageViewTracker from '@/components/salespage/PageViewTracker';
 
@@ -98,7 +98,7 @@ const KELEBIHAN = [
   { icon: '💰', title: 'Jimat Kos Jangka Panjang', desc: 'Bayar sekali, guna seumur hidup. Bandingkan dengan kos ulang alik ke perawat.' },
   { icon: '⚡', title: 'Bertindak Balas Segera', desc: 'Diserang malam-malam? Tidak perlu tunggu appointment. Gunakan tasbih terus ketika itu.' },
   { icon: '👨‍👩‍👧', title: 'Untuk Seluruh Keluarga', desc: 'Satu tasbih boleh membantu ahli keluarga yang lain — isteri, suami, anak-anak.' },
-  { icon: '📖', title: 'Ruqyah Syar\'iyyah', desc: 'Diisi oleh perawat ESyifa\' dengan bacaan al-Quran dan doa berlandaskan syarak semata-mata.' },
+  { icon: '📖', title: 'Ruqyah Syar\'iyyah', desc: 'Diisi oleh perawat Aura Assyifa dengan bacaan al-Quran dan doa berlandaskan syarak semata-mata.' },
 ];
 
 const UNTUK_SIAPA = [
@@ -184,7 +184,7 @@ export default function TasbihEsyifaPage() {
       ═══════════════════════════════════════════ */}
       <section style={{ ...S.section, padding: '4rem 1rem 3rem', textAlign: 'center' }}>
         <div style={S.container}>
-          <div style={S.badge}>🌿 ESyifa&apos; · Tasbih Ruqyah Syar&apos;iyyah</div>
+          <div style={S.badge}>🌿 Aura Assyifa · Tasbih Ruqyah Syar&apos;iyyah</div>
 
           <h1 style={{
             fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)',
@@ -532,10 +532,10 @@ export default function TasbihEsyifaPage() {
       <footer style={{ background: '#021812', color: '#FFFFFF', padding: '2rem 1rem', textAlign: 'center', fontSize: '0.82rem', borderTop: '1px solid rgba(254,243,199,0.1)' }}>
         <div style={{ maxWidth: '850px', margin: '0 auto' }}>
           <p style={{ margin: '0 0 0.5rem', fontWeight: 800, fontSize: '1rem', color: '#FEF3C7' }}>
-            ESyifa&apos; · Tasbih Ruqyah Syar&apos;iyyah
+            Aura Assyifa · Tasbih Ruqyah Syar&apos;iyyah
           </p>
           <p style={{ margin: 0, opacity: 0.7, fontSize: '0.78rem', color: '#D1D5DB' }}>
-            © {new Date().getFullYear()} ESyifa&apos;. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
+            © {new Date().getFullYear()} Aura Assyifa. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
           </p>
         </div>
       </footer>

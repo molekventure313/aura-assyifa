@@ -10,13 +10,13 @@ export default function BenefitsSection() {
   ];
 
   return (
-    <section className="section-esyifaa" id="hasrat">
+    <section className="section-aura-assyifa" id="hasrat">
       <div className="container" style={{ textAlign: 'center' }}>
-        <span className="badge-esyifaa">
+        <span className="badge-aura-assyifa">
           ❤️ IMPIAN &amp; HARAPAN PESAKIT
         </span>
 
-        <h2 className="section-title-esyifaa" style={{ textAlign: 'center' }}>
+        <h2 className="section-title-aura-assyifa" style={{ textAlign: 'center' }}>
           Inilah Yang Ramai Harapkan Selepas Mendapatkan Rawatan
         </h2>
 
@@ -24,7 +24,7 @@ export default function BenefitsSection() {
           {hasratList.map((h, idx) => (
             <div 
               key={idx}
-              className="card-esyifaa"
+              className="card-aura-assyifa"
               style={{
                 display: 'flex',
                 alignItems: 'center',

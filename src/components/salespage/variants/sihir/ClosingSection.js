@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function ClosingSection() {
   const scrollToForm = (e) => {
@@ -34,10 +34,10 @@ export default function ClosingSection() {
             Sihir adalah nyata dan diakui dalam Al-Quran dan hadis sahih. Membiarkannya tanpa ikhtiar rawatan hanya akan memperburukkan keadaan dari masa ke masa.
           </p>
           <p style={{ margin: 0 }}>
-            Ramai yang sudah lama menanggung penderitaan akibat sihir tanpa mengetahui punca sebenar. ESyifaa ada untuk membantu anda mengenal pasti dan menangani masalah ini.
+            Ramai yang sudah lama menanggung penderitaan akibat sihir tanpa mengetahui punca sebenar. Aura Assyifa ada untuk membantu anda mengenal pasti dan menangani masalah ini.
           </p>
           <p style={{ margin: 0 }}>
-            Hubungi ESyifaa hari ini untuk mendapatkan diagnos percuma dan mulakan perjalanan pemulihan anda bersama kami.
+            Hubungi Aura Assyifa hari ini untuk mendapatkan diagnos percuma dan mulakan perjalanan pemulihan anda bersama kami.
           </p>
         </div>
 

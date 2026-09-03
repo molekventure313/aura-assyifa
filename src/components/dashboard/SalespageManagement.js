@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -238,7 +238,7 @@ export default function SalespageManagement({ isLightMode, cardBg, cardBorder, t
               Salespage Utama (Default)
             </div>
             <div style={{ fontSize: '0.75rem', color: textSecondary, marginTop: '0.1rem' }}>
-              Salespage asal ESyifaa — tanpa angle khusus
+              Salespage asal Aura Assyifa — tanpa angle khusus
             </div>
           </div>
         </div>

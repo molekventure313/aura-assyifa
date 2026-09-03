@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function MatlamatSection() {
   const goals = [
@@ -25,7 +25,7 @@ export default function MatlamatSection() {
         </span>
 
         <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.4rem', marginBottom: '0.8rem', letterSpacing: '-0.02em' }}>
-          Apa Yang Ingin Dicapai Melalui Rawatan Penyakit Misteri ESyifaa?
+          Apa Yang Ingin Dicapai Melalui Rawatan Penyakit Misteri Aura Assyifa?
         </h2>
 
         <p style={{ fontSize: '0.975rem', color: '#FFFFFF', marginBottom: '2rem', lineHeight: 1.6, opacity: 0.9 }}>

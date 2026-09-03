@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function ClosingSection() {
   const scrollToForm = (e) => {
@@ -34,10 +34,10 @@ export default function ClosingSection() {
             Saka bukanlah sesuatu yang perlu ditanggung seumur hidup. Dengan ikhtiar rawatan yang betul dan bertepatan syarak, ikatan ini boleh diputuskan.
           </p>
           <p style={{ margin: 0 }}>
-            Ramai keluarga yang telah mendapatkan rawatan bersama ESyifaa kini hidup dengan lebih tenang, sihat dan rezeki yang lebih lapang.
+            Ramai keluarga yang telah mendapatkan rawatan bersama Aura Assyifa kini hidup dengan lebih tenang, sihat dan rezeki yang lebih lapang.
           </p>
           <p style={{ margin: 0 }}>
-            Hubungi ESyifaa hari ini untuk mendapatkan penilaian awal secara percuma dan mulakan langkah untuk membebaskan keluarga anda.
+            Hubungi Aura Assyifa hari ini untuk mendapatkan penilaian awal secara percuma dan mulakan langkah untuk membebaskan keluarga anda.
           </p>
         </div>
 

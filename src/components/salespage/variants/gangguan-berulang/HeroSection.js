@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function HeroSection() {
   const scrollToForm = (e) => {
@@ -34,7 +34,7 @@ export default function HeroSection() {
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(254, 224, 71, 0.15)', border: '1px solid #FDE047', padding: '0.4rem 1.1rem', borderRadius: '50px', marginBottom: '1.5rem' }}>
           <span style={{ fontSize: '1.1rem' }}>🌿</span>
           <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#FDE047', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-            ESyifaa · Rawatan Jarak Jauh Islam
+            Aura Assyifa · Rawatan Jarak Jauh Islam
           </span>
         </div>
 
@@ -88,14 +88,14 @@ export default function HeroSection() {
             margin: '0 auto 2rem auto'
           }}
         >
-          Gangguan yang berulang sering menunjukkan bahawa punca asal belum ditangani sepenuhnya. ESyifaa menggunakan pendekatan rawatan yang menyeluruh untuk memastikan punca gangguan dikenal pasti dan ditangani secara tuntas agar gangguan tidak berulang kembali.
+          Gangguan yang berulang sering menunjukkan bahawa punca asal belum ditangani sepenuhnya. Aura Assyifa menggunakan pendekatan rawatan yang menyeluruh untuk memastikan punca gangguan dikenal pasti dan ditangani secara tuntas agar gangguan tidak berulang kembali.
         </p>
 
         {/* Hero Image Showcase */}
         <div style={{ marginBottom: '2.5rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
           <img 
             src="/images/gangguan-berulang/gangguan_berulang_hero.jpg" 
-            alt="Gambar Hero ESyifaa Rawatan Gangguan Berulang" 
+            alt="Gambar Hero Aura Assyifa Rawatan Gangguan Berulang" 
             style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '500px', objectFit: 'cover' }}
           />
         </div>

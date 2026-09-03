@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -8,10 +8,10 @@ export default function FAQSection() {
   const faqs = [
     {
       q: 'Bagaimana cara mengetahui saya terkena sihir?',
-      a: 'Simptom sihir berbeza-beza. Perawat ESyifaa akan membuat penilaian awal semasa sesi konsultasi percuma sebelum mengesahkan keadaan anda.'
+      a: 'Simptom sihir berbeza-beza. Perawat Aura Assyifa akan membuat penilaian awal semasa sesi konsultasi percuma sebelum mengesahkan keadaan anda.'
     },
     {
-      q: 'Adakah rawatan sihir ESyifaa boleh dilakukan dari jarak jauh?',
+      q: 'Adakah rawatan sihir Aura Assyifa boleh dilakukan dari jarak jauh?',
       a: 'Ya. Rawatan boleh dijalankan secara jarak jauh menggunakan kaedah yang dibenarkan syarak. Anda tidak perlu hadir secara fizikal.'
     },
     {
@@ -20,7 +20,7 @@ export default function FAQSection() {
     },
     {
       q: 'Adakah rawatan ini patuh syariah?',
-      a: 'Ya. Semua kaedah rawatan ESyifaa adalah berlandaskan Al-Quran, hadis sahih dan amalan para ulama. Tiada unsur syirik dalam rawatan kami.'
+      a: 'Ya. Semua kaedah rawatan Aura Assyifa adalah berlandaskan Al-Quran, hadis sahih dan amalan para ulama. Tiada unsur syirik dalam rawatan kami.'
     },
     {
       q: 'Berapa kos rawatan sihir?',

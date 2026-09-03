@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function ProcessSection() {
   const steps = [
@@ -92,7 +92,7 @@ export default function ProcessSection() {
             marginBottom: '0.6rem',
             letterSpacing: '-0.02em'
           }}>
-            Bagaimana ESyifaa Berfungsi?
+            Bagaimana Aura Assyifa Berfungsi?
           </h2>
           <p style={{
             fontSize: '1rem',

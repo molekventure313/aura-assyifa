@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect } from 'react';
 
@@ -43,7 +43,7 @@ export default function ThankYouPage() {
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.75rem' }}>
           <span style={{ fontSize: '1.5rem', lineHeight: 1 }}>🌿</span>
           <span style={{ fontWeight: 800, fontSize: '1.25rem', color: '#09201B', letterSpacing: '-0.02em' }}>
-            ESyifaa
+            Aura Assyifa
           </span>
         </div>
 
@@ -80,7 +80,7 @@ export default function ThankYouPage() {
         </h1>
 
         <p style={{ color: '#334155', fontSize: '0.975rem', marginBottom: '1.75rem', lineHeight: 1.7, fontWeight: 500 }}>
-          Terima kasih kerana mendaftar. Permohonan anda telah diterima dan dimasukkan ke dalam sistem giliran perawat ESyifaa.
+          Terima kasih kerana mendaftar. Permohonan anda telah diterima dan dimasukkan ke dalam sistem giliran perawat Aura Assyifa.
         </p>
 
         {/* Main highlight — perawat akan hubungi */}
@@ -163,7 +163,7 @@ export default function ThankYouPage() {
 
         {/* Privacy note */}
         <p style={{ fontSize: '0.8rem', color: '#64748B', fontWeight: 500, lineHeight: 1.6, margin: 0 }}>
-          🔒 Semua maklumat permohonan dirahsiakan sepenuhnya dan hanya digunakan untuk tujuan rawatan syarak ESyifaa.
+          🔒 Semua maklumat permohonan dirahsiakan sepenuhnya dan hanya digunakan untuk tujuan rawatan syarak Aura Assyifa.
         </p>
 
       </div>

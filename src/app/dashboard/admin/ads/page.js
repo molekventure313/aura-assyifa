@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useCallback } from 'react';
 import { useToast } from '@/components/ui/Toast';
@@ -307,7 +307,7 @@ export default function AdsSpendPage() {
                                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.76rem' }}>
                                   <thead>
                                     <tr style={{ borderBottom: isLightMode ? '1px solid #CBD5E1' : '1px solid rgba(255,255,255,0.08)' }}>
-                                      {['Perawat', 'Sales', 'Lead', 'Kos Per Perawat', 'Komisen', 'Perawat (60%)', "ESyifaa' (40%)"].map((h, i) => (
+                                      {['Perawat', 'Sales', 'Lead', 'Kos Per Perawat', 'Komisen', 'Perawat (60%)', "Aura Assyifa (40%)"].map((h, i) => (
                                         <th key={i} style={{ padding: '0.5rem 0.75rem', color: textSecondary, fontWeight: 700, fontSize: '0.63rem', textTransform: 'uppercase', letterSpacing: '0.05em', textAlign: i === 0 ? 'left' : 'center', whiteSpace: 'nowrap' }}>{h}</th>
                                       ))}
                                     </tr>
@@ -337,7 +337,7 @@ export default function AdsSpendPage() {
                                   </tbody>
                                 </table>
                                 <div style={{ marginTop: '0.6rem', fontSize: '0.67rem', color: textMuted }}>
-                                  Sales = (Telah Dibayar / Rawatan Selesai) × RM{fmt(rec.treatment_price ?? 0)} &nbsp;|&nbsp; Komisen = Sales − Kos Per Perawat &nbsp;|&nbsp; Perawat 60% + ESyifaa&apos; 40%
+                                  Sales = (Telah Dibayar / Rawatan Selesai) × RM{fmt(rec.treatment_price ?? 0)} &nbsp;|&nbsp; Komisen = Sales − Kos Per Perawat &nbsp;|&nbsp; Perawat 60% + Aura Assyifa 40%
                                 </div>
                               </div>
                             )}

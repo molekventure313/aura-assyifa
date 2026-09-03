@@ -190,7 +190,7 @@ export default function SetupPage() {
                 </label>
                 <input
                   type="email"
-                  placeholder="admin@esyifaa.com"
+                  placeholder="admin@auraassyifa.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function TestimonialPart2Section() {
   const images = [
@@ -23,11 +23,11 @@ export default function TestimonialPart2Section() {
         </span>
 
         <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.4rem', marginBottom: '0.5rem', letterSpacing: '-0.02em' }}>
-          Betulkah ESyifaa Membantu Pesakit Sembuh?
+          Betulkah Aura Assyifa Membantu Pesakit Sembuh?
         </h2>
 
         <p style={{ fontSize: '1rem', color: '#FFFFFF', marginBottom: '2.5rem', opacity: 0.9 }}>
-          Lihat sendiri pengalaman mereka yang telah mendapatkan rawatan ESyifaa.
+          Lihat sendiri pengalaman mereka yang telah mendapatkan rawatan Aura Assyifa.
         </p>
 
         {/* 3 Image Testimonial Grid */}
@@ -53,7 +53,7 @@ export default function TestimonialPart2Section() {
             >
               <img 
                 src={imgSrc} 
-                alt={`Testimoni Pesakit ESyifaa Bahagian 2 - ${idx + 1}`}
+                alt={`Testimoni Pesakit Aura Assyifa Bahagian 2 - ${idx + 1}`}
                 style={{ 
                   width: '100%', 
                   height: 'auto', 

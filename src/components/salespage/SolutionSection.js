@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function SolutionSection() {
   const benefits = [
@@ -25,11 +25,11 @@ export default function SolutionSection() {
         </span>
 
         <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#0F172A', marginTop: '0.4rem', marginBottom: '1.25rem', letterSpacing: '-0.02em', lineHeight: 1.3 }}>
-          ESyifaa Membantu Anda Menghadapi Gangguan Mistik Dengan Kaedah Rawatan Patuh Syariah
+          Aura Assyifa Membantu Anda Menghadapi Gangguan Mistik Dengan Kaedah Rawatan Patuh Syariah
         </h2>
 
         <p style={{ fontSize: '1.05rem', lineHeight: 1.65, color: '#374151', marginBottom: '2rem', maxWidth: '780px', margin: '0 auto 2rem auto', fontWeight: 500 }}>
-          ESyifaa menawarkan sesi rawatan dan konsultasi bagi membantu pesakit yang mengalami simptom gangguan mistik. Rawatan dijalankan menggunakan kaedah yang selaras dengan syariat Islam sebagai satu bentuk ikhtiar.
+          Aura Assyifa menawarkan sesi rawatan dan konsultasi bagi membantu pesakit yang mengalami simptom gangguan mistik. Rawatan dijalankan menggunakan kaedah yang selaras dengan syariat Islam sebagai satu bentuk ikhtiar.
         </p>
 
         {/* Perubahan Pesakit Box (Deep Emerald Background + Kuning Title + Putih Text) */}
@@ -72,11 +72,11 @@ export default function SolutionSection() {
           </div>
         </div>
 
-        {/* Gambar Servis ESyifaa */}
+        {/* Gambar Servis Aura Assyifa */}
         <div style={{ borderRadius: '12px', overflow: 'hidden', border: '3px solid #059669', boxShadow: '0 15px 35px rgba(0,0,0,0.12)' }}>
           <img 
             src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1000&q=80" 
-            alt="Gambar Servis Rawatan ESyifaa" 
+            alt="Gambar Servis Rawatan Aura Assyifa" 
             style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '380px', objectFit: 'cover' }}
           />
         </div>

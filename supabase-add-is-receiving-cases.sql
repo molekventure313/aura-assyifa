@@ -1,5 +1,5 @@
--- ============================================================
--- ESyifaa: Tambah column is_receiving_cases ke table profiles
+﻿-- ============================================================
+-- Aura Assyifa: Tambah column is_receiving_cases ke table profiles
 -- Jalankan SQL ini dalam Supabase Dashboard > SQL Editor
 -- ============================================================
 

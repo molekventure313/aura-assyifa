@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function HeroSection() {
   const scrollToForm = (e) => {
@@ -33,7 +33,7 @@ export default function HeroSection() {
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(254, 224, 71, 0.15)', border: '1px solid #FDE047', padding: '0.4rem 1.1rem', borderRadius: '50px', marginBottom: '1.5rem' }}>
           <span style={{ fontSize: '1.1rem' }}>🌿</span>
           <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#FDE047', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-            ESyifaa · Rawatan Jarak Jauh Islam
+            Aura Assyifa · Rawatan Jarak Jauh Islam
           </span>
         </div>
 
@@ -87,14 +87,14 @@ export default function HeroSection() {
             margin: '0 auto 2rem auto'
           }}
         >
-          Ada perniagaan yang merosot bukan kerana faktor pasaran atau persaingan semata-mata. Gangguan mistik seperti sihir perniagaan atau penguburan benda-benda tertentu di premis boleh menjejaskan perniagaan secara serius. ESyifaa menawarkan ikhtiar rawatan patuh syariah untuk membantu mengenal pasti dan menangani gangguan ini.
+          Ada perniagaan yang merosot bukan kerana faktor pasaran atau persaingan semata-mata. Gangguan mistik seperti sihir perniagaan atau penguburan benda-benda tertentu di premis boleh menjejaskan perniagaan secara serius. Aura Assyifa menawarkan ikhtiar rawatan patuh syariah untuk membantu mengenal pasti dan menangani gangguan ini.
         </p>
 
         {/* Hero Image Showcase */}
         <div style={{ marginBottom: '2.5rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
           <img 
             src="/images/kedai-tutup/kedai_tutup_hero.jpg" 
-            alt="Gambar Hero ESyifaa Ikhtiar Rawatan Kedai Tutup & Perniagaan" 
+            alt="Gambar Hero Aura Assyifa Ikhtiar Rawatan Kedai Tutup & Perniagaan" 
             style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '500px', objectFit: 'cover' }}
           />
         </div>

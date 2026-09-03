@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -20,7 +20,7 @@ export default function FAQSection() {
     },
     {
       q: 'Adakah perlu hadir secara fizikal?',
-      a: 'Sila rujuk pilihan rawatan yang disediakan oleh ESyifaa semasa membuat temujanji.'
+      a: 'Sila rujuk pilihan rawatan yang disediakan oleh Aura Assyifa semasa membuat temujanji.'
     },
     {
       q: 'Adakah gangguan akan hilang selepas satu sesi?',

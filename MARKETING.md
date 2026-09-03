@@ -1,11 +1,11 @@
-# ESyifaa — Dokumen Rujukan Marketing & FB Ads
+﻿# Aura Assyifa — Dokumen Rujukan Marketing & FB Ads
 > Versi: 1.0 | Dikemaskini: 2026
 
 ---
 
 ## 1. GAMBARAN MODEL BISNES
 
-ESyifaa adalah perkhidmatan **rawatan gangguan spiritual jarak jauh** berasaskan Islam (Ruqyah Syar'iyyah). Rawatan dijalankan sepenuhnya secara online — tiada perlu hadir fizikal.
+Aura Assyifa adalah perkhidmatan **rawatan gangguan spiritual jarak jauh** berasaskan Islam (Ruqyah Syar'iyyah). Rawatan dijalankan sepenuhnya secara online — tiada perlu hadir fizikal.
 
 ### Produk / Perkhidmatan
 
@@ -125,7 +125,7 @@ ESyifaa adalah perkhidmatan **rawatan gangguan spiritual jarak jauh** berasaskan
 >
 > "Doktor kata tiada apa-apa. Tapi anda tahu badan anda — ada sesuatu yang tidak kena."
 >
-> "500+ pesakit dengan simptom yang sama. Selepas rawatan ESyifaa — Alhamdulillah, kebanyakan pulih."
+> "500+ pesakit dengan simptom yang sama. Selepas rawatan Aura Assyifa — Alhamdulillah, kebanyakan pulih."
 
 ---
 
@@ -156,7 +156,7 @@ ESyifaa adalah perkhidmatan **rawatan gangguan spiritual jarak jauh** berasaskan
 >
 > "Ada usahawan yang perniagaannya mati bukan sebab pasaran — tapi sebab ada yang ikat rezeki."
 >
-> "Selepas rawatan ESyifaa, ramai usahawan kongsi — pelanggan mula datang semula dalam masa seminggu."
+> "Selepas rawatan Aura Assyifa, ramai usahawan kongsi — pelanggan mula datang semula dalam masa seminggu."
 
 ---
 
@@ -204,7 +204,7 @@ ESyifaa adalah perkhidmatan **rawatan gangguan spiritual jarak jauh** berasaskan
 **Hooks Iklan:**
 > "Dah rawat berkali-kali tapi gangguan masih kembali? Mungkin punca sebenarnya belum ditangani."
 >
-> "Pernah kena tipu oleh 'ustaz' yang minta benda pelik? Rawatan ESyifaa — 100% Al-Quran & Sunnah sahaja."
+> "Pernah kena tipu oleh 'ustaz' yang minta benda pelik? Rawatan Aura Assyifa — 100% Al-Quran & Sunnah sahaja."
 >
 > "Bukan bomoh. Bukan sesiapa pun. Hanya Allah yang sembuhkan — kami hanya perantara."
 
@@ -258,7 +258,7 @@ ESyifaa adalah perkhidmatan **rawatan gangguan spiritual jarak jauh** berasaskan
 |---|---|---|---|
 | 1 | **SIMPTOM** | Problem Aware | "Adakah anda alami mana-mana daripada simptom ini?" |
 | 2 | **FEAR** | Tangguh-tangguh | "Ini yang berlaku kalau gangguan dibiarkan tanpa rawatan..." |
-| 3 | **SOCIAL PROOF** | Skeptikal | "Pesakit kami kongsi pengalaman selepas rawatan ESyifaa..." |
+| 3 | **SOCIAL PROOF** | Skeptikal | "Pesakit kami kongsi pengalaman selepas rawatan Aura Assyifa..." |
 | 4 | **AUTHORITY** | Risau tentang syariah | "Rawatan berasaskan Al-Quran — bukan bomoh, bukan pawang" |
 | 5 | **VALUE** | Ragu nilai | "RM350 worth of services — untuk RM50 sahaja" |
 | 6 | **CURIOSITY** | Cold / unaware | "Kenapa sesetengah masalah hidup tak selesai walaupun dah buat seribu cara?" |
@@ -330,8 +330,8 @@ ESyifaa adalah perkhidmatan **rawatan gangguan spiritual jarak jauh** berasaskan
 |---|---|---|---|
 | **Unaware** | Tak tahu ada gangguan spiritual | Educate — "Kenapa masalah ini tak selesai?" | Curiosity |
 | **Problem Aware** | Tahu ada masalah, tak tahu punca | "Ini simptom gangguan yang ramai tak sedar" | Simptom |
-| **Solution Aware** | Tahu perlu rawatan, tak kenal ESyifaa | "Cara rawatan kami yang berbeza" | Authority + Value |
-| **Product Aware** | Tahu ESyifaa, belum convert | Testimoni + Jaminan + Urgency | Social Proof + Fear |
+| **Solution Aware** | Tahu perlu rawatan, tak kenal Aura Assyifa | "Cara rawatan kami yang berbeza" | Authority + Value |
+| **Product Aware** | Tahu Aura Assyifa, belum convert | Testimoni + Jaminan + Urgency | Social Proof + Fear |
 | **Most Aware** | Sedia nak bayar tapi tangguh | Direct CTA + Value Reminder | Urgency + Scarcity |
 
 ---
@@ -354,7 +354,7 @@ ESyifaa adalah perkhidmatan **rawatan gangguan spiritual jarak jauh** berasaskan
 - Marriage counseling → angle rumahtangga
 
 ### Custom Audience
-- Pelawat website ESyifaa (30 hari)
+- Pelawat website Aura Assyifa (30 hari)
 - Pelawat salespage tertentu (retarget per angle)
 - Submit borang Lead tapi belum bayar
 - Senarai pelanggan sedia ada (upsell/repeat)
@@ -385,7 +385,7 @@ HOOK (2 baris pertama — paling penting):
 BODY (2–4 baris):
   → Validate perasaan mereka
   → Tunjukkan punca yang mungkin mereka tak sedar
-  → Perkenalkan ESyifaa sebagai solusi
+  → Perkenalkan Aura Assyifa sebagai solusi
 
 CTA:
   TOFU  → "Ketahui lebih lanjut"
@@ -422,4 +422,4 @@ CTA:
 
 ---
 
-*Dokumen rujukan dalaman ESyifaa. Dikemaskini berdasarkan data salespage & model bisnes semasa.*
+*Dokumen rujukan dalaman Aura Assyifa. Dikemaskini berdasarkan data salespage & model bisnes semasa.*

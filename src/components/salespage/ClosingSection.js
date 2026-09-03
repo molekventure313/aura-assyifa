@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function ClosingSection() {
   const scrollToForm = (e) => {
@@ -31,10 +31,10 @@ export default function ClosingSection() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', fontSize: '1.05rem', lineHeight: 1.65, color: '#FFFFFF', marginBottom: '2.5rem', maxWidth: '750px', margin: '0 auto 2.5rem auto' }}>
           <p style={{ margin: 0 }}>
-            Jika anda sudah lama berdepan dengan gangguan yang menjejaskan ketenangan hidup, inilah masanya untuk mendapatkan konsultasi dan ikhtiar rawatan bersama ESyifaa.
+            Jika anda sudah lama berdepan dengan gangguan yang menjejaskan ketenangan hidup, inilah masanya untuk mendapatkan konsultasi dan ikhtiar rawatan bersama Aura Assyifa.
           </p>
           <p style={{ margin: 0 }}>
-            Pasukan ESyifaa akan membantu menilai keadaan anda dan mencadangkan kaedah rawatan yang bersesuaian mengikut syariat Islam.
+            Pasukan Aura Assyifa akan membantu menilai keadaan anda dan mencadangkan kaedah rawatan yang bersesuaian mengikut syariat Islam.
           </p>
           <p style={{ margin: 0, fontWeight: 800, color: '#FDE047' }}>
             Tempah temujanji hari ini dan mulakan langkah pertama ke arah kehidupan yang lebih tenang.

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -8,10 +8,10 @@ export default function FAQSection() {
   const faqs = [
     {
       q: 'Bagaimana cara mengetahui saya mengalami gangguan mistik dan bukan masalah psikologi?',
-      a: 'Perawat ESyifaa akan membuat penilaian awal berdasarkan simptom yang dialami. Dalam sesetengah kes, kedua-dua faktor boleh wujud serentak dan perlu ditangani secara bersama.'
+      a: 'Perawat Aura Assyifa akan membuat penilaian awal berdasarkan simptom yang dialami. Dalam sesetengah kes, kedua-dua faktor boleh wujud serentak dan perlu ditangani secara bersama.'
     },
     {
-      q: 'Adakah rawatan ESyifaa boleh dilakukan dari jarak jauh?',
+      q: 'Adakah rawatan Aura Assyifa boleh dilakukan dari jarak jauh?',
       a: 'Ya. Rawatan jarak jauh menggunakan kaedah yang dibenarkan syarak. Anda tidak perlu hadir secara fizikal untuk mendapatkan rawatan.'
     },
     {

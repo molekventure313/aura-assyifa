@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function HeroSection() {
   const scrollToForm = (e) => {
@@ -25,7 +25,7 @@ export default function HeroSection() {
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(254, 224, 71, 0.15)', border: '1px solid #FDE047', padding: '0.4rem 1.1rem', borderRadius: '50px', marginBottom: '1.5rem' }}>
           <span style={{ fontSize: '1.1rem' }}>🌿</span>
           <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#FDE047', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-            ESyifaa · Rawatan Jarak Jauh Islam
+            Aura Assyifa · Rawatan Jarak Jauh Islam
           </span>
         </div>
 
@@ -85,7 +85,7 @@ export default function HeroSection() {
             margin: '0 auto 2rem auto'
           }}
         >
-          Gangguan mistik boleh berlaku kepada sesiapa sahaja tanpa mengira usia atau latar belakang. ESyifaa menawarkan ikhtiar rawatan patuh syariah yang membantu anda mengenal pasti dan menangani gangguan ini agar anda boleh kembali menjalani kehidupan dengan tenang dan penuh keyakinan.
+          Gangguan mistik boleh berlaku kepada sesiapa sahaja tanpa mengira usia atau latar belakang. Aura Assyifa menawarkan ikhtiar rawatan patuh syariah yang membantu anda mengenal pasti dan menangani gangguan ini agar anda boleh kembali menjalani kehidupan dengan tenang dan penuh keyakinan.
         </p>
 
         {/* Hero Image Showcase */}

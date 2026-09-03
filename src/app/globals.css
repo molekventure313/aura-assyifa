@@ -2878,7 +2878,7 @@ font-size: 0.76rem;
   --font-muted-dark: #3B5249;
 }
 
-.salespage-esyifaa-layout {
+.salespage-aura-assyifa-layout {
   font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
   background-color: var(--bg-beige);
   color: var(--font-dark-green);
@@ -2887,40 +2887,40 @@ font-size: 0.76rem;
 }
 
 /* All headings and paragraphs centered */
-.salespage-esyifaa-layout h1,
-.salespage-esyifaa-layout h2,
-.salespage-esyifaa-layout h3,
-.salespage-esyifaa-layout h4,
-.salespage-esyifaa-layout p,
-.salespage-esyifaa-layout div {
+.salespage-aura-assyifa-layout h1,
+.salespage-aura-assyifa-layout h2,
+.salespage-aura-assyifa-layout h3,
+.salespage-aura-assyifa-layout h4,
+.salespage-aura-assyifa-layout p,
+.salespage-aura-assyifa-layout div {
   text-align: center;
 }
 
-.hero-esyifaa {
+.hero-aura-assyifa {
   background: var(--river-to-sea-blend);
   color: var(--font-white);
   padding: 3rem 1rem 5rem 1rem;
 }
 
-.topbar-esyifaa {
+.topbar-aura-assyifa {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-bottom: 2rem;
 }
 
-.brandmark-esyifaa {
+.brandmark-aura-assyifa {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.logo-icon-esyifaa {
+.logo-icon-aura-assyifa {
   font-size: 2.2rem;
   line-height: 1;
 }
 
-.brand-title-esyifaa {
+.brand-title-aura-assyifa {
   font-size: 1.45rem;
   font-weight: 800;
   color: var(--yellow-font);
@@ -2928,7 +2928,7 @@ font-size: 0.76rem;
   display: block;
 }
 
-.brand-sub-esyifaa {
+.brand-sub-aura-assyifa {
   font-size: 0.725rem;
   font-weight: 700;
   color: var(--font-white);
@@ -2937,7 +2937,7 @@ font-size: 0.76rem;
   display: block;
 }
 
-.badge-esyifaa {
+.badge-aura-assyifa {
   display: inline-block;
   padding: 0.45rem 1.25rem;
   border-radius: 999px;
@@ -2951,7 +2951,7 @@ font-size: 0.76rem;
   box-shadow: 0 4px 15px rgba(255, 224, 102, 0.2);
 }
 
-.hero-headline-esyifaa {
+.hero-headline-aura-assyifa {
   font-size: clamp(1.85rem, 1.4rem + 2.2vw, 2.85rem);
   font-weight: 800;
   color: var(--yellow-font);
@@ -2960,7 +2960,7 @@ font-size: 0.76rem;
   text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-.hero-desc-esyifaa {
+.hero-desc-aura-assyifa {
   font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem);
   color: var(--font-white);
   line-height: 1.65;
@@ -2968,7 +2968,7 @@ font-size: 0.76rem;
   opacity: 0.95;
 }
 
-.hero-highlights-esyifaa {
+.hero-highlights-aura-assyifa {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -2986,7 +2986,7 @@ font-size: 0.76rem;
   box-shadow: var(--yellow-box-shadow);
 }
 
-.btn-esyifaa {
+.btn-aura-assyifa {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -3001,29 +3001,29 @@ font-size: 0.76rem;
   transition: all 0.25s ease;
 }
 
-.btn-esyifaa.primary-btn {
+.btn-aura-assyifa.primary-btn {
   background: linear-gradient(135deg, var(--yellow-font) 0%, var(--yellow-font-sub) 100%);
   color: var(--font-dark-green);
   box-shadow: 0 8px 25px rgba(255, 209, 102, 0.4);
 }
 
-.btn-esyifaa.primary-btn:hover {
+.btn-aura-assyifa.primary-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(255, 209, 102, 0.6);
 }
 
-.section-esyifaa {
+.section-aura-assyifa {
   padding: 4.5rem 1rem;
   position: relative;
   background-color: var(--bg-beige);
 }
 
-.section-esyifaa.bg-green-blend-esyifaa {
+.section-aura-assyifa.bg-green-blend-aura-assyifa {
   background: var(--river-to-sea-blend);
   color: var(--font-white);
 }
 
-.section-title-esyifaa {
+.section-title-aura-assyifa {
   font-size: clamp(1.65rem, 1.2rem + 1.6vw, 2.35rem);
   font-weight: 800;
   color: var(--font-dark-green);
@@ -3031,36 +3031,36 @@ font-size: 0.76rem;
   margin-bottom: 0.75rem;
 }
 
-.section-esyifaa.bg-green-blend-esyifaa .section-title-esyifaa {
+.section-aura-assyifa.bg-green-blend-aura-assyifa .section-title-aura-assyifa {
   color: var(--yellow-font);
 }
 
-.section-desc-esyifaa {
+.section-desc-aura-assyifa {
   font-size: 1.05rem;
   color: var(--font-muted-dark);
   line-height: 1.65;
 }
 
-.section-esyifaa.bg-green-blend-esyifaa .section-desc-esyifaa {
+.section-aura-assyifa.bg-green-blend-aura-assyifa .section-desc-aura-assyifa {
   color: var(--font-white);
   opacity: 0.95;
 }
 
 /* Grids */
-.grid-3-esyifaa {
+.grid-3-aura-assyifa {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.75rem;
 }
 
-.grid-2-esyifaa {
+.grid-2-aura-assyifa {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.75rem;
 }
 
 /* Kuning (Box) Styling */
-.card-esyifaa {
+.card-aura-assyifa {
   background: var(--yellow-box-bg);
   border-radius: 20px;
   padding: 1.85rem;
@@ -3070,7 +3070,7 @@ font-size: 0.76rem;
   color: var(--font-dark-green);
 }
 
-.card-esyifaa:hover {
+.card-aura-assyifa:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(244, 162, 97, 0.3);
 }

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function ClosingSection() {
   const scrollToForm = (e) => {
@@ -34,7 +34,7 @@ export default function ClosingSection() {
             Membiarkan kesakitan berterusan tanpa mengenal pasti punca rohani hanya akan membuatkan anda semakin derita dan penat emosi.
           </p>
           <p style={{ margin: 0 }}>
-            Ramai pesakit yang pernah berada di tempat anda kini kembali sihat, bertenaga dan boleh menjalani kehidupan harian dengan tenang selepas mendapat diagnos dan rawatan dari ESyifaa.
+            Ramai pesakit yang pernah berada di tempat anda kini kembali sihat, bertenaga dan boleh menjalani kehidupan harian dengan tenang selepas mendapat diagnos dan rawatan dari Aura Assyifa.
           </p>
           <p style={{ margin: 0, fontWeight: 700, color: '#FEF3C7' }}>
             Ambil langkah pertama hari ini. Hubungi kami untuk sesi diagnos awal secara percuma.

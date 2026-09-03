@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function FspSolutionSection() {
   const scrollToForm = (e) => {
@@ -35,7 +35,7 @@ export default function FspSolutionSection() {
           PENYELESAIAN
         </span>
 
-        {/* Part 1: Introduce ESyifaa */}
+        {/* Part 1: Introduce Aura Assyifa */}
         <h2 style={{
           fontSize: 'clamp(1.5rem, 3.5vw, 2.3rem)',
           fontWeight: 800,
@@ -45,7 +45,7 @@ export default function FspSolutionSection() {
           letterSpacing: '-0.02em',
           lineHeight: 1.3
         }}>
-          ESyifaa — Ikhtiar Terbaik Untuk Selesaikan Gangguan Jin, Sihir, Saka & Penyakit Misteri
+          Aura Assyifa — Ikhtiar Terbaik Untuk Selesaikan Gangguan Jin, Sihir, Saka & Penyakit Misteri
         </h2>
 
         <p style={{
@@ -55,12 +55,12 @@ export default function FspSolutionSection() {
           margin: '0 auto 1.5rem auto',
           lineHeight: 1.75
         }}>
-          Selepas rawatan ESyifaa, ramai pesakit melaporkan perasaan ringan, tidur lebih lena,
+          Selepas rawatan Aura Assyifa, ramai pesakit melaporkan perasaan ringan, tidur lebih lena,
           ibadah lebih khusyuk, rumahtangga lebih harmoni dan perniagaan mula bergerak semula.
           <strong style={{ color: '#047857' }}> Ini bukan janji — ini pengalaman nyata pesakit kami.</strong>
         </p>
 
-        {/* ESyifaa brand badge */}
+        {/* Aura Assyifa brand badge */}
         <div style={{
           display: 'inline-flex',
           alignItems: 'center',
@@ -74,7 +74,7 @@ export default function FspSolutionSection() {
         }}>
           <span style={{ fontSize: '2rem' }}>🌿</span>
           <div style={{ textAlign: 'left' }}>
-            <div style={{ fontSize: '1.1rem', fontWeight: 900, color: '#FDE047' }}>ESyifaa</div>
+            <div style={{ fontSize: '1.1rem', fontWeight: 900, color: '#FDE047' }}>Aura Assyifa</div>
             <div style={{ fontSize: '0.78rem', color: '#A7F3D0', fontWeight: 600 }}>Rawatan Jarak Jauh Islam · Patuh Syariah</div>
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function FspSolutionSection() {
             marginTop: '0.4rem',
             marginBottom: '0.5rem'
           }}>
-            10 Manfaat Rawatan ESyifaa Untuk Bantu Anda Pulih
+            10 Manfaat Rawatan Aura Assyifa Untuk Bantu Anda Pulih
           </h3>
         </div>
 

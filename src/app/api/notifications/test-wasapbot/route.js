@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import { sendGroupNotification, buildLeadMessage } from '@/lib/notifications/wasapbot';
 
 /**
@@ -13,7 +13,7 @@ export async function POST() {
       phone:      '+60123456789',
       session:    'Pagi',
       source:     'TEST dari Dashboard',
-      problem:    'Ini adalah mesej ujian dari ESyifa\' admin dashboard.',
+      problem:    'Ini adalah mesej ujian dari Aura Assyifa admin dashboard.',
       assignedTo: 'Ustaz Test',
       isRepeat:   false,
     });

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * WasapBot Notification Utility
  * Hantar notifikasi WhatsApp ke group perawat setiap kali lead baru masuk.
  *
@@ -78,7 +78,7 @@ export function buildLeadMessage({ name, phone, session, source, problem, assign
   const problemLine = problem ? `\n📝 Simptom: ${problem.replace(/\[.*?\]/g, '').trim()}` : '';
 
   return (
-    `🔔 *LEAD BARU — ESyifa'*${repeatTag}\n` +
+    `🔔 *LEAD BARU — Aura Assyifa*${repeatTag}\n` +
     `─────────────────────\n` +
     `👤 Nama: *${name}*\n` +
     `📱 WA: *${phone}*\n` +

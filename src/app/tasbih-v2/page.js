@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -83,7 +83,7 @@ const BENEFITS = [
   { icon: '🛡️', title: 'Perlindungan 24 Jam Setiap Hari', desc: 'Ibarat ada perawat private di rumah. Perlindungan berterusan tanpa henti — siang atau malam.' },
   { icon: '👨‍👩‍👧', title: 'Boleh Bantu Seluruh Keluarga', desc: 'Satu tasbih boleh membantu semua ahli keluarga — isteri, suami, anak-anak. Jimat kos berbanding rawatan berasingan.' },
   { icon: '💰', title: 'Jimat Kos Jangka Panjang', desc: 'Bayar sekali sahaja, guna seumur hidup. Bandingkan dengan kos berulang kali ke perawat — penjimatan yang luar biasa.' },
-  { icon: '📖', title: '100% Ruqyah Syar\'iyyah', desc: 'Diisi oleh perawat ESyifa\' dengan bacaan Al-Quran dan doa berlandaskan syarak semata-mata. Tiada unsur syirik.' },
+  { icon: '📖', title: '100% Ruqyah Syar\'iyyah', desc: 'Diisi oleh perawat Aura Assyifa dengan bacaan Al-Quran dan doa berlandaskan syarak semata-mata. Tiada unsur syirik.' },
   { icon: '🌿', title: 'Cara Guna Mudah & Ringkas', desc: 'Cukup berniat, berdoa kepada Allah dan yakin. Panduan lengkap diberikan selepas pembelian.' },
 ];
 
@@ -91,7 +91,7 @@ const TASBIH_ELEMENTS = [
   { icon: '📖', name: 'Ayat-Ayat Ruqyah Al-Quran', desc: 'Kalam Allah yang menjadi penawar kepada segala penyakit hati dan jasad. Bacaan ayat-ayat tertentu yang khusus untuk menghapuskan sihir, mengusir jin dan memecahkan ikatan.' },
   { icon: '🤲', name: 'Asmaul Husna Allah SWT', desc: 'Nama-nama Allah Yang Maha Agung diisikan sebagai kuasa perlindungan dan penyembuhan. Setiap nama membawa keistimewaan dan kekuatan yang berbeza dari sisi Allah.' },
   { icon: '📿', name: 'Doa-Doa Sunnah Nabi ﷺ', desc: 'Doa-doa yang bersumber dari Sunnah Nabi Muhammad ﷺ — sahih, bersih dari sebarang syirik atau bid\'ah. Hanya amalan yang diiktiraf dan dipraktikkan oleh ulama.' },
-  { icon: '🔒', name: 'Pasak & Niat Khusus', desc: 'Setiap tasbih dipasakkan dengan niat dan bacaan khusus oleh perawat ESyifa\'. Proses ini mengambil masa lama dan dilakukan dengan penuh teliti — inilah sebab stok adalah terhad.' },
+  { icon: '🔒', name: 'Pasak & Niat Khusus', desc: 'Setiap tasbih dipasakkan dengan niat dan bacaan khusus oleh perawat Aura Assyifa. Proses ini mengambil masa lama dan dilakukan dengan penuh teliti — inilah sebab stok adalah terhad.' },
 ];
 
 const GOALS = [
@@ -171,7 +171,7 @@ export default function TasbihV2Page() {
       ═══════════════════════════════════════════════════════ */}
       <section style={{ ...S.dark, padding: '4rem 1rem 3.5rem', textAlign: 'center' }}>
         <div style={S.wrap}>
-          <div style={S.badge()}>🌿 ESyifa' · Tasbih Ruqyah Syar'iyyah Pengisian</div>
+          <div style={S.badge()}>🌿 Aura Assyifa · Tasbih Ruqyah Syar'iyyah Pengisian</div>
 
           <h1 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: 800, lineHeight: 1.2, color: '#FDE047', marginBottom: '1.25rem', letterSpacing: '-0.02em' }}>
             Dah Berulang Kali Dirawat Tapi{' '}
@@ -371,7 +371,7 @@ export default function TasbihV2Page() {
             <span style={{ fontSize: '2rem' }}>📿</span>
             <div style={{ textAlign: 'left' }}>
               <div style={{ fontSize: '1.1rem', fontWeight: 900, color: '#FDE047' }}>Tasbih E-Syifa'</div>
-              <div style={{ fontSize: '0.78rem', color: '#A7F3D0', fontWeight: 600 }}>Ruqyah Syar'iyyah · Pengisian Penuh · ESyifa'</div>
+              <div style={{ fontSize: '0.78rem', color: '#A7F3D0', fontWeight: 600 }}>Ruqyah Syar'iyyah · Pengisian Penuh · Aura Assyifa</div>
             </div>
           </div>
 
@@ -407,7 +407,7 @@ export default function TasbihV2Page() {
           <div style={S.badge()}>📿 ISI KANDUNGAN</div>
           <h2 style={S.h2gold}>Apa Yang Diisi & Dipasakkan Dalam Tasbih E-Syifa'?</h2>
           <p style={S.sub()}>
-            4 elemen utama yang diisikan oleh perawat ESyifa' — semua bersumber dari Al-Quran dan Sunnah Nabi ﷺ.
+            4 elemen utama yang diisikan oleh perawat Aura Assyifa — semua bersumber dari Al-Quran dan Sunnah Nabi ﷺ.
             Tiada unsur syirik, bid'ah atau amalan yang bertentangan dengan syarak.
           </p>
 
@@ -732,9 +732,9 @@ export default function TasbihV2Page() {
       {/* Footer */}
       <footer style={{ background: '#021812', color: '#FFFFFF', padding: '2rem 1rem', textAlign: 'center', fontSize: '0.82rem', borderTop: '1px solid rgba(254,243,199,0.1)' }}>
         <div style={{ maxWidth: '850px', margin: '0 auto' }}>
-          <p style={{ margin: '0 0 0.5rem', fontWeight: 800, fontSize: '1rem', color: '#FEF3C7' }}>ESyifa' · Tasbih Ruqyah Syar'iyyah</p>
+          <p style={{ margin: '0 0 0.5rem', fontWeight: 800, fontSize: '1rem', color: '#FEF3C7' }}>Aura Assyifa · Tasbih Ruqyah Syar'iyyah</p>
           <p style={{ margin: 0, opacity: 0.7, fontSize: '0.78rem', color: '#D1D5DB' }}>
-            © {new Date().getFullYear()} ESyifa'. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
+            © {new Date().getFullYear()} Aura Assyifa. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
           </p>
         </div>
       </footer>

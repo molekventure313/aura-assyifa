@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function FspMethodSection() {
   const elements = [
@@ -52,7 +52,7 @@ export default function FspMethodSection() {
             letterSpacing: '-0.02em',
             lineHeight: 1.3
           }}>
-            Bagaimana Rawatan ESyifaa Berfungsi?
+            Bagaimana Rawatan Aura Assyifa Berfungsi?
           </h2>
           <p style={{
             fontSize: '1rem',

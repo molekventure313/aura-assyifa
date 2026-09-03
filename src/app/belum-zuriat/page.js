@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import HeroSection from '@/components/salespage/variants/belum-zuriat/HeroSection';
 import TestimonialSection from '@/components/salespage/TestimonialSection';
@@ -61,10 +61,10 @@ export default function Home() {
       <footer style={{ background: '#021812', color: '#FFFFFF', padding: '2rem 1rem', textAlign: 'center', fontSize: '0.85rem', borderTop: '1px solid rgba(254, 243, 199, 0.15)' }}>
         <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ margin: '0 0 0.5rem 0', fontWeight: 800, fontSize: '1.05rem', color: '#FEF3C7' }}>
-            Ã°Å¸Å’Â¿ ESyifaa Ã‚Â· Rawatan Jarak Jauh Gangguan Jin, Sihir, Santau &amp; Saka
+            Ã°Å¸Å’Â¿ Aura Assyifa Ã‚Â· Rawatan Jarak Jauh Gangguan Jin, Sihir, Santau &amp; Saka
           </p>
           <p style={{ margin: 0, opacity: 0.85, fontSize: '0.8rem', color: '#D1D5DB' }}>
-            Ã‚Â© {new Date().getFullYear()} ESyifaa. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
+            Ã‚Â© {new Date().getFullYear()} Aura Assyifa. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
           </p>
         </div>
       </footer>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function FspGoalsSection() {
   const goals = [
@@ -32,7 +32,7 @@ export default function FspGoalsSection() {
           marginBottom: '0.5rem',
           letterSpacing: '-0.02em'
         }}>
-          5 Perubahan Yang Pesakit Kami Rasai Selepas Rawatan ESyifaa
+          5 Perubahan Yang Pesakit Kami Rasai Selepas Rawatan Aura Assyifa
         </h2>
         <p style={{
           fontSize: '1rem', color: '#A7F3D0', marginBottom: '2.5rem',

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function FspProcessSection() {
   const steps = [
@@ -49,7 +49,7 @@ export default function FspProcessSection() {
             fontWeight: 800, color: '#0F172A',
             marginTop: '0.4rem', marginBottom: '0.6rem', letterSpacing: '-0.02em'
           }}>
-            Cara Dapatkan Rawatan ESyifaa — 4 Langkah Mudah
+            Cara Dapatkan Rawatan Aura Assyifa — 4 Langkah Mudah
           </h2>
           <p style={{
             fontSize: '1rem', color: '#4B5563',

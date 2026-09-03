@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function ClosingSection() {
   const scrollToForm = (e) => {
@@ -34,10 +34,10 @@ export default function ClosingSection() {
             Gangguan mistik yang dibiarkan tanpa rawatan yang tepat boleh semakin memburuk dari masa ke masa dan memberi kesan kepada seluruh aspek kehidupan anda.
           </p>
           <p style={{ margin: 0 }}>
-            Ramai yang telah mendapatkan bantuan ESyifaa kini hidup dengan lebih tenang, ibadah lebih khusyuk dan keluarga lebih harmoni.
+            Ramai yang telah mendapatkan bantuan Aura Assyifa kini hidup dengan lebih tenang, ibadah lebih khusyuk dan keluarga lebih harmoni.
           </p>
           <p style={{ margin: 0, fontWeight: 800, color: '#FDE047' }}>
-            Mulakan langkah pertama anda hari ini dengan mendapatkan diagnos percuma dari ESyifaa. Kami sedia membantu anda.
+            Mulakan langkah pertama anda hari ini dengan mendapatkan diagnos percuma dari Aura Assyifa. Kami sedia membantu anda.
           </p>
         </div>
 

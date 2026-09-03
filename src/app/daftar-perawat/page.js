@@ -197,7 +197,7 @@ export default function DaftarPerawatPage() {
                 </label>
                 <input
                   type="email"
-                  placeholder="perawat@esyifaa.com"
+                  placeholder="perawat@auraassyifa.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required

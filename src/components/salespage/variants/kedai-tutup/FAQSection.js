@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -7,7 +7,7 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      q: 'Bolehkah ESyifaa menilai premis perniagaan saya dari jarak jauh?',
+      q: 'Bolehkah Aura Assyifa menilai premis perniagaan saya dari jarak jauh?',
       a: 'Ya. Penilaian dan rawatan boleh dilakukan dari jarak jauh. Anda boleh memberikan maklumat berkaitan premis semasa sesi konsultasi.'
     },
     {
@@ -20,7 +20,7 @@ export default function FAQSection() {
     },
     {
       q: 'Bolehkah perniagaan saya pulih selepas rawatan?',
-      a: 'Ramai pelanggan ESyifaa yang merasai perubahan positif selepas rawatan. Namun kejayaan perniagaan juga bergantung kepada usaha dan strategi perniagaan anda sendiri.'
+      a: 'Ramai pelanggan Aura Assyifa yang merasai perubahan positif selepas rawatan. Namun kejayaan perniagaan juga bergantung kepada usaha dan strategi perniagaan anda sendiri.'
     },
     {
       q: 'Adakah perlu saya tutup perniagaan semasa rawatan dijalankan?',

@@ -1,5 +1,5 @@
--- ============================================================
--- ESyifaa: Buat Table Settings untuk Salespage Management
+﻿-- ============================================================
+-- Aura Assyifa: Buat Table Settings untuk Salespage Management
 -- Jalankan SQL ini dalam Supabase Dashboard > SQL Editor
 -- ============================================================
 

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -11,16 +11,16 @@ export default function FAQSection() {
       a: 'Bergantung kepada keadaan kes. Perawat akan memberikan anggaran bilangan sesi selepas penilaian awal secara percuma.'
     },
     {
-      q: 'Adakah ESyifaa menggunakan pendekatan yang berbeza untuk gangguan berulang?',
+      q: 'Adakah Aura Assyifa menggunakan pendekatan yang berbeza untuk gangguan berulang?',
       a: 'Ya. Untuk kes gangguan berulang, pendekatan rawatan yang lebih menyeluruh digunakan untuk memastikan punca ditangani sepenuhnya.'
     },
     {
-      q: 'Saya sudah jumpa ramai perawat tetapi gangguan masih berulang. Bolehkah ESyifaa membantu?',
-      a: 'Ya. ESyifaa akan membuat penilaian semula secara menyeluruh untuk mengenal pasti apa yang mungkin terlepas dalam rawatan sebelum ini.'
+      q: 'Saya sudah jumpa ramai perawat tetapi gangguan masih berulang. Bolehkah Aura Assyifa membantu?',
+      a: 'Ya. Aura Assyifa akan membuat penilaian semula secara menyeluruh untuk mengenal pasti apa yang mungkin terlepas dalam rawatan sebelum ini.'
     },
     {
-      q: 'Adakah ada jaminan gangguan tidak akan berulang selepas rawatan ESyifaa?',
-      a: 'Tiada jaminan mutlak kerana setiap kes berbeza. Namun ESyifaa akan memastikan rawatan dilakukan secara menyeluruh dan memberikan panduan pencegahan yang komprehensif.'
+      q: 'Adakah ada jaminan gangguan tidak akan berulang selepas rawatan Aura Assyifa?',
+      a: 'Tiada jaminan mutlak kerana setiap kes berbeza. Namun Aura Assyifa akan memastikan rawatan dilakukan secara menyeluruh dan memberikan panduan pencegahan yang komprehensif.'
     },
     {
       q: 'Berapa kos rawatan untuk kes gangguan berulang?',

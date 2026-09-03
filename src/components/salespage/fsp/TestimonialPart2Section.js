@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function FspTestimonialPart2Section() {
   const images = [
@@ -30,11 +30,11 @@ export default function FspTestimonialPart2Section() {
           marginBottom: '0.5rem',
           letterSpacing: '-0.02em'
         }}>
-          Betulkah ESyifaa Berkesan Untuk Selesaikan Gangguan?
+          Betulkah Aura Assyifa Berkesan Untuk Selesaikan Gangguan?
         </h2>
 
         <p style={{ fontSize: '1rem', color: '#FFFFFF', marginBottom: '2.5rem', opacity: 0.9, lineHeight: 1.6 }}>
-          Jom baca apa kata mereka yang dah cuba rawatan ESyifaa 👇
+          Jom baca apa kata mereka yang dah cuba rawatan Aura Assyifa 👇
         </p>
 
         <div style={{
@@ -56,7 +56,7 @@ export default function FspTestimonialPart2Section() {
             >
               <img
                 src={imgSrc}
-                alt={`Testimoni Pesakit ESyifaa ${idx + 1}`}
+                alt={`Testimoni Pesakit Aura Assyifa ${idx + 1}`}
                 style={{ width: '100%', height: 'auto', display: 'block' }}
               />
             </div>
@@ -71,7 +71,7 @@ export default function FspTestimonialPart2Section() {
           fontStyle: 'italic',
           lineHeight: 1.6
         }}>
-          Semua testimoni di atas adalah daripada pesakit sebenar yang telah mendapatkan rawatan ESyifaa.
+          Semua testimoni di atas adalah daripada pesakit sebenar yang telah mendapatkan rawatan Aura Assyifa.
           Alhamdulillah — semoga Allah terus permudahkan urusan mereka.
         </p>
 

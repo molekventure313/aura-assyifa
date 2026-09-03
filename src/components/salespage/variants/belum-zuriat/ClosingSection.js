@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function ClosingSection() {
   const scrollToForm = (e) => {
@@ -37,7 +37,7 @@ export default function ClosingSection() {
             Jika ada kemungkinan gangguan mistik yang menyekat, adalah lebih baik untuk menanganinya daripada membiarkannya tanpa ikhtiar.
           </p>
           <p style={{ margin: 0 }}>
-            Hubungi ESyifaa hari ini untuk mendapatkan penilaian awal secara percuma. Biarkan kami membantu anda mengenal pasti dan menangani sebarang halangan yang mungkin wujud.
+            Hubungi Aura Assyifa hari ini untuk mendapatkan penilaian awal secara percuma. Biarkan kami membantu anda mengenal pasti dan menangani sebarang halangan yang mungkin wujud.
           </p>
         </div>
 

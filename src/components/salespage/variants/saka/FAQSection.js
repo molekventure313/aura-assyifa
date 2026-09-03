@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -15,7 +15,7 @@ export default function FAQSection() {
       a: 'Ya, rawatan boleh dimulakan oleh mana-mana ahli keluarga. Namun penglibatan ahli keluarga yang lain boleh membantu proses pemulihan menjadi lebih berkesan.'
     },
     {
-      q: 'Adakah rawatan saka ESyifaa boleh dilakukan dari jarak jauh?',
+      q: 'Adakah rawatan saka Aura Assyifa boleh dilakukan dari jarak jauh?',
       a: 'Ya. Rawatan jarak jauh menggunakan kaedah yang dibenarkan syarak boleh dijalankan tanpa anda perlu hadir secara fizikal.'
     },
     {
@@ -24,7 +24,7 @@ export default function FAQSection() {
     },
     {
       q: 'Adakah ada jaminan rawatan ini berkesan?',
-      a: 'ESyifaa menawarkan jaminan pulang wang sekiranya anda tidak berpuas hati. Namun setiap kes berbeza dan hasil bergantung kepada keadaan individu.'
+      a: 'Aura Assyifa menawarkan jaminan pulang wang sekiranya anda tidak berpuas hati. Namun setiap kes berbeza dan hasil bergantung kepada keadaan individu.'
     }
   ];
 

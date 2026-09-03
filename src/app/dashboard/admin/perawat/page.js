@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { useToast } from '@/components/ui/Toast';
@@ -448,7 +448,7 @@ export default function PractitionersPage() {
                 <input
                   type="email"
                   required
-                  placeholder="perawat@esyifaa.com"
+                  placeholder="perawat@auraassyifa.com"
                   value={formData.email}
                   onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                   style={{ width: '100%', padding: '0.65rem 0.75rem', background: '#090A0F', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#F9FAFB', fontSize: '0.85rem' }}

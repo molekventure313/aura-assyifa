@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function ClosingSection() {
   const scrollToForm = (e) => {
@@ -34,10 +34,10 @@ export default function ClosingSection() {
             Gangguan yang berulang bukan bermakna anda tidak boleh sembuh. Ia bermakna pendekatan rawatan yang lebih tepat dan menyeluruh diperlukan.
           </p>
           <p style={{ margin: 0 }}>
-            ESyifaa berpengalaman menangani kes-kes gangguan berulang yang kompleks dengan pendekatan rawatan yang teliti dan bersistematik.
+            Aura Assyifa berpengalaman menangani kes-kes gangguan berulang yang kompleks dengan pendekatan rawatan yang teliti dan bersistematik.
           </p>
           <p style={{ margin: 0, fontWeight: 800, color: '#FDE047' }}>
-            Hubungi ESyifaa hari ini untuk mendapatkan penilaian semula secara percuma dan biarkan kami membantu anda mencari dan menangani punca sebenar gangguan anda.
+            Hubungi Aura Assyifa hari ini untuk mendapatkan penilaian semula secara percuma dan biarkan kami membantu anda mencari dan menangani punca sebenar gangguan anda.
           </p>
         </div>
 

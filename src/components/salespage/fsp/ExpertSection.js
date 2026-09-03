@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function FspExpertSection() {
   const dalils = [
@@ -55,7 +55,7 @@ export default function FspExpertSection() {
           margin: '0 auto 2.5rem auto',
           lineHeight: 1.7
         }}>
-          ESyifaa tidak menggunakan kaedah lagha atau syubhah. Setiap rawatan berlandaskan
+          Aura Assyifa tidak menggunakan kaedah lagha atau syubhah. Setiap rawatan berlandaskan
           dalil yang sahih dari Al-Quran dan Hadith Nabi ﷺ.
         </p>
 
@@ -124,7 +124,7 @@ export default function FspExpertSection() {
           </div>
           <p style={{ margin: 0, fontSize: '0.9rem', color: '#A7F3D0', lineHeight: 1.6, maxWidth: '500px' }}>
             <strong style={{ color: '#FDE047' }}>Video pengesahan pakar industri</strong> — akan ditambah tidak lama lagi.
-            Rawatan ESyifaa telah disaksikan dan disahkan oleh individu-individu yang berkelayakan dalam bidang ruqyah syariyyah.
+            Rawatan Aura Assyifa telah disaksikan dan disahkan oleh individu-individu yang berkelayakan dalam bidang ruqyah syariyyah.
           </p>
         </div>
 

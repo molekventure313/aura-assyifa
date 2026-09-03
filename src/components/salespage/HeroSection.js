@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function HeroSection() {
   const scrollToForm = (e) => {
@@ -25,7 +25,7 @@ export default function HeroSection() {
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(254, 224, 71, 0.15)', border: '1px solid #FDE047', padding: '0.4rem 1.1rem', borderRadius: '50px', marginBottom: '1.5rem' }}>
           <span style={{ fontSize: '1.1rem' }}>🌿</span>
           <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#FDE047', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-            ESyifaa · Rawatan Jarak Jauh Islam
+            Aura Assyifa · Rawatan Jarak Jauh Islam
           </span>
         </div>
 
@@ -42,7 +42,7 @@ export default function HeroSection() {
         >
           Masalah{' '}
           <span style={{ color: '#4ADE80' }}>Gangguan Jin, Sihir, Saka</span>{' '}
-          Selesai Selepas Dapatkan Rawatan Di ESyifa&apos;
+          Selesai Selepas Dapatkan Rawatan Di Aura Assyifa
         </h1>
 
 
@@ -68,7 +68,7 @@ export default function HeroSection() {
             <div style={{ position: 'relative', paddingBottom: '177.78%', height: 0 }}>
               <iframe
                 src="https://www.youtube-nocookie.com/embed/HBg1N_floAo?controls=1&modestbranding=1&rel=0&playsinline=1"
-                title="Video Testimoni ESyifaa Shorts"
+                title="Video Testimoni Aura Assyifa Shorts"
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0, borderRadius: '12px' }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen

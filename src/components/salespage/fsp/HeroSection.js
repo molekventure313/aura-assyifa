@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function FspHeroSection() {
   const scrollToForm = (e) => {
@@ -54,7 +54,7 @@ export default function FspHeroSection() {
           maxWidth: '760px',
           margin: '0 auto 2rem auto'
         }}>
-          Selepas rawatan ESyifaa — mimpi menakutkan reda, badan terasa ringan,
+          Selepas rawatan Aura Assyifa — mimpi menakutkan reda, badan terasa ringan,
           ibadah lebih khusyuk, rumahtangga kembali harmoni & perniagaan lancar semula. <strong style={{ color: '#FDE047' }}>Dengan izin Allah.</strong>
         </p>
 
@@ -71,7 +71,7 @@ export default function FspHeroSection() {
             <div style={{ position: 'relative', paddingBottom: '177.78%', height: 0 }}>
               <iframe
                 src="https://www.youtube-nocookie.com/embed/HBg1N_floAo?controls=1&modestbranding=1&rel=0&playsinline=1"
-                title="Testimoni Pesakit ESyifaa"
+                title="Testimoni Pesakit Aura Assyifa"
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0, borderRadius: '12px' }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen

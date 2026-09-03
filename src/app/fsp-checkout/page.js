@@ -1,4 +1,4 @@
-import FspHeroSection from '@/components/salespage/fsp/HeroSection';
+﻿import FspHeroSection from '@/components/salespage/fsp/HeroSection';
 import FspTestimonialSection from '@/components/salespage/fsp/TestimonialSection';
 import FspProblemSection from '@/components/salespage/fsp/ProblemSection';
 import FspFearsSection from '@/components/salespage/fsp/FearsSection';
@@ -15,7 +15,7 @@ import FspFAQSection from '@/components/salespage/fsp/FAQSection';
 import FspClosingSection from '@/components/salespage/fsp/ClosingSection';
 
 export const metadata = {
-  title: 'ESyifaa — Rawatan Gangguan Jin, Sihir & Saka | Bayar Terus RM50 FPX',
+  title: 'Aura Assyifa — Rawatan Gangguan Jin, Sihir & Saka | Bayar Terus RM50 FPX',
   description: 'Rawatan jarak jauh 100% patuh syariah untuk gangguan jin, sihir, saka & penyakit misteri. Bayar terus RM50 melalui FPX — perawat hubungi anda segera.',
 };
 
@@ -30,7 +30,7 @@ export const metadata = {
  * #3  Problem (6 masalah)
  * #4  Fears (akibat jika tidak dirawat)
  * #5  Expert / Authority (dalil Al-Quran & Hadith)
- * #6  Solution (ESyifaa intro + 10 manfaat)
+ * #6  Solution (Aura Assyifa intro + 10 manfaat)
  * #7  Method (kaedah rawatan 4 elemen)
  * #8  Goals (5 perubahan selepas rawatan)
  * #9  Testimoni Part 2  ← reinforce sebelum push ke payment
@@ -63,7 +63,7 @@ export default function FspCheckoutPage() {
       {/* #5 — Pakar / Authority (Dalil Al-Quran & Hadith) */}
       <FspExpertSection />
 
-      {/* #6 — Solution (Perkenalkan ESyifaa + 10 Manfaat) */}
+      {/* #6 — Solution (Perkenalkan Aura Assyifa + 10 Manfaat) */}
       <FspSolutionSection />
 
       {/* #7 — Kaedah Rawatan (4 Elemen) */}
@@ -101,10 +101,10 @@ export default function FspCheckoutPage() {
       }}>
         <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ margin: '0 0 0.5rem 0', fontWeight: 800, fontSize: '1.05rem', color: '#FEF3C7' }}>
-            ESyifaa · Rawatan Jarak Jauh Gangguan Jin, Sihir, Santau & Saka
+            Aura Assyifa · Rawatan Jarak Jauh Gangguan Jin, Sihir, Santau & Saka
           </p>
           <p style={{ margin: 0, opacity: 0.85, fontSize: '0.8rem', color: '#D1D5DB' }}>
-            © {new Date().getFullYear()} ESyifaa. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
+            © {new Date().getFullYear()} Aura Assyifa. Hak cipta terpelihara. Rawatan berasaskan bacaan Al-Quran dan doa berlandaskan syarak.
           </p>
         </div>
       </footer>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -7,8 +7,8 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      q: 'Adakah rawatan ESyifaa boleh membantu pasangan yang belum dikurniakan zuriat?',
-      a: 'ESyifaa boleh membantu mengenal pasti dan menangani sekiranya terdapat gangguan mistik yang menyekat. Namun rawatan perubatan biasa juga perlu diteruskan serentak.'
+      q: 'Adakah rawatan Aura Assyifa boleh membantu pasangan yang belum dikurniakan zuriat?',
+      a: 'Aura Assyifa boleh membantu mengenal pasti dan menangani sekiranya terdapat gangguan mistik yang menyekat. Namun rawatan perubatan biasa juga perlu diteruskan serentak.'
     },
     {
       q: 'Adakah kedua-dua suami dan isteri perlu mendapat rawatan?',
@@ -23,8 +23,8 @@ export default function FAQSection() {
       a: 'Bergantung kepada jenis dan tahap gangguan yang dijumpai. Perawat akan memberikan penjelasan lanjut selepas penilaian awal.'
     },
     {
-      q: 'Apakah jaminan yang diberikan oleh ESyifaa?',
-      a: 'ESyifaa menawarkan jaminan pulang wang sekiranya tidak berpuas hati. Namun perlu diingat bahawa pemberian zuriat adalah ketentuan Allah. Rawatan adalah ikhtiar semata-mata.'
+      q: 'Apakah jaminan yang diberikan oleh Aura Assyifa?',
+      a: 'Aura Assyifa menawarkan jaminan pulang wang sekiranya tidak berpuas hati. Namun perlu diingat bahawa pemberian zuriat adalah ketentuan Allah. Rawatan adalah ikhtiar semata-mata.'
     }
   ];
 

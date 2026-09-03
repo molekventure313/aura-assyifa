@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function MatlamatSection() {
   const goals = [
@@ -25,7 +25,7 @@ export default function MatlamatSection() {
         </span>
 
         <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.4rem', marginBottom: '2rem', letterSpacing: '-0.02em' }}>
-          Apa Yang Akan Dicapai Melalui Rawatan Gangguan Mistik ESyifaa?
+          Apa Yang Akan Dicapai Melalui Rawatan Gangguan Mistik Aura Assyifa?
         </h2>
 
         {/* Goal Cards (White Cards + Hitam Text + Forest Green Check) */}

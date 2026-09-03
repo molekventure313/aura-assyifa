@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { validateMalaysianPhone } from '@/lib/utils/phone';
 import { logActivity } from '@/lib/utils/logger';
@@ -116,13 +116,13 @@ export async function POST(req) {
       const chipPayload = {
         brand_id: CHIP_BRAND_ID,
         client: {
-          email: `${formattedPhone}@esyifaa.com`,
+          email: `${formattedPhone}@auraassyifa.com`,
           phone: formattedPhone,
           full_name: cleanName,
         },
         purchase: {
           currency: 'MYR',
-          products: [{ name: "Pakej Rawatan Jarak Jauh ESyifaa'", price: amountInSen, quantity: 1 }],
+          products: [{ name: "Pakej Rawatan Jarak Jauh Aura Assyifa", price: amountInSen, quantity: 1 }],
           return_url: `${APP_URL}/payment-success?submission_id=${submissionId}`,
         },
         success_callback: callbackUrl,

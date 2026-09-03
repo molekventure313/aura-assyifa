@@ -13,15 +13,15 @@ export default function ServiceSection() {
   ];
 
   return (
-    <section className="section-esyifaa bg-green-blend-esyifaa" id="penyelesaian">
+    <section className="section-aura-assyifa bg-green-blend-aura-assyifa" id="penyelesaian">
       <div className="container" style={{ textAlign: 'center' }}>
-        <span className="badge-esyifaa">💡 SOLUSI RAWATAN ISLAM</span>
+        <span className="badge-aura-assyifa">💡 SOLUSI RAWATAN ISLAM</span>
 
-        <h2 className="section-title-esyifaa" style={{ textAlign: 'center' }}>
+        <h2 className="section-title-aura-assyifa" style={{ textAlign: 'center' }}>
           Rawatan Jarak Jauh Untuk Membantu Anda Kembali Lebih Tenang
         </h2>
 
-        <p className="section-desc-esyifaa" style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 2.5rem auto' }}>
+        <p className="section-desc-aura-assyifa" style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 2.5rem auto' }}>
           Rawatan dilakukan menggunakan bacaan ayat-ayat al-Quran dan doa yang bersesuaian. Tujuannya adalah untuk membantu anda mendapatkan kembali ketenangan, memperbaiki rutin harian dan memberi sokongan rohani sepanjang proses rawatan.
         </p>
 

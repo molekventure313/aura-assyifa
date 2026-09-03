@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function HeroSection() {
   const scrollToForm = (e) => {
@@ -25,7 +25,7 @@ export default function HeroSection() {
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(254, 224, 71, 0.15)', border: '1px solid #FDE047', padding: '0.4rem 1.1rem', borderRadius: '50px', marginBottom: '1.5rem' }}>
           <span style={{ fontSize: '1.1rem' }}>🌿</span>
           <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#FDE047', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-            ESyifaa · Rawatan Jarak Jauh Islam
+            Aura Assyifa · Rawatan Jarak Jauh Islam
           </span>
         </div>
 
@@ -93,14 +93,14 @@ export default function HeroSection() {
             margin: '0 auto 2rem auto'
           }}
         >
-          Ada pasangan yang belum dikurniakan zuriat bukan semata-mata kerana faktor perubatan. Gangguan mistik seperti sihir penghalang atau saka boleh menjadi punca yang sering diabaikan. ESyifaa menawarkan ikhtiar rawatan patuh syariah untuk membantu pasangan menangani kemungkinan gangguan ini dengan harapan pintu rezeki zuriat terbuka kembali.
+          Ada pasangan yang belum dikurniakan zuriat bukan semata-mata kerana faktor perubatan. Gangguan mistik seperti sihir penghalang atau saka boleh menjadi punca yang sering diabaikan. Aura Assyifa menawarkan ikhtiar rawatan patuh syariah untuk membantu pasangan menangani kemungkinan gangguan ini dengan harapan pintu rezeki zuriat terbuka kembali.
         </p>
 
         {/* Hero Image Showcase */}
         <div style={{ marginBottom: '2.5rem', borderRadius: '12px', overflow: 'hidden', border: '3px solid #FDE047', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
           <img 
             src="/images/belum-zuriat/belum_zuriat_hero.jpg" 
-            alt="Gambar Hero ESyifaa Ikhtiar Rawatan Belum Zuriat" 
+            alt="Gambar Hero Aura Assyifa Ikhtiar Rawatan Belum Zuriat" 
             style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '500px', objectFit: 'cover' }}
           />
         </div>

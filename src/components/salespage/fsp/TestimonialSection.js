@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function FspTestimonialSection() {
   const images = [
@@ -31,7 +31,7 @@ export default function FspTestimonialSection() {
           marginBottom: '0.5rem',
           letterSpacing: '-0.02em'
         }}>
-          Apa Kata Mereka Yang Dah Cuba Rawatan ESyifaa?
+          Apa Kata Mereka Yang Dah Cuba Rawatan Aura Assyifa?
         </h2>
 
         <p style={{ fontSize: '1rem', color: '#4B5563', marginBottom: '2.5rem', lineHeight: 1.6 }}>
@@ -57,7 +57,7 @@ export default function FspTestimonialSection() {
             >
               <img
                 src={imgSrc}
-                alt={`Testimoni Pesakit ESyifaa ${idx + 1}`}
+                alt={`Testimoni Pesakit Aura Assyifa ${idx + 1}`}
                 style={{ width: '100%', height: 'auto', display: 'block' }}
               />
             </div>
