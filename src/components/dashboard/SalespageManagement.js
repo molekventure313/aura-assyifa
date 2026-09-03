@@ -3,57 +3,7 @@
 import { useState, useEffect } from 'react';
 
 // Salespage homepage variants (boleh ditetapkan sebagai homepage)
-const SALESPAGES = [
-  {
-    slug: 'sihir',
-    label: 'Angle: Sihir',
-    desc: 'Rawatan sihir pemisah, penghalang rezeki & penyakit misteri.',
-    url: '/sihir',
-    color: '#7C3AED',
-  },
-  {
-    slug: 'saka',
-    label: 'Angle: Saka',
-    desc: 'Gangguan turun-temurun yang mempengaruhi keluarga generasi demi generasi.',
-    url: '/saka',
-    color: '#B45309',
-  },
-  {
-    slug: 'penyakit-misteri',
-    label: 'Angle: Penyakit Misteri',
-    desc: 'Sakit berterusan tapi doktor & ujian hospital sahkan semua normal.',
-    url: '/penyakit-misteri',
-    color: '#0369A1',
-  },
-  {
-    slug: 'gangguan-berulang',
-    label: 'Angle: Gangguan Berulang',
-    desc: 'Sudah dirawat berkali-kali tapi gangguan masih kembali.',
-    url: '/gangguan-berulang',
-    color: '#BE123C',
-  },
-  {
-    slug: 'belum-zuriat',
-    label: 'Angle: Belum Dikurniakan Zuriat',
-    desc: 'Pasangan yang belum mendapat zuriat & keguguran berulang.',
-    url: '/belum-zuriat',
-    color: '#0F766E',
-  },
-  {
-    slug: 'kedai-tutup',
-    label: 'Angle: Perniagaan Merosot',
-    desc: 'Pelanggan lari, rezeki tersekat & gangguan pada premis perniagaan.',
-    url: '/kedai-tutup',
-    color: '#C2410C',
-  },
-  {
-    slug: 'fsp',
-    label: 'FSP 10% — Formula Homepage Baru',
-    desc: 'Clone homepage dengan 15 sections FSP proven 10% conversion rate. Lead → Borang Diagnos Percuma.',
-    url: '/fsp',
-    color: '#059669',
-  },
-];
+const SALESPAGES = [];
 
 // Salespage produk standalone (preview sahaja — bukan homepage variant)
 const PRODUCT_PAGES = [
