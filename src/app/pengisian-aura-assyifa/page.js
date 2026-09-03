@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import PageViewTracker from '@/components/analytics/PageViewTracker';
+import PageViewTracker from '@/components/salespage/PageViewTracker';
 
 const WA_NUMBER = '60133892002';
 const WA_MESSAGE = encodeURIComponent(
