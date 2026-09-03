@@ -124,7 +124,7 @@ export async function GET(req) {
         b.sales = parseFloat((b.rawatan_selesai * treatmentPrice).toFixed(2));
         b.komisen = parseFloat((b.sales - b.cost).toFixed(2));
         b.perawat_dapat = parseFloat((Math.max(0, b.komisen) * 0.6).toFixed(2));
-        b.Aura Assyifa_dapat = parseFloat((Math.max(0, b.komisen) * 0.4).toFixed(2));
+        b.syarikat_dapat = parseFloat((Math.max(0, b.komisen) * 0.4).toFixed(2));
       });
 
       const breakdownList = Object.values(breakdownMap).sort((a, b) => b.leads_count - a.leads_count);
