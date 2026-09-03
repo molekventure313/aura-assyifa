@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -78,6 +78,14 @@ const PRODUCT_PAGES = [
     url: '/tasbih-v2',
     color: '#F59E0B',
     icon: '📿',
+    isNew: true,
+  },
+  {
+    label: 'Pengisian Aura Assyifa\'',
+    desc: 'Salespage pengisian ayat ruqyah jarak jauh pada barang (cincin, tasbih, dll). RM90 sekali bayar, pelarasan mingguan percuma.',
+    url: '/pengisian-aura-assyifa',
+    color: '#6366F1',
+    icon: '💎',
     isNew: true,
   },
 ];
