@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function FearsSection() {
   const points = [
@@ -57,7 +57,7 @@ export default function FearsSection() {
             letterSpacing: '-0.02em',
             lineHeight: 1.3
           }}>
-            Bagaimana Proses Rawatan E-Syifaa Dijalankan?
+            Bagaimana Proses Rawatan Aura Assyifa Dijalankan?
           </h2>
           <p style={{
             fontSize: '1rem',

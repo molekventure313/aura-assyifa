@@ -39,7 +39,7 @@ export default function LoginPage() {
 
         if (profile && ['practitioner', 'perawat'].includes(profile.role) && !profile.is_active) {
           await supabase.auth.signOut();
-          setError('Akaun perawat anda sedang MENUNGGU KELULUSAN / DITOLAK oleh Admin E-SYIFAA\'. Sila hubungi pihak pentadbir.');
+          setError('Akaun perawat anda sedang MENUNGGU KELULUSAN / DITOLAK oleh Admin Aura Assyifa. Sila hubungi pihak pentadbir.');
           setLoading(false);
           return;
         }
@@ -92,7 +92,7 @@ export default function LoginPage() {
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
             <img
               src="/images/logo-esyifa.png"
-              alt="E-Syifa Logo"
+              alt="Aura Assyifa Logo"
               style={{ width: '44px', height: '44px', objectFit: 'contain' }}
             />
             <span 
@@ -103,7 +103,7 @@ export default function LoginPage() {
                 letterSpacing: '-0.02em'
               }}
             >
-              E-SYIFAA'
+              Aura Assyifa
             </span>
           </div>
           <p style={{ fontSize: '0.675rem', fontWeight: 600, color: '#34D399', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>

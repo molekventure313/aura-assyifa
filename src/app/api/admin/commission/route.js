@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 
@@ -100,7 +100,7 @@ export async function GET(req) {
         sales: 0,
         komisen: 0,
         perawat_dapat: 0,
-        esyifaa_dapat: 0,
+        Aura Assyifa_dapat: 0,
       };
     });
 
@@ -128,7 +128,7 @@ export async function GET(req) {
       p.sales = parseFloat((p.rawatan_selesai * treatmentPrice).toFixed(2));
       p.komisen = parseFloat((p.sales - p.kos_leads).toFixed(2));
       p.perawat_dapat = parseFloat((Math.max(0, p.komisen) * 0.6).toFixed(2));
-      p.esyifaa_dapat = parseFloat((Math.max(0, p.komisen) * 0.4).toFixed(2));
+      p.Aura Assyifa_dapat = parseFloat((Math.max(0, p.komisen) * 0.4).toFixed(2));
     });
 
     // Summary
@@ -136,7 +136,7 @@ export async function GET(req) {
     const totalSales = commissionList.reduce((s, p) => s + p.sales, 0);
     const totalKomisen = commissionList.reduce((s, p) => s + p.komisen, 0);
     const totalPerawatDapat = commissionList.reduce((s, p) => s + p.perawat_dapat, 0);
-    const totalEsyifaaDapat = commissionList.reduce((s, p) => s + p.esyifaa_dapat, 0);
+    const totalAura AssyifaDapat = commissionList.reduce((s, p) => s + p.Aura Assyifa_dapat, 0);
 
     return NextResponse.json({
       success: true,
@@ -150,7 +150,7 @@ export async function GET(req) {
           total_sales: parseFloat(totalSales.toFixed(2)),
           total_komisen: parseFloat(totalKomisen.toFixed(2)),
           total_perawat_dapat: parseFloat(totalPerawatDapat.toFixed(2)),
-          total_esyifaa_dapat: parseFloat(totalEsyifaaDapat.toFixed(2)),
+          total_Aura Assyifa_dapat: parseFloat(totalAura AssyifaDapat.toFixed(2)),
         }
       }
     });

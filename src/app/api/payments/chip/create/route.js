@@ -110,7 +110,7 @@ export async function POST(req) {
 
       let callbackUrl = `${APP_URL}/api/payments/chip/webhook`;
       if (callbackUrl.includes('localhost') || callbackUrl.includes(':3000')) {
-        callbackUrl = 'https://e-syifa.com/api/payments/chip/webhook';
+        callbackUrl = 'https://Aura Assyifa.com/api/payments/chip/webhook';
       }
 
       const chipPayload = {

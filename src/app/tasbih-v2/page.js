@@ -5,10 +5,10 @@ import { useState } from 'react';
 // ─── WhatsApp Button ─────────────────────────────────────────────────────────
 // Nombor WA belum dikemaskini — akan diisi kemudian
 const WA_NUMBER   = '';
-const WA_MESSAGE  = encodeURIComponent("Assalamualaikum, saya berminat untuk mendapatkan Tasbih E-Syifa'. Boleh saya tahu maklumat lanjut?");
+const WA_MESSAGE  = encodeURIComponent("Assalamualaikum, saya berminat untuk mendapatkan Tasbih Aura Assyifa. Boleh saya tahu maklumat lanjut?");
 const WA_LINK     = WA_NUMBER ? `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}` : '#order';
 
-function WAButton({ label = "👉 Saya Mahu Tasbih E-Syifa'", size = 'large', id = 'cta-wa' }) {
+function WAButton({ label = "👉 Saya Mahu Tasbih Aura Assyifa", size = 'large', id = 'cta-wa' }) {
   const isLarge = size === 'large';
   return (
     <a
@@ -96,7 +96,7 @@ const TASBIH_ELEMENTS = [
 
 const GOALS = [
   { icon: '⚡', title: 'Boleh Rawat Diri Sendiri Bila Diserang — Tanpa Tunggu', desc: 'Sebaik sahaja berasa diserang atau tidak selesa, anda boleh terus bertindak. Tidak perlu hubungi perawat, tidak perlu tunggu appointment.' },
-  { icon: '🌙', title: 'Perlindungan 24/7 — Malam Pun Selamat', desc: 'Serangan paling kerap berlaku waktu malam. Dengan Tasbih E-Syifa\' di tangan, anda bersedia setiap masa — siang atau malam.' },
+  { icon: '🌙', title: 'Perlindungan 24/7 — Malam Pun Selamat', desc: 'Serangan paling kerap berlaku waktu malam. Dengan Tasbih Aura Assyifa\' di tangan, anda bersedia setiap masa — siang atau malam.' },
   { icon: '💰', title: 'Jimat Kos — Tidak Perlu Ulang Alik Ke Perawat', desc: 'Kos perjalanan, kos rawatan, masa terbuang — semua ini berkurangan drastik apabila anda mampu rawat sendiri di rumah.' },
   { icon: '💧', title: 'Buat Air Penawar Sendiri Bila Perlu', desc: 'Tidak perlu bergantung pada orang lain untuk dapatkan air berisian. Buat sendiri, bila-bila masa, menggunakan tasbih anda.' },
   { icon: '🏡', title: 'Rasa Lebih Tenang & Selamat Di Rumah', desc: 'Mengetahui anda ada perlindungan yang sentiasa bersama memberikan ketenangan jiwa. Rumah terasa lebih selamat dan terlindung.' },
@@ -121,14 +121,14 @@ const UNTUK_SIAPA = [
 ];
 
 const FAQS = [
-  { q: 'Adakah tasbih ini menggantikan rawatan dengan perawat?', a: 'Tasbih E-Syifa\' adalah pelengkap dan perlindungan berterusan — bukan pengganti rawatan profesional. Ia memberikan anda keupayaan untuk meneruskan rawatan sendiri di antara sesi, atau untuk kes yang memerlukan perlindungan berterusan setiap hari.' },
+  { q: 'Adakah tasbih ini menggantikan rawatan dengan perawat?', a: 'Tasbih Aura Assyifa\' adalah pelengkap dan perlindungan berterusan — bukan pengganti rawatan profesional. Ia memberikan anda keupayaan untuk meneruskan rawatan sendiri di antara sesi, atau untuk kes yang memerlukan perlindungan berterusan setiap hari.' },
   { q: 'Apakah bacaan yang diisikan ke dalam tasbih?', a: 'Tasbih diisi dengan bacaan ayat-ayat ruqyah syar\'iyyah daripada Al-Quran, Asmaul Husna, dan doa-doa yang sabit daripada Sunnah. Semua bacaan berlandaskan syarak — tiada unsur syirik, bid\'ah atau kaedah lagha.' },
   { q: 'Berapa lama masa untuk siapkan satu tasbih?', a: 'Setiap tasbih mengambil masa yang lama untuk diisikan kerana proses bacaan ruqyah yang teliti, menyeluruh dan penuh konsentrasi. Inilah sebabnya stok kami adalah terhad pada setiap masa.' },
   { q: 'Macam mana nak guna tasbih ni sebenarnya?', a: 'Cara guna adalah mudah — cukup berniat, berdoa kepada Allah dan yakin dengan izin-Nya. Panduan lengkap cara penggunaan untuk semua 4 kegunaan (rawatan kendiri, air penawar, air mandian, pagar rumah) akan diberikan bersama penghantaran.' },
   { q: 'Adakah sesuai untuk kanak-kanak?', a: 'Ya, boleh digunakan untuk membantu kanak-kanak — terutama yang mengalami gangguan tidur, kerap menangis tanpa sebab, demam misteri, atau menunjukkan simptom gangguan ghaib.' },
   { q: 'Adakah perlu "isi semula" bacaan tasbih dari masa ke masa?', a: 'Tidak perlu. Bacaan yang dipasakkan dalam tasbih adalah kekal selagi tasbih dijaga dengan baik. Berbeza dengan air penawar yang habis, tasbih ini boleh digunakan berulang kali tanpa had masa.' },
   { q: 'Bagaimana cara penghantaran?', a: 'Kami menghantar ke seluruh Malaysia melalui pos berdaftar. Maklumat tracking akan dikongsi selepas penghantaran dilakukan. Sila hubungi kami melalui WhatsApp untuk proses pembelian.' },
-  { q: 'Boleh tak tasbih ni bantu kes sihir yang dihantar berulang kali?', a: 'Ya — inilah sebenarnya kekuatan utama Tasbih E-Syifa\'. Untuk kes sihir yang dihantar berkali-kali, anda tidak perlu ulang alik ke perawat setiap kali diserang. Guna tasbih terus apabila berasa diserang — rawat sendiri, tanpa tunggu.' },
+  { q: 'Boleh tak tasbih ni bantu kes sihir yang dihantar berulang kali?', a: 'Ya — inilah sebenarnya kekuatan utama Tasbih Aura Assyifa\'. Untuk kes sihir yang dihantar berkali-kali, anda tidak perlu ulang alik ke perawat setiap kali diserang. Guna tasbih terus apabila berasa diserang — rawat sendiri, tanpa tunggu.' },
 ];
 
 // ─── FAQ Accordion Component ──────────────────────────────────────────────────
@@ -185,7 +185,7 @@ export default function TasbihV2Page() {
           </p>
 
           <p style={{ fontSize: '1.05rem', color: '#4ADE80', fontWeight: 700, lineHeight: 1.7, maxWidth: '700px', margin: '0 auto 1.5rem auto' }}>
-            Penyelesaian: <strong style={{ color: '#FDE047' }}>Tasbih E-Syifa'</strong> — diisi bacaan ayat-ayat ruqyah syar'iyyah.
+            Penyelesaian: <strong style={{ color: '#FDE047' }}>Tasbih Aura Assyifa</strong> — diisi bacaan ayat-ayat ruqyah syar'iyyah.
             Ibarat ada perawat private di rumah. Rawat sendiri, tanpa had, seumur hidup.
           </p>
 
@@ -197,7 +197,7 @@ export default function TasbihV2Page() {
           {/* Tasbih visual */}
           <div style={{ width: '200px', height: '200px', borderRadius: '50%', background: 'radial-gradient(circle at 35% 35%, #1A5C42, #042E23)', border: '4px solid #FDE047', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2.5rem auto', boxShadow: '0 0 60px rgba(74,222,128,0.25), 0 20px 40px rgba(0,0,0,0.4)' }}>
             <span style={{ fontSize: '3.5rem', marginBottom: '0.25rem' }}>📿</span>
-            <span style={{ fontSize: '0.7rem', color: '#FDE047', fontWeight: 800, letterSpacing: '0.06em', textAlign: 'center', lineHeight: 1.3 }}>TASBIH<br />E-SYIFA'</span>
+            <span style={{ fontSize: '0.7rem', color: '#FDE047', fontWeight: 800, letterSpacing: '0.06em', textAlign: 'center', lineHeight: 1.3 }}>TASBIH<br />Aura Assyifa</span>
           </div>
 
           <WAButton id="cta-hero" />
@@ -213,7 +213,7 @@ export default function TasbihV2Page() {
       <section style={{ ...S.light }}>
         <div style={{ ...S.wrap, textAlign: 'center' }}>
           <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.1em' }}>TESTIMONI (BAHAGIAN 1)</span>
-          <h2 style={S.h2dark}>Apa Kata Mereka Yang Dah Ada Tasbih E-Syifa'?</h2>
+          <h2 style={S.h2dark}>Apa Kata Mereka Yang Dah Ada Tasbih Aura Assyifa?</h2>
           <p style={{ ...S.sub('#4B5563'), textAlign: 'center' }}>
             Mereka yang dah guna — biar mereka sendiri yang bercerita.
           </p>
@@ -225,7 +225,7 @@ export default function TasbihV2Page() {
               '/images/testimonials/testimoni_3.jpg',
             ].map((src, i) => (
               <div key={i} style={{ borderRadius: '14px', overflow: 'hidden', border: '2px solid #059669', boxShadow: '0 8px 20px rgba(0,0,0,0.08)' }}>
-                <img src={src} alt={`Testimoni Tasbih E-Syifa' ${i + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                <img src={src} alt={`Testimoni Tasbih Aura Assyifa ${i + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
               </div>
             ))}
           </div>
@@ -297,7 +297,7 @@ export default function TasbihV2Page() {
             <div>
               <p style={{ margin: '0 0 0.3rem 0', fontSize: '0.95rem', color: '#FEF3C7', fontWeight: 800 }}>Penyelesaian: Perlindungan Yang Sentiasa Bersama</p>
               <p style={{ margin: 0, fontSize: '0.85rem', color: '#A7F3D0', lineHeight: 1.75 }}>
-                Dengan Tasbih E-Syifa', anda tidak perlu bergantung pada perawat untuk setiap serangan.
+                Dengan Tasbih Aura Assyifa, anda tidak perlu bergantung pada perawat untuk setiap serangan.
                 Rawat sendiri, bila-bila masa, di mana sahaja — tanpa had.
               </p>
             </div>
@@ -346,7 +346,7 @@ export default function TasbihV2Page() {
           <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(253,224,71,0.2)', borderRadius: '14px', padding: '1.4rem 1.6rem', textAlign: 'left', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
             <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💡</span>
             <p style={{ margin: 0, fontSize: '0.9rem', color: '#D1FAE5', lineHeight: 1.7 }}>
-              <strong style={{ color: '#FDE047' }}>Konsep Tasbih E-Syifa'</strong> adalah qias kepada amalan membaca bacaan ruqyah pada air penawar.
+              <strong style={{ color: '#FDE047' }}>Konsep Tasbih Aura Assyifa</strong> adalah qias kepada amalan membaca bacaan ruqyah pada air penawar.
               Bezanya — air habis, tasbih <em>tidak pernah habis</em>. Bacaan yang dipasakkan kekal selagi tasbih dijaga dengan baik.
               Ini menjadikan ia perlindungan yang lebih tahan lama dan berterusan.
             </p>
@@ -355,12 +355,12 @@ export default function TasbihV2Page() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          SECTION #6 — SOLUTION: PERKENALKAN TASBIH E-SYIFA'
+          SECTION #6 — SOLUTION: PERKENALKAN TASBIH Aura Assyifa
       ═══════════════════════════════════════════════════════ */}
       <section style={{ ...S.light }}>
         <div style={{ ...S.wrap, textAlign: 'center' }}>
           <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.12em' }}>PENYELESAIAN</span>
-          <h2 style={S.h2dark}>Tasbih E-Syifa' — Perawat Private Anda Yang Sentiasa Bersama</h2>
+          <h2 style={S.h2dark}>Tasbih Aura Assyifa — Perawat Private Anda Yang Sentiasa Bersama</h2>
           <p style={{ ...S.sub('#4B5563') }}>
             Satu pelaburan. Rawatan tanpa had. Boleh guna seumur hidup. Tidak perlu tunggu appointment.
             Tidak perlu ulang alik. Tidak perlu bergantung pada orang lain — <strong style={{ color: '#047857' }}>setiap kali diserang, rawat terus.</strong>
@@ -370,7 +370,7 @@ export default function TasbihV2Page() {
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', background: 'linear-gradient(135deg, #042E23 0%, #065F46 100%)', border: '2px solid #FDE047', borderRadius: '16px', padding: '1rem 2rem', marginBottom: '3rem', boxShadow: '0 8px 24px rgba(4,46,35,0.2)' }}>
             <span style={{ fontSize: '2rem' }}>📿</span>
             <div style={{ textAlign: 'left' }}>
-              <div style={{ fontSize: '1.1rem', fontWeight: 900, color: '#FDE047' }}>Tasbih E-Syifa'</div>
+              <div style={{ fontSize: '1.1rem', fontWeight: 900, color: '#FDE047' }}>Tasbih Aura Assyifa</div>
               <div style={{ fontSize: '0.78rem', color: '#A7F3D0', fontWeight: 600 }}>Ruqyah Syar'iyyah · Pengisian Penuh · Aura Assyifa</div>
             </div>
           </div>
@@ -379,7 +379,7 @@ export default function TasbihV2Page() {
           <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.1em' }}>10 KELEBIHAN UTAMA</span>
             <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.8rem)', fontWeight: 800, color: '#042E23', marginTop: '0.4rem', marginBottom: '0.5rem' }}>
-              Kenapa Tasbih E-Syifa' Berbeza Dari Yang Lain?
+              Kenapa Tasbih Aura Assyifa Berbeza Dari Yang Lain?
             </h3>
           </div>
 
@@ -395,7 +395,7 @@ export default function TasbihV2Page() {
             ))}
           </div>
 
-          <WAButton id="cta-solution" label="📿 Saya Mahu Tasbih E-Syifa'" />
+          <WAButton id="cta-solution" label="📿 Saya Mahu Tasbih Aura Assyifa" />
         </div>
       </section>
 
@@ -405,7 +405,7 @@ export default function TasbihV2Page() {
       <section style={{ ...S.mid }}>
         <div style={{ ...S.wrap, textAlign: 'center' }}>
           <div style={S.badge()}>📿 ISI KANDUNGAN</div>
-          <h2 style={S.h2gold}>Apa Yang Diisi & Dipasakkan Dalam Tasbih E-Syifa'?</h2>
+          <h2 style={S.h2gold}>Apa Yang Diisi & Dipasakkan Dalam Tasbih Aura Assyifa?</h2>
           <p style={S.sub()}>
             4 elemen utama yang diisikan oleh perawat Aura Assyifa — semua bersumber dari Al-Quran dan Sunnah Nabi ﷺ.
             Tiada unsur syirik, bid'ah atau amalan yang bertentangan dengan syarak.
@@ -431,8 +431,8 @@ export default function TasbihV2Page() {
       <section style={{ ...S.dark }}>
         <div style={{ ...S.wrap, textAlign: 'center' }}>
           <div style={S.badge()}>🎯 PERUBAHAN YANG ANDA AKAN RASA</div>
-          <h2 style={S.h2gold}>5 Perubahan Yang Anda Akan Alami Bila Ada Tasbih E-Syifa'</h2>
-          <p style={S.sub()}>Bukan janji kosong — ini berdasarkan pengalaman pelanggan yang dah ada Tasbih E-Syifa'.</p>
+          <h2 style={S.h2gold}>5 Perubahan Yang Anda Akan Alami Bila Ada Tasbih Aura Assyifa</h2>
+          <p style={S.sub()}>Bukan janji kosong — ini berdasarkan pengalaman pelanggan yang dah ada Tasbih Aura Assyifa.</p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'left' }}>
             {GOALS.map((g, i) => (
@@ -454,7 +454,7 @@ export default function TasbihV2Page() {
       <section style={{ ...S.darker }}>
         <div style={{ ...S.wrap, textAlign: 'center' }}>
           <div style={S.badge()}>📿 CARA GUNA</div>
-          <h2 style={S.h2gold}>4 Cara Guna Tasbih E-Syifa' Yang Perlu Anda Tahu</h2>
+          <h2 style={S.h2gold}>4 Cara Guna Tasbih Aura Assyifa Yang Perlu Anda Tahu</h2>
           <p style={S.sub()}>
             Cara penggunaan yang mudah — cukup berniat, berdoa kepada Allah & yakin dengan izin-Nya.
             <br /><strong style={{ color: '#FDE047' }}>Panduan lengkap diberikan selepas pembelian.</strong>
@@ -474,7 +474,7 @@ export default function TasbihV2Page() {
           <div style={{ marginTop: '2.5rem', background: 'rgba(253,224,71,0.07)', border: '1px solid rgba(253,224,71,0.3)', borderLeft: '4px solid #FDE047', borderRadius: '12px', padding: '1.25rem 1.5rem', textAlign: 'left', display: 'flex', gap: '1rem' }}>
             <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>💡</span>
             <p style={{ margin: 0, fontSize: '0.875rem', color: '#FEF3C7', lineHeight: 1.75 }}>
-              <strong style={{ color: '#FDE047' }}>Paling Penting:</strong> Tasbih E-Syifa' bukan ubat biasa. Ia adalah wasilah — perantara ikhtiar antara anda dan Allah SWT.
+              <strong style={{ color: '#FDE047' }}>Paling Penting:</strong> Tasbih Aura Assyifa bukan ubat biasa. Ia adalah wasilah — perantara ikhtiar antara anda dan Allah SWT.
               Keyakinan, niat yang betul, dan doa adalah kunci utama. Kemudian Allah yang menentukan kesembuhan.
             </p>
           </div>
@@ -487,7 +487,7 @@ export default function TasbihV2Page() {
       <section id="order" style={{ ...S.dark, textAlign: 'center' }}>
         <div style={{ maxWidth: '480px', margin: '0 auto' }}>
           <div style={S.badge()}>🛒 DAPATKAN SEKARANG</div>
-          <h2 style={S.h2gold}>Dapatkan Tasbih E-Syifa' Anda</h2>
+          <h2 style={S.h2gold}>Dapatkan Tasbih Aura Assyifa Anda</h2>
 
           {/* Urgency */}
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.4)', padding: '0.5rem 1.25rem', borderRadius: '50px', marginBottom: '2rem', fontSize: '0.85rem', fontWeight: 700, color: '#FCA5A5' }}>
@@ -496,7 +496,7 @@ export default function TasbihV2Page() {
 
           <div style={{ background: 'linear-gradient(135deg, #064E3B 0%, #042E23 100%)', border: '3px solid #FDE047', borderRadius: '24px', padding: '2.5rem 2rem', boxShadow: '0 25px 50px rgba(0,0,0,0.4)' }}>
             <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>📿</div>
-            <div style={{ fontWeight: 900, fontSize: '1.2rem', color: '#FFFFFF', marginBottom: '0.25rem' }}>Tasbih E-Syifa'</div>
+            <div style={{ fontWeight: 900, fontSize: '1.2rem', color: '#FFFFFF', marginBottom: '0.25rem' }}>Tasbih Aura Assyifa</div>
             <div style={{ fontSize: '0.82rem', color: '#6EE7B7', marginBottom: '1.5rem' }}>Diisi bacaan ruqyah syar'iyyah · Pos seluruh Malaysia</div>
 
             <div style={{ marginBottom: '1.5rem' }}>
@@ -533,13 +533,13 @@ export default function TasbihV2Page() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', alignItems: 'start' }}>
             {['/images/testimonials/testimoni_part2_1.jpg', '/images/testimonials/testimoni_part2_2.jpg', '/images/testimonials/testimoni_part2_3.jpg'].map((src, i) => (
               <div key={i} style={{ borderRadius: '16px', overflow: 'hidden', border: '2px solid #FDE047', boxShadow: '0 8px 25px rgba(0,0,0,0.3)', background: '#042E23' }}>
-                <img src={src} alt={`Testimoni Tasbih E-Syifa' ${i + 4}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                <img src={src} alt={`Testimoni Tasbih Aura Assyifa ${i + 4}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
               </div>
             ))}
           </div>
 
           <p style={{ marginTop: '1.5rem', fontSize: '0.85rem', color: '#A7F3D0', fontStyle: 'italic', lineHeight: 1.7 }}>
-            Semua testimoni di atas adalah daripada pelanggan sebenar Tasbih E-Syifa'. Alhamdulillah — semoga Allah terus permudahkan urusan mereka.
+            Semua testimoni di atas adalah daripada pelanggan sebenar Tasbih Aura Assyifa. Alhamdulillah — semoga Allah terus permudahkan urusan mereka.
           </p>
         </div>
       </section>
@@ -550,7 +550,7 @@ export default function TasbihV2Page() {
       <section style={{ ...S.darker, textAlign: 'center' }}>
         <div style={S.wrap}>
           <div style={S.badge()}>💡 PERBANDINGAN</div>
-          <h2 style={S.h2gold}>Tasbih E-Syifa' vs Air Penawar vs Rawatan Luar Biasa</h2>
+          <h2 style={S.h2gold}>Tasbih Aura Assyifa vs Air Penawar vs Rawatan Luar Biasa</h2>
           <p style={S.sub()}>
             Tiga pilihan — tapi hanya satu yang memberikan perlindungan <strong style={{ color: '#FDE047' }}>berterusan tanpa had</strong> untuk kes berulang & berat.
           </p>
@@ -583,7 +583,7 @@ export default function TasbihV2Page() {
                   {[
                     { key: 'air', label: '💧 Air Penawar', val: row.air, color: '#FCA5A5' },
                     { key: 'luar', label: '🏥 Rawatan Luar', val: row.luar, color: '#FCD34D' },
-                    { key: 'tasbih', label: '📿 Tasbih E-Syifa\'', val: row.tasbih, color: '#4ADE80', highlight: true },
+                    { key: 'tasbih', label: '📿 Tasbih Aura Assyifa\'', val: row.tasbih, color: '#4ADE80', highlight: true },
                   ].map((col, j) => (
                     <div key={j} style={{ padding: '0.6rem 0.5rem', textAlign: 'center', background: col.highlight ? 'rgba(74,222,128,0.07)' : 'transparent', borderLeft: j > 0 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
                       <div style={{ fontSize: '0.65rem', color: col.color, fontWeight: 700, marginBottom: '0.3rem', letterSpacing: '0.03em' }}>{col.label}</div>
@@ -600,7 +600,7 @@ export default function TasbihV2Page() {
           {/* Winner declaration */}
           <div style={{ marginTop: '2rem', background: 'rgba(74,222,128,0.1)', border: '2px solid #4ADE80', borderRadius: '16px', padding: '1.5rem 2rem', display: 'inline-block', textAlign: 'center' }}>
             <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📿</div>
-            <div style={{ fontWeight: 800, color: '#4ADE80', fontSize: '1rem', marginBottom: '0.25rem' }}>Pemenang Jelas: Tasbih E-Syifa'</div>
+            <div style={{ fontWeight: 800, color: '#4ADE80', fontSize: '1rem', marginBottom: '0.25rem' }}>Pemenang Jelas: Tasbih Aura Assyifa</div>
             <div style={{ fontSize: '0.83rem', color: '#D1FAE5', lineHeight: 1.6 }}>
               Satu-satunya pilihan yang memberikan perlindungan berterusan,<br />boleh digunakan sendiri, dan tidak pernah habis.
             </div>
@@ -616,7 +616,7 @@ export default function TasbihV2Page() {
           <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#FDE047', textTransform: 'uppercase', letterSpacing: '0.12em' }}>JAMINAN KAMI</span>
           <h2 style={S.h2gold}>Jaminan Kualiti Bacaan Ruqyah Syar'iyyah</h2>
           <p style={S.sub()}>
-            Setiap Tasbih E-Syifa' diisi dengan penuh amanah dan tanggungjawab. Kami tidak menjual sekadar objek — kami menjual ikhtiar dan doa.
+            Setiap Tasbih Aura Assyifa diisi dengan penuh amanah dan tanggungjawab. Kami tidak menjual sekadar objek — kami menjual ikhtiar dan doa.
           </p>
 
           <div style={{ background: 'linear-gradient(135deg, #1E3A2F 0%, #14532D 100%)', border: '2px solid #22C55E', borderRadius: '20px', padding: '2.5rem 2rem', boxShadow: '0 20px 60px rgba(0,0,0,0.4)', marginBottom: '1.5rem' }}>
@@ -653,7 +653,7 @@ export default function TasbihV2Page() {
           </h2>
           <p style={S.sub()}>
             Setiap hari tanpa perlindungan adalah peluang untuk gangguan mengakar lebih dalam.
-            Tasbih E-Syifa' hadir untuk mereka yang mahu <strong style={{ color: '#FDE047' }}>bangkit — tanpa menunggu, tanpa bergantung.</strong>
+            Tasbih Aura Assyifa hadir untuk mereka yang mahu <strong style={{ color: '#FDE047' }}>bangkit — tanpa menunggu, tanpa bergantung.</strong>
           </p>
 
           {/* Package tags */}
@@ -664,7 +664,7 @@ export default function TasbihV2Page() {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem' }}>
-            <WAButton id="cta-closing-1" label="📿 Saya Mahu Tasbih E-Syifa' — RM250" />
+            <WAButton id="cta-closing-1" label="📿 Saya Mahu Tasbih Aura Assyifa — RM250" />
             <span style={{ fontSize: '0.78rem', color: '#6EE7B7', fontStyle: 'italic' }}>Stok terhad · Pos seluruh Malaysia · Panduan disertakan</span>
           </div>
         </div>
@@ -676,7 +676,7 @@ export default function TasbihV2Page() {
       <section style={{ ...S.mid }}>
         <div style={{ ...S.wrap, textAlign: 'center' }}>
           <div style={S.badge()}>👤 UNTUK SIAPA</div>
-          <h2 style={S.h2gold}>Tasbih E-Syifa' Sesuai Untuk Anda Jika...</h2>
+          <h2 style={S.h2gold}>Tasbih Aura Assyifa Sesuai Untuk Anda Jika...</h2>
           <p style={S.sub()}>Tandakan yang mana berkaitan dengan anda.</p>
 
           <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'left' }}>
@@ -701,7 +701,7 @@ export default function TasbihV2Page() {
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.1em' }}>SOALAN LAZIM</span>
-            <h2 style={S.h2dark}>Soalan Yang Sering Ditanya Tentang Tasbih E-Syifa'</h2>
+            <h2 style={S.h2dark}>Soalan Yang Sering Ditanya Tentang Tasbih Aura Assyifa</h2>
             <p style={{ fontSize: '0.95rem', color: '#4B5563', lineHeight: 1.6 }}>Semua jawapan ada di sini.</p>
           </div>
           <FAQAccordion />
@@ -719,10 +719,10 @@ export default function TasbihV2Page() {
             <span style={{ color: '#4ADE80' }}>Mulakan Rawatan Kendiri Hari Ini.</span>
           </h2>
           <p style={{ fontSize: '1rem', color: '#D1FAE5', marginBottom: '2.5rem', lineHeight: 1.65, maxWidth: '620px', margin: '0 auto 2.5rem auto' }}>
-            Tasbih E-Syifa' hadir untuk mereka yang mahu bangkit — tanpa menunggu, tanpa bergantung, tanpa had.
+            Tasbih Aura Assyifa hadir untuk mereka yang mahu bangkit — tanpa menunggu, tanpa bergantung, tanpa had.
             Stok terhad. Jangan tangguh lagi.
           </p>
-          <WAButton id="cta-final" label="📿 Saya Mahu Tasbih E-Syifa' — RM250" />
+          <WAButton id="cta-final" label="📿 Saya Mahu Tasbih Aura Assyifa — RM250" />
           <p style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#6EE7B7', opacity: 0.8 }}>
             Hubungi kami melalui WhatsApp untuk proses pembelian & pertanyaan
           </p>

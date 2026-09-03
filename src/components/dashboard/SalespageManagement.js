@@ -66,14 +66,14 @@ const PRODUCT_PAGES = [
     isNew: true,
   },
   {
-    label: 'Tasbih E-Syifa\' (Asal)',
+    label: 'Tasbih Aura Assyifa\' (Asal)',
     desc: 'Salespage produk tasbih ruqyah syar\'iyyah — versi asal.',
     url: '/tasbih-esyifa',
     color: '#D97706',
     icon: '📿',
   },
   {
-    label: 'Tasbih E-Syifa\' (FSP V2)',
+    label: 'Tasbih Aura Assyifa\' (FSP V2)',
     desc: 'Clone tasbih dengan 15 sections FSP — versi upgrade dengan Fears, Authority, Goals & 3-kolum comparison.',
     url: '/tasbih-v2',
     color: '#F59E0B',

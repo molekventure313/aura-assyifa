@@ -321,7 +321,7 @@ export default function AdsSpendPage() {
                                         <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: '#F59E0B', fontWeight: 600 }}>RM {fmt(b.cost)}</td>
                                         <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 700, color: (b.komisen ?? 0) >= 0 ? '#10B981' : '#F59E0B' }}>RM {fmt(b.komisen ?? 0)}</td>
                                         <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 700, color: textPrimary }}>RM {fmt(b.perawat_dapat ?? 0)}</td>
-                                        <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 700, color: textSecondary }}>RM {fmt(b.esyifaa_dapat ?? 0)}</td>
+                                        <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', fontWeight: 700, color: textSecondary }}>RM {fmt(b.Aura Assyifa_dapat ?? 0)}</td>
                                       </tr>
                                     ))}
                                     {/* Total row */}
@@ -332,7 +332,7 @@ export default function AdsSpendPage() {
                                       <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: '#F59E0B' }}>RM {fmt(rec.amount)}</td>
                                       <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: (rec.total_komisen ?? 0) >= 0 ? '#10B981' : '#F59E0B' }}>RM {fmt(rec.total_komisen ?? 0)}</td>
                                       <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: textPrimary }}>RM {fmt(rec.breakdown.reduce((s, b) => s + (b.perawat_dapat ?? 0), 0))}</td>
-                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: textSecondary }}>RM {fmt(rec.breakdown.reduce((s, b) => s + (b.esyifaa_dapat ?? 0), 0))}</td>
+                                      <td style={{ padding: '0.6rem 0.75rem', textAlign: 'center', color: textSecondary }}>RM {fmt(rec.breakdown.reduce((s, b) => s + (b.Aura Assyifa_dapat ?? 0), 0))}</td>
                                     </tr>
                                   </tbody>
                                 </table>

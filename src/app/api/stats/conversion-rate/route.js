@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 
@@ -9,7 +9,7 @@ const SALESPAGES = [
   { slug: 'gangguan-berulang', label: 'Salespage Gangguan Berulang' },
   { slug: 'belum-zuriat',      label: 'Salespage Belum Zuriat' },
   { slug: 'kedai-tutup',       label: 'Salespage Kedai Tutup' },
-  { slug: 'tasbih-esyifa',     label: 'Tasbih E-Syifa\'' },
+  { slug: 'tasbih-esyifa',     label: 'Tasbih Aura Assyifa\'' },
 ];
 
 export async function GET(req) {
