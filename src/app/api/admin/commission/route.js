@@ -136,7 +136,7 @@ export async function GET(req) {
     const totalSales = commissionList.reduce((s, p) => s + p.sales, 0);
     const totalKomisen = commissionList.reduce((s, p) => s + p.komisen, 0);
     const totalPerawatDapat = commissionList.reduce((s, p) => s + p.perawat_dapat, 0);
-    const totalAura AssyifaDapat = commissionList.reduce((s, p) => s + p.syarikat_dapat, 0);
+    const totalSyarikatDapat = commissionList.reduce((s, p) => s + p.syarikat_dapat, 0);
 
     return NextResponse.json({
       success: true,
@@ -150,7 +150,7 @@ export async function GET(req) {
           total_sales: parseFloat(totalSales.toFixed(2)),
           total_komisen: parseFloat(totalKomisen.toFixed(2)),
           total_perawat_dapat: parseFloat(totalPerawatDapat.toFixed(2)),
-          total_syarikat_dapat: parseFloat(totalAura AssyifaDapat.toFixed(2)),
+          total_syarikat_dapat: parseFloat(totalSyarikatDapat.toFixed(2)),
         }
       }
     });
