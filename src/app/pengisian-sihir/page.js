@@ -146,15 +146,26 @@ const LAYERS = [
 
 const DALIL = [
   {
-    arabic: 'وَأَوْحَيْنَآ إِلَىٰ مُوسَىٰٓ أَنْ أَلْقِ عَصَاكَ ۖ فَإِذَا هِىَ تَلْقَفُ مَا يَأْفِكُونَ',
-    trans: '"Dan Kami wahyukan kepada Musa: Lemparkanlah tongkatmu! Maka tiba-tiba ia menelan apa yang mereka rekayasakan (sihir)."',
-    ref: "Surah Al-A'raf (7:117)",
-  },
-  {
     arabic: 'وَنُنَزِّلُ مِنَ ٱلْقُرْءَانِ مَا هُوَ شِفَآءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ',
     trans: '"Dan Kami turunkan dari Al-Quran sesuatu yang menjadi penawar dan rahmat bagi orang-orang yang beriman."',
     ref: "Surah Al-Isra' (17:82)",
   },
+  {
+    arabic: 'وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ',
+    trans: '"Dan apabila aku sakit, Dialah (Allah) yang menyembuhkanku."',
+    ref: "Surah Ash-Shu'ara (26:80)",
+  },
+];
+
+const COMPARE_ROWS = [
+  { label: 'Boleh digunakan berulang kali', air: false, rawatan: false, pengisian: true },
+  { label: 'Tidak pernah habis / tamat', air: false, rawatan: false, pengisian: true },
+  { label: 'Rawat sendiri tanpa perawat', air: false, rawatan: false, pengisian: true },
+  { label: 'Bertindak balas waktu malam', air: true, rawatan: false, pengisian: true },
+  { label: 'Tiada had bilangan rawatan', air: false, rawatan: false, pengisian: true },
+  { label: 'Jimat kos jangka panjang', air: false, rawatan: false, pengisian: true },
+  { label: 'Pelarasan mingguan automatik', air: false, rawatan: false, pengisian: true },
+  { label: 'Bantu seluruh keluarga', air: false, rawatan: false, pengisian: true },
 ];
 
 const TESTI1 = [
@@ -182,9 +193,9 @@ export default function PengisianSihirPage() {
       <PageViewTracker slug="pengisian-sihir" />
 
       {/* ══════════ HERO ══════════ */}
-      <section style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(160deg, #0A0205 0%, #1A0508 50%, #0B1A0F 100%)', padding: '5rem 1rem 4rem', textAlign: 'center' }}>
-        <div className="orb" style={{ width: 400, height: 400, background: 'radial-gradient(circle, rgba(239,68,68,0.12) 0%, transparent 70%)', top: '-100px', left: '-80px' }} />
-        <div className="orb" style={{ width: 300, height: 300, background: 'radial-gradient(circle, rgba(253,224,71,0.07) 0%, transparent 70%)', bottom: '-60px', right: '-60px' }} />
+      <section style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(160deg, #010E09 0%, #021812 50%, #042E23 100%)', padding: '5rem 1rem 4rem', textAlign: 'center' }}>
+        <div className="orb" style={{ width: 400, height: 400, background: 'radial-gradient(circle, rgba(5,150,105,0.18) 0%, transparent 70%)', top: '-100px', left: '-100px' }} />
+        <div className="orb" style={{ width: 300, height: 300, background: 'radial-gradient(circle, rgba(253,224,71,0.08) 0%, transparent 70%)', bottom: '-50px', right: '-50px' }} />
 
         <div style={{ maxWidth: '860px', margin: '0 auto', position: 'relative', animation: 'fadeInUp 0.8s ease both' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(253,224,71,0.1)', border: '1px solid rgba(253,224,71,0.4)', padding: '0.4rem 1.2rem', borderRadius: '50px', marginBottom: '1.5rem', fontSize: '0.75rem', fontWeight: 800, color: '#FDE047', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
@@ -222,7 +233,7 @@ export default function PengisianSihirPage() {
           </div>
 
           {/* Medallion */}
-          <div style={{ width: '140px', height: '140px', borderRadius: '50%', background: 'radial-gradient(circle at 35% 35%, #4A0010, #0A0205)', border: '2px solid rgba(253,224,71,0.6)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2.5rem', animation: 'pulseGlow 3s ease-in-out infinite', boxShadow: '0 0 0 8px rgba(239,68,68,0.04)' }}>
+          <div style={{ width: '140px', height: '140px', borderRadius: '50%', background: 'radial-gradient(circle at 35% 35%, #065F46, #010E09)', border: '2px solid rgba(253,224,71,0.6)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2.5rem', animation: 'pulseGlow 3s ease-in-out infinite', boxShadow: '0 0 0 8px rgba(253,224,71,0.05)' }}>
             <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'linear-gradient(135deg, #FDE047, #F59E0B)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '0.4rem', boxShadow: '0 4px 16px rgba(253,224,71,0.4)' }}>
               <svg width="26" height="26" viewBox="0 0 24 24" fill="#042E23">
                 <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
@@ -400,11 +411,42 @@ export default function PengisianSihirPage() {
         </div>
       </section>
 
+      {/* ══════════ COMPARISON TABLE ══════════ */}
+      <section style={{ background: '#031E17', padding: '4.5rem 1rem', textAlign: 'center' }}>
+        <div style={{ maxWidth: '920px', margin: '0 auto' }} className="anim-section">
+          <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 800, color: '#FDE047', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.5rem', background: 'rgba(253,224,71,0.1)', padding: '0.3rem 1rem', borderRadius: '50px', border: '1px solid rgba(253,224,71,0.3)' }}>Perbandingan</span>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.5rem', marginBottom: '0.75rem', letterSpacing: '-0.02em', lineHeight: 1.25 }}>Pengisian Aura Assyifa vs Air Penawar vs Rawatan Luar Biasa</h2>
+          <p style={{ fontSize: '1rem', color: '#D1FAE5', lineHeight: 1.65, maxWidth: '680px', margin: '0 auto 2.5rem', opacity: 0.9 }}>Tiga pilihan — tapi hanya satu yang memberikan perlindungan <strong style={{ color: '#FDE047' }}>berterusan tanpa had</strong>.</p>
+          <div style={{ borderRadius: '16px', border: '1px solid rgba(253,224,71,0.15)', overflow: 'hidden' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '480px' }}>
+              <thead>
+                <tr style={{ background: 'rgba(255,255,255,0.04)' }}>
+                  <th style={{ padding: '1rem', textAlign: 'left', fontSize: '0.8rem', color: '#6EE7B7', fontWeight: 700, borderBottom: '2px solid rgba(255,255,255,0.08)' }}>Ciri-Ciri</th>
+                  <th style={{ padding: '1rem 0.5rem', textAlign: 'center', fontSize: '0.82rem', fontWeight: 800, color: '#94A3B8', borderBottom: '2px solid rgba(255,255,255,0.08)' }}>Air Penawar</th>
+                  <th style={{ padding: '1rem 0.5rem', textAlign: 'center', fontSize: '0.82rem', fontWeight: 800, color: '#94A3B8', borderBottom: '2px solid rgba(255,255,255,0.08)' }}>Rawatan Luar</th>
+                  <th style={{ padding: '1rem 0.5rem', textAlign: 'center', fontSize: '0.82rem', fontWeight: 800, color: '#FDE047', borderBottom: '2px solid rgba(253,224,71,0.3)', background: 'rgba(253,224,71,0.05)' }}>Pengisian Aura Assyifa</th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARE_ROWS.map((row, i) => (
+                  <tr key={row.label} style={{ background: i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent' }}>
+                    <td style={{ padding: '0.85rem 1rem', fontSize: '0.85rem', color: '#FEF3C7', fontWeight: 600, textAlign: 'left', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>{row.label}</td>
+                    <td style={{ padding: '0.85rem 0.5rem', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)' }}><span style={{ color: row.air ? '#4ADE80' : '#EF4444', fontSize: '1rem', fontWeight: 700 }}>{row.air ? '✓' : '✗'}</span></td>
+                    <td style={{ padding: '0.85rem 0.5rem', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)' }}><span style={{ color: row.rawatan ? '#4ADE80' : '#EF4444', fontSize: '1rem', fontWeight: 700 }}>{row.rawatan ? '✓' : '✗'}</span></td>
+                    <td style={{ padding: '0.85rem 0.5rem', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)', background: 'rgba(253,224,71,0.04)' }}><span style={{ color: '#4ADE80', fontSize: '1rem', fontWeight: 700 }}>✓</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* ══════════ PRICING + FAQ ══════════ */}
       <section id="borang" style={{ background: 'linear-gradient(160deg, #042E23 0%, #021812 100%)', padding: '4.5rem 1rem', textAlign: 'center' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto' }} className="anim-section">
           <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 800, color: '#FDE047', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.5rem', background: 'rgba(253,224,71,0.1)', padding: '0.3rem 1rem', borderRadius: '50px', border: '1px solid rgba(253,224,71,0.3)' }}>Tempahan</span>
-          <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.5rem', marginBottom: '0.75rem', letterSpacing: '-0.02em', lineHeight: 1.25 }}>Dapatkan Pengisian Sihir Aura Assyifa</h2>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FDE047', marginTop: '0.5rem', marginBottom: '0.75rem', letterSpacing: '-0.02em', lineHeight: 1.25 }}>Dapatkan Pengisian Pemusnah Sihir Aura Assyifa</h2>
           <p style={{ fontSize: '1rem', color: '#D1FAE5', lineHeight: 1.65, maxWidth: '560px', margin: '0 auto 2rem', opacity: 0.9 }}>Satu pelaburan untuk perlindungan seumur hidup. Pelarasan mingguan percuma selama-lamanya.</p>
 
           {/* Price card */}
