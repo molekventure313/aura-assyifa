@@ -125,10 +125,10 @@ const COMPARE_ROWS = [
 ];
 
 const TESTI1 = [
-  '/images/testimonials/testimoni_1.jpg',
-  '/images/testimonials/testimoni_2.jpg',
-  '/images/testimonials/testimoni_3.jpg',
-  '/images/testimonials/testimoni_part2_1.jpg',
+  '/images/testimonials/testimoni_pengisian_1.png',
+  '/images/testimonials/testimoni_pengisian_2.png',
+  '/images/testimonials/testimoni_pengisian_3.png',
+  '/images/testimonials/testimoni_pengisian_4.png',
 ];
 
 const TESTI2 = [
