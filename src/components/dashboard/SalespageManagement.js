@@ -54,6 +54,14 @@ const PRODUCT_PAGES = [
     icon: '🔱',
     isNew: true,
   },
+  {
+    label: 'Pengisian Rawatan Penyakit Misteri',
+    desc: 'Salespage pengisian ayat ruqyah khusus penyakit yang tidak dapat dijelaskan perubatan — 4 lapisan ayat pemusnah, pembatal santau, benteng & penyembuhan. RM90 sekali bayar.',
+    url: '/pengisian-penyakit-misteri',
+    color: '#0891B2',
+    icon: '🩺',
+    isNew: true,
+  },
 ];
 
 export default function SalespageManagement({ isLightMode, cardBg, cardBorder, textPrimary, textSecondary }) {
