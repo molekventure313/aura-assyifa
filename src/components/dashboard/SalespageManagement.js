@@ -38,6 +38,14 @@ const PRODUCT_PAGES = [
     icon: '💎',
     isNew: true,
   },
+  {
+    label: 'Pengisian Sihir',
+    desc: 'Salespage pengisian ayat ruqyah khusus kes sihir — 4 lapisan ayat pembatal, pembakar, benteng & kesembuhan. RM90 sekali bayar.',
+    url: '/pengisian-sihir',
+    color: '#DC2626',
+    icon: '🛡️',
+    isNew: true,
+  },
 ];
 
 export default function SalespageManagement({ isLightMode, cardBg, cardBorder, textPrimary, textSecondary }) {
