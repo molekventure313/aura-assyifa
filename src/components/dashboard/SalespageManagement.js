@@ -39,11 +39,19 @@ const PRODUCT_PAGES = [
     isNew: true,
   },
   {
-    label: 'Pengisian Sihir',
+    label: 'Pengisian Pemusnah Sihir',
     desc: 'Salespage pengisian ayat ruqyah khusus kes sihir — 4 lapisan ayat pembatal, pembakar, benteng & kesembuhan. RM90 sekali bayar.',
     url: '/pengisian-sihir',
     color: '#DC2626',
     icon: '🛡️',
+    isNew: true,
+  },
+  {
+    label: 'Pengisian Pemusnah Saka',
+    desc: 'Salespage pengisian ayat ruqyah khusus kes saka turun-temurun — 4 lapisan ayat pemusnah, pembatal, benteng generasi & kesembuhan. RM90 sekali bayar.',
+    url: '/pengisian-saka',
+    color: '#7C3AED',
+    icon: '🔱',
     isNew: true,
   },
 ];
