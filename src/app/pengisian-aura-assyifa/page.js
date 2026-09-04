@@ -132,9 +132,9 @@ const TESTI1 = [
 ];
 
 const TESTI2 = [
-  '/images/testimonials/testimoni_part2_1.jpg',
-  '/images/testimonials/testimoni_part2_2.jpg',
-  '/images/testimonials/testimoni_part2_3.jpg',
+  '/images/testimonials/testimoni_pengisian_5.png',
+  '/images/testimonials/testimoni_pengisian_6.png',
+  '/images/testimonials/testimoni_pengisian_7.png',
 ];
 
 export default function PengisianAuraAssyifaPage() {
