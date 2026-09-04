@@ -5,7 +5,7 @@ import PageViewTracker from '@/components/salespage/PageViewTracker';
 
 const WA_NUMBER = '60133892002';
 const WA_MESSAGE = encodeURIComponent(
-  "Assalamualaikum, saya berminat untuk mendapatkan Pengisian Sihir dari Aura Assyifa (RM90). Boleh saya tahu langkah seterusnya?"
+  "Assalamualaikum, saya berminat untuk mendapatkan Pengisian Pemusnah Sihir dari Aura Assyifa (RM90). Boleh saya tahu langkah seterusnya?"
 );
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`;
 
@@ -346,7 +346,7 @@ export default function PengisianSihirPage() {
       <section style={{ background: '#F8FAFC', color: '#0F172A', padding: '4.5rem 1rem', textAlign: 'center' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }} className="anim-section">
           <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.5rem', background: 'rgba(5,150,105,0.08)', padding: '0.3rem 1rem', borderRadius: '50px', border: '1px solid rgba(5,150,105,0.2)' }}>Matlamat Rawatan</span>
-          <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#042E23', marginTop: '0.5rem', marginBottom: '0.75rem', letterSpacing: '-0.02em', lineHeight: 1.25 }}>Apa Yang Ingin Dicapai Melalui Pengisian Sihir Aura Assyifa?</h2>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#042E23', marginTop: '0.5rem', marginBottom: '0.75rem', letterSpacing: '-0.02em', lineHeight: 1.25 }}>Apa Yang Ingin Dicapai Melalui Pengisian Pemusnah Sihir Aura Assyifa?</h2>
           <p style={{ fontSize: '1rem', color: '#4B5563', lineHeight: 1.65, marginBottom: '2.5rem' }}>Pengisian ini dirangka khusus untuk menyelesaikan tanda-tanda gangguan sihir yang anda alami secara tuntas dan patuh syariah.</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'left' }}>
             {GOALS.map((g, i) => (
@@ -452,7 +452,7 @@ export default function PengisianSihirPage() {
           {/* Price card */}
           <div style={{ background: 'linear-gradient(160deg, #031E17 0%, #042E23 100%)', border: '2px solid rgba(253,224,71,0.4)', borderRadius: '24px', padding: '2.5rem 2rem', marginBottom: '2rem', boxShadow: '0 24px 60px rgba(0,0,0,0.5), 0 0 60px rgba(253,224,71,0.06)', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: 0, right: 0, width: '200px', height: '200px', background: 'radial-gradient(circle, rgba(253,224,71,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
-            <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#FDE047', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>Pengisian Sihir Aura Assyifa</div>
+            <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#FDE047', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>Pengisian Pemusnah Sihir Aura Assyifa</div>
             <div style={{ fontSize: 'clamp(3.5rem, 10vw, 5rem)', fontWeight: 900, color: '#FDE047', lineHeight: 1, marginBottom: '0.25rem', textShadow: '0 0 30px rgba(253,224,71,0.3)' }}>RM90</div>
             <div style={{ fontSize: '0.88rem', color: '#A7F3D0', marginBottom: '2rem', opacity: 0.85 }}>Bayar Sekali · Guna Seumur Hidup</div>
 
@@ -480,7 +480,7 @@ export default function PengisianSihirPage() {
           <div style={{ textAlign: 'left' }}>
             <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#FDE047', marginBottom: '1.25rem', textAlign: 'center' }}>Soalan Lazim</h3>
             {[
-              { q: 'Adakah ini untuk kes sihir sahaja?', a: 'Pengisian Sihir ini dirangka khusus dengan 4 lapisan ayat yang ditujukan untuk kes sihir. Namun ia juga membantu gangguan jin yang berkait dengan sihir yang dihantar.' },
+              { q: 'Adakah ini untuk kes sihir sahaja?', a: 'Pengisian Pemusnah Sihir ini dirangka khusus dengan 4 lapisan ayat yang ditujukan untuk kes sihir. Namun ia juga membantu gangguan jin yang berkait dengan sihir yang dihantar.' },
               { q: 'Barang apa yang boleh diisi?', a: 'Cincin, tasbih, gelang, rantai, atau mana-mana barang peribadi yang sentiasa dibawa bersama. Barang tidak perlu dihantar — proses dilakukan jarak jauh.' },
               { q: 'Berapa lama proses pengisian?', a: 'Pengisian penuh mengambil masa 7 hari bekerja. Selepas itu, pelarasan mingguan dilakukan secara automatik tanpa kos tambahan.' },
               { q: "Adakah ini patuh syariah?", a: "Ya, 100%. Pengisian hanya menggunakan ayat-ayat Al-Quran dan doa bersandarkan Sunnah. Tiada unsur syirik, jampi atau azimat haram." },
@@ -505,7 +505,7 @@ export default function PengisianSihirPage() {
             Jangan biarkan sihir terus menghancurkan hidup anda. Ambil tindakan hari ini.
           </h2>
           <p style={{ fontSize: '1rem', color: '#A7F3D0', lineHeight: 1.7, marginBottom: '2.5rem', opacity: 0.9 }}>
-            Dengan Pengisian Sihir Aura Assyifa, setiap kali diserang — anda bersedia. Setiap malam — anda terlindung. Sihir tidak tidur, tapi perlindungan anda juga tidak.
+            Dengan Pengisian Pemusnah Sihir Aura Assyifa, setiap kali diserang — anda bersedia. Setiap malam — anda terlindung. Sihir tidak tidur, tapi perlindungan anda juga tidak.
           </p>
           <WAButton id="cta-closing" label="Hubungi Kami — Mula Perlindungan Sekarang" />
           <p style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#6EE7B7', opacity: 0.7 }}>RM90 sekali bayar · Seumur Hidup · Percuma Pelarasan Mingguan</p>
