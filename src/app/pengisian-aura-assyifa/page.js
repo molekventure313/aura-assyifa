@@ -211,7 +211,7 @@ const LAYERS = [
   { num: 'I', accent: '#EF4444', title: 'Ayat Ruqyah Pembakar & Pemusnah Jin', desc: 'Ayat-ayat yang membakar dan memusnahkan jin yang menetap atau menyerang. Bertindak balas secara aktif apabila ada gangguan yang cuba mendekat.' },
   { num: 'II', accent: '#F59E0B', title: 'Ayat Pembatal Sihir', desc: 'Memutuskan dan membatalkan ikatan sihir yang pernah dihantar atau sedang aktif. Melemahkan setiap serangan sihir dari punca asalnya.' },
   { num: 'III', accent: '#60A5FA', title: 'Ayat Benteng Sihir & Gangguan Jin', desc: 'Membina dinding perlindungan di sekeliling barang dan pemiliknya. Jin dan sihir yang cuba mendekat akan dihalang dan dipukul balik.' },
-  { num: 'IV', accent: '#34D399', title: 'Ayat-Ayat Kesembuhan', desc: 'Memulihkan kesan-kesan gangguan yang masih tinggal dalam badan. Membantu proses penyembuhan spiritual dan fizikal secara berterusan.' },
+  { num: 'IV', accent: '#22D3EE', title: 'Ayat-Ayat Kesembuhan', desc: 'Memulihkan kesan-kesan gangguan yang masih tinggal dalam badan. Membantu proses penyembuhan spiritual dan fizikal secara berterusan.' },
 ];
 
 const CHANGES = [
@@ -301,7 +301,7 @@ export default function PengisianAuraAssyifaPage() {
           {/* Pill tags */}
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.6rem', marginBottom: '2.5rem' }}>
             {['Jarak Jauh — Tanpa Pos', '100% Patuh Syariah', 'Pelarasan Setiap Minggu', 'Siap Dalam 7 Hari'].map(t => (
-              <span key={t} style={{ background: 'rgba(167,243,208,0.08)', border: '1px solid rgba(167,243,208,0.2)', color: '#BAE6FD', fontSize: '0.82rem', fontWeight: 600, padding: '0.35rem 1rem', borderRadius: '999px', letterSpacing: '0.01em' }}>{t}</span>
+              <span key={t} style={{ background: 'rgba(6,182,212,0.08)', border: '1px solid rgba(6,182,212,0.2)', color: '#BAE6FD', fontSize: '0.82rem', fontWeight: 600, padding: '0.35rem 1rem', borderRadius: '999px', letterSpacing: '0.01em' }}>{t}</span>
             ))}
           </div>
 
@@ -330,7 +330,7 @@ export default function PengisianAuraAssyifaPage() {
           <p style={{ fontSize: '1rem', color: '#4B5563', marginBottom: '2.5rem', lineHeight: 1.6 }}>Bukan kami yang cakap — biar pesakit sendiri yang kongsikan pengalaman mereka.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem', alignItems: 'start' }}>
             {TESTI1.map((src, i) => (
-              <div key={i} className="testi-img anim-card" style={{ borderRadius: '16px', overflow: 'hidden', border: '2px solid #059669', boxShadow: '0 8px 25px rgba(0,0,0,0.08)', background: '#F8FAFC', transitionDelay: `${i * 0.1}s` }}>
+              <div key={i} className="testi-img anim-card" style={{ borderRadius: '16px', overflow: 'hidden', border: '2px solid #0891B2', boxShadow: '0 8px 25px rgba(0,0,0,0.08)', background: '#F8FAFC', transitionDelay: `${i * 0.1}s` }}>
                 <img src={src} alt={`Testimoni Pesakit Aura Assyifa ${i + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
               </div>
             ))}
@@ -376,7 +376,7 @@ export default function PengisianAuraAssyifaPage() {
       {/* ══════════════════════════════════════
           DANGER WARNING
       ══════════════════════════════════════ */}
-      <section style={{ background: 'linear-gradient(160deg, #0F1F52 0%, #1A0505 100%)', padding: '4.5rem 1rem', textAlign: 'center' }}>
+      <section style={{ background: 'linear-gradient(160deg, #0F1F52 0%, #050818 100%)', padding: '4.5rem 1rem', textAlign: 'center' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }} className="anim-section">
           <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 800, color: '#F87171', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.5rem', background: 'rgba(248,113,113,0.1)', padding: '0.3rem 1rem', borderRadius: '50px', border: '1px solid rgba(248,113,113,0.3)' }}>Amaran Penting</span>
           <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, color: '#FEF3C7', marginTop: '0.5rem', marginBottom: '0.75rem', letterSpacing: '-0.02em', lineHeight: 1.25 }}>Jika Gangguan Berulang Ini Tidak Diselesaikan Segera...</h2>
@@ -475,7 +475,7 @@ export default function PengisianAuraAssyifaPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem', textAlign: 'left' }}>
             {BENEFITS.map((b, i) => (
               <div key={b.num} className="anim-card" style={{ background: '#FFFFFF', border: '1.5px solid #E2E8F0', borderRadius: '14px', padding: '1.25rem', display: 'flex', gap: '0.85rem', alignItems: 'flex-start', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', transitionDelay: `${i * 0.05}s` }}>
-                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, #ECFDF5, #DBEAFE)', border: '1px solid #BAE6FD', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 900, color: '#1D4ED8', flexShrink: 0 }}>{b.num}</span>
+                <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, #EFF6FF, #DBEAFE)', border: '1px solid #BAE6FD', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 900, color: '#1D4ED8', flexShrink: 0 }}>{b.num}</span>
                 <div>
                   <p style={{ margin: '0 0 0.2rem', fontWeight: 800, fontSize: '0.88rem', color: '#0D1B4A' }}>{b.title}</p>
                   <p style={{ margin: 0, fontSize: '0.8rem', color: '#4B5563', lineHeight: 1.55 }}>{b.desc}</p>
