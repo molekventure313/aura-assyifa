@@ -279,9 +279,8 @@ export default function PengisianAuraAssyifaPage() {
           </div>
 
           <h1 className="hero-h1" style={{ fontSize: 'clamp(1.9rem, 4.5vw, 3rem)', fontWeight: 900, color: '#FEF3C7', lineHeight: 1.18, letterSpacing: '-0.03em', marginBottom: '1.25rem' }}>
-            Dah Berulang Kali Dirawat Tapi{' '}
-            <span style={{ color: '#FDE047', textShadow: '0 0 30px rgba(253,224,71,0.3)' }}>Gangguan Masih Datang Balik?</span>
-            {' '}Ini Sebabnya...
+            Ingatkan Dah Sihat…{' '}
+            <span style={{ color: '#FDE047', textShadow: '0 0 30px rgba(253,224,71,0.3)' }}>Tapi Gangguan Datang Balik?</span>
           </h1>
 
           <p style={{ fontSize: '1.05rem', color: '#BFDBFE', lineHeight: 1.75, maxWidth: '620px', margin: '0 auto 1.5rem' }}>
