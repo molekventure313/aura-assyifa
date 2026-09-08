@@ -531,17 +531,17 @@ export default function PengisianAuraAssyifaPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          DANGER WARNING (WHITE & GOLD PALETTE)
+          DANGER WARNING
       ══════════════════════════════════════ */}
       <section style={{ background: 'linear-gradient(180deg, #0B1528 0%, #050B1A 100%)', padding: '4.5rem 1rem', textAlign: 'center' }}>
         <div style={{ maxWidth: '980px', margin: '0 auto' }} className="anim-section">
-          <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 800, color: '#E5B869', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.5rem', background: 'rgba(229,184,105,0.08)', padding: '0.35rem 1.2rem', borderRadius: '50px', border: '1px solid rgba(229,184,105,0.4)' }}>
+          <span style={{ display: 'inline-block', fontSize: '0.74rem', fontWeight: 800, color: '#EF4444', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.6rem', background: 'rgba(239,68,68,0.12)', padding: '0.4rem 1.3rem', borderRadius: '50px', border: '1.5px solid rgba(239,68,68,0.45)' }}>
             Peringatan Penting
           </span>
-          <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#FFFFFF', marginTop: '0.5rem', marginBottom: '0.75rem', lineHeight: 1.3 }}>
+          <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#E5B869', marginTop: '0.5rem', marginBottom: '0.75rem', lineHeight: 1.3, textShadow: '0 0 25px rgba(229,184,105,0.25)' }}>
             Jika Gangguan Berulang Ini Tidak Diselesaikan Segera...
           </h2>
-          <p style={{ fontSize: '1rem', color: '#FFFFFF', lineHeight: 1.65, maxWidth: '680px', margin: '0 auto 2.5rem', opacity: 0.95 }}>
+          <p style={{ fontSize: '1rem', color: '#BFDBFE', lineHeight: 1.65, maxWidth: '680px', margin: '0 auto 2.5rem', opacity: 0.9 }}>
             Ramai yang cuba mengabaikan. Namun hakikatnya —{' '}
             <strong style={{ color: '#E5B869' }}>semakin lama dibiarkan, semakin kukuh cengkaman gangguan pada tubuh dan kehidupan.</strong>
           </p>
@@ -550,21 +550,22 @@ export default function PengisianAuraAssyifaPage() {
             {DANGERS.map((d, i) => (
               <div
                 key={d.num}
-                className="anim-card islamic-border-glow"
+                className="anim-card"
                 style={{
-                  background: 'linear-gradient(160deg, #0E1A34 0%, #070D20 100%)',
+                  background: 'rgba(239,68,68,0.06)',
+                  border: '1.5px solid rgba(239,68,68,0.3)',
                   borderRadius: '16px',
                   padding: '1.4rem 1.25rem',
                   transitionDelay: `${i * 0.08}s`,
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.6rem' }}>
-                  <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(229,184,105,0.12)', border: '1px solid rgba(229,184,105,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 900, color: '#E5B869', flexShrink: 0 }}>
+                  <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(239,68,68,0.18)', border: '1px solid rgba(239,68,68,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.72rem', fontWeight: 900, color: '#EF4444', flexShrink: 0 }}>
                     {d.num}
                   </span>
-                  <h3 style={{ margin: 0, fontSize: '0.94rem', fontWeight: 800, color: '#E5B869', lineHeight: 1.3 }}>{d.title}</h3>
+                  <h3 style={{ margin: 0, fontSize: '0.94rem', fontWeight: 800, color: '#EF4444', lineHeight: 1.35 }}>{d.title}</h3>
                 </div>
-                <p style={{ margin: 0, fontSize: '0.86rem', color: '#FFFFFF', lineHeight: 1.68, opacity: 0.92 }}>{d.desc}</p>
+                <p style={{ margin: 0, fontSize: '0.86rem', color: '#FFFFFF', lineHeight: 1.65, opacity: 0.95 }}>{d.desc}</p>
               </div>
             ))}
           </div>
@@ -573,7 +574,7 @@ export default function PengisianAuraAssyifaPage() {
           <div
             className="islamic-border-glow"
             style={{
-              background: 'linear-gradient(135deg, rgba(14,26,52,0.95) 0%, rgba(7,13,32,0.98) 100%)',
+              background: 'linear-gradient(135deg, rgba(14,26,52,0.9) 0%, rgba(7,13,32,0.95) 100%)',
               borderLeft: '4px solid #E5B869',
               borderRadius: '16px',
               padding: '1.6rem 1.8rem',
@@ -587,11 +588,11 @@ export default function PengisianAuraAssyifaPage() {
               <IslamicStar size={20} color="#E5B869" />
             </div>
             <div>
-              <p className="font-serif-title" style={{ margin: '0 0 0.35rem', fontSize: '1.05rem', color: '#FFFFFF', fontWeight: 700 }}>
+              <p className="font-serif-title" style={{ margin: '0 0 0.35rem', fontSize: '1.05rem', color: '#FBF7EE', fontWeight: 700 }}>
                 Penyelesaian Syari&apos;i: Perlindungan Yang Sentiasa Bersama
               </p>
-              <p style={{ margin: 0, fontSize: '0.88rem', color: '#FFFFFF', lineHeight: 1.75, opacity: 0.95 }}>
-                Dengan Pengisian Aura Assyifa pada barangan peribadi anda, anda tidak perlu bergantung pada jadual perawat setiap kali serangan muncul. Anda boleh merawat diri sendiri bila-bila masa, di mana sahaja — dengan <strong style={{ color: '#E5B869' }}>sandaran doa dan ayat ruqyah syar&apos;iyyah</strong>.
+              <p style={{ margin: 0, fontSize: '0.88rem', color: '#BFDBFE', lineHeight: 1.75 }}>
+                Dengan Pengisian Aura Assyifa pada barangan peribadi anda, anda tidak perlu bergantung pada jadual perawat setiap kali serangan muncul. Anda boleh merawat diri sendiri bila-bila masa, di mana sahaja — dengan sandaran doa dan ayat ruqyah syar&apos;iyyah.
               </p>
             </div>
           </div>
