@@ -272,6 +272,89 @@ export default function PengisianAuraAssyifaPage() {
         <div className="orb" style={{ width: 400, height: 400, background: 'radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%)', top: '-100px', left: '-100px' }} />
         <div className="orb" style={{ width: 300, height: 300, background: 'radial-gradient(circle, rgba(253,224,71,0.08) 0%, transparent 70%)', bottom: '-50px', right: '-50px' }} />
 
+        {/* ── Islamic Arch RIGHT ── */}
+        <svg style={{ position: 'absolute', right: 0, top: 0, height: '100%', width: 'auto', opacity: 0.13, pointerEvents: 'none' }} viewBox="0 0 320 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Main pointed arch */}
+          <path d="M320 600 L320 280 Q320 60 180 20 Q40 60 40 280 L40 600" stroke="#FDE047" strokeWidth="2" fill="none"/>
+          {/* Inner arch */}
+          <path d="M300 600 L300 285 Q300 90 180 55 Q60 90 60 285 L60 600" stroke="#FDE047" strokeWidth="1" fill="none" strokeDasharray="6 4"/>
+          {/* Keystone decoration */}
+          <path d="M155 20 L180 5 L205 20 L205 50 L180 60 L155 50 Z" stroke="#FDE047" strokeWidth="1.5" fill="rgba(253,224,71,0.08)"/>
+          {/* Arch spandrel geometric - 8pt star */}
+          <g transform="translate(85,130)">
+            <path d="M0,-22 L5.7,-5.7 L22,0 L5.7,5.7 L0,22 L-5.7,5.7 L-22,0 L-5.7,-5.7 Z" stroke="#FDE047" strokeWidth="1" fill="none"/>
+            <path d="M0,-14 L3.5,-3.5 L14,0 L3.5,3.5 L0,14 L-3.5,3.5 L-14,0 L-3.5,-3.5 Z" stroke="#FDE047" strokeWidth="0.8" fill="rgba(253,224,71,0.06)"/>
+          </g>
+          <g transform="translate(275,130)">
+            <path d="M0,-22 L5.7,-5.7 L22,0 L5.7,5.7 L0,22 L-5.7,5.7 L-22,0 L-5.7,-5.7 Z" stroke="#FDE047" strokeWidth="1" fill="none"/>
+          </g>
+          {/* Column capitals */}
+          <rect x="28" y="275" width="24" height="8" rx="2" stroke="#FDE047" strokeWidth="1" fill="rgba(253,224,71,0.06)"/>
+          <rect x="268" y="275" width="24" height="8" rx="2" stroke="#FDE047" strokeWidth="1" fill="rgba(253,224,71,0.06)"/>
+          {/* Column shafts */}
+          <rect x="33" y="283" width="14" height="300" stroke="#FDE047" strokeWidth="0.8" fill="none" strokeDasharray="4 8"/>
+          <rect x="273" y="283" width="14" height="300" stroke="#FDE047" strokeWidth="0.8" fill="none" strokeDasharray="4 8"/>
+          {/* Lattice pattern inside arch */}
+          <line x1="80" y1="200" x2="280" y2="200" stroke="#FDE047" strokeWidth="0.5" opacity="0.4"/>
+          <line x1="80" y1="240" x2="280" y2="240" stroke="#FDE047" strokeWidth="0.5" opacity="0.4"/>
+          <line x1="80" y1="280" x2="280" y2="280" stroke="#FDE047" strokeWidth="0.5" opacity="0.4"/>
+          <line x1="140" y1="80" x2="140" y2="280" stroke="#FDE047" strokeWidth="0.5" opacity="0.4"/>
+          <line x1="180" y1="60" x2="180" y2="280" stroke="#FDE047" strokeWidth="0.5" opacity="0.4"/>
+          <line x1="220" y1="80" x2="220" y2="280" stroke="#FDE047" strokeWidth="0.5" opacity="0.4"/>
+          {/* Crescent at top */}
+          <path d="M180,5 A18,18 0 1,0 195,30 A12,12 0 1,1 180,5" stroke="#FDE047" strokeWidth="1.2" fill="rgba(253,224,71,0.06)"/>
+        </svg>
+
+        {/* ── Islamic Arch LEFT (mirrored, smaller) ── */}
+        <svg style={{ position: 'absolute', left: 0, top: 0, height: '100%', width: 'auto', opacity: 0.08, pointerEvents: 'none', transform: 'scaleX(-1)' }} viewBox="0 0 220 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M220 600 L220 290 Q220 80 120 35 Q20 80 20 290 L20 600" stroke="#FDE047" strokeWidth="2" fill="none"/>
+          <path d="M205 600 L205 295 Q205 100 120 60 Q35 100 35 295 L35 600" stroke="#FDE047" strokeWidth="1" fill="none" strokeDasharray="5 4"/>
+          <path d="M105 35 L120 22 L135 35 L135 58 L120 66 L105 58 Z" stroke="#FDE047" strokeWidth="1.5" fill="rgba(253,224,71,0.08)"/>
+          <g transform="translate(120,120)">
+            <path d="M0,-18 L4.7,-4.7 L18,0 L4.7,4.7 L0,18 L-4.7,4.7 L-18,0 L-4.7,-4.7 Z" stroke="#FDE047" strokeWidth="1" fill="none"/>
+          </g>
+          <rect x="10" y="285" width="20" height="7" rx="2" stroke="#FDE047" strokeWidth="0.8" fill="none"/>
+          <rect x="190" y="285" width="20" height="7" rx="2" stroke="#FDE047" strokeWidth="0.8" fill="none"/>
+        </svg>
+
+        {/* ── Geometric Star Pattern — centre background ── */}
+        <svg style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '600px', height: '600px', opacity: 0.04, pointerEvents: 'none' }} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="islamicStar" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              {/* 8-pointed star tile */}
+              <path d="M20,4 L22.4,13.2 L31.3,8 L25.6,16.4 L35,20 L25.6,23.6 L31.3,32 L22.4,26.8 L20,36 L17.6,26.8 L8.7,32 L14.4,23.6 L5,20 L14.4,16.4 L8.7,8 L17.6,13.2 Z" stroke="#FDE047" strokeWidth="0.4" fill="none"/>
+              <circle cx="20" cy="20" r="3" stroke="#FDE047" strokeWidth="0.3" fill="none"/>
+            </pattern>
+          </defs>
+          <rect width="200" height="200" fill="url(#islamicStar)"/>
+        </svg>
+
+        {/* ── Bottom mosque silhouette ── */}
+        <svg style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: '900px', opacity: 0.06, pointerEvents: 'none' }} viewBox="0 0 900 120" fill="#FDE047" xmlns="http://www.w3.org/2000/svg">
+          {/* Main dome */}
+          <ellipse cx="450" cy="60" rx="70" ry="70" fill="#FDE047"/>
+          <rect x="380" y="60" width="140" height="60" fill="#FDE047"/>
+          {/* Small minaret left */}
+          <rect x="310" y="40" width="18" height="80" fill="#FDE047"/>
+          <path d="M310,40 Q319,20 328,40" fill="#FDE047"/>
+          {/* Small minaret right */}
+          <rect x="572" y="40" width="18" height="80" fill="#FDE047"/>
+          <path d="M572,40 Q581,20 590,40" fill="#FDE047"/>
+          {/* Side structures */}
+          <rect x="328" y="65" width="52" height="55" fill="#FDE047"/>
+          <path d="M328,65 Q354,45 380,65" fill="#FDE047"/>
+          <rect x="520" y="65" width="52" height="55" fill="#FDE047"/>
+          <path d="M520,65 Q546,45 572,65" fill="#FDE047"/>
+          {/* Far left minaret */}
+          <rect x="200" y="55" width="12" height="65" fill="#FDE047"/>
+          <path d="M200,55 Q206,38 212,55" fill="#FDE047"/>
+          {/* Far right minaret */}
+          <rect x="688" y="55" width="12" height="65" fill="#FDE047"/>
+          <path d="M688,55 Q694,38 700,55" fill="#FDE047"/>
+          {/* Ground */}
+          <rect x="0" y="118" width="900" height="2" fill="#FDE047"/>
+        </svg>
+
         <div style={{ maxWidth: '860px', margin: '0 auto', position: 'relative', animation: 'fadeInUp 0.8s ease both' }}>
           {/* Brand label */}
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(253,224,71,0.1)', border: '1px solid rgba(253,224,71,0.4)', padding: '0.4rem 1.2rem', borderRadius: '50px', marginBottom: '1.5rem', fontSize: '0.75rem', fontWeight: 800, color: '#FDE047', letterSpacing: '0.12em', textTransform: 'uppercase' }}>

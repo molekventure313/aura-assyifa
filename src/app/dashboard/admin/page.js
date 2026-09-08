@@ -82,12 +82,12 @@ export default function AdminDashboardPage() {
     day: 'numeric'
   });
 
-  const cardBg = isLightMode ? '#FFFFFF' : '#070D20';
-  const subCardBg = isLightMode ? '#F8FAFC' : '#0D1A3A';
-  const cardBorder = isLightMode ? '1px solid #E2E8F0' : '1px solid rgba(253,224,71,0.15)';
+  const cardBg = isLightMode ? '#FFFFFF' : '#10131A';
+  const subCardBg = isLightMode ? '#F8FAFC' : '#090A0F';
+  const cardBorder = isLightMode ? '1px solid #E2E8F0' : '1px solid rgba(255, 255, 255, 0.08)';
   const textPrimary = isLightMode ? '#0F172A' : '#F9FAFB';
-  const textSecondary = isLightMode ? '#475569' : '#BFDBFE';
-  const textMuted = isLightMode ? '#64748B' : '#93C5FD';
+  const textSecondary = isLightMode ? '#475569' : '#9CA3AF';
+  const textMuted = isLightMode ? '#64748B' : '#6B7280';
 
   return (
     <div style={{ fontFamily: 'var(--font-inter), -apple-system, sans-serif', color: textPrimary, padding: '0.25rem 0' }}>
@@ -110,8 +110,8 @@ export default function AdminDashboardPage() {
       >
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.25rem' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#FDE047', display: 'inline-block' }} />
-            <span style={{ fontSize: '0.725rem', fontWeight: 600, color: isLightMode ? '#047857' : '#FDE047', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', display: 'inline-block' }} />
+            <span style={{ fontSize: '0.725rem', fontWeight: 600, color: isLightMode ? '#047857' : '#34D399', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               Aura Assyifa EXECUTIVE CONTROL
             </span>
             <span style={{ fontSize: '0.75rem', color: textMuted, marginLeft: '0.5rem' }}>
@@ -147,8 +147,8 @@ export default function AdminDashboardPage() {
                 border: 'none',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease',
-                background: period === p.id ? (isLightMode ? '#FFFFFF' : '#0D1A3A') : 'transparent',
-                color: period === p.id ? (isLightMode ? '#047857' : '#FDE047') : textSecondary,
+                background: period === p.id ? (isLightMode ? '#FFFFFF' : '#064E3B') : 'transparent',
+                color: period === p.id ? (isLightMode ? '#047857' : '#34D399') : textSecondary,
                 boxShadow: period === p.id && isLightMode ? '0 1px 3px rgba(0,0,0,0.1)' : 'none'
               }}
             >
@@ -160,7 +160,7 @@ export default function AdminDashboardPage() {
 
       {loading ? (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '320px', flexDirection: 'column', gap: '0.75rem' }}>
-          <div className="spinner" style={{ width: '32px', height: '32px', borderColor: 'rgba(253,224,71,0.2)', borderTopColor: '#FDE047' }}></div>
+          <div className="spinner" style={{ width: '32px', height: '32px', borderColor: 'rgba(16,185,129,0.2)', borderTopColor: '#10B981' }}></div>
           <span style={{ color: textSecondary, fontSize: '0.85rem' }}>Memuatkan statistik papan pemuka...</span>
         </div>
       ) : (
@@ -198,8 +198,8 @@ export default function AdminDashboardPage() {
             </div>
 
             {/* New Cases */}
-            <div style={{ background: cardBg, padding: '1.35rem 1.5rem', borderRadius: '8px', border: isLightMode ? '1px solid #A7F3D0' : '1px solid rgba(253,224,71,0.35)', boxShadow: isLightMode ? '0 1px 3px rgba(0,0,0,0.05)' : 'none' }}>
-              <div style={{ fontSize: '0.725rem', fontWeight: 600, color: isLightMode ? '#047857' : '#FDE047', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>
+            <div style={{ background: cardBg, padding: '1.35rem 1.5rem', borderRadius: '8px', border: isLightMode ? '1px solid #A7F3D0' : '1px solid rgba(6, 78, 59, 0.4)', boxShadow: isLightMode ? '0 1px 3px rgba(0,0,0,0.05)' : 'none' }}>
+              <div style={{ fontSize: '0.725rem', fontWeight: 600, color: isLightMode ? '#047857' : '#34D399', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>
                 PERMOHONAN BAHARU
               </div>
               <div style={{ fontSize: '2rem', fontWeight: 700, color: textPrimary, letterSpacing: '-0.03em', lineHeight: 1 }}>
@@ -250,7 +250,7 @@ export default function AdminDashboardPage() {
                   {dashboard.unclaimedCases ?? 0}
                 </span>
               </div>
-              <span style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', borderRadius: '4px', background: isLightMode ? '#ECFDF5' : 'rgba(253,224,71,0.12)', color: isLightMode ? '#047857' : '#FDE047', fontWeight: 600 }}>
+              <span style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', borderRadius: '4px', background: isLightMode ? '#ECFDF5' : 'rgba(16, 185, 129, 0.12)', color: isLightMode ? '#047857' : '#10B981', fontWeight: 600 }}>
                 SELESAI
               </span>
             </div>
@@ -282,7 +282,7 @@ export default function AdminDashboardPage() {
                 <span style={{ fontSize: '0.7rem', textTransform: 'uppercase', color: textSecondary, fontWeight: 600, display: 'block', marginBottom: '0.15rem', letterSpacing: '0.05em' }}>
                   Perawat Aktif
                 </span>
-                <span style={{ fontSize: '1.4rem', fontWeight: 700, color: isLightMode ? '#047857' : '#FDE047' }}>
+                <span style={{ fontSize: '1.4rem', fontWeight: 700, color: isLightMode ? '#047857' : '#34D399' }}>
                   {dashboard.totalPractitioners ?? 0}
                 </span>
               </div>
@@ -307,14 +307,14 @@ export default function AdminDashboardPage() {
                     Agihan tugasan dan kapasiti kes aktif
                   </p>
                 </div>
-                <Link href="/dashboard/admin/perawat" style={{ fontSize: '0.775rem', fontWeight: 600, color: isLightMode ? '#047857' : '#FDE047', textDecoration: 'none' }}>
+                <Link href="/dashboard/admin/perawat" style={{ fontSize: '0.775rem', fontWeight: 600, color: isLightMode ? '#047857' : '#34D399', textDecoration: 'none' }}>
                   Urus Perawat →
                 </Link>
               </div>
 
               {practitioners.length === 0 ? (
                 <div style={{ padding: '2rem 0', textAlign: 'center', color: textMuted, fontSize: '0.85rem' }}>
-                  Tiada perawat berdaftar. <Link href="/dashboard/admin/perawat" style={{ color: isLightMode ? '#047857' : '#FDE047' }}>Tambah perawat</Link>
+                  Tiada perawat berdaftar. <Link href="/dashboard/admin/perawat" style={{ color: isLightMode ? '#047857' : '#34D399' }}>Tambah perawat</Link>
                 </div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -337,7 +337,7 @@ export default function AdminDashboardPage() {
                             style={{ 
                               width: `${pct}%`, 
                               height: '100%', 
-                              background: pct >= 80 ? '#EF4444' : pct >= 50 ? '#F59E0B' : '#4ADE80',
+                              background: pct >= 80 ? '#EF4444' : pct >= 50 ? '#F59E0B' : '#10B981',
                               borderRadius: '2px',
                               transition: 'width 0.3s ease'
                             }} 
@@ -345,8 +345,8 @@ export default function AdminDashboardPage() {
                         </div>
 
                         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.725rem', color: textMuted, marginTop: '0.4rem' }}>
-                          <span>Selesai: <strong style={{ color: isLightMode ? '#047857' : '#4ADE80' }}>{p.completed}</strong></span>
-                          <span>Status: <strong style={{ color: p.is_active ? (isLightMode ? '#047857' : '#FDE047') : '#EF4444' }}>{p.is_active ? 'Aktif' : 'Nyahaktif'}</strong></span>
+                          <span>Selesai: <strong style={{ color: isLightMode ? '#047857' : '#10B981' }}>{p.completed}</strong></span>
+                          <span>Status: <strong style={{ color: p.is_active ? (isLightMode ? '#047857' : '#34D399') : '#EF4444' }}>{p.is_active ? 'Aktif' : 'Nyahaktif'}</strong></span>
                         </div>
                       </div>
                     );
@@ -366,7 +366,7 @@ export default function AdminDashboardPage() {
                     Aliran permohonan pesakit mengikut masa nyata
                   </p>
                 </div>
-                <Link href="/dashboard/admin/kes" style={{ fontSize: '0.775rem', fontWeight: 600, color: isLightMode ? '#047857' : '#FDE047', textDecoration: 'none' }}>
+                <Link href="/dashboard/admin/kes" style={{ fontSize: '0.775rem', fontWeight: 600, color: isLightMode ? '#047857' : '#34D399', textDecoration: 'none' }}>
                   Lihat Semua →
                 </Link>
               </div>
