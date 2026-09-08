@@ -203,7 +203,7 @@ export default function PengisianSihirPage() {
           </div>
 
           <h1 className="hero-h1" style={{ fontSize: 'clamp(1.9rem, 4.5vw, 3rem)', fontWeight: 900, color: '#FEF3C7', lineHeight: 1.18, letterSpacing: '-0.03em', marginBottom: '1.25rem' }}>
-            Menderita Bertahun-Tahun,{' '}
+            Sakit Bertahun-Tahun,{' '}
             <span style={{ color: '#FDE047', textShadow: '0 0 30px rgba(253,224,71,0.3)' }}>Rupanya Asbab Terkena Sihir</span>
           </h1>
 
