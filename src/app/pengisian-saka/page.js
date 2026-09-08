@@ -202,8 +202,8 @@ export default function PengisianSakaPage() {
           </div>
 
           <h1 className="hero-h1" style={{ fontSize: 'clamp(1.9rem, 4.5vw, 3rem)', fontWeight: 900, color: '#FEF3C7', lineHeight: 1.18, letterSpacing: '-0.03em', marginBottom: '1.25rem' }}>
-            Jangan Biarkan Saka Terus Membebankan{' '}
-            <span style={{ color: '#FDE047', textShadow: '0 0 30px rgba(253,224,71,0.3)' }}>Generasi Demi Generasi</span>
+            Bertahun Menanggung Beban Saka,{' '}
+            <span style={{ color: '#FDE047', textShadow: '0 0 30px rgba(253,224,71,0.3)' }}>Jangan Sampai Anak Cucu Menderita</span>
           </h1>
 
           <p style={{ fontSize: '1.05rem', color: '#A7F3D0', lineHeight: 1.75, maxWidth: '640px', margin: '0 auto 1.75rem' }}>
