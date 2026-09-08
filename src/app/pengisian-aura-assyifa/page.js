@@ -364,16 +364,16 @@ export default function PengisianAuraAssyifaPage() {
         <div className="orb" style={{ width: 450, height: 450, background: 'radial-gradient(circle, rgba(229,184,105,0.12) 0%, transparent 70%)', top: '-100px', left: '-100px' }} />
         <div className="orb" style={{ width: 380, height: 380, background: 'radial-gradient(circle, rgba(13,27,74,0.6) 0%, transparent 70%)', bottom: '-50px', right: '-50px' }} />
 
-        <div style={{ maxWidth: '1160px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          {/* Top Islamic Badge */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', background: 'rgba(229,184,105,0.08)', border: '1px solid rgba(229,184,105,0.4)', padding: '0.45rem 1.3rem', borderRadius: '50px', marginBottom: '2rem', fontSize: '0.74rem', fontWeight: 800, color: '#E5B869', letterSpacing: '0.14em', textTransform: 'uppercase', backdropFilter: 'blur(6px)' }}>
-            <IslamicStar size={14} color="#E5B869" />
-            IKHTIAR RAWATAN ISLAM PREMIUM · AURA ASSYIFA
-            <IslamicStar size={14} color="#E5B869" />
-          </div>
-
+        <div style={{ maxWidth: '1160px', margin: '0 auto', position: 'relative', zIndex: 2, textAlign: 'center' }}>
           {/* Centered Hero Content */}
           <div style={{ maxWidth: '880px', margin: '0 auto', textAlign: 'center' }}>
+            {/* Top Islamic Badge - Dead Center */}
+            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem', background: 'rgba(229,184,105,0.08)', border: '1px solid rgba(229,184,105,0.4)', padding: '0.45rem 1.3rem', borderRadius: '50px', marginBottom: '2rem', fontSize: '0.74rem', fontWeight: 800, color: '#E5B869', letterSpacing: '0.14em', textTransform: 'uppercase', backdropFilter: 'blur(6px)' }}>
+              <IslamicStar size={14} color="#E5B869" />
+              IKHTIAR RAWATAN ISLAM PREMIUM · AURA ASSYIFA
+              <IslamicStar size={14} color="#E5B869" />
+            </div>
+
             <h1 className="hero-h1 font-serif-title" style={{ fontSize: 'clamp(2.1rem, 4.8vw, 3.4rem)', fontWeight: 800, color: '#FBF7EE', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '1.4rem' }}>
               Ingatkan Dah Sihat…{' '}
               <span style={{ color: '#E5B869', textShadow: '0 0 35px rgba(229,184,105,0.35)', display: 'inline-block' }}>
