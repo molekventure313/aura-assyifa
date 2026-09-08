@@ -855,20 +855,19 @@ export default function PengisianAuraAssyifaPage() {
         <div style={{ maxWidth: '960px', margin: '0 auto' }} className="anim-section">
           <IslamicDivider label="Jadual Perbandingan" />
           <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#FBF7EE', marginTop: '0.5rem', marginBottom: '0.85rem', lineHeight: 1.3 }}>
-            Pengisian Aura Assyifa vs Air Penawar vs Rawatan Luar
+            Pengisian Aura Assyifa vs Rawatan Luar
           </h2>
           <p style={{ fontSize: '1rem', color: '#EFF6FF', lineHeight: 1.7, maxWidth: '680px', margin: '0 auto 2.5rem', opacity: 0.9 }}>
             Pilihlah kaedah yang memberi anda <strong style={{ color: '#E5B869' }}>perlindungan berpanjangan dan kebebasan merawat diri sendiri</strong>.
           </p>
 
           <div style={{ overflowX: 'auto', borderRadius: '20px', border: '1.5px solid rgba(229,184,105,0.3)', boxShadow: '0 10px 40px rgba(0,0,0,0.45)' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '500px', textAlign: 'left' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '450px', textAlign: 'left' }}>
               <thead>
                 <tr style={{ background: 'rgba(14,26,52,0.85)' }}>
                   <th style={{ padding: '1.2rem 1rem', fontSize: '0.85rem', color: '#E5B869', fontWeight: 800, borderBottom: '2px solid rgba(229,184,105,0.25)' }}>Ciri-Ciri</th>
-                  <th style={{ padding: '1.2rem 0.5rem', textAlign: 'center', fontSize: '0.84rem', fontWeight: 700, color: '#94A3B8', borderBottom: '2px solid rgba(255,255,255,0.08)' }}>Air Penawar</th>
-                  <th style={{ padding: '1.2rem 0.5rem', textAlign: 'center', fontSize: '0.84rem', fontWeight: 700, color: '#94A3B8', borderBottom: '2px solid rgba(255,255,255,0.08)' }}>Rawatan Luar</th>
-                  <th style={{ padding: '1.2rem 0.75rem', textAlign: 'center', fontSize: '0.88rem', fontWeight: 900, color: '#070D20', background: 'linear-gradient(135deg, #E5B869, #D4AF37)', borderBottom: '2px solid #E5B869' }}>
+                  <th style={{ padding: '1.2rem 0.75rem', textAlign: 'center', fontSize: '0.84rem', fontWeight: 700, color: '#94A3B8', borderBottom: '2px solid rgba(255,255,255,0.08)' }}>Rawatan Luar</th>
+                  <th style={{ padding: '1.2rem 1rem', textAlign: 'center', fontSize: '0.88rem', fontWeight: 900, color: '#070D20', background: 'linear-gradient(135deg, #E5B869, #D4AF37)', borderBottom: '2px solid #E5B869' }}>
                     Pengisian Aura Assyifa
                   </th>
                 </tr>
@@ -877,13 +876,10 @@ export default function PengisianAuraAssyifaPage() {
                 {COMPARE_ROWS.map((row, i) => (
                   <tr key={row.label} style={{ background: i % 2 === 0 ? 'rgba(14,26,52,0.3)' : 'transparent' }}>
                     <td style={{ padding: '0.9rem 1rem', fontSize: '0.86rem', color: '#FEF3C7', fontWeight: 600, borderBottom: '1px solid rgba(229,184,105,0.1)' }}>{row.label}</td>
-                    <td style={{ padding: '0.9rem 0.5rem', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                      <span style={{ color: row.air ? '#4ADE80' : '#EF4444', fontSize: '1.05rem', fontWeight: 700 }}>{row.air ? '✓' : '✗'}</span>
-                    </td>
-                    <td style={{ padding: '0.9rem 0.5rem', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                    <td style={{ padding: '0.9rem 0.75rem', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                       <span style={{ color: row.rawatan ? '#4ADE80' : '#EF4444', fontSize: '1.05rem', fontWeight: 700 }}>{row.rawatan ? '✓' : '✗'}</span>
                     </td>
-                    <td style={{ padding: '0.9rem 0.5rem', textAlign: 'center', borderBottom: '1px solid rgba(229,184,105,0.15)', background: 'rgba(229,184,105,0.08)' }}>
+                    <td style={{ padding: '0.9rem 1rem', textAlign: 'center', borderBottom: '1px solid rgba(229,184,105,0.15)', background: 'rgba(229,184,105,0.08)' }}>
                       <span style={{ color: '#E5B869', fontSize: '1.15rem', fontWeight: 900 }}>✓</span>
                     </td>
                   </tr>
