@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import PageViewTracker from '@/components/salespage/PageViewTracker';
+import { IslamicPatternOverlay, IslamicArchSilhouette, MosqueSilhouette } from '@/components/salespage/IslamicThemeBackground';
 
 const WA_NUMBER = '60133892002';
 const WA_MESSAGE = encodeURIComponent(
@@ -188,12 +189,15 @@ export default function PengisianSihirPage() {
   useReveal();
 
   return (
-    <main style={{ minHeight: '100vh', background: '#042E23', fontFamily: "'Inter', -apple-system, sans-serif", color: '#FFF' }}>
+    <main style={{ minHeight: '100vh', background: '#042E23', fontFamily: "'Inter', -apple-system, sans-serif", color: '#FFF', position: 'relative' }}>
       <style>{GLOBAL_CSS}</style>
       <PageViewTracker slug="pengisian-sihir" />
+      <IslamicPatternOverlay opacity={0.055} />
 
       {/* ══════════ HERO ══════════ */}
       <section style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(160deg, #010E09 0%, #021812 50%, #042E23 100%)', padding: '5rem 1rem 4rem', textAlign: 'center' }}>
+        <IslamicArchSilhouette opacity={0.18} />
+        <MosqueSilhouette opacity={0.14} />
         <div className="orb" style={{ width: 400, height: 400, background: 'radial-gradient(circle, rgba(5,150,105,0.18) 0%, transparent 70%)', top: '-100px', left: '-100px' }} />
         <div className="orb" style={{ width: 300, height: 300, background: 'radial-gradient(circle, rgba(253,224,71,0.08) 0%, transparent 70%)', bottom: '-50px', right: '-50px' }} />
 
