@@ -203,8 +203,8 @@ export default function PengisianSihirPage() {
           </div>
 
           <h1 className="hero-h1" style={{ fontSize: 'clamp(1.9rem, 4.5vw, 3rem)', fontWeight: 900, color: '#FEF3C7', lineHeight: 1.18, letterSpacing: '-0.03em', marginBottom: '1.25rem' }}>
-            Ramai Yang Menderita Akibat Sihir Tidak Sedar Bahawa{' '}
-            <span style={{ color: '#FDE047', textShadow: '0 0 30px rgba(253,224,71,0.3)' }}>Mereka Sedang Ditimpa Bala</span>
+            Menderita Bertahun-Tahun,{' '}
+            <span style={{ color: '#FDE047', textShadow: '0 0 30px rgba(253,224,71,0.3)' }}>Rupanya Asbab Terkena Sihir</span>
           </h1>
 
           <p style={{ fontSize: '1.05rem', color: '#FCA5A5', lineHeight: 1.75, maxWidth: '640px', margin: '0 auto 1.75rem' }}>
