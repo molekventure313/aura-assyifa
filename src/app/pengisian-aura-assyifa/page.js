@@ -372,92 +372,41 @@ export default function PengisianAuraAssyifaPage() {
             <IslamicStar size={14} color="#E5B869" />
           </div>
 
-          {/* 2-Column Split Grid Inspired by Architectural Reference */}
-          <div className="hero-split-grid" style={{ display: 'grid', gridTemplateColumns: '1.15fr 0.85fr', gap: '3rem', alignItems: 'center', textAlign: 'left' }}>
-            {/* Left Column: Headings & CTA */}
-            <div>
-              <h1 className="hero-h1 font-serif-title" style={{ fontSize: 'clamp(2rem, 4.2vw, 3.2rem)', fontWeight: 800, color: '#FBF7EE', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '1.25rem' }}>
-                Ingatkan Dah Sihat…{' '}
-                <span style={{ color: '#E5B869', textShadow: '0 0 35px rgba(229,184,105,0.35)', display: 'inline-block' }}>
-                  Tapi Gangguan Datang Balik?
-                </span>
-              </h1>
+          {/* Centered Hero Content */}
+          <div style={{ maxWidth: '880px', margin: '0 auto', textAlign: 'center' }}>
+            <h1 className="hero-h1 font-serif-title" style={{ fontSize: 'clamp(2.1rem, 4.8vw, 3.4rem)', fontWeight: 800, color: '#FBF7EE', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '1.4rem' }}>
+              Ingatkan Dah Sihat…{' '}
+              <span style={{ color: '#E5B869', textShadow: '0 0 35px rgba(229,184,105,0.35)', display: 'inline-block' }}>
+                Tapi Gangguan Datang Balik?
+              </span>
+            </h1>
 
-              <p style={{ fontSize: '1.05rem', color: '#BFDBFE', lineHeight: 1.8, marginBottom: '1.75rem', maxWidth: '580px' }}>
-                Pengisian doa, ayat-ayat syifa, zikir dan ruqyah syar&apos;iyyah pada barangan peribadi anda — disertai panduan lengkap, bimbingan berterusan dan pelarasan mingguan percuma.
-              </p>
+            <p style={{ fontSize: '1.08rem', color: '#BFDBFE', lineHeight: 1.8, marginBottom: '2.2rem', maxWidth: '680px', margin: '0 auto 2.2rem' }}>
+              Pengisian doa, ayat-ayat syifa, zikir dan ruqyah syar&apos;iyyah pada barangan peribadi anda — disertai panduan lengkap, bimbingan berterusan dan pelarasan mingguan percuma.
+            </p>
 
-              {/* Dual CTA Buttons */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center', marginBottom: '2.5rem' }}>
-                <a href="#borang" className="cta-btn-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', padding: '1.05rem 2.2rem', fontSize: '1rem' }}>
-                  <IslamicStar size={16} color="#070D20" />
-                  Tempah Sekarang
-                </a>
-                <WAButton id="cta-hero-wa" label="WhatsApp Kami" outline={true} size="medium" />
-              </div>
-
-              {/* Islamic Trust Badges (4 Features with Octagram Icons) */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.85rem' }}>
-                {[
-                  { text: 'Bimbingan Disediakan' },
-                  { text: '100% Patuh Syariah' },
-                  { text: 'Pelarasan Mingguan Percuma' },
-                  { text: 'Sokongan Sepanjang Hayat' },
-                ].map((item, idx) => (
-                  <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
-                    <IslamicStar size={14} color="#E5B869" />
-                    <span style={{ fontSize: '0.85rem', color: '#E2E8F0', fontWeight: 600 }}>{item.text}</span>
-                  </div>
-                ))}
-              </div>
+            {/* Dual CTA Buttons */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center', justifyContent: 'center', marginBottom: '2.5rem' }}>
+              <a href="#borang" className="cta-btn-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', padding: '1.05rem 2.4rem', fontSize: '1rem' }}>
+                <IslamicStar size={16} color="#070D20" />
+                Tempah Sekarang
+              </a>
+              <WAButton id="cta-hero-wa" label="WhatsApp Kami" outline={true} size="medium" />
             </div>
 
-            {/* Right Column: Architectural Arched Card */}
-            <div>
-              <div
-                className="islamic-arch-box islamic-border-glow"
-                style={{
-                  background: 'linear-gradient(170deg, rgba(14, 26, 52, 0.85) 0%, rgba(7, 13, 32, 0.95) 100%)',
-                  backdropFilter: 'blur(16px)',
-                  padding: '2.5rem 2rem 2.25rem',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                {/* Decorative Arch Peak SVG */}
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '60px', display: 'flex', justifyContent: 'center', pointerEvents: 'none' }}>
-                  <svg width="180" height="40" viewBox="0 0 180 40" fill="none">
-                    <path d="M0 40 C60 40 75 8 90 0 C105 8 120 40 180 40" stroke="rgba(229,184,105,0.4)" strokeWidth="1.5" fill="none" />
-                  </svg>
+            {/* Islamic Trust Badges */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.85rem', maxWidth: '780px', margin: '0 auto' }}>
+              {[
+                { text: 'Bimbingan Disediakan' },
+                { text: '100% Patuh Syariah' },
+                { text: 'Pelarasan Mingguan Percuma' },
+                { text: 'Sokongan Sepanjang Hayat' },
+              ].map((item, idx) => (
+                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', background: 'rgba(229,184,105,0.06)', border: '1px solid rgba(229,184,105,0.25)', padding: '0.45rem 1.1rem', borderRadius: '50px' }}>
+                  <IslamicStar size={14} color="#E5B869" />
+                  <span style={{ fontSize: '0.84rem', color: '#E2E8F0', fontWeight: 600 }}>{item.text}</span>
                 </div>
-
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem', marginTop: '0.5rem' }}>
-                  <IslamicStar size={18} color="#E5B869" />
-                  <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#E5B869', textTransform: 'uppercase', letterSpacing: '0.12em' }}>Konsep Ikhtiar Syar&apos;i</span>
-                </div>
-
-                <h3 className="font-serif-title" style={{ fontSize: '1.45rem', fontWeight: 700, color: '#FBF7EE', lineHeight: 1.35, marginBottom: '1rem' }}>
-                  Mengapa Ramai Memilih Aura Assyifa?
-                </h3>
-
-                <p style={{ fontSize: '0.92rem', color: '#BFDBFE', lineHeight: 1.75, marginBottom: '1.25rem' }}>
-                  Ramai individu mendapatkan rawatan apabila mengalami gangguan sihir, santau, dan saka. Ada yang mendapatkan rawatan berulang kali kerana gangguan berlaku semula — berhabis banyak tenaga, masa dan wang ringgit.
-                </p>
-
-                <p style={{ fontSize: '0.92rem', color: '#EFF6FF', lineHeight: 1.75, margin: 0, borderLeft: '3px solid #E5B869', paddingLeft: '1rem' }}>
-                  <strong style={{ color: '#E5B869' }}>Aura Assyifa</strong> diperkenalkan sebagai satu ikhtiar berterusan di mana ayat-ayat ruqyah dipasakkan pada barangan peribadi anda, membolehkan anda merawat diri sendiri bila-bila masa diserang, tanpa henti.
-                </p>
-
-                {/* Seal of Authenticity badge */}
-                <div style={{ marginTop: '1.5rem', paddingTop: '1.25rem', borderTop: '1px solid rgba(229,184,105,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <div style={{ fontSize: '0.75rem', color: '#E5B869', fontWeight: 700 }}>
-                    100% BEBAS SYIRIK &amp; KHURAFAT
-                  </div>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'rgba(229,184,105,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(229,184,105,0.4)' }}>
-                    <IslamicStar size={14} color="#E5B869" />
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
