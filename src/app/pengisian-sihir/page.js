@@ -268,12 +268,12 @@ const LAYERS = [
 const DALIL = [
   {
     arabic: 'وَنُنَزِّلُ مِنَ ٱلْقُرْءَانِ مَا هُوَ شِفَآءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ',
-    trans: '"Dan Kami turunkan dari Al-Quran sesuatu yang menjadi penawar dan rahmat bagi orang-orang yang beriman."',
+    trans: '"Dan Kami turunkan dari Al-Quran suatu yang menjadi penawar dan rahmat bagi orang-orang yang beriman."',
     ref: "Surah Al-Isra' (17:82)",
   },
   {
     arabic: 'وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ',
-    trans: '"Dan apabila aku sakit, Dialah (Allah) yang menyembuhkanku."',
+    trans: '"Dan apabila aku sakit, Dialah (Allah) yang menyembuhkan aku."',
     ref: "Surah Ash-Shu'ara (26:80)",
   },
 ];
@@ -544,19 +544,23 @@ export default function PengisianSihirPage() {
       </section>
 
       {/* ══════════ DALIL & ASAS RUQYAH ══════════ */}
-      <section style={{ background: '#050B1A', padding: '4.5rem 1rem', textAlign: 'center', position: 'relative' }}>
+      <section style={{ background: '#070D20', padding: '4.5rem 1rem', textAlign: 'center', position: 'relative' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }} className="anim-section">
+          {/* Bismillah Calligraphy Header */}
           <div className="font-arabic" style={{ fontSize: '1.8rem', color: '#E5B869', marginBottom: '0.5rem', letterSpacing: '0.02em', textShadow: '0 0 20px rgba(229,184,105,0.3)' }}>
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </div>
+
           <IslamicDivider label="Dalil &amp; Asas Syarak" />
+
           <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#FBF7EE', marginTop: '0.5rem', marginBottom: '0.85rem', lineHeight: 1.3 }}>
-            Rawatan Sihir Melalui Al-Quran — Perintah &amp; Janji Allah
+            Amalan Ruqyah Yang Berlandaskan Al-Quran &amp; Sunnah
           </h2>
           <p style={{ fontSize: '1rem', color: '#EFF6FF', lineHeight: 1.7, maxWidth: '720px', margin: '0 auto 2.5rem', opacity: 0.9 }}>
-            Allah SWT telah menegaskan bahawa kalam-Nya adalah penawar bagi segala penyakit batin dan zahir.
+            Konsep pengisian ayat-ayat suci pada barangan adalah qias kepada bacaan ruqyah pada air, minyak atau kain yang telah sabit dalam amalan para ulama muktabar.
           </p>
 
+          {/* Ayat Al-Quran in Illuminated Mosque Tile Cards */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.4rem', marginBottom: '1.8rem' }}>
             {DALIL.map((v, i) => (
               <div
@@ -584,11 +588,22 @@ export default function PengisianSihirPage() {
             ))}
           </div>
 
-          <div className="anim-card islamic-border-glow" style={{ background: 'rgba(229,184,105,0.06)', borderRadius: '16px', padding: '1.5rem 1.8rem' }}>
+          {/* Hadith Box */}
+          <div className="anim-card islamic-border-glow" style={{ background: 'rgba(229,184,105,0.06)', borderRadius: '16px', padding: '1.5rem 1.8rem', marginBottom: '1.6rem' }}>
             <p className="font-serif-title" style={{ margin: '0 0 0.4rem', fontSize: '1.05rem', color: '#FBF7EE', fontStyle: 'italic', lineHeight: 1.75 }}>
-              &quot;Gunakanlah ruqyah (bacaan doa perlindungan) selama ia tidak mengandungi syirik.&quot;
+              &quot;Perlihatkanlah ruqyah-ruqyahmu kepadaku. Tidak mengapa melakukan ruqyah selama tidak mengandungi syirik.&quot;
             </p>
-            <span style={{ fontSize: '0.82rem', color: '#E5B869', fontWeight: 700 }}>Hadith Riwayat Muslim</span>
+            <span style={{ fontSize: '0.82rem', color: '#E5B869', fontWeight: 700 }}>Hadith Riwayat Muslim (No. 2200)</span>
+          </div>
+
+          {/* Qias Clarification Card */}
+          <div style={{ background: 'rgba(14,26,52,0.6)', border: '1px solid rgba(229,184,105,0.25)', borderRadius: '16px', padding: '1.4rem 1.8rem', textAlign: 'left', display: 'flex', gap: '1.1rem', alignItems: 'flex-start' }}>
+            <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'rgba(229,184,105,0.12)', border: '1px solid rgba(229,184,105,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <IslamicStar size={18} color="#E5B869" />
+            </div>
+            <p style={{ margin: 0, fontSize: '0.9rem', color: '#EFF6FF', lineHeight: 1.75 }}>
+              <strong style={{ color: '#E5B869' }}>Konsep Pengisian Aura Assyifa</strong> adalah qias kepada amalan membaca doa syifa pada air penawar. Kelebihannya — air akan habis diminum, manakala barangan yang dipasakkan bacaan ruqyah kekal selagi dijaga dengan baik, disokong oleh pelarasan mingguan secara percuma dari perawat kami.
+            </p>
           </div>
         </div>
       </section>
