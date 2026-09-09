@@ -58,6 +58,7 @@ export async function middleware(request) {
     request.nextUrl.pathname.startsWith('/payment-success') ||
     request.nextUrl.pathname.startsWith('/tasbih-esyifa') ||
     request.nextUrl.pathname.startsWith('/tasbih-v2') ||
+    request.nextUrl.pathname.startsWith('/pengisian-') ||
     request.nextUrl.pathname.startsWith('/api/submissions') ||
     request.nextUrl.pathname.startsWith('/api/payments') ||
     request.nextUrl.pathname.startsWith('/api/tracking') ||
