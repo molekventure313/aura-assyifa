@@ -9,7 +9,7 @@ const WA_MESSAGE = encodeURIComponent(
 );
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`;
 
-/* ─── CSS & Keyframes with Islamic Aesthetic ─── */
+/* ─── CSS & Keyframes with Islamic Royal Navy & Gold Aesthetic ─── */
 const GLOBAL_CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&display=swap');
 
@@ -23,35 +23,22 @@ const GLOBAL_CSS = `
     --navy-surface: #0E1A34;
   }
 
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes shimmer {
-    0%   { background-position: -200% center; }
-    100% { background-position: 200% center; }
-  }
+  @keyframes fadeInUp { from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)} }
+  @keyframes shimmer { 0%{background-position:-200% center}100%{background-position:200% center} }
   @keyframes pulseGlow {
-    0%,100% { box-shadow: 0 0 25px rgba(229,184,105,0.25), 0 10px 40px rgba(0,0,0,0.5); }
-    50%     { box-shadow: 0 0 50px rgba(229,184,105,0.55), 0 10px 40px rgba(0,0,0,0.5); }
+    0%,100%{box-shadow:0 0 25px rgba(229,184,105,0.25),0 10px 40px rgba(0,0,0,0.5)}
+    50%{box-shadow:0 0 50px rgba(229,184,105,0.55),0 10px 40px rgba(0,0,0,0.5)}
   }
 
-  .font-serif-title {
-    font-family: 'Playfair Display', Georgia, serif;
-  }
-  .font-arabic {
-    font-family: 'Amiri', serif;
-  }
+  .font-serif-title { font-family: 'Playfair Display', Georgia, serif; }
+  .font-arabic { font-family: 'Amiri', serif; }
 
   .anim-card {
     opacity: 0;
     transform: translateY(22px);
     transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.25s ease;
   }
-  .anim-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .anim-card.visible { opacity: 1; transform: translateY(0); }
   .anim-card:hover {
     transform: translateY(-4px) !important;
     box-shadow: 0 20px 40px rgba(0,0,0,0.45), 0 0 25px rgba(229,184,105,0.15) !important;
@@ -61,10 +48,7 @@ const GLOBAL_CSS = `
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  .anim-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .anim-section.visible { opacity: 1; transform: translateY(0); }
 
   .cta-btn-gold {
     position: relative;
@@ -109,46 +93,23 @@ const GLOBAL_CSS = `
     border-color: #FDE047;
   }
 
-  .islamic-arch-box {
-    border-radius: 40px 40px 20px 20px;
-    position: relative;
-  }
-
+  .islamic-arch-box { border-radius: 40px 40px 20px 20px; position: relative; }
   .islamic-border-glow {
     border: 1.5px solid rgba(229,184,105,0.35);
     box-shadow: 0 10px 35px rgba(0,0,0,0.45), inset 0 0 20px rgba(229,184,105,0.03);
   }
-
   .islamic-pattern-bg {
     background-image: radial-gradient(rgba(229,184,105,0.06) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
-  .testi-img {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .testi-img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.3) !important;
-  }
+  .testi-img { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .testi-img:hover { transform: scale(1.02); box-shadow: 0 16px 40px rgba(0,0,0,0.3) !important; }
 
-  .check-row-islamic {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
+  .check-row-islamic { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
 
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
-  }
-
-  @media (max-width: 640px) {
-    .hero-h1 { font-size: 1.85rem !important; }
-  }
+  @media(max-width:640px){ .hero-h1{font-size:1.85rem !important} }
 `;
 
 function useReveal() {
@@ -260,7 +221,7 @@ function WAButton({ label = 'Hubungi Kami Sekarang', size = 'large', id = 'cta',
   );
 }
 
-/* ─── DATA KHUSUS SIHIR ─── */
+/* ─── DATA (KHUSUS SIHIR) ─── */
 const SIGNS_CHECKLIST = [
   'Tidur selalu terganggu, terkejut atau dihantui mimpi buruk',
   'Selalu sakit selepas Asar terutama di bahagian belakang badan',
@@ -299,9 +260,9 @@ const GOALS = [
 
 const LAYERS = [
   { num: 'I', accent: '#EF4444', title: 'Ayat Ruqyah Pembakar & Pemusnah Jin Sihir', desc: 'Membakar dan memusnahkan jin yang dihantar melalui sihir. Bertindak balas secara aktif apabila ada entiti yang cuba mendekat atau mengganggu.' },
-  { num: 'II', accent: '#E5B869', title: 'Ayat Khusus Pembatal Ikatan Sihir', desc: 'Memutuskan dan membatalkan setiap ikatan, simpulan dan amalan sihir yang pernah dihantar atau sedang aktif — dari punca asalnya.' },
-  { num: 'III', accent: '#4ADE80', title: 'Ayat Benteng Anti-Sihir Syariah', desc: 'Membina dinding perlindungan kuat di sekeliling barang dan pemiliknya. Sihir baru yang cuba masuk akan dihalang dan dipukul balik.' },
-  { num: 'IV', accent: '#93C5FD', title: 'Ayat-Ayat Kesembuhan & Pemulihan Ruhani', desc: 'Memulihkan kesan-kesan sihir yang masih tinggal dalam badan dan jiwa — membantu proses penyembuhan spiritual dan fizikal secara berterusan.' },
+  { num: 'II', accent: '#E5B869', title: 'Ayat Khusus Pembatal Sihir', desc: 'Memutuskan dan membatalkan setiap ikatan, simpulan dan amalan sihir yang pernah dihantar atau sedang aktif — dari punca asalnya.' },
+  { num: 'III', accent: '#4ADE80', title: 'Ayat Benteng Anti-Sihir', desc: 'Membina dinding perlindungan kuat di sekeliling barang dan pemiliknya. Sihir baru yang cuba masuk akan dihalang dan dipukul balik.' },
+  { num: 'IV', accent: '#93C5FD', title: 'Ayat-Ayat Kesembuhan & Pemulihan', desc: 'Memulihkan kesan-kesan sihir yang masih tinggal dalam badan dan jiwa — membantu proses penyembuhan spiritual dan fizikal secara berterusan.' },
 ];
 
 const DALIL = [
@@ -328,7 +289,7 @@ const COMPARE_ROWS = [
   { label: 'Bantu seluruh keluarga', rawatan: false, pengisian: true },
 ];
 
-/* Testimoni Hadi 1 - 4 (Sama 100% dengan pengisian-aura-assyifa) */
+/* ─── TESTIMONI 1: Testimoni Hadi 1-4 (IKUT PENGISIAN-AURA-ASSYIFA) ─── */
 const TESTI1 = [
   '/images/testimonials/testimoni_hadi_1.jpeg',
   '/images/testimonials/testimoni_hadi_2.jpg',
@@ -336,6 +297,7 @@ const TESTI1 = [
   '/images/testimonials/testimoni_hadi_4.jpg',
 ];
 
+/* ─── TESTIMONI 2: KEKALKAN 3 GAMBAR ASAL ─── */
 const TESTI2 = [
   '/images/testimonials/testimoni_pengisian_5.png',
   '/images/testimonials/testimoni_pengisian_6.png',
@@ -351,77 +313,73 @@ export default function PengisianSihirPage() {
       <PageViewTracker slug="pengisian-sihir" />
 
       {/* ══════════ HERO SECTION ══════════ */}
-      <section style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(175deg, #050B1A 0%, #070D20 50%, #0B1528 100%)', padding: '4.5rem 1.25rem 5rem' }}>
+      <section style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(175deg, #050B1A 0%, #070D20 50%, #0B1528 100%)', padding: '5rem 1.25rem 4.5rem', textAlign: 'center' }}>
         <MihrabArchBackdrop />
         <div className="orb" style={{ width: 450, height: 450, background: 'radial-gradient(circle, rgba(229,184,105,0.12) 0%, transparent 70%)', top: '-100px', left: '-100px' }} />
         <div className="orb" style={{ width: 380, height: 380, background: 'radial-gradient(circle, rgba(13,27,74,0.6) 0%, transparent 70%)', bottom: '-50px', right: '-50px' }} />
 
-        <div style={{ maxWidth: '1160px', margin: '0 auto', position: 'relative', zIndex: 2, textAlign: 'center' }}>
-          {/* Centered Hero Content */}
-          <div style={{ maxWidth: '880px', margin: '0 auto', textAlign: 'center' }}>
-            {/* Top Islamic Badge - Dead Center */}
-            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem', background: 'rgba(229,184,105,0.08)', border: '1px solid rgba(229,184,105,0.4)', padding: '0.45rem 1.3rem', borderRadius: '50px', marginBottom: '2rem', fontSize: '0.74rem', fontWeight: 800, color: '#E5B869', letterSpacing: '0.14em', textTransform: 'uppercase', backdropFilter: 'blur(6px)' }}>
+        <div style={{ maxWidth: '880px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          {/* Top Islamic Badge - Dead Center */}
+          <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem', background: 'rgba(229,184,105,0.08)', border: '1px solid rgba(229,184,105,0.4)', padding: '0.45rem 1.3rem', borderRadius: '50px', marginBottom: '2rem', fontSize: '0.74rem', fontWeight: 800, color: '#E5B869', letterSpacing: '0.14em', textTransform: 'uppercase', backdropFilter: 'blur(6px)' }}>
+            <IslamicStar size={14} color="#E5B869" />
+            IKHTIAR RAWATAN ISLAM · PENGISIAN PEMUSNAH SIHIR
+            <IslamicStar size={14} color="#E5B869" />
+          </div>
+
+          <h1 className="hero-h1 font-serif-title" style={{ fontSize: 'clamp(2.1rem, 4.8vw, 3.4rem)', fontWeight: 800, color: '#FBF7EE', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '1.4rem' }}>
+            Sakit Bertahun-Tahun,{' '}
+            <span style={{ color: '#E5B869', textShadow: '0 0 35px rgba(229,184,105,0.35)', display: 'inline-block' }}>
+              Rupanya Asbab Terkena Sihir
+            </span>
+          </h1>
+
+          <p style={{ fontSize: '1.08rem', color: '#BFDBFE', lineHeight: 1.8, maxWidth: '660px', margin: '0 auto 1.8rem' }}>
+            Sihir boleh hadir dalam pelbagai bentuk — memusnahkan kesihatan fizikal, emosi, rumahtangga dan rezeki anda.{' '}
+            <strong style={{ color: '#FBF7EE' }}>Dan ia tidak akan berhenti sendiri tanpa ikhtiar yang tepat.</strong>
+          </p>
+
+          {/* Checklist glassmorphism box with Islamic Styling */}
+          <div className="islamic-border-glow" style={{ backdropFilter: 'blur(12px)', background: 'linear-gradient(160deg, rgba(14,26,52,0.85) 0%, rgba(7,13,32,0.95) 100%)', borderRadius: '20px', padding: '1.8rem 2rem', maxWidth: '640px', margin: '0 auto 2.2rem', textAlign: 'left' }}>
+            <div style={{ fontSize: '0.74rem', fontWeight: 800, color: '#E5B869', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <IslamicStar size={14} color="#E5B869" />
-              IKHTIAR RAWATAN ISLAM PREMIUM · PENGISIAN PEMUSNAH SIHIR
-              <IslamicStar size={14} color="#E5B869" />
+              Tanda-Tanda Gangguan Sihir Pada Diri
             </div>
-
-            <h1 className="hero-h1 font-serif-title" style={{ fontSize: 'clamp(2.1rem, 4.8vw, 3.4rem)', fontWeight: 800, color: '#FBF7EE', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '1.4rem' }}>
-              Sakit Bertahun-Tahun,{' '}
-              <span style={{ color: '#E5B869', textShadow: '0 0 35px rgba(229,184,105,0.35)', display: 'inline-block' }}>
-                Rupanya Asbab Terkena Sihir
-              </span>
-            </h1>
-
-            <p style={{ fontSize: '1.08rem', color: '#BFDBFE', lineHeight: 1.8, marginBottom: '2.2rem', maxWidth: '680px', margin: '0 auto 2.2rem' }}>
-              Sihir boleh hadir dalam pelbagai bentuk — memusnahkan kesihatan fizikal, emosi, rumahtangga dan rezeki anda. Ikhtiar pemusnah sihir jarak jauh dengan 4 lapisan ayat ruqyah syar&apos;iyyah.
-            </p>
-
-            {/* Checklist glassmorphism box */}
-            <div className="islamic-border-glow" style={{ background: 'rgba(14,26,52,0.7)', borderRadius: '20px', padding: '1.6rem 2rem', maxWidth: '640px', margin: '0 auto 2.2rem', textAlign: 'left' }}>
-              <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#E5B869', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '0.9rem' }}>
-                Tanda-Tanda Serangan Sihir Yang Kerap Berlaku
-              </div>
-              {SIGNS_CHECKLIST.map((s, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', marginBottom: '0.55rem' }}>
-                  <IslamicStar size={16} color="#E5B869" />
-                  <span style={{ fontSize: '0.88rem', color: '#EFF6FF', lineHeight: 1.55 }}>{s}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Dual CTA Buttons */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center', justifyContent: 'center', marginBottom: '2.5rem' }}>
-              <a href="#borang" className="cta-btn-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', padding: '1.05rem 2.4rem', fontSize: '1rem' }}>
-                <IslamicStar size={16} color="#070D20" />
-                Tempah Sekarang
-              </a>
-              <WAButton id="cta-hero-wa" label="WhatsApp Kami" outline={true} size="medium" />
-            </div>
-
-            {/* Islamic Trust Badges */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.85rem', maxWidth: '780px', margin: '0 auto' }}>
-              {[
-                { text: 'Jarak Jauh — Tanpa Pos' },
-                { text: '100% Patuh Syariah' },
-                { text: 'Pelarasan Mingguan Percuma' },
-                { text: 'Siap Dalam 7 Hari' },
-              ].map((item, idx) => (
-                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', background: 'rgba(229,184,105,0.06)', border: '1px solid rgba(229,184,105,0.25)', padding: '0.45rem 1.1rem', borderRadius: '50px' }}>
+            {SIGNS_CHECKLIST.map((s, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.65rem' }}>
+                <span style={{ marginTop: '2px' }}>
                   <IslamicStar size={14} color="#E5B869" />
-                  <span style={{ fontSize: '0.84rem', color: '#E2E8F0', fontWeight: 600 }}>{item.text}</span>
-                </div>
-              ))}
-            </div>
+                </span>
+                <span style={{ fontSize: '0.9rem', color: '#EFF6FF', lineHeight: 1.55 }}>{s}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Dual CTA Buttons */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center', justifyContent: 'center', marginBottom: '2.5rem' }}>
+            <a href="#borang" className="cta-btn-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', padding: '1.05rem 2.4rem', fontSize: '1rem' }}>
+              <IslamicStar size={16} color="#070D20" />
+              Tempah Sekarang
+            </a>
+            <WAButton id="cta-hero" label="WhatsApp Kami" outline={true} size="medium" />
+          </div>
+
+          {/* Trust Badges */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.85rem', maxWidth: '780px', margin: '0 auto' }}>
+            {['Jarak Jauh — Tanpa Pos', '100% Patuh Syariah', 'Pelarasan Mingguan Percuma', 'Siap Dalam 7 Hari'].map(t => (
+              <div key={t} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', background: 'rgba(229,184,105,0.06)', border: '1px solid rgba(229,184,105,0.25)', padding: '0.45rem 1.1rem', borderRadius: '50px' }}>
+                <IslamicStar size={14} color="#E5B869" />
+                <span style={{ fontSize: '0.84rem', color: '#E2E8F0', fontWeight: 600 }}>{t}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ══════════ TESTIMONI 1 (HADI 1-4) ══════════ */}
+      {/* ══════════ TESTIMONI 1 (TESTIMONI HADI 1-4) ══════════ */}
       <section style={{ background: '#050B1A', color: '#FFF', padding: '4.5rem 1rem', textAlign: 'center', position: 'relative' }}>
         <div style={{ maxWidth: '1040px', margin: '0 auto' }} className="anim-section">
           <IslamicDivider label="Testimoni Pesakit — Bahagian 1" />
-          <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#FBF7EE', marginTop: '0.5rem', marginBottom: '0.6rem', letterSpacing: '-0.01em', lineHeight: 1.3 }}>
+          <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#FBF7EE', marginTop: '0.5rem', marginBottom: '0.6rem', lineHeight: 1.3 }}>
             Apa Kata Mereka Yang Telah Ikhtiar Bersama Aura Assyifa?
           </h2>
           <p style={{ fontSize: '1rem', color: '#BFDBFE', marginBottom: '2.5rem', lineHeight: 1.6 }}>
@@ -480,37 +438,51 @@ export default function PengisianSihirPage() {
         </div>
       </section>
 
-      {/* ══════════ SIMPTOM / MASALAH ══════════ */}
-      <section style={{ background: 'linear-gradient(180deg, #070D20 0%, #0B1528 100%)', padding: '4.5rem 1rem', textAlign: 'center' }}>
+      {/* ══════════ SIMPTOM / MASALAH SIHIR ══════════ */}
+      <section style={{ background: 'linear-gradient(180deg, #070D20 0%, #0B1528 100%)', padding: '4.5rem 1rem', textAlign: 'center', position: 'relative' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }} className="anim-section">
-          <IslamicDivider label="Peringatan Penting" />
-          <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#E5B869', marginTop: '0.5rem', marginBottom: '0.75rem', lineHeight: 1.3, textShadow: '0 0 25px rgba(229,184,105,0.25)' }}>
-            Jika Gangguan Berulang Ini Tidak Diselesaikan Segera...
+          <IslamicDivider label="Kenali Tanda Gangguan" />
+          <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#FBF7EE', marginTop: '0.5rem', marginBottom: '0.85rem', lineHeight: 1.3 }}>
+            Adakah Anda Mengalami Tanda-Tanda Gangguan Sihir Ini?
           </h2>
-          <p style={{ fontSize: '1rem', color: '#BFDBFE', lineHeight: 1.65, maxWidth: '680px', margin: '0 auto 2.5rem', opacity: 0.9 }}>
-            Sihir yang tidak dimusnahkan hingga ke akar akan terus bertapak dan membesar.{' '}
-            <strong style={{ color: '#E5B869' }}>Jika anda mengalami perkara di bawah</strong> — segera mulakan ikhtiar pemutus sihir.
+          <p style={{ fontSize: '1rem', color: '#EFF6FF', lineHeight: 1.7, maxWidth: '680px', margin: '0 auto 2.8rem', opacity: 0.9 }}>
+            Sihir sering bergerak secara halus. <strong style={{ color: '#E5B869' }}>Jika anda mengalami lebih daripada 3 tanda di bawah</strong> — jangan tangguh lagi, ikhtiar segera sebelum ikatan semakin kuat.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.3rem', textAlign: 'left' }}>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.4rem', textAlign: 'left' }}>
             {SYMPTOMS.map((s, i) => (
               <div
                 key={s.num}
-                className="anim-card"
+                className="anim-card islamic-border-glow"
                 style={{
-                  background: 'rgba(239,68,68,0.06)',
-                  border: '1.5px solid rgba(239,68,68,0.3)',
-                  borderRadius: '16px',
-                  padding: '1.4rem 1.25rem',
-                  transitionDelay: `${i * 0.08}s`,
+                  background: 'linear-gradient(160deg, #0E1A34 0%, #070D20 100%)',
+                  borderRadius: '18px',
+                  padding: '1.6rem 1.4rem',
+                  transitionDelay: `${i * 0.07}s`,
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.6rem' }}>
-                  <span style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(239,68,68,0.18)', border: '1px solid rgba(239,68,68,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.72rem', fontWeight: 900, color: '#EF4444', flexShrink: 0 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.8rem' }}>
+                  <span
+                    style={{
+                      width: '34px',
+                      height: '34px',
+                      borderRadius: '8px',
+                      background: 'rgba(239,68,68,0.15)',
+                      border: '1px solid rgba(239,68,68,0.4)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.72rem',
+                      fontWeight: 900,
+                      color: '#EF4444',
+                      flexShrink: 0,
+                    }}
+                  >
                     {s.num}
                   </span>
-                  <h3 style={{ margin: 0, fontSize: '0.94rem', fontWeight: 800, color: '#EF4444', lineHeight: 1.35 }}>{s.title}</h3>
+                  <div style={{ fontWeight: 800, color: '#EF4444', fontSize: '0.94rem', lineHeight: 1.35 }}>{s.title}</div>
                 </div>
-                <p style={{ margin: 0, fontSize: '0.86rem', color: '#FFFFFF', lineHeight: 1.65, opacity: 0.95 }}>{s.desc}</p>
+                <p style={{ margin: 0, fontSize: '0.86rem', color: '#FFFFFF', lineHeight: 1.68, opacity: 0.95 }}>{s.desc}</p>
               </div>
             ))}
           </div>
@@ -518,16 +490,16 @@ export default function PengisianSihirPage() {
       </section>
 
       {/* ══════════ KENAPA PENGISIAN ══════════ */}
-      <section style={{ background: '#050B1A', padding: '4.5rem 1rem', textAlign: 'center' }}>
+      <section style={{ background: '#070D20', padding: '4.5rem 1rem', textAlign: 'center' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }} className="anim-section">
-          <IslamicDivider label="Kenapa Rawatan Biasa Tidak Cukup" />
+          <IslamicDivider label="Ikhtiar Berterusan" />
           <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#FBF7EE', marginTop: '0.5rem', marginBottom: '0.85rem', lineHeight: 1.3 }}>
             Kenapa Pesakit Sihir Perlu Pengisian — Bukan Sekadar Rawatan Sekali?
           </h2>
           <p style={{ fontSize: '1rem', color: '#BFDBFE', lineHeight: 1.7, maxWidth: '680px', margin: '0 auto 2.5rem' }}>
-            Rawatan sekali mungkin melegakan seketika. Tetapi tanpa benteng yang dipasakkan secara berterusan —{' '}
-            <strong style={{ color: '#E5B869' }}>tukang sihir masih boleh menghantar serangan baru pada bila-bila masa.</strong>
+            Rawatan sekali mungkin melegakan sementara. Namun tanpa perlindungan aktif 24 jam — <strong style={{ color: '#E5B869' }}>tukang sihir boleh menghantar serangan baru pada bila-bila masa.</strong>
           </p>
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', textAlign: 'left' }}>
             {WHY_PENGISIAN.map((p, i) => (
               <div
@@ -536,7 +508,7 @@ export default function PengisianSihirPage() {
                 style={{
                   background: '#0E1A34',
                   borderRadius: '16px',
-                  padding: '1.35rem 1.25rem',
+                  padding: '1.4rem 1.25rem',
                   display: 'flex',
                   gap: '0.9rem',
                   alignItems: 'flex-start',
@@ -571,23 +543,22 @@ export default function PengisianSihirPage() {
         </div>
       </section>
 
-      {/* ══════════ DALIL ISLAM ══════════ */}
-      <section style={{ background: 'linear-gradient(180deg, #070D20 0%, #0B1528 100%)', padding: '4.5rem 1rem', textAlign: 'center' }}>
+      {/* ══════════ DALIL & ASAS RUQYAH ══════════ */}
+      <section style={{ background: '#050B1A', padding: '4.5rem 1rem', textAlign: 'center', position: 'relative' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }} className="anim-section">
           <div className="font-arabic" style={{ fontSize: '1.8rem', color: '#E5B869', marginBottom: '0.5rem', letterSpacing: '0.02em', textShadow: '0 0 20px rgba(229,184,105,0.3)' }}>
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </div>
-
           <IslamicDivider label="Dalil &amp; Asas Syarak" />
-
           <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#FBF7EE', marginTop: '0.5rem', marginBottom: '0.85rem', lineHeight: 1.3 }}>
-            Pemusnahan Sihir Melalui Al-Quran — Perintah &amp; Janji Allah
+            Rawatan Sihir Melalui Al-Quran — Perintah &amp; Janji Allah
           </h2>
-          <p style={{ fontSize: '1rem', color: '#EFF6FF', lineHeight: 1.7, maxWidth: '700px', margin: '0 auto 2.5rem', opacity: 0.9 }}>
-            Allah SWT telah menjanjikan bahawa Al-Quran adalah penawar dan pembatal sihir. Pengisian ruqyah adalah ikhtiar qias yang berlandaskan sunnah.
+          <p style={{ fontSize: '1rem', color: '#EFF6FF', lineHeight: 1.7, maxWidth: '720px', margin: '0 auto 2.5rem', opacity: 0.9 }}>
+            Allah SWT telah menegaskan bahawa kalam-Nya adalah penawar bagi segala penyakit batin dan zahir.
           </p>
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.4rem', marginBottom: '1.8rem' }}>
-            {DALIL.map((d, i) => (
+            {DALIL.map((v, i) => (
               <div
                 key={i}
                 className="anim-card islamic-border-glow"
@@ -603,15 +574,16 @@ export default function PengisianSihirPage() {
                   <IslamicStar size={16} color="#E5B869" />
                 </div>
                 <div className="font-arabic" style={{ fontSize: '1.4rem', color: '#FDE047', lineHeight: 2.2, marginBottom: '1rem', direction: 'rtl' }}>
-                  {d.arabic}
+                  {v.arabic}
                 </div>
                 <div style={{ borderTop: '1px solid rgba(229,184,105,0.2)', paddingTop: '1rem', textAlign: 'left' }}>
-                  <p style={{ margin: '0 0 0.4rem', fontSize: '0.88rem', color: '#FEF3C7', lineHeight: 1.7, fontStyle: 'italic' }}>{d.trans}</p>
-                  <span style={{ fontSize: '0.78rem', color: '#E5B869', fontWeight: 700 }}>{d.ref}</span>
+                  <p style={{ margin: '0 0 0.4rem', fontSize: '0.88rem', color: '#FEF3C7', lineHeight: 1.7, fontStyle: 'italic' }}>{v.trans}</p>
+                  <span style={{ fontSize: '0.78rem', color: '#E5B869', fontWeight: 700 }}>{v.ref}</span>
                 </div>
               </div>
             ))}
           </div>
+
           <div className="anim-card islamic-border-glow" style={{ background: 'rgba(229,184,105,0.06)', borderRadius: '16px', padding: '1.5rem 1.8rem' }}>
             <p className="font-serif-title" style={{ margin: '0 0 0.4rem', fontSize: '1.05rem', color: '#FBF7EE', fontStyle: 'italic', lineHeight: 1.75 }}>
               &quot;Gunakanlah ruqyah (bacaan doa perlindungan) selama ia tidak mengandungi syirik.&quot;
@@ -622,16 +594,17 @@ export default function PengisianSihirPage() {
       </section>
 
       {/* ══════════ MATLAMAT RAWATAN ══════════ */}
-      <section style={{ background: '#050B1A', color: '#FFF', padding: '4.5rem 1rem', textAlign: 'center' }}>
+      <section style={{ background: 'linear-gradient(180deg, #070D20 0%, #0B1528 100%)', color: '#FFF', padding: '4.5rem 1rem', textAlign: 'center' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }} className="anim-section">
           <IslamicDivider label="Matlamat Rawatan" />
           <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#FBF7EE', marginTop: '0.5rem', marginBottom: '0.85rem', lineHeight: 1.3 }}>
-            Apa Yang Ingin Dicapai Melalui Pengisian Pemusnah Sihir Aura Assyifa?
+            Apa Yang Ingin Dicapai Melalui Pengisian Pemusnah Sihir?
           </h2>
           <p style={{ fontSize: '1rem', color: '#BFDBFE', lineHeight: 1.7, maxWidth: '680px', margin: '0 auto 2.5rem' }}>
-            Pengisian ini dirangka khusus untuk memusnahkan ikatan sihir secara tuntas, membuang punca dari akar dan membina benteng kekal.
+            Rawatan ini dirangka khusus untuk memutuskan ikatan sihir dari akarnya dan memulihkan kehidupan anda secara menyeluruh.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', textAlign: 'left' }}>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'left', maxWidth: '820px', margin: '0 auto' }}>
             {GOALS.map((g, i) => (
               <div
                 key={g.num}
@@ -639,19 +612,19 @@ export default function PengisianSihirPage() {
                 style={{
                   background: '#0E1A34',
                   borderRadius: '16px',
-                  padding: '1.35rem 1.25rem',
+                  padding: '1.35rem 1.5rem',
                   display: 'flex',
-                  gap: '0.9rem',
                   alignItems: 'flex-start',
+                  gap: '1.1rem',
                   transitionDelay: `${i * 0.08}s`,
                 }}
               >
-                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(229,184,105,0.15)', border: '1px solid rgba(229,184,105,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <span style={{ fontSize: '0.74rem', fontWeight: 900, color: '#E5B869' }}>{g.num}</span>
+                <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(229,184,105,0.15)', border: '1px solid rgba(229,184,105,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <span style={{ fontSize: '0.78rem', fontWeight: 900, color: '#E5B869' }}>{g.num}</span>
                 </div>
                 <div>
-                  <p style={{ margin: '0 0 0.25rem', fontWeight: 800, fontSize: '0.94rem', color: '#E5B869' }}>{g.title}</p>
-                  <p style={{ margin: 0, fontSize: '0.84rem', color: '#BFDBFE', lineHeight: 1.6 }}>{g.desc}</p>
+                  <p style={{ margin: '0 0 0.25rem', fontWeight: 800, fontSize: '0.98rem', color: '#E5B869' }}>{g.title}</p>
+                  <p style={{ margin: 0, fontSize: '0.86rem', color: '#BFDBFE', lineHeight: 1.65 }}>{g.desc}</p>
                 </div>
               </div>
             ))}
@@ -659,16 +632,17 @@ export default function PengisianSihirPage() {
         </div>
       </section>
 
-      {/* ══════════ 4 LAPISAN AYAT ══════════ */}
-      <section style={{ background: '#070D20', padding: '4.5rem 1rem', textAlign: 'center' }}>
+      {/* ══════════ 4 LAPISAN AYAT RUQYAH ══════════ */}
+      <section style={{ background: '#050B1A', padding: '4.5rem 1rem', textAlign: 'center', position: 'relative' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }} className="anim-section">
           <IslamicDivider label="Struktur Ayat Ruqyah" />
           <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#FBF7EE', marginTop: '0.5rem', marginBottom: '0.85rem', lineHeight: 1.3 }}>
-            4 Lapisan Ayat Ruqyah Khusus Pemusnah Sihir
+            4 Lapisan Ayat Ruqyah Khusus Kes Sihir
           </h2>
-          <p style={{ fontSize: '1rem', color: '#EFF6FF', lineHeight: 1.7, maxWidth: '680px', margin: '0 auto 2.8rem', opacity: 0.9 }}>
-            Setiap barang diisi dengan 4 lapisan ayat ruqyah syar&apos;iyyah yang berbeza fungsi — direka khusus untuk menghapuskan sihir secara menyeluruh.
+          <p style={{ fontSize: '1rem', color: '#EFF6FF', lineHeight: 1.7, maxWidth: '700px', margin: '0 auto 2.8rem', opacity: 0.9 }}>
+            Setiap barangan diisi dengan 4 lapisan ayat ruqyah syar&apos;iyyah yang berbeza fungsi — dirangka khusus untuk melawan, membakar dan membentengi dari sebarang serangan sihir.
           </p>
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.4rem', marginBottom: '2.5rem' }}>
             {LAYERS.map((l, i) => (
               <div
@@ -678,19 +652,33 @@ export default function PengisianSihirPage() {
                   background: 'linear-gradient(170deg, #0E1A34 0%, #070D20 100%)',
                   padding: '2rem 1.4rem',
                   textAlign: 'center',
-                  transitionDelay: `${i * 0.12}s`,
+                  transitionDelay: `${i * 0.1}s`,
                 }}
               >
-                <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: `${l.accent}15`, border: `1.5px solid ${l.accent}60`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.2rem' }}>
+                <div
+                  style={{
+                    width: '52px',
+                    height: '52px',
+                    borderRadius: '50%',
+                    background: `${l.accent}15`,
+                    border: `1.5px solid ${l.accent}60`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 1.2rem',
+                  }}
+                >
                   <span className="font-serif-title" style={{ fontSize: '1.15rem', fontWeight: 800, color: l.accent }}>{l.num}</span>
                 </div>
-                <div style={{ fontWeight: 800, color: '#E5B869', marginBottom: '0.65rem', fontSize: '0.98rem', lineHeight: 1.35 }}>{l.title}</div>
+                <div style={{ fontWeight: 800, color: '#E5B869', marginBottom: '0.65rem', fontSize: '0.98rem', lineHeight: 1.35 }}>
+                  {l.title}
+                </div>
                 <p style={{ margin: 0, fontSize: '0.86rem', color: '#BFDBFE', lineHeight: 1.68 }}>{l.desc}</p>
               </div>
             ))}
           </div>
 
-          {/* Recalibration callout */}
+          {/* Weekly recalibration callout */}
           <div
             className="islamic-border-glow"
             style={{
@@ -711,23 +699,24 @@ export default function PengisianSihirPage() {
                 Kekuatan Tidak Berkurang — Pelarasan Setiap Minggu
               </div>
               <p style={{ margin: 0, color: '#EFF6FF', fontSize: '0.92rem', lineHeight: 1.75 }}>
-                Perawat Aura Assyifa akan membuat <strong style={{ color: '#E5B869' }}>pelarasan dan pengisian semula setiap minggu secara automatik</strong> — memastikan benteng anti-sihir anda sentiasa kekal utuh melawan sebarang serangan baru.
+                Perawat Aura Assyifa akan membuat <strong style={{ color: '#E5B869' }}>pelarasan dan pengisian semula setiap minggu secara automatik</strong> — memastikan kekuatan ayat ruqyah sentiasa aktif untuk terus melawan dan mematahkan sihir anda.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ══════════ TESTIMONI 2 ══════════ */}
-      <section style={{ background: '#050B1A', padding: '4.5rem 1rem', textAlign: 'center' }}>
+      {/* ══════════ TESTIMONI 2 (KEKALKAN 3 GAMBAR ASAL) ══════════ */}
+      <section style={{ background: '#070D20', padding: '4.5rem 1rem', textAlign: 'center' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }} className="anim-section">
           <IslamicDivider label="Testimoni Pesakit — Bahagian 2" />
           <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#FBF7EE', marginTop: '0.5rem', marginBottom: '0.5rem', lineHeight: 1.3 }}>
-            Betulkah Aura Assyifa Berkesan Untuk Selesaikan Masalah Sihir?
+            Betulkah Aura Assyifa Berkesan Untuk Selesaikan Sihir?
           </h2>
           <p style={{ fontSize: '1rem', color: '#BFDBFE', marginBottom: '2.5rem', lineHeight: 1.6 }}>
-            Lihat pengalaman sebenar mereka yang telah bebas daripada belenggu sihir selepas berikhtiar bersama kami.
+            Jom baca apa kata mereka yang telah mendapatkan Pengisian Pemusnah Sihir dari Aura Assyifa.
           </p>
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', alignItems: 'start' }}>
             {TESTI2.map((src, i) => (
               <div
@@ -748,17 +737,17 @@ export default function PengisianSihirPage() {
             ))}
           </div>
           <p style={{ marginTop: '2.2rem', fontSize: '0.88rem', color: '#BFDBFE', fontStyle: 'italic', lineHeight: 1.6, opacity: 0.85 }}>
-            Semua testimoni di atas adalah daripada pesakit sebenar. Alhamdulillah — dengan izin dan pertolongan Allah SWT semata-mata.
+            Semua testimoni di atas adalah daripada pesakit sebenar. Alhamdulillah — semoga Allah terus permudahkan urusan mereka.
           </p>
         </div>
       </section>
 
-      {/* ══════════ JADUAL PERBANDINGAN (2 COLUMNS) ══════════ */}
+      {/* ══════════ JADUAL PERBANDINGAN (IKUT PENGISIAN-AURA-ASSYIFA: 2 KOLUM) ══════════ */}
       <section style={{ background: 'linear-gradient(180deg, #070D20 0%, #050B1A 100%)', padding: '4.5rem 1rem', textAlign: 'center' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }} className="anim-section">
           <IslamicDivider label="Jadual Perbandingan" />
           <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.3rem)', fontWeight: 800, color: '#FBF7EE', marginTop: '0.5rem', marginBottom: '0.85rem', lineHeight: 1.3 }}>
-            Pengisian Pemusnah Sihir vs Rawatan Luar
+            Pengisian Aura Assyifa vs Rawatan Luar
           </h2>
           <p style={{ fontSize: '1rem', color: '#EFF6FF', lineHeight: 1.7, maxWidth: '680px', margin: '0 auto 2.5rem', opacity: 0.9 }}>
             Pilihlah kaedah yang memberi anda <strong style={{ color: '#E5B869' }}>perlindungan berpanjangan dan kebebasan merawat diri sendiri</strong>.
@@ -798,13 +787,13 @@ export default function PengisianSihirPage() {
         <div style={{ maxWidth: '720px', margin: '0 auto' }} className="anim-section">
           <IslamicDivider label="Borang Tempahan Rasmi" />
           <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.7rem, 3.8vw, 2.4rem)', fontWeight: 800, color: '#FBF7EE', marginTop: '0.5rem', marginBottom: '0.75rem', lineHeight: 1.3 }}>
-            Dapatkan Pengisian Pemusnah Sihir Anda
+            Dapatkan Pengisian Pemusnah Sihir Aura Assyifa
           </h2>
           <p style={{ fontSize: '1rem', color: '#EFF6FF', lineHeight: 1.7, maxWidth: '580px', margin: '0 auto 2.2rem', opacity: 0.9 }}>
-            Satu ikhtiar kecil untuk memusnahkan sihir seumur hidup, lengkap dengan pelarasan mingguan percuma.
+            Satu pelaburan untuk perlindungan dan pemulihan berterusan. Pelarasan mingguan percuma selama-lamanya.
           </p>
 
-          {/* Price Card */}
+          {/* Grand Islamic Arch Price Card */}
           <div
             className="islamic-arch-box islamic-border-glow"
             style={{
@@ -820,7 +809,7 @@ export default function PengisianSihirPage() {
             </div>
 
             <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#E5B869', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.6rem' }}>
-              Pakej Pengisian Pemusnah Sihir Aura Assyifa
+              Pengisian Pemusnah Sihir Aura Assyifa
             </div>
 
             <div className="font-serif-title" style={{ fontSize: 'clamp(3.5rem, 10vw, 5rem)', fontWeight: 900, color: '#E5B869', lineHeight: 1, marginBottom: '0.35rem', textShadow: '0 0 30px rgba(229,184,105,0.35)' }}>
@@ -833,13 +822,13 @@ export default function PengisianSihirPage() {
 
             <div style={{ textAlign: 'left', marginBottom: '2.2rem', maxWidth: '520px', margin: '0 auto 2.2rem' }}>
               {[
-                'Pengisian pada barang peribadi anda (cincin, tasbih, dll)',
-                '4 lapisan ayat ruqyah khusus pemusnah sihir',
+                'Pengisian pada barang anda (cincin, tasbih, dll)',
+                '4 lapisan ayat ruqyah khusus kes sihir',
                 'Proses jarak jauh — tanpa perlu pos barang',
                 'Siap dalam 7 hari bekerja',
                 'Pelarasan setiap minggu automatik (percuma)',
                 'Panduan penggunaan lengkap disertakan',
-                '100% Patuh Syariah — tiada unsur khurafat & syirik',
+                '100% Patuh Syariah — tiada unsur syirik',
               ].map(item => (
                 <div key={item} className="check-row-islamic">
                   <IslamicStar size={16} color="#E5B869" />
@@ -862,13 +851,13 @@ export default function PengisianSihirPage() {
                 Soalan Lazim (FAQ)
               </h3>
             </div>
+
             {[
-              { q: 'Bagaimana pengisian ini bertindak ke atas sihir?', a: 'Barang yang telah diisikan memancarkan getaran ayat-ayat ruqyah pemusnah dan pembatal sihir secara berterusan. Apabila ada serangan sihir menghampiri, ayat-ayat tersebut bertindak balas mematahkan ikatan sihir tersebut serta-merta.' },
               { q: 'Barang apa yang boleh diisi?', a: 'Cincin, tasbih, gelang, rantai, atau mana-mana barang peribadi yang sentiasa dibawa bersama. Barang tidak perlu dihantar — proses dilakukan jarak jauh.' },
-              { q: 'Berapa lama sebelum saya rasa perubahan?', a: 'Kebanyakan pesakit mula merasakan perubahan dalam tempoh 7-14 hari pertama. Proses pemulihan berbeza-beza bergantung kepada keparahan sihir yang dihadapi.' },
-              { q: 'Adakah ini patuh syariah?', a: 'Ya, 100%. Pengisian hanya menggunakan ayat-ayat Al-Quran dan doa bersandarkan Sunnah. Tiada unsur syirik, jampi atau azimat haram.' },
-              { q: 'Boleh saya guna barang berisian untuk buat air penawar?', a: 'Ya! Panduan lengkap cara buat air penawar menggunakan barang berisian akan diberikan selepas tempahan. Anda boleh buat sendiri setiap hari tanpa had.' },
-              { q: 'Adakah kekuatan pengisian berkurang dengan masa?', a: 'Tidak. Perawat Aura Assyifa buat pelarasan setiap minggu secara automatik. Kekuatan ayat ruqyah pada barang anda sentiasa dikekalkan pada tahap penuh.' },
+              { q: 'Berapa lama proses pengisian?', a: 'Pengisian penuh mengambil masa 7 hari bekerja. Selepas itu, pelarasan mingguan dilakukan secara automatik.' },
+              { q: 'Adakah ini patuh syariah?', a: 'Ya, 100%. Pengisian hanya menggunakan ayat-ayat Al-Quran dan doa-doa yang bersandarkan Sunnah. Tiada unsur syirik, jampi atau azimat haram.' },
+              { q: 'Bolehkah saya guna barang berisian untuk rawat ahli keluarga?', a: 'Boleh. Gunakan barang berisian anda untuk buat air penawar atau air mandian — boleh dikongsi dan digunakan untuk seluruh ahli keluarga.' },
+              { q: 'Adakah kekuatan pengisian berkurang dengan masa?', a: 'Tidak. Perawat Aura Assyifa buat pelarasan setiap minggu secara automatik. Kekuatan barang sentiasa dikekalkan pada tahap penuh.' },
             ].map((faq, i) => (
               <div
                 key={faq.q}
@@ -899,12 +888,12 @@ export default function PengisianSihirPage() {
         <div style={{ maxWidth: '720px', margin: '0 auto', position: 'relative', zIndex: 2 }} className="anim-section">
           <IslamicDivider />
           <h2 className="font-serif-title" style={{ fontSize: 'clamp(1.6rem, 3.8vw, 2.2rem)', fontWeight: 800, color: '#FBF7EE', letterSpacing: '-0.01em', lineHeight: 1.35, margin: '1.5rem 0 1rem' }}>
-            Jangan biarkan sihir terus mengawal dan merosakkan kehidupan anda.
+            Jangan Biarkan Sihir Terus Menghancurkan Hidup Anda. Putuskan Ikatannya Hari Ini.
           </h2>
           <p style={{ fontSize: '1.02rem', color: '#BFDBFE', lineHeight: 1.75, marginBottom: '2.5rem', opacity: 0.92 }}>
-            Dengan Pengisian Pemusnah Sihir Aura Assyifa, anda tidak lagi keseorangan menanggung derita. Bentengi diri dan keluarga anda hari ini dengan ayat-ayat Allah.
+            Dengan Pengisian Pemusnah Sihir Aura Assyifa, anda tidak lagi keseorangan menahan serangan. Anda ada perlindungan yang sentiasa bersama setiap masa.
           </p>
-          <WAButton id="cta-closing" label="Hubungi Kami — Mula Pemusnahan Sihir Sekarang" size="large" />
+          <WAButton id="cta-closing" label="Hubungi Kami — Mula Perlindungan Sekarang" size="large" />
           <p style={{ marginTop: '1.2rem', fontSize: '0.82rem', color: '#E5B869', opacity: 0.85 }}>
             RM90 Sekali Bayar · Khidmat Seumur Hidup · Pelarasan Mingguan Percuma
           </p>
